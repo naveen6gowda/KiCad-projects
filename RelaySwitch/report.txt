@@ -1,0 +1,4 @@
+Change U3 footprint assignment from 'Package_SO:SSOP-4_4.4x2.6mm_P1.27mm' to 'Package_DIP:DIP-4_W7.62mm'.
+Change U3 value from 'PC817S' to 'PC817'.
+Change U3 footprint assignment from 'Package_SO:SSOP-4_4.4x2.6mm_P1.27mm' to 'Package_DIP:DIP-4_W7.62mm'.
+Change U3 value from 'PC817S' to 'PC817'.

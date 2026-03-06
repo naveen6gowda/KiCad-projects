@@ -1,0 +1,14 @@
+(version 1)
+# Assign net classes first in Board Setup → Net Classes:
+#   - "HV" class: all mains nets (L, N, relay switch outputs)
+#   - "LV" class: all ESP32/logic nets (3V3, 5V, GPIO, GND_LV, etc.)
+
+(rule "HV to LV clearance"
+  (condition "A.NetClass == 'HV' && B.NetClass == 'LV'")
+  (constraint clearance (min 5mm))
+)
+
+(rule "HV to Board Edge clearance"
+  (condition "A.NetClass == 'HV' && B.Type == 'Zone'")
+  (constraint clearance (min 3mm))
+)
