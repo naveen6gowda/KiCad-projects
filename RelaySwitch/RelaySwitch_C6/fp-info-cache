@@ -1,4 +1,4 @@
-27431122768341928
+27434668545517030
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -108374,6 +108374,13 @@ HLK-2M05
 4
 4
 XIAO_Series_Footprints
+RES_WSK2512R0100FEA
+
+
+0
+4
+4
+XIAO_Series_Footprints
 SOIC8
 SOIC-8
 
@@ -108564,6 +108571,13 @@ Relay or Contactor
 5
 seeed esp32
 HLK-2M05
+
+
+0
+4
+4
+seeed esp32
+RES_WSK2512R0100FEA
 
 
 0
