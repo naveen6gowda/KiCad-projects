@@ -1,0 +1,14 @@
+ERC report (2026-03-08T14:13:52+0100, Encoding UTF8)
+
+***** Sheet /
+[footprint_link_issues]: The current configuration does not include the footprint library 'WJ128V'.
+    ; warning
+    @(2200 mils, 3500 mils): Symbol J6 [WJ128V-5.0-2P]
+[lib_symbol_mismatch]: Symbol 'WJ128V-5.0-2P' doesn't match copy in library 'WJ128V'
+    ; warning
+    @(6600 mils, 5700 mils): Symbol J3 [WJ128V-5.0-2P]
+[footprint_link_issues]: The current configuration does not include the footprint library 'WJ128V'.
+    ; warning
+    @(9750 mils, 6200 mils): Symbol J4 [WJ128V-5.0-2P]
+
+ ** ERC messages: 3  Errors 0  Warnings 3

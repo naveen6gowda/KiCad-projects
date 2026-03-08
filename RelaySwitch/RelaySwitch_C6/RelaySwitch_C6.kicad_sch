@@ -11,439 +11,6 @@
 		(company "Navi homelab")
 	)
 	(lib_symbols
-		(symbol "Connector:Screw_Terminal_01x02"
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "J"
-				(at 0 2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "Screw_Terminal_01x02"
-				(at 0 -5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "screw terminal"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "TerminalBlock*:*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Screw_Terminal_01x02_1_1"
-				(rectangle
-					(start -1.27 1.27)
-					(end 1.27 -3.81)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.5334 0.3302) (xy 0.3302 -0.508)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.5334 -2.2098) (xy 0.3302 -3.048)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.3556 0.508) (xy 0.508 -0.3302)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.3556 -2.032) (xy 0.508 -2.8702)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 0 0)
-					(radius 0.635)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 0 -2.54)
-					(radius 0.635)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 3.81)
-					(name "Pin_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -2.54 0)
-					(length 3.81)
-					(name "Pin_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Connector:Screw_Terminal_01x03"
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "J"
-				(at 0 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "Screw_Terminal_01x03"
-				(at 0 -5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "screw terminal"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "TerminalBlock*:*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Screw_Terminal_01x03_1_1"
-				(rectangle
-					(start -1.27 3.81)
-					(end 1.27 -3.81)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.5334 2.8702) (xy 0.3302 2.032)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.5334 0.3302) (xy 0.3302 -0.508)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.5334 -2.2098) (xy 0.3302 -3.048)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.3556 3.048) (xy 0.508 2.2098)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.3556 0.508) (xy 0.508 -0.3302)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.3556 -2.032) (xy 0.508 -2.8702)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 0 2.54)
-					(radius 0.635)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 0 0)
-					(radius 0.635)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 0 -2.54)
-					(radius 0.635)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 2.54 0)
-					(length 3.81)
-					(name "Pin_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 3.81)
-					(name "Pin_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -2.54 0)
-					(length 3.81)
-					(name "Pin_3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Device:C_Small"
 			(pin_numbers
 				(hide yes)
@@ -2504,6 +2071,460 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "WJ128V-5.0-2P_1"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "P"
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "WJ128V-5.0-2P"
+				(at 0 -11.43 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "WJ128V:CONN-TH_2P-P5.00_WJ128V-5.0-2P"
+				(at 0 -13.97 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://lcsc.com/product-detail/Terminal-Blocks_WJ128V-5-0-2P_C8269.html"
+				(at 0 -16.51 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "LCSC Part" "C8269"
+				(at 0 -19.05 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "WJ128V-5.0-2P_1_0_1"
+				(rectangle
+					(start -5.08 6.35)
+					(end 5.08 -1.27)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "WJ128V-5.0-2P_1_1_1"
+				(pin passive line
+					(at -2.54 -6.35 90)
+					(length 5.08)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 -6.35 90)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "WJ128V-5.0-2P_2"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "P"
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "WJ128V-5.0-2P"
+				(at 0 -11.43 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "WJ128V:CONN-TH_2P-P5.00_WJ128V-5.0-2P"
+				(at 0 -13.97 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://lcsc.com/product-detail/Terminal-Blocks_WJ128V-5-0-2P_C8269.html"
+				(at 0 -16.51 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "LCSC Part" "C8269"
+				(at 0 -19.05 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "WJ128V-5.0-2P_2_0_1"
+				(rectangle
+					(start -5.08 6.35)
+					(end 5.08 -1.27)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "WJ128V-5.0-2P_2_1_1"
+				(pin passive line
+					(at -2.54 -6.35 90)
+					(length 5.08)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 -6.35 90)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "WJ128V3P:WJ128V-5.0-3P"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "P"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "WJ128V-5.0-3P"
+				(at 0 -10.16 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "WJ128V3P:CONN-TH_3P-P5.00_WJ128V-5.0-3P"
+				(at 0 -12.7 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://lcsc.com/product-detail/Terminal-Blocks_WJ128V-5-0-3P_C8270.html"
+				(at 0 -15.24 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "LCSC Part" "C8270"
+				(at 0 -17.78 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "WJ128V-5.0-3P_0_1"
+				(rectangle
+					(start -5.08 5.08)
+					(end 5.08 0)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "WJ128V-5.0-3P_1_1"
+				(pin passive line
+					(at -2.54 -5.08 90)
+					(length 5.08)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -5.08 90)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 -5.08 90)
+					(length 5.08)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "WJ128V:WJ128V-5.0-2P"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "P"
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "WJ128V-5.0-2P"
+				(at 0 -11.43 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "WJ128V:CONN-TH_2P-P5.00_WJ128V-5.0-2P"
+				(at 0 -13.97 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://lcsc.com/product-detail/Terminal-Blocks_WJ128V-5-0-2P_C8269.html"
+				(at 0 -16.51 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "LCSC Part" "C8269"
+				(at 0 -19.05 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "WJ128V-5.0-2P_0_1"
+				(rectangle
+					(start -5.08 6.35)
+					(end 5.08 -1.27)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "WJ128V-5.0-2P_1_1"
+				(pin passive line
+					(at -2.54 -6.35 90)
+					(length 5.08)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 -6.35 90)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "WSK2512R0100FEA:WSK2512R0100FEA"
 			(pin_names
 				(offset 1.016)
@@ -3839,6 +3860,16 @@
 	)
 	(wire
 		(pts
+			(xy 66.04 91.44) (xy 62.23 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0b4a74a5-cf8f-4d5d-af2b-1c1a5bb23bd9")
+	)
+	(wire
+		(pts
 			(xy 215.9 105.41) (xy 223.52 105.41)
 		)
 		(stroke
@@ -4059,16 +4090,6 @@
 	)
 	(wire
 		(pts
-			(xy 236.22 158.75) (xy 237.49 158.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2feb2950-539b-456d-9d06-09a56f36169c")
-	)
-	(wire
-		(pts
 			(xy 77.47 76.2) (xy 77.47 81.28)
 		)
 		(stroke
@@ -4089,6 +4110,26 @@
 	)
 	(wire
 		(pts
+			(xy 62.23 86.36) (xy 77.47 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3793cfbd-cdf7-49c3-80af-e900622a2589")
+	)
+	(wire
+		(pts
+			(xy 236.22 143.51) (xy 236.22 154.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3a4e9528-1105-4297-bc1c-28deccd7466d")
+	)
+	(wire
+		(pts
 			(xy 77.47 67.31) (xy 77.47 63.5)
 		)
 		(stroke
@@ -4099,7 +4140,17 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 97.79) (xy 83.82 97.79)
+			(xy 30.48 36.83) (xy 44.45 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3bc35fdc-4424-4891-91ec-114ce5d2864c")
+	)
+	(wire
+		(pts
+			(xy 66.04 97.79) (xy 83.82 97.79)
 		)
 		(stroke
 			(width 0)
@@ -4159,6 +4210,16 @@
 	)
 	(wire
 		(pts
+			(xy 62.23 72.39) (xy 62.23 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "459b4fed-c012-4e96-868b-da0126711271")
+	)
+	(wire
+		(pts
 			(xy 267.97 43.18) (xy 273.05 43.18)
 		)
 		(stroke
@@ -4179,7 +4240,7 @@
 	)
 	(wire
 		(pts
-			(xy 154.94 147.32) (xy 157.48 147.32)
+			(xy 154.94 147.32) (xy 161.29 147.32)
 		)
 		(stroke
 			(width 0)
@@ -4359,6 +4420,16 @@
 	)
 	(wire
 		(pts
+			(xy 156.21 132.08) (xy 156.21 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5ad92e4f-533a-4601-8c77-b6646f2359b5")
+	)
+	(wire
+		(pts
 			(xy 62.23 76.2) (xy 77.47 76.2)
 		)
 		(stroke
@@ -4366,6 +4437,16 @@
 			(type default)
 		)
 		(uuid "5cb9b50a-9c50-4017-a36a-693a0c43232b")
+	)
+	(wire
+		(pts
+			(xy 62.23 76.2) (xy 62.23 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "602250df-58e8-41bd-9c03-0a177b290a86")
 	)
 	(wire
 		(pts
@@ -4429,16 +4510,6 @@
 	)
 	(wire
 		(pts
-			(xy 236.22 143.51) (xy 236.22 156.21)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "69b7a422-db6d-4eb0-a885-2aaec394eabb")
-	)
-	(wire
-		(pts
 			(xy 154.94 101.6) (xy 154.94 104.14)
 		)
 		(stroke
@@ -4499,16 +4570,6 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 144.78) (xy 157.48 144.78)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "70a7d56d-431c-44ed-afb4-8a9bc2422f9b")
-	)
-	(wire
-		(pts
 			(xy 224.79 58.42) (xy 222.25 58.42)
 		)
 		(stroke
@@ -4516,6 +4577,16 @@
 			(type default)
 		)
 		(uuid "73e403b8-3823-4d65-8907-936befa181e8")
+	)
+	(wire
+		(pts
+			(xy 156.21 142.24) (xy 161.29 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "743ab3e8-3e7f-455b-b3cf-cdf899dc2a8d")
 	)
 	(wire
 		(pts
@@ -4536,16 +4607,6 @@
 			(type default)
 		)
 		(uuid "757ea688-c870-493e-b21e-d8dd5cdac1a6")
-	)
-	(wire
-		(pts
-			(xy 156.21 132.08) (xy 156.21 144.78)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "75e77edd-20d4-4de4-9e1a-f43d780cb0e5")
 	)
 	(wire
 		(pts
@@ -4626,16 +4687,6 @@
 			(type default)
 		)
 		(uuid "84699419-c17e-4226-a211-e8038edfadd6")
-	)
-	(wire
-		(pts
-			(xy 62.23 86.36) (xy 77.47 86.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "856bd729-8438-4ba9-8cf8-9488a38c1828")
 	)
 	(wire
 		(pts
@@ -4759,16 +4810,6 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 73.66) (xy 67.31 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "99b0daa0-6f27-4678-9515-58e7429da364")
-	)
-	(wire
-		(pts
 			(xy 90.17 74.93) (xy 90.17 88.9)
 		)
 		(stroke
@@ -4796,6 +4837,16 @@
 			(type default)
 		)
 		(uuid "a1390e8b-3dec-4222-bba8-8311b0d77fcc")
+	)
+	(wire
+		(pts
+			(xy 59.69 72.39) (xy 62.23 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a26cea61-2d5a-4af6-82a7-267a8618087c")
 	)
 	(wire
 		(pts
@@ -4829,16 +4880,6 @@
 	)
 	(wire
 		(pts
-			(xy 30.48 36.83) (xy 44.45 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a5a8fc69-a237-4d6a-876e-0f894975a3f6")
-	)
-	(wire
-		(pts
 			(xy 90.17 99.06) (xy 90.17 102.87)
 		)
 		(stroke
@@ -4859,16 +4900,6 @@
 	)
 	(wire
 		(pts
-			(xy 236.22 156.21) (xy 237.49 156.21)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a6b4fc84-0a33-4403-8a7f-612f8503e98c")
-	)
-	(wire
-		(pts
 			(xy 68.58 165.1) (xy 140.97 165.1)
 		)
 		(stroke
@@ -4876,16 +4907,6 @@
 			(type default)
 		)
 		(uuid "a9d7bf1b-cd6a-4ac1-9847-d8a1bc0036a3")
-	)
-	(wire
-		(pts
-			(xy 62.23 88.9) (xy 62.23 97.79)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a9e8ecb7-cc30-48f6-b1ab-098283eb3e91")
 	)
 	(wire
 		(pts
@@ -4966,16 +4987,6 @@
 			(type default)
 		)
 		(uuid "b0dcf788-5edc-4dc6-b94a-fb3213c4a828")
-	)
-	(wire
-		(pts
-			(xy 67.31 71.12) (xy 67.31 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b2c9c63a-1441-4898-9757-f3dc2fd2958b")
 	)
 	(wire
 		(pts
@@ -5066,6 +5077,16 @@
 			(type default)
 		)
 		(uuid "bb4c725d-849c-495d-9274-1bffc776fb83")
+	)
+	(wire
+		(pts
+			(xy 62.23 77.47) (xy 59.69 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bdbe9755-e3f4-40a6-9c39-24013d5443e0")
 	)
 	(wire
 		(pts
@@ -5259,6 +5280,16 @@
 	)
 	(wire
 		(pts
+			(xy 236.22 154.94) (xy 241.3 154.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dcbbaecc-be7d-4a42-aebe-39758c0fa64e")
+	)
+	(wire
+		(pts
 			(xy 217.17 135.89) (xy 217.17 140.97)
 		)
 		(stroke
@@ -5306,6 +5337,16 @@
 			(type default)
 		)
 		(uuid "e59230d6-c65a-45ca-9ce3-cfe8577596ba")
+	)
+	(wire
+		(pts
+			(xy 238.76 160.02) (xy 241.3 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9aef119-50e7-4073-becf-40fa12a1a6ef")
 	)
 	(wire
 		(pts
@@ -5429,6 +5470,16 @@
 	)
 	(wire
 		(pts
+			(xy 66.04 97.79) (xy 66.04 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc4b6a83-1fbd-478b-ac89-eb9acc0f5507")
+	)
+	(wire
+		(pts
 			(xy 265.43 163.83) (xy 265.43 143.51)
 		)
 		(stroke
@@ -5467,6 +5518,16 @@
 		)
 		(uuid "2793ec22-989f-4294-bd0c-504be167d10b")
 	)
+	(label "L"
+		(at 34.29 36.83 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3ca58761-55c0-4342-966c-1d57151aa079")
+	)
 	(label "HLW_CF1"
 		(at 219.71 71.12 0)
 		(effects
@@ -5498,7 +5559,7 @@
 		(uuid "666cdc56-af47-4bd0-9702-f9bb0e56e320")
 	)
 	(label "MAINS_N"
-		(at 236.22 158.75 180)
+		(at 238.76 160.02 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5546,16 +5607,6 @@
 			(justify right bottom)
 		)
 		(uuid "9822fd63-e307-4d17-9546-4c4406294570")
-	)
-	(label "L"
-		(at 35.56 36.83 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ad7d2804-17e8-496f-a982-002565522157")
 	)
 	(label "HLW_SEL"
 		(at 222.25 76.2 0)
@@ -5824,8 +5875,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 242.57 156.21 0)
+		(lib_id "WJ128V:WJ128V-5.0-2P")
+		(at 247.65 157.48 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5834,7 +5885,7 @@
 		(fields_autoplaced yes)
 		(uuid "0575358c-379f-4203-963d-f3905543830f")
 		(property "Reference" "J4"
-			(at 245.11 156.2099 0)
+			(at 255.27 157.4799 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5843,7 +5894,7 @@
 			)
 		)
 		(property "Value" "LOAD_CH2"
-			(at 245.11 158.7499 0)
+			(at 245.1101 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5852,8 +5903,8 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "TerminalBlock_Degson:TerminalBlock_Degson_DG250-3.5-02P_1x02_P3.50mm_45Degree"
-			(at 242.57 156.21 0)
+		(property "Footprint" "seeed esp32:CONN-TH_2P-P5.00_WJ128V-5.0-2P"
+			(at 233.68 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5861,8 +5912,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 242.57 156.21 0)
+		(property "Datasheet" "https://lcsc.com/product-detail/Terminal-Blocks_WJ128V-5-0-2P_C8269.html"
+			(at 231.14 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5871,7 +5922,146 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 242.57 156.21 0)
+			(at 247.65 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "DigiKey_Part_Number" "2223-TB0011-350-02BE-ND"
+			(at 247.65 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/TB0011-350-02BE/Same+Sky/view-part/?ref=snap"
+			(at 247.65 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "8.5mm"
+			(at 247.65 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "CREATOR" "ASHISH"
+			(at 247.65 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 247.65 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/TB0011-350-02BE/Same+Sky/view-part/?ref=eda"
+			(at 247.65 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 247.65 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "1.0"
+			(at 247.65 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "VERIFIER" ""
+			(at 247.65 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MF" "Same Sky"
+			(at 247.65 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "TB0011-350-02BE"
+			(at 247.65 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "2 Position Wire to Board Terminal Block Horizontal with Board 0.138 (3.50mm) Through Hole"
+			(at 247.65 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Same Sky"
+			(at 247.65 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part" "C8269"
+			(at 228.6 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6226,8 +6416,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Screw_Terminal_01x03")
-		(at 25.4 39.37 180)
+		(lib_id "WJ128V3P:WJ128V-5.0-3P")
+		(at 25.4 39.37 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6235,7 +6425,7 @@
 		(dnp no)
 		(uuid "1dd34953-f76b-4361-8017-1c00ee738f16")
 		(property "Reference" "J1"
-			(at 25.4 33.528 0)
+			(at 31.242 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6243,7 +6433,7 @@
 			)
 		)
 		(property "Value" "AC_MAINS_IN"
-			(at 25.4 33.02 0)
+			(at 31.75 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6251,8 +6441,8 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "TerminalBlock_Degson:TerminalBlock_Degson_DG250-3.5-03P_1x03_P3.50mm_45Degree"
-			(at 25.4 39.37 0)
+		(property "Footprint" "seeed esp32:CONN-TH_3P-P5.00_WJ128V-5.0-3P"
+			(at 38.1 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6260,8 +6450,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 25.4 39.37 0)
+		(property "Datasheet" "https://lcsc.com/product-detail/Terminal-Blocks_WJ128V-5-0-3P_C8270.html"
+			(at 40.64 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6271,6 +6461,95 @@
 		)
 		(property "Description" "Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 25.4 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "DigiKey_Part_Number" "2223-TB0011-350-03BE-ND"
+			(at 25.4 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/TB0011-350-03BE/Same+Sky/view-part/?ref=snap"
+			(at 25.4 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "3 Position Wire to Board Terminal Block Horizontal with Board 0.138 (3.50mm) Through Hole"
+			(at 25.4 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 25.4 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/TB0011-350-03BE/Same+Sky/view-part/?ref=eda"
+			(at 25.4 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MF" "Same Sky"
+			(at 25.4 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "TB0011-350-03BE"
+			(at 25.4 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "SAMESKY"
+			(at 25.4 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part" "C8270"
+			(at 43.18 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6297,8 +6576,9 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 57.15 76.2 180)
+		(lib_name "WJ128V-5.0-2P_1")
+		(lib_id "WJ128V:WJ128V-5.0-2P")
+		(at 53.34 74.93 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6306,7 +6586,7 @@
 		(dnp no)
 		(uuid "212678f8-cc7c-4c0d-a1e4-36827d1e7626")
 		(property "Reference" "J5"
-			(at 56.896 70.358 0)
+			(at 59.182 74.676 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6314,7 +6594,7 @@
 			)
 		)
 		(property "Value" "SW1_INPUT"
-			(at 57.15 69.85 0)
+			(at 59.69 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6322,8 +6602,8 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "TerminalBlock_Degson:TerminalBlock_Degson_DG250-3.5-02P_1x02_P3.50mm_45Degree"
-			(at 57.15 76.2 0)
+		(property "Footprint" "seeed esp32:CONN-TH_2P-P5.00_WJ128V-5.0-2P"
+			(at 67.31 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6331,8 +6611,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 57.15 76.2 0)
+		(property "Datasheet" "https://lcsc.com/product-detail/Terminal-Blocks_WJ128V-5-0-2P_C8269.html"
+			(at 69.85 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6341,7 +6621,146 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 57.15 76.2 0)
+			(at 53.34 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "DigiKey_Part_Number" "2223-TB0011-350-02BE-ND"
+			(at 53.34 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/TB0011-350-02BE/Same+Sky/view-part/?ref=snap"
+			(at 53.34 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "8.5mm"
+			(at 53.34 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "CREATOR" "ASHISH"
+			(at 53.34 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 53.34 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/TB0011-350-02BE/Same+Sky/view-part/?ref=eda"
+			(at 53.34 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 53.34 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "1.0"
+			(at 53.34 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "VERIFIER" ""
+			(at 53.34 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MF" "Same Sky"
+			(at 53.34 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "TB0011-350-02BE"
+			(at 53.34 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "2 Position Wire to Board Terminal Block Horizontal with Board 0.138 (3.50mm) Through Hole"
+			(at 53.34 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Same Sky"
+			(at 53.34 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part" "C8269"
+			(at 72.39 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7883,8 +8302,9 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 57.15 88.9 180)
+		(lib_name "WJ128V-5.0-2P_2")
+		(lib_id "WJ128V:WJ128V-5.0-2P")
+		(at 55.88 88.9 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7892,7 +8312,7 @@
 		(dnp no)
 		(uuid "7eda5100-543d-4a88-b5de-8b6e55764075")
 		(property "Reference" "J6"
-			(at 56.896 82.804 0)
+			(at 61.976 88.646 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7900,7 +8320,7 @@
 			)
 		)
 		(property "Value" "SW2_INPUT"
-			(at 57.15 82.55 0)
+			(at 62.23 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7908,8 +8328,8 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "TerminalBlock_Degson:TerminalBlock_Degson_DG250-3.5-02P_1x02_P3.50mm_45Degree"
-			(at 57.15 88.9 0)
+		(property "Footprint" "seeed esp32:CONN-TH_2P-P5.00_WJ128V-5.0-2P"
+			(at 69.85 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7917,8 +8337,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 57.15 88.9 0)
+		(property "Datasheet" "https://lcsc.com/product-detail/Terminal-Blocks_WJ128V-5-0-2P_C8269.html"
+			(at 72.39 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7927,7 +8347,146 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 57.15 88.9 0)
+			(at 55.88 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "DigiKey_Part_Number" "2223-TB0011-350-02BE-ND"
+			(at 55.88 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/TB0011-350-02BE/Same+Sky/view-part/?ref=snap"
+			(at 55.88 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "8.5mm"
+			(at 55.88 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "CREATOR" "ASHISH"
+			(at 55.88 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 55.88 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/TB0011-350-02BE/Same+Sky/view-part/?ref=eda"
+			(at 55.88 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 55.88 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "1.0"
+			(at 55.88 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "VERIFIER" ""
+			(at 55.88 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MF" "Same Sky"
+			(at 55.88 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "TB0011-350-02BE"
+			(at 55.88 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "2 Position Wire to Board Terminal Block Horizontal with Board 0.138 (3.50mm) Through Hole"
+			(at 55.88 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Same Sky"
+			(at 55.88 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part" "C8269"
+			(at 74.93 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9261,7 +9820,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 67.31 71.12 180)
+		(at 62.23 68.58 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9270,7 +9829,7 @@
 		(fields_autoplaced yes)
 		(uuid "ab5d6263-05c6-489d-9aa7-6d029d96372c")
 		(property "Reference" "#PWR032"
-			(at 67.31 64.77 0)
+			(at 62.23 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9279,7 +9838,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 67.31 66.04 0)
+			(at 62.23 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9287,7 +9846,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 67.31 71.12 0)
+			(at 62.23 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9296,7 +9855,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 67.31 71.12 0)
+			(at 62.23 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9305,7 +9864,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 67.31 71.12 0)
+			(at 62.23 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9417,7 +9976,7 @@
 				)
 			)
 		)
-		(property "Footprint" "HLW8012:SOIC8"
+		(property "Footprint" "seeed esp32:SOIC8"
 			(at 83.82 144.78 0)
 			(effects
 				(font
@@ -10931,8 +11490,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 162.56 144.78 0)
+		(lib_id "WJ128V:WJ128V-5.0-2P")
+		(at 167.64 144.78 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10941,7 +11500,7 @@
 		(fields_autoplaced yes)
 		(uuid "fa9a3412-ba10-4b80-acee-e458e6487f9e")
 		(property "Reference" "J3"
-			(at 165.1 144.7799 0)
+			(at 175.26 144.7799 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10950,7 +11509,7 @@
 			)
 		)
 		(property "Value" "LOAD_CH1"
-			(at 165.1 147.3199 0)
+			(at 165.1001 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10959,8 +11518,8 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "TerminalBlock_Degson:TerminalBlock_Degson_DG250-3.5-02P_1x02_P3.50mm_45Degree"
-			(at 162.56 144.78 0)
+		(property "Footprint" "seeed esp32:CONN-TH_2P-P5.00_WJ128V-5.0-2P"
+			(at 153.67 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10968,8 +11527,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 162.56 144.78 0)
+		(property "Datasheet" "https://lcsc.com/product-detail/Terminal-Blocks_WJ128V-5-0-2P_C8269.html"
+			(at 151.13 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10978,7 +11537,146 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 162.56 144.78 0)
+			(at 167.64 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "DigiKey_Part_Number" "2223-TB0011-350-02BE-ND"
+			(at 167.64 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/TB0011-350-02BE/Same+Sky/view-part/?ref=snap"
+			(at 167.64 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "8.5mm"
+			(at 167.64 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "CREATOR" "ASHISH"
+			(at 167.64 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 167.64 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/TB0011-350-02BE/Same+Sky/view-part/?ref=eda"
+			(at 167.64 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 167.64 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "1.0"
+			(at 167.64 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "VERIFIER" ""
+			(at 167.64 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MF" "Same Sky"
+			(at 167.64 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "TB0011-350-02BE"
+			(at 167.64 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "2 Position Wire to Board Terminal Block Horizontal with Board 0.138 (3.50mm) Through Hole"
+			(at 167.64 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Same Sky"
+			(at 167.64 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part" "C8269"
+			(at 148.59 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
