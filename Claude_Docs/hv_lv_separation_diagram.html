@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HV/LV Separation — Smart Relay PCB</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0b0d12;
+    color: #e2e8f0;
+    font-family: 'Space Grotesk', sans-serif;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-bottom: 2rem;
+  }
+
+  .diagram-wrapper {
+    background: #111318;
+    border: 1px solid #1e2330;
+    border-radius: 16px;
+    padding: 2rem;
+    overflow-x: auto;
+    margin-bottom: 2rem;
+  }
+
+  /* Legend */
+  .legend {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    padding: 1rem 1.5rem;
+    background: #111318;
+    border: 1px solid #1e2330;
+    border-radius: 10px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+  }
+
+  .legend-swatch {
+    width: 28px;
+    height: 14px;
+    border-radius: 3px;
+  }
+
+  /* Rules table */
+  .rules {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .rule-card {
+    background: #111318;
+    border: 1px solid #1e2330;
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+  }
+
+  .rule-card h3 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.6rem;
+  }
+
+  .rule-card.hv h3 { color: #ef4444; }
+  .rule-card.lv h3 { color: #3b82f6; }
+  .rule-card.boundary h3 { color: #f59e0b; }
+  .rule-card.iso h3 { color: #a855f7; }
+
+  .rule-card ul {
+    list-style: none;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    line-height: 1.8;
+  }
+
+  .rule-card ul li::before {
+    content: '→ ';
+    color: #475569;
+  }
+
+  @media (max-width: 700px) {
+    .rules { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<h1>⚡ HV / LV Zone Separation — Smart Relay PCB</h1>
+<div class="subtitle">// HLK-PM01 · 2-Channel Relay · XIAO ESP32-C6 · 230VAC India Market</div>
+
+<!-- Legend -->
+<div class="legend">
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:#7f1d1d; border: 2px solid #ef4444;"></div>
+    <span><strong style="color:#ef4444">HV Zone</strong> — 230VAC Live/Neutral</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:#1e3a5f; border: 2px solid #3b82f6;"></div>
+    <span><strong style="color:#3b82f6">LV Zone</strong> — 5V / 3.3V DC</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:#422006; border: 2px solid #f59e0b;"></div>
+    <span><strong style="color:#f59e0b">Isolation Boundary</strong> — Min 3mm clearance</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:#2e1065; border: 2px solid #a855f7;"></div>
+    <span><strong style="color:#a855f7">Galvanic Isolation</strong> — Optocoupler / Transformer</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:#064e3b; border: 2px solid #10b981;"></div>
+    <span><strong style="color:#10b981">Relay Contact</strong> — Switched mains output</span>
+  </div>
+</div>
+
+<!-- Main Diagram -->
+<div class="diagram-wrapper">
+<svg viewBox="0 0 1080 680" xmlns="http://www.w3.org/2000/svg" style="width:100%; min-width:700px; font-family:'JetBrains Mono',monospace;">
+
+  <!-- ═══════ BACKGROUND ZONES ═══════ -->
+
+  <!-- HV Zone background -->
+  <rect x="10" y="10" width="320" height="660" rx="12" fill="#7f1d1d" fill-opacity="0.12" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="170" y="36" text-anchor="middle" fill="#ef4444" font-size="11" font-weight="700" letter-spacing="2">⚡ HIGH VOLTAGE ZONE — 230VAC</text>
+
+  <!-- LV Zone background -->
+  <rect x="650" y="10" width="420" height="660" rx="12" fill="#1e3a5f" fill-opacity="0.15" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="860" y="36" text-anchor="middle" fill="#3b82f6" font-size="11" font-weight="700" letter-spacing="2">LOW VOLTAGE ZONE — 5V / 3.3V DC</text>
+
+  <!-- Isolation boundary strip -->
+  <rect x="332" y="10" width="316" height="660" rx="0" fill="#f59e0b" fill-opacity="0.04" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="490" y="36" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="700" letter-spacing="1">ISOLATION BOUNDARY</text>
+  <text x="490" y="50" text-anchor="middle" fill="#f59e0b" font-size="9" opacity="0.7">min 3mm PCB clearance</text>
+
+  <!-- ═══════ HV COMPONENTS ═══════ -->
+
+  <!-- J4 - Mains Input Connector -->
+  <g id="J4">
+    <rect x="25" y="70" width="120" height="90" rx="6" fill="#450a0a" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="85" y="92" text-anchor="middle" fill="#ef4444" font-size="10" font-weight="700">J4</text>
+    <text x="85" y="106" text-anchor="middle" fill="#fca5a5" font-size="9">Mains Input</text>
+    <text x="85" y="119" text-anchor="middle" fill="#fca5a5" font-size="9">Connector</text>
+    <text x="85" y="132" text-anchor="middle" fill="#ef4444" font-size="8">L / N / PE</text>
+    <text x="85" y="145" text-anchor="middle" fill="#64748b" font-size="8">Screw Terminal</text>
+    <!-- Pin indicators -->
+    <line x1="145" y1="90" x2="160" y2="90" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="163" y="93" fill="#fca5a5" font-size="8">L (Live)</text>
+    <line x1="145" y1="110" x2="160" y2="110" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="163" y="113" fill="#94a3b8" font-size="8">N (Neutral)</text>
+    <line x1="145" y1="130" x2="160" y2="130" stroke="#10b981" stroke-width="1.5"/>
+    <text x="163" y="133" fill="#10b981" font-size="8">PE (Earth)</text>
+  </g>
+
+  <!-- F1 - Fuse -->
+  <g id="F1">
+    <rect x="25" y="200" width="120" height="70" rx="6" fill="#450a0a" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="85" y="222" text-anchor="middle" fill="#ef4444" font-size="10" font-weight="700">F1</text>
+    <text x="85" y="236" text-anchor="middle" fill="#fca5a5" font-size="9">Fuse</text>
+    <text x="85" y="249" text-anchor="middle" fill="#fca5a5" font-size="9">T2A 250VAC</text>
+    <text x="85" y="262" text-anchor="middle" fill="#64748b" font-size="8">1206 SMD</text>
+    <line x1="145" y1="235" x2="165" y2="235" stroke="#ef4444" stroke-width="2"/>
+  </g>
+
+  <!-- RV1 - MOV Varistor -->
+  <g id="RV1">
+    <rect x="25" y="315" width="120" height="70" rx="6" fill="#450a0a" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="85" y="337" text-anchor="middle" fill="#ef4444" font-size="10" font-weight="700">RV1</text>
+    <text x="85" y="351" text-anchor="middle" fill="#fca5a5" font-size="9">MOV Varistor</text>
+    <text x="85" y="364" text-anchor="middle" fill="#fca5a5" font-size="9">275VAC</text>
+    <text x="85" y="377" text-anchor="middle" fill="#64748b" font-size="8">L-to-N surge clamp</text>
+    <line x1="145" y1="350" x2="165" y2="350" stroke="#ef4444" stroke-width="1.5"/>
+  </g>
+
+  <!-- U1 HLK-PM01 -->
+  <g id="U1">
+    <rect x="25" y="430" width="120" height="100" rx="6" fill="#3b0764" stroke="#a855f7" stroke-width="2"/>
+    <text x="85" y="452" text-anchor="middle" fill="#a855f7" font-size="10" font-weight="700">U1</text>
+    <text x="85" y="466" text-anchor="middle" fill="#d8b4fe" font-size="9">HLK-PM01</text>
+    <text x="85" y="479" text-anchor="middle" fill="#d8b4fe" font-size="9">230VAC → 5VDC</text>
+    <text x="85" y="492" text-anchor="middle" fill="#d8b4fe" font-size="9">3W Isolated</text>
+    <text x="85" y="508" text-anchor="middle" fill="#a855f7" font-size="8">⚡ ISOLATION BOUNDARY</text>
+    <text x="85" y="521" text-anchor="middle" fill="#64748b" font-size="8">Inside module</text>
+    <!-- Input side arrows -->
+    <line x1="25" y1="460" x2="10" y2="460" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="8" y="458" text-anchor="end" fill="#fca5a5" font-size="8">L in</text>
+    <line x1="25" y1="480" x2="10" y2="480" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="8" y="478" text-anchor="end" fill="#94a3b8" font-size="8">N in</text>
+    <!-- Output side arrows -->
+    <line x1="145" y1="460" x2="175" y2="460" stroke="#10b981" stroke-width="2"/>
+    <text x="178" y="463" fill="#10b981" font-size="8">+5V out</text>
+    <line x1="145" y1="490" x2="175" y2="490" stroke="#475569" stroke-width="1.5"/>
+    <text x="178" y="493" fill="#94a3b8" font-size="8">GND out</text>
+  </g>
+
+  <!-- Relay contacts - HV side of K1 K2 -->
+  <g id="K1-HV">
+    <rect x="25" y="570" width="120" height="80" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="85" y="592" text-anchor="middle" fill="#10b981" font-size="10" font-weight="700">K1 / K2</text>
+    <text x="85" y="606" text-anchor="middle" fill="#6ee7b7" font-size="9">Relay Contacts</text>
+    <text x="85" y="620" text-anchor="middle" fill="#6ee7b7" font-size="9">HV Side (COM/NO)</text>
+    <text x="85" y="634" text-anchor="middle" fill="#10b981" font-size="8">MAINS_L_SW</text>
+    <text x="85" y="647" text-anchor="middle" fill="#64748b" font-size="8">10A 250VAC max</text>
+    <line x1="145" y1="600" x2="165" y2="600" stroke="#10b981" stroke-width="1.5"/>
+  </g>
+
+  <!-- HV wiring - vertical bus -->
+  <!-- Live wire -->
+  <line x1="155" y1="90" x2="155" y2="235" stroke="#ef4444" stroke-width="2" stroke-dasharray="none"/>
+  <line x1="155" y1="235" x2="25" y2="235" stroke="#ef4444" stroke-width="2"/>
+  <!-- Fuse to MOV -->
+  <line x1="155" y1="235" x2="155" y2="350" stroke="#ef4444" stroke-width="2"/>
+  <line x1="155" y1="350" x2="25" y2="350" stroke="#ef4444" stroke-width="2"/>
+  <!-- Live to HLK -->
+  <line x1="155" y1="350" x2="155" y2="460" stroke="#ef4444" stroke-width="2"/>
+  <line x1="155" y1="460" x2="25" y2="460" stroke="#ef4444" stroke-width="2"/>
+  <!-- Neutral bus -->
+  <line x1="160" y1="110" x2="215" y2="110" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="215" y1="110" x2="215" y2="480" stroke="#94a3b8" stroke-width="2" stroke-dasharray="none"/>
+  <line x1="215" y1="480" x2="25" y2="480" stroke="#94a3b8" stroke-width="2"/>
+  <!-- N to MOV -->
+  <line x1="215" y1="330" x2="145" y2="330" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3,2"/>
+
+  <!-- PE wire -->
+  <line x1="160" y1="130" x2="230" y2="130" stroke="#10b981" stroke-width="1.5"/>
+  <circle cx="230" cy="130" r="4" fill="#10b981"/>
+  <text x="235" y="128" fill="#10b981" font-size="8">Earth/PE</text>
+  <text x="235" y="140" fill="#64748b" font-size="8">(chassis only)</text>
+
+  <!-- ═══════ ISOLATION ZONE — CENTER ═══════ -->
+
+  <!-- PC817 U4 Optocoupler - CH1 -->
+  <g id="U4">
+    <rect x="350" y="200" width="130" height="110" rx="6" fill="#2e1065" stroke="#a855f7" stroke-width="2"/>
+    <text x="415" y="222" text-anchor="middle" fill="#a855f7" font-size="10" font-weight="700">U4 / U5</text>
+    <text x="415" y="236" text-anchor="middle" fill="#d8b4fe" font-size="9">PC817</text>
+    <text x="415" y="250" text-anchor="middle" fill="#d8b4fe" font-size="9">Optocoupler</text>
+    <text x="415" y="264" text-anchor="middle" fill="#d8b4fe" font-size="9">5kV Isolation</text>
+    <text x="415" y="278" text-anchor="middle" fill="#64748b" font-size="8">Ch1 / Ch2</text>
+    <text x="415" y="294" text-anchor="middle" fill="#a855f7" font-size="8">LED → Phototransistor</text>
+    <!-- Left arrow (from LV) -->
+    <line x1="350" y1="250" x2="335" y2="250" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrowB)"/>
+    <!-- Right arrow (to relay coil) -->
+    <line x1="480" y1="250" x2="500" y2="250" stroke="#a855f7" stroke-width="1.5" marker-end="url(#arrowP)"/>
+  </g>
+
+  <!-- Isolation barrier line -->
+  <line x1="490" y1="60" x2="490" y2="660" stroke="#f59e0b" stroke-width="1" stroke-dasharray="8,4" opacity="0.5"/>
+  <text x="494" y="340" fill="#f59e0b" font-size="9" transform="rotate(90,494,340)">← HV side of relay coil — LV control side →</text>
+
+  <!-- HLK-PM01 transformer symbol in center -->
+  <g id="hlk-transformer">
+    <line x1="490" y1="440" x2="490" y2="560" stroke="#a855f7" stroke-width="2" stroke-dasharray="6,3"/>
+    <text x="494" y="505" fill="#a855f7" font-size="9" transform="rotate(90,494,505)">HLK-PM01 internal isolation</text>
+  </g>
+
+  <!-- R1/R3 current limit resistors (LV side, going to opto) -->
+  <g id="R1-R3">
+    <rect x="340" y="380" width="130" height="70" rx="6" fill="#1e2d4a" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="405" y="402" text-anchor="middle" fill="#60a5fa" font-size="10" font-weight="700">R1 / R3</text>
+    <text x="405" y="416" text-anchor="middle" fill="#93c5fd" font-size="9">Opto LED</text>
+    <text x="405" y="429" text-anchor="middle" fill="#93c5fd" font-size="9">Current Limit</text>
+    <text x="405" y="442" text-anchor="middle" fill="#64748b" font-size="8">330Ω — 3.3V logic</text>
+    <line x1="340" y1="415" x2="325" y2="415" stroke="#3b82f6" stroke-width="1.5"/>
+    <line x1="470" y1="415" x2="487" y2="415" stroke="#3b82f6" stroke-width="1.5"/>
+  </g>
+
+  <!-- ═══════ LV ZONE COMPONENTS ═══════ -->
+
+  <!-- U6 AMS1117-3.3 -->
+  <g id="U6">
+    <rect x="665" y="70" width="130" height="90" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="730" y="92" text-anchor="middle" fill="#60a5fa" font-size="10" font-weight="700">U6</text>
+    <text x="730" y="106" text-anchor="middle" fill="#93c5fd" font-size="9">AMS1117-3.3</text>
+    <text x="730" y="120" text-anchor="middle" fill="#93c5fd" font-size="9">LDO Regulator</text>
+    <text x="730" y="133" text-anchor="middle" fill="#93c5fd" font-size="9">5V → 3.3V</text>
+    <text x="730" y="147" text-anchor="middle" fill="#64748b" font-size="8">SOT-223 SMD</text>
+    <line x1="665" y1="105" x2="650" y2="105" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="648" y="108" text-anchor="end" fill="#93c5fd" font-size="8">+5V in</text>
+    <line x1="795" y1="105" x2="810" y2="105" stroke="#818cf8" stroke-width="1.5"/>
+    <text x="813" y="108" fill="#818cf8" font-size="8">+3V3 out</text>
+  </g>
+
+  <!-- C1 C2 C3 decoupling caps -->
+  <g id="caps">
+    <rect x="665" y="200" width="130" height="90" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
+    <text x="730" y="222" text-anchor="middle" fill="#60a5fa" font-size="10" font-weight="700">C1–C6</text>
+    <text x="730" y="236" text-anchor="middle" fill="#93c5fd" font-size="9">Decoupling Caps</text>
+    <text x="730" y="250" text-anchor="middle" fill="#93c5fd" font-size="9">100µF / 10µF</text>
+    <text x="730" y="264" text-anchor="middle" fill="#93c5fd" font-size="9">100nF bypass</text>
+    <text x="730" y="278" text-anchor="middle" fill="#64748b" font-size="8">On +5V and +3V3 rails</text>
+    <line x1="665" y1="240" x2="650" y2="240" stroke="#3b82f6" stroke-width="1.5"/>
+  </g>
+
+  <!-- U2 XIAO ESP32-C6 -->
+  <g id="U2">
+    <rect x="665" y="330" width="130" height="120" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+    <text x="730" y="352" text-anchor="middle" fill="#60a5fa" font-size="10" font-weight="700">U2</text>
+    <text x="730" y="366" text-anchor="middle" fill="#93c5fd" font-size="9">XIAO ESP32-C6</text>
+    <text x="730" y="380" text-anchor="middle" fill="#93c5fd" font-size="9">Zigbee / WiFi MCU</text>
+    <text x="730" y="394" text-anchor="middle" fill="#64748b" font-size="8">3.3V powered</text>
+    <text x="730" y="410" text-anchor="middle" fill="#64748b" font-size="8">GPIO0 → RELAY_CH1</text>
+    <text x="730" y="424" text-anchor="middle" fill="#64748b" font-size="8">GPIO1 → RELAY_CH2</text>
+    <text x="730" y="438" text-anchor="middle" fill="#64748b" font-size="8">GPIO20 → HLW_CF</text>
+    <line x1="665" y1="370" x2="650" y2="370" stroke="#3b82f6" stroke-width="1.5"/>
+    <!-- Output arrows to R1/R3 -->
+    <line x1="665" y1="395" x2="510" y2="395" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,2"/>
+  </g>
+
+  <!-- Q1/Q2 NPN transistors -->
+  <g id="Q1-Q2">
+    <rect x="665" y="490" width="130" height="90" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="730" y="512" text-anchor="middle" fill="#60a5fa" font-size="10" font-weight="700">Q1 / Q2</text>
+    <text x="730" y="526" text-anchor="middle" fill="#93c5fd" font-size="9">S8050 NPN</text>
+    <text x="730" y="540" text-anchor="middle" fill="#93c5fd" font-size="9">Transistor</text>
+    <text x="730" y="554" text-anchor="middle" fill="#64748b" font-size="8">Drive relay coil</text>
+    <text x="730" y="568" text-anchor="middle" fill="#64748b" font-size="8">Base ← ESP GPIO</text>
+    <line x1="665" y1="530" x2="650" y2="530" stroke="#3b82f6" stroke-width="1.5"/>
+  </g>
+
+  <!-- D1/D2 Flyback diodes -->
+  <g id="D1-D2">
+    <rect x="665" y="610" width="130" height="60" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="730" y="632" text-anchor="middle" fill="#60a5fa" font-size="10" font-weight="700">D1 / D2</text>
+    <text x="730" y="646" text-anchor="middle" fill="#93c5fd" font-size="9">1N4007 Flyback</text>
+    <text x="730" y="659" text-anchor="middle" fill="#64748b" font-size="8">Coil spike protection</text>
+    <line x1="665" y1="635" x2="650" y2="635" stroke="#3b82f6" stroke-width="1.5"/>
+  </g>
+
+  <!-- U5 HLW8012 -->
+  <g id="U5">
+    <rect x="840" y="330" width="130" height="130" rx="6" fill="#1e2d4a" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="905" y="352" text-anchor="middle" fill="#fbbf24" font-size="10" font-weight="700">U5</text>
+    <text x="905" y="366" text-anchor="middle" fill="#fde68a" font-size="9">HLW8012</text>
+    <text x="905" y="380" text-anchor="middle" fill="#fde68a" font-size="9">Energy Monitor IC</text>
+    <text x="905" y="396" text-anchor="middle" fill="#64748b" font-size="8">V1P/V1N — Voltage sense</text>
+    <text x="905" y="410" text-anchor="middle" fill="#64748b" font-size="8">IP+/IP− — Current sense</text>
+    <text x="905" y="424" text-anchor="middle" fill="#fbbf24" font-size="8">⚠ VP pins touch mains!</text>
+    <text x="905" y="438" text-anchor="middle" fill="#f59e0b" font-size="8">5mm clearance needed</text>
+    <text x="905" y="452" text-anchor="middle" fill="#fde68a" font-size="9">CF/CF1 → GPIO (LV)</text>
+    <line x1="840" y1="390" x2="825" y2="390" stroke="#f59e0b" stroke-width="1.5"/>
+  </g>
+
+  <!-- R10 Shunt Resistor -->
+  <g id="R10">
+    <rect x="840" y="500" width="130" height="70" rx="6" fill="#422006" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="905" y="522" text-anchor="middle" fill="#fbbf24" font-size="10" font-weight="700">R10</text>
+    <text x="905" y="536" text-anchor="middle" fill="#fde68a" font-size="9">Shunt Resistor</text>
+    <text x="905" y="550" text-anchor="middle" fill="#fde68a" font-size="9">1mΩ current sense</text>
+    <text x="905" y="563" text-anchor="middle" fill="#64748b" font-size="8">In series with MAINS_L</text>
+    <line x1="840" y1="530" x2="820" y2="530" stroke="#f59e0b" stroke-width="1.5"/>
+  </g>
+
+  <!-- J1-J3 Output connectors -->
+  <g id="J1-J3">
+    <rect x="840" y="610" width="130" height="60" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="905" y="632" text-anchor="middle" fill="#60a5fa" font-size="10" font-weight="700">J1 / J2 / J3</text>
+    <text x="905" y="646" text-anchor="middle" fill="#93c5fd" font-size="9">Load Output / UART</text>
+    <text x="905" y="659" text-anchor="middle" fill="#64748b" font-size="8">Debug / programming</text>
+  </g>
+
+  <!-- ═══════ RELAY COILS in isolation zone ═══════ -->
+  <g id="K1-coil">
+    <rect x="510" y="440" width="130" height="100" rx="6" fill="#14532d" stroke="#10b981" stroke-width="2"/>
+    <text x="575" y="462" text-anchor="middle" fill="#10b981" font-size="10" font-weight="700">K1 / K2</text>
+    <text x="575" y="476" text-anchor="middle" fill="#6ee7b7" font-size="9">Relay Coil</text>
+    <text x="575" y="490" text-anchor="middle" fill="#6ee7b7" font-size="9">HF3FF / SRD-5VDC</text>
+    <text x="575" y="504" text-anchor="middle" fill="#6ee7b7" font-size="9">5V coil — LV side</text>
+    <text x="575" y="520" text-anchor="middle" fill="#64748b" font-size="8">Contact — HV side</text>
+    <text x="575" y="533" text-anchor="middle" fill="#f59e0b" font-size="8">⚡ contact pins = HV</text>
+    <!-- coil input from Q1/Q2 -->
+    <line x1="640" y1="480" x2="660" y2="480" stroke="#3b82f6" stroke-width="1.5"/>
+    <!-- contact output to HV zone -->
+    <line x1="510" y1="510" x2="165" y2="510" stroke="#10b981" stroke-width="1.5" stroke-dasharray="5,3"/>
+    <text x="340" y="507" text-anchor="middle" fill="#10b981" font-size="8">MAINS_L_SW →</text>
+  </g>
+
+  <!-- ═══════ ARROWS / MARKERS ═══════ -->
+  <defs>
+    <marker id="arrowB" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrowP" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#a855f7"/>
+    </marker>
+    <marker id="arrowG" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <!-- +5V flow from HLK to LV zone -->
+  <path d="M 175 460 Q 280 460 280 105 Q 280 105 665 105" stroke="#10b981" stroke-width="2" fill="none" stroke-dasharray="6,3" marker-end="url(#arrowG)"/>
+  <text x="380" y="102" fill="#10b981" font-size="9" font-weight="600">+5V DC (isolated output)</text>
+
+  <!-- Signal flow from ESP32 to opto -->
+  <path d="M 665 395 Q 540 395 487 415" stroke="#3b82f6" stroke-width="1.5" fill="none" stroke-dasharray="4,2" marker-end="url(#arrowB)"/>
+
+  <!-- Opto to relay coil connection -->
+  <line x1="500" y1="250" x2="575" y2="250" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <line x1="575" y1="250" x2="575" y2="440" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arrowP)"/>
+
+  <!-- HLW8012 sense lines into HV zone -->
+  <line x1="840" y1="390" x2="165" y2="390" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="500" y="385" text-anchor="middle" fill="#f59e0b" font-size="8">V1P/V1N voltage sense wires (use high-voltage rated)</text>
+
+  <!-- ═══════ CLEARANCE ANNOTATION ═══════ -->
+  <!-- HLK boundary arrows -->
+  <line x1="336" y1="85" x2="336" y2="660" stroke="#ef4444" stroke-width="0.5" opacity="0.4"/>
+  <line x1="646" y1="85" x2="646" y2="660" stroke="#3b82f6" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- Clearance label -->
+  <rect x="340" y="620" width="300" height="30" rx="4" fill="#422006" stroke="#f59e0b" stroke-width="1"/>
+  <text x="490" y="633" text-anchor="middle" fill="#fbbf24" font-size="9" font-weight="700">⚡ PCB CLEARANCE RULES</text>
+  <text x="490" y="645" text-anchor="middle" fill="#fde68a" font-size="8">HV↔LV: 3mm min | HLW8012 VP pins: 5mm min | Relay coil↔contacts: per relay datasheet</text>
+
+  <!-- Top title labels for each zone -->
+  <text x="170" y="665" text-anchor="middle" fill="#ef4444" font-size="9" font-weight="700">⚡ NEVER ROUTE LV TRACES HERE</text>
+  <text x="860" y="665" text-anchor="middle" fill="#3b82f6" font-size="9" font-weight="700">✓ SAFE FOR ALL LV SIGNALS</text>
+
+</svg>
+</div>
+
+<!-- Rules Cards -->
+<div class="rules">
+  <div class="rule-card hv">
+    <h3>⚡ HV Zone Components</h3>
+    <ul>
+      <li><strong>J4</strong> — Mains input connector (L/N/PE)</li>
+      <li><strong>F1</strong> — Fuse T2A 250VAC (Live wire only)</li>
+      <li><strong>RV1</strong> — MOV varistor 275VAC (L to N)</li>
+      <li><strong>U1 input side</strong> — HLK-PM01 AC input pins</li>
+      <li><strong>K1/K2 contacts</strong> — Relay COM/NO/NC pins</li>
+      <li><strong>U5 V1P/V1N</strong> — HLW8012 voltage sense pins</li>
+      <li><strong>R10</strong> — Shunt resistor (in series with Live)</li>
+      <li><strong>J5</strong> — Switched load output connector</li>
+    </ul>
+  </div>
+
+  <div class="rule-card lv">
+    <h3>✓ LV Zone Components</h3>
+    <ul>
+      <li><strong>U6</strong> — AMS1117-3.3 LDO regulator</li>
+      <li><strong>U2</strong> — XIAO ESP32-C6 MCU</li>
+      <li><strong>Q1/Q2</strong> — S8050 NPN transistors (relay drivers)</li>
+      <li><strong>D1/D2</strong> — 1N4007 flyback diodes (coil side)</li>
+      <li><strong>R1–R9</strong> — Signal resistors, pull-ups, LED limits</li>
+      <li><strong>C1–C6</strong> — Decoupling capacitors (5V and 3.3V)</li>
+      <li><strong>K1/K2 coil</strong> — Relay coil pins (5V side only)</li>
+      <li><strong>J1/J2/J3</strong> — UART debug / programming headers</li>
+      <li><strong>U5 CF/CF1/SEL/GND/VDD</strong> — HLW8012 logic pins</li>
+    </ul>
+  </div>
+
+  <div class="rule-card boundary">
+    <h3>⚠ Isolation Boundary Components</h3>
+    <ul>
+      <li><strong>U4/U5 PC817</strong> — Optocoupler (5kV isolation)</li>
+      <li>LED side → LV zone (3.3V logic from ESP32)</li>
+      <li>Phototransistor side → drives relay coil (5V LV)</li>
+      <li>Min 3mm clearance between LED and transistor pads on PCB</li>
+      <li><strong>U1 HLK-PM01</strong> — Internal isolation ~2500VAC</li>
+      <li>AC input pads: HV zone | DC output pads: LV zone</li>
+      <li>No copper pour crossing the HLK body midline</li>
+    </ul>
+  </div>
+
+  <div class="rule-card iso">
+    <h3>⚡ PCB Layout Rules</h3>
+    <ul>
+      <li>HV ↔ LV clearance: <strong>min 3mm</strong> (IEC60950)</li>
+      <li>HLW8012 V1P/V1N pads: <strong>min 5mm</strong> from LV copper</li>
+      <li>Mains traces: <strong>min 2mm wide</strong> (2.5mm for 10A)</li>
+      <li>Relay contact pads: per HF3FF/SRD datasheet creepage</li>
+      <li>No LV copper pour in HV zone</li>
+      <li>Place PE/Earth via to mounting hole</li>
+      <li>HV zone: no silkscreen text (prevents arc tracking)</li>
+      <li>Add keepout zone around PC817 optical gap</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>

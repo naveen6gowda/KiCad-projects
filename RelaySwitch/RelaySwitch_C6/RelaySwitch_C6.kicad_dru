@@ -12,3 +12,28 @@
   (condition "A.NetClass == 'HV' && B.Type == 'Zone'")
   (constraint clearance (min 3mm))
 )
+
+(rule "HV_to_HV_clearance"
+  (condition "A.NetClass == 'HV' && B.NetClass == 'HV'")
+  (constraint clearance (min 1.5mm))
+)
+
+(rule "HV_PSU_to_LV"
+  (condition "A.NetClass == 'HV_PSU' && B.NetClass == 'Default'")
+  (constraint clearance (min 5.0mm))
+)
+
+(rule "HV_to_HV_PSU"
+  (condition "A.NetClass == 'HV' && B.NetClass == 'HV_PSU'")
+  (constraint clearance (min 1.5mm))
+)
+
+(rule "HV_internal"
+  (condition "A.NetClass == 'HV' && B.NetClass == 'HV'")
+  (constraint clearance (min 1.5mm))
+)
+
+(rule "HV_PSU_internal"
+  (condition "A.NetClass == 'HV_PSU' && B.NetClass == 'HV_PSU'")
+  (constraint clearance (min 1.5mm))
+)

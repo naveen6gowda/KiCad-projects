@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 920" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#e74c3c"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#2980b9"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#27ae60"/>
+    </marker>
+    <filter id="shadow">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
+    </filter>
+    <linearGradient id="headerCurrent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e74c3c"/>
+      <stop offset="100%" stop-color="#c0392b"/>
+    </linearGradient>
+    <linearGradient id="headerProposed" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#27ae60"/>
+      <stop offset="100%" stop-color="#1e8449"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1100" height="920" fill="#f8f9fa" rx="8"/>
+
+  <text x="550" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#2c3e50">RelaySwitch_C6 — Power Routing Modification</text>
+  <text x="550" y="56" text-anchor="middle" font-size="12" fill="#7f8c8d">Fuse F1 path separation for Indian switchboard application (220-240V AC)</text>
+
+  <!-- CURRENT DESIGN -->
+  <rect x="20" y="75" width="1060" height="370" rx="6" fill="white" stroke="#e0e0e0" filter="url(#shadow)"/>
+  <rect x="20" y="75" width="1060" height="34" rx="6" fill="url(#headerCurrent)"/>
+  <rect x="20" y="95" width="1060" height="14" fill="url(#headerCurrent)"/>
+  <text x="40" y="97" font-size="14" font-weight="700" fill="white">CURRENT DESIGN — F1 carries ALL current (PSU + Load)</text>
+
+  <rect x="50" y="175" width="90" height="60" rx="4" fill="#fff3e0" stroke="#e65100" stroke-width="1.5"/>
+  <text x="95" y="196" text-anchor="middle" font-size="11" font-weight="600" fill="#e65100">J1</text>
+  <text x="95" y="210" text-anchor="middle" font-size="9" fill="#bf360c">AC Input</text>
+  <text x="95" y="222" text-anchor="middle" font-size="8" fill="#bf360c">L + N</text>
+
+  <line x1="140" y1="190" x2="175" y2="190" stroke="#e74c3c" stroke-width="2"/>
+  <text x="158" y="183" text-anchor="middle" font-size="8" fill="#e74c3c" font-weight="600">L</text>
+
+  <rect x="175" y="178" width="80" height="26" rx="4" fill="#ffebee" stroke="#e74c3c" stroke-width="1.5"/>
+  <text x="215" y="195" text-anchor="middle" font-size="10" font-weight="700" fill="#c62828">F1 (1206)</text>
+
+  <line x1="255" y1="191" x2="340" y2="191" stroke="#e74c3c" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="298" y="183" text-anchor="middle" font-size="9" font-weight="600" fill="#e74c3c">MAINS_L</text>
+
+  <circle cx="340" cy="191" r="4" fill="#e74c3c"/>
+
+  <line x1="340" y1="191" x2="340" y2="270" stroke="#2980b9" stroke-width="1.5"/>
+  <line x1="340" y1="270" x2="400" y2="270" stroke="#2980b9" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <rect x="400" y="252" width="110" height="40" rx="4" fill="#e3f2fd" stroke="#1565c0" stroke-width="1.5"/>
+  <text x="455" y="270" text-anchor="middle" font-size="10" font-weight="600" fill="#1565c0">HLK-2M05</text>
+  <text x="455" y="283" text-anchor="middle" font-size="8" fill="#1565c0">AC to 5V / 2W</text>
+
+  <line x1="510" y1="272" x2="570" y2="272" stroke="#2980b9" stroke-width="1" marker-end="url(#arrow-blue)"/>
+  <text x="540" y="264" text-anchor="middle" font-size="8" fill="#2980b9">5V</text>
+
+  <rect x="570" y="252" width="120" height="40" rx="4" fill="#e8eaf6" stroke="#3949ab" stroke-width="1"/>
+  <text x="630" y="270" text-anchor="middle" font-size="9" font-weight="600" fill="#3949ab">ESP32-C6 +</text>
+  <text x="630" y="283" text-anchor="middle" font-size="9" fill="#3949ab">Relay Coils (5V)</text>
+
+  <line x1="340" y1="191" x2="490" y2="191" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="490" y="155" width="120" height="72" rx="4" fill="#fce4ec" stroke="#c62828" stroke-width="1.5"/>
+  <text x="550" y="174" text-anchor="middle" font-size="10" font-weight="600" fill="#c62828">Relay K1</text>
+  <text x="550" y="188" text-anchor="middle" font-size="8" fill="#c62828">COM from MAINS_L</text>
+  <text x="550" y="200" text-anchor="middle" font-size="8" fill="#c62828">NO to LOAD_CH1</text>
+  <text x="550" y="222" text-anchor="middle" font-size="7" fill="#888">Up to 10A per ch</text>
+
+  <line x1="610" y1="191" x2="690" y2="191" stroke="#e74c3c" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="690" y="178" width="80" height="26" rx="4" fill="#fff8e1" stroke="#f57f17" stroke-width="1"/>
+  <text x="730" y="195" text-anchor="middle" font-size="9" font-weight="600" fill="#e65100">J3 LOAD1</text>
+
+  <line x1="440" y1="191" x2="440" y2="340" stroke="#e74c3c" stroke-width="2"/>
+  <circle cx="440" cy="191" r="3" fill="#e74c3c"/>
+  <line x1="440" y1="340" x2="490" y2="340" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="490" y="310" width="120" height="55" rx="4" fill="#fce4ec" stroke="#c62828" stroke-width="1.5"/>
+  <text x="550" y="330" text-anchor="middle" font-size="10" font-weight="600" fill="#c62828">Relay K2</text>
+  <text x="550" y="344" text-anchor="middle" font-size="8" fill="#c62828">COM from MAINS_L</text>
+  <text x="550" y="356" text-anchor="middle" font-size="8" fill="#c62828">NO to LOAD_CH2</text>
+
+  <line x1="610" y1="340" x2="690" y2="340" stroke="#e74c3c" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="690" y="327" width="80" height="26" rx="4" fill="#fff8e1" stroke="#f57f17" stroke-width="1"/>
+  <text x="730" y="344" text-anchor="middle" font-size="9" font-weight="600" fill="#e65100">J4 LOAD2</text>
+
+  <line x1="140" y1="210" x2="160" y2="210" stroke="#2980b9" stroke-width="1.5"/>
+  <line x1="160" y1="210" x2="160" y2="395" stroke="#2980b9" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="168" y="212" font-size="8" fill="#2980b9" font-weight="600">N</text>
+  <text x="168" y="390" font-size="7" fill="#7f8c8d">to PSU, HLW, J3/J4</text>
+
+  <rect x="810" y="140" width="250" height="130" rx="5" fill="#fff3e0" stroke="#e65100" stroke-width="1.5"/>
+  <text x="935" y="162" text-anchor="middle" font-size="11" font-weight="700" fill="#e65100">PROBLEMS</text>
+  <text x="825" y="182" font-size="9" fill="#c62828">1. F1 carries PSU + LOAD current</text>
+  <text x="838" y="196" font-size="8" fill="#888">(could be 10-16A through a 1206 fuse)</text>
+  <text x="825" y="216" font-size="9" fill="#c62828">2. 1206 fuses max ~3A / 32-63V</text>
+  <text x="838" y="230" font-size="8" fill="#888">(needs 250VAC rating for mains)</text>
+  <text x="825" y="250" font-size="9" fill="#c62828">3. Breaking capacity too low for</text>
+  <text x="838" y="264" font-size="8" fill="#888">240V AC fault currents</text>
+
+  <!-- PROPOSED DESIGN -->
+  <rect x="20" y="465" width="1060" height="440" rx="6" fill="white" stroke="#e0e0e0" filter="url(#shadow)"/>
+  <rect x="20" y="465" width="1060" height="34" rx="6" fill="url(#headerProposed)"/>
+  <rect x="20" y="485" width="1060" height="14" fill="url(#headerProposed)"/>
+  <text x="40" y="487" font-size="14" font-weight="700" fill="white">PROPOSED DESIGN — Split path: F1 protects PSU only</text>
+
+  <rect x="50" y="555" width="90" height="70" rx="4" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="95" y="576" text-anchor="middle" font-size="11" font-weight="600" fill="#2e7d32">J1</text>
+  <text x="95" y="590" text-anchor="middle" font-size="9" fill="#2e7d32">AC Input</text>
+  <text x="95" y="604" text-anchor="middle" font-size="8" fill="#2e7d32">L + N</text>
+  <text x="95" y="618" text-anchor="middle" font-size="7" fill="#558b2f">(3-pin term)</text>
+
+  <line x1="140" y1="570" x2="200" y2="570" stroke="#e74c3c" stroke-width="2.5"/>
+  <text x="165" y="563" text-anchor="middle" font-size="8" fill="#e74c3c" font-weight="600">L</text>
+  <circle cx="200" cy="570" r="5" fill="#e74c3c"/>
+
+  <!-- PATH A: PSU through F1 -->
+  <line x1="200" y1="570" x2="200" y2="630" stroke="#27ae60" stroke-width="2"/>
+  <line x1="200" y1="630" x2="260" y2="630" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <rect x="260" y="617" width="100" height="28" rx="4" fill="#e8f5e9" stroke="#27ae60" stroke-width="2"/>
+  <text x="310" y="635" text-anchor="middle" font-size="10" font-weight="700" fill="#1b5e20">F1 (1206)</text>
+
+  <text x="310" y="660" text-anchor="middle" font-size="8" font-weight="600" fill="#27ae60">500mA-1A slow-blow</text>
+  <text x="310" y="672" text-anchor="middle" font-size="8" fill="#27ae60">250VAC rated</text>
+
+  <line x1="360" y1="631" x2="440" y2="631" stroke="#27ae60" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <rect x="440" y="611" width="120" height="42" rx="4" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="500" y="630" text-anchor="middle" font-size="10" font-weight="600" fill="#2e7d32">HLK-2M05</text>
+  <text x="500" y="644" text-anchor="middle" font-size="8" fill="#2e7d32">AC to 5V / 2W</text>
+
+  <line x1="560" y1="632" x2="620" y2="632" stroke="#2980b9" stroke-width="1" marker-end="url(#arrow-blue)"/>
+  <text x="590" y="624" text-anchor="middle" font-size="8" fill="#2980b9">5V</text>
+
+  <rect x="620" y="611" width="130" height="42" rx="4" fill="#e8eaf6" stroke="#3949ab" stroke-width="1"/>
+  <text x="685" y="630" text-anchor="middle" font-size="9" font-weight="600" fill="#3949ab">ESP32-C6 + HLW</text>
+  <text x="685" y="644" text-anchor="middle" font-size="9" fill="#3949ab">+ Relay Coils (5V)</text>
+
+  <rect x="260" y="680" width="155" height="20" rx="3" fill="#e8f5e9" stroke="#a5d6a7"/>
+  <text x="337" y="694" text-anchor="middle" font-size="8" font-weight="600" fill="#2e7d32">~10-20 mA AC side (~4W)</text>
+
+  <!-- PATH B: Direct to relays -->
+  <line x1="200" y1="570" x2="370" y2="570" stroke="#e74c3c" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="290" y="560" text-anchor="middle" font-size="9" font-weight="600" fill="#e74c3c">MAINS_L (direct, no F1)</text>
+
+  <circle cx="370" cy="570" r="4" fill="#e74c3c"/>
+
+  <line x1="370" y1="570" x2="440" y2="570" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="440" y="537" width="120" height="65" rx="4" fill="#ffebee" stroke="#c62828" stroke-width="1.5"/>
+  <text x="500" y="556" text-anchor="middle" font-size="10" font-weight="600" fill="#c62828">Relay K1</text>
+  <text x="500" y="570" text-anchor="middle" font-size="8" fill="#c62828">COM from MAINS_L</text>
+  <text x="500" y="582" text-anchor="middle" font-size="8" fill="#c62828">NO to LOAD_CH1</text>
+  <text x="500" y="596" text-anchor="middle" font-size="7" fill="#888">up to 10A</text>
+
+  <line x1="560" y1="570" x2="640" y2="570" stroke="#e74c3c" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="640" y="557" width="80" height="26" rx="4" fill="#fff8e1" stroke="#f57f17" stroke-width="1"/>
+  <text x="680" y="574" text-anchor="middle" font-size="9" font-weight="600" fill="#e65100">J3 LOAD1</text>
+
+  <line x1="370" y1="570" x2="370" y2="770" stroke="#e74c3c" stroke-width="2"/>
+  <line x1="370" y1="770" x2="440" y2="770" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="440" y="745" width="120" height="55" rx="4" fill="#ffebee" stroke="#c62828" stroke-width="1.5"/>
+  <text x="500" y="765" text-anchor="middle" font-size="10" font-weight="600" fill="#c62828">Relay K2</text>
+  <text x="500" y="779" text-anchor="middle" font-size="8" fill="#c62828">COM from MAINS_L</text>
+  <text x="500" y="791" text-anchor="middle" font-size="8" fill="#c62828">NO to LOAD_CH2</text>
+
+  <line x1="560" y1="770" x2="640" y2="770" stroke="#e74c3c" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="640" y="757" width="80" height="26" rx="4" fill="#fff8e1" stroke="#f57f17" stroke-width="1"/>
+  <text x="680" y="774" text-anchor="middle" font-size="9" font-weight="600" fill="#e65100">J4 LOAD2</text>
+
+  <line x1="140" y1="600" x2="160" y2="600" stroke="#2980b9" stroke-width="1.5"/>
+  <line x1="160" y1="600" x2="160" y2="840" stroke="#2980b9" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="168" y="602" font-size="8" fill="#2980b9" font-weight="600">N</text>
+  <text x="168" y="838" font-size="7" fill="#7f8c8d">to PSU, HLW sense, J3/J4</text>
+
+  <line x1="340" y1="570" x2="340" y2="840" stroke="#7f8c8d" stroke-width="1" stroke-dasharray="3,3"/>
+  <circle cx="340" cy="570" r="2.5" fill="#7f8c8d"/>
+  <text x="345" y="838" font-size="7" fill="#7f8c8d">to HLW8012 current sense</text>
+
+  <!-- Benefits -->
+  <rect x="790" y="520" width="270" height="200" rx="5" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="925" y="544" text-anchor="middle" font-size="11" font-weight="700" fill="#1b5e20">BENEFITS</text>
+  <text x="805" y="566" font-size="9" fill="#2e7d32" font-weight="600">1. F1 only sees ~20mA (PSU)</text>
+  <text x="818" y="580" font-size="8" fill="#558b2f">1206 / 1A / 250VAC is adequate</text>
+  <text x="805" y="602" font-size="9" fill="#2e7d32" font-weight="600">2. Load current bypasses fuse</text>
+  <text x="818" y="616" font-size="8" fill="#558b2f">Protected by upstream MCB (6A/16A)</text>
+  <text x="805" y="638" font-size="9" fill="#2e7d32" font-weight="600">3. No fuse rating / size issue</text>
+  <text x="818" y="652" font-size="8" fill="#558b2f">Same 1206 footprint works fine</text>
+  <text x="805" y="674" font-size="9" fill="#2e7d32" font-weight="600">4. Same approach as Shelly/Aqara</text>
+  <text x="818" y="688" font-size="8" fill="#558b2f">They fuse the PSU, not the load path</text>
+  <text x="818" y="702" font-size="8" fill="#558b2f">MCB is the load overcurrent device</text>
+
+  <!-- Fuse parts -->
+  <rect x="790" y="740" width="270" height="110" rx="5" fill="#e3f2fd" stroke="#1565c0" stroke-width="1.5"/>
+  <text x="925" y="762" text-anchor="middle" font-size="11" font-weight="700" fill="#0d47a1">RECOMMENDED F1 PARTS</text>
+  <text x="805" y="784" font-size="9" fill="#1565c0" font-weight="600">Littelfuse 0466001.NR</text>
+  <text x="805" y="798" font-size="8" fill="#1565c0">1206 | 1A | 250VAC | Slow-blow</text>
+  <text x="805" y="818" font-size="9" fill="#1565c0" font-weight="600">Bourns SF-1206S100-2</text>
+  <text x="805" y="832" font-size="8" fill="#1565c0">1206 | 1A | 250VAC | Slow-blow</text>
+  <text x="805" y="846" font-size="7" fill="#7f8c8d">Verify I2t rating for HLK inrush (~10x)</text>
+
+  <!-- KiCad change note -->
+  <rect x="50" y="860" width="700" height="35" rx="4" fill="#fff8e1" stroke="#f9a825" stroke-width="1"/>
+  <text x="60" y="878" font-size="9" font-weight="600" fill="#e65100">KiCad Change:</text>
+  <text x="155" y="878" font-size="9" fill="#5d4037">Move F1 to dedicated branch: J1.L junction (A) F1 to HLK-2M05 | (B) direct to Relay K1/K2 COM</text>
+  <text x="60" y="892" font-size="8" fill="#888">Disconnect F1 output from MAINS_L bus. Connect F1 output directly to HLK-2M05 input only.</text>
+</svg>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R18 WSK2512 - Correct Schematic Connection</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0e17;
+    color: #e0e6ed;
+    font-family: 'IBM Plex Sans', sans-serif;
+    min-height: 100vh;
+    padding: 24px;
+  }
+
+  h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #4fc3f7;
+    text-align: center;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: #78909c;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #ff7043;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    padding-left: 4px;
+  }
+
+  .schematic-box {
+    background: #111827;
+    border: 1.5px solid #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .schematic-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff7043, #4fc3f7, #66bb6a);
+  }
+
+  svg text {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .issue-box {
+    background: linear-gradient(135deg, #1a1220 0%, #1c1018 100%);
+    border: 1.5px solid #5c2030;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .correct-box {
+    background: linear-gradient(135deg, #0d1a12 0%, #0a1810 100%);
+    border: 1.5px solid #1b5e20;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .pin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    margin-top: 12px;
+  }
+
+  .pin-table th {
+    background: #1e293b;
+    color: #4fc3f7;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #334155;
+  }
+
+  .pin-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #1e293b;
+    color: #b0bec5;
+  }
+
+  .pin-table tr:hover td {
+    background: #1a2332;
+  }
+
+  .pin-name { color: #ffb74d; font-weight: 600; }
+  .net-name { color: #81c784; }
+  .hlw-pin { color: #ce93d8; }
+  .error { color: #ef5350; font-weight: 600; }
+  .correct { color: #66bb6a; font-weight: 600; }
+
+  .legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .legend-swatch {
+    width: 24px;
+    height: 4px;
+    border-radius: 2px;
+  }
+
+  .note {
+    background: #1a2332;
+    border-left: 3px solid #4fc3f7;
+    padding: 12px 16px;
+    margin-top: 16px;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: #90a4ae;
+  }
+
+  .note strong { color: #4fc3f7; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>RelaySwitch_C6 — R18 Shunt Resistor Wiring</h1>
+  <p class="subtitle">WSK2512R0100FEA (1mΩ, 4-Terminal Kelvin Sense) + HLW8012</p>
+
+  <!-- CURRENT (WRONG) SCHEMATIC -->
+  <div class="issue-box">
+    <div class="section-label">❌ Current Wiring (Incorrect)</div>
+    <svg viewBox="0 0 880 260" width="100%" style="display:block;">
+      <!-- Background grid -->
+      <defs>
+        <pattern id="grid1" width="20" height="20" patternUnits="userSpaceOnUse">
+          <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1a1a2e" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+      <rect width="880" height="260" fill="url(#grid1)"/>
+
+      <!-- R18 Shunt Box -->
+      <rect x="310" y="60" width="220" height="130" rx="6" fill="#1c1018" stroke="#5c2030" stroke-width="1.5"/>
+      <text x="420" y="85" text-anchor="middle" fill="#ef5350" font-size="13" font-weight="700">R18 — WSK2512</text>
+      <text x="420" y="100" text-anchor="middle" fill="#78909c" font-size="10">1mΩ 4-Terminal Shunt</text>
+
+      <!-- Resistor element inside -->
+      <rect x="370" y="115" width="100" height="20" rx="3" fill="none" stroke="#ef5350" stroke-width="2"/>
+      <line x1="385" y1="125" x2="395" y2="115" stroke="#ef5350" stroke-width="1.5"/>
+      <line x1="395" y1="115" x2="405" y2="135" stroke="#ef5350" stroke-width="1.5"/>
+      <line x1="405" y1="135" x2="415" y2="115" stroke="#ef5350" stroke-width="1.5"/>
+      <line x1="415" y1="115" x2="425" y2="135" stroke="#ef5350" stroke-width="1.5"/>
+      <line x1="425" y1="135" x2="435" y2="115" stroke="#ef5350" stroke-width="1.5"/>
+      <line x1="435" y1="115" x2="445" y2="125" stroke="#ef5350" stroke-width="1.5"/>
+
+      <!-- Pin I1 (top-left) — NOT CONNECTED -->
+      <circle cx="330" cy="110" r="5" fill="none" stroke="#ef5350" stroke-width="2"/>
+      <text x="340" y="108" fill="#ffb74d" font-size="10" font-weight="600">I1</text>
+      <line x1="325" y1="110" x2="280" y2="110" stroke="#555" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="240" y="114" fill="#ef5350" font-size="10" font-weight="600">NC ✗</text>
+
+      <!-- Pin E1 (bottom-left) — connected to L -->
+      <circle cx="330" cy="155" r="5" fill="#66bb6a" stroke="#66bb6a" stroke-width="1.5"/>
+      <text x="340" y="153" fill="#ffb74d" font-size="10" font-weight="600">E1</text>
+      <line x1="325" y1="155" x2="180" y2="155" stroke="#66bb6a" stroke-width="2"/>
+      <text x="120" y="159" fill="#81c784" font-size="11" font-weight="600">net "L" (MAINS_L)</text>
+
+      <!-- Pin E2 (top-right) — connected to relay loads -->
+      <circle cx="510" cy="110" r="5" fill="#42a5f5" stroke="#42a5f5" stroke-width="1.5"/>
+      <text x="490" y="108" fill="#ffb74d" font-size="10" font-weight="600" text-anchor="end">E2</text>
+      <line x1="515" y1="110" x2="650" y2="110" stroke="#42a5f5" stroke-width="2"/>
+      <text x="660" y="114" fill="#42a5f5" font-size="11" font-weight="600">→ K1 NO + K2 NO</text>
+      <text x="660" y="128" fill="#78909c" font-size="9">(L_Sense → Relay loads)</text>
+
+      <!-- Pin I2 (bottom-right) — NOT CONNECTED -->
+      <circle cx="510" cy="155" r="5" fill="none" stroke="#ef5350" stroke-width="2"/>
+      <text x="490" y="153" fill="#ffb74d" font-size="10" font-weight="600" text-anchor="end">I2</text>
+      <line x1="515" y1="155" x2="570" y2="155" stroke="#555" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="580" y="159" fill="#ef5350" font-size="10" font-weight="600">NC ✗</text>
+
+      <!-- Internal connections from pins to resistor element -->
+      <line x1="330" y1="115" x2="370" y2="125" stroke="#444" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="330" y1="150" x2="370" y2="125" stroke="#444" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="510" y1="115" x2="470" y2="125" stroke="#444" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="510" y1="150" x2="470" y2="125" stroke="#444" stroke-width="1" stroke-dasharray="3,3"/>
+
+      <!-- HLW8012 NOT connected callout -->
+      <rect x="140" y="200" width="600" height="40" rx="6" fill="#2c1520" stroke="#ef5350" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="440" y="224" text-anchor="middle" fill="#ef5350" font-size="12" font-weight="600">
+        ⚠ HLW8012 V1P/V1N NOT connected to R18 — No current measurement happening!
+      </text>
+      <text x="440" y="238" text-anchor="middle" fill="#78909c" font-size="10">
+        Current flows through SENSE pads (E1→E2) instead of CURRENT pads (I1→I2) — WRONG
+      </text>
+    </svg>
+  </div>
+
+  <!-- CORRECT SCHEMATIC -->
+  <div class="correct-box">
+    <div class="section-label">✅ Correct Wiring (How It Should Be)</div>
+    <svg viewBox="0 0 880 340" width="100%" style="display:block;">
+      <defs>
+        <pattern id="grid2" width="20" height="20" patternUnits="userSpaceOnUse">
+          <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0d1a12" stroke-width="0.5"/>
+        </pattern>
+        <marker id="arrowG" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#66bb6a"/>
+        </marker>
+        <marker id="arrowP" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#ce93d8"/>
+        </marker>
+        <marker id="arrowO" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#ffb74d"/>
+        </marker>
+      </defs>
+      <rect width="880" height="340" fill="url(#grid2)"/>
+
+      <!-- Title area -->
+      <text x="440" y="25" text-anchor="middle" fill="#66bb6a" font-size="12" font-weight="700" letter-spacing="1">CORRECT 4-TERMINAL KELVIN SENSE WIRING</text>
+
+      <!-- R18 Shunt Box -->
+      <rect x="290" y="55" width="260" height="150" rx="8" fill="#0f2018" stroke="#2e7d32" stroke-width="2"/>
+      <text x="420" y="78" text-anchor="middle" fill="#66bb6a" font-size="14" font-weight="700">R18 — WSK2512</text>
+      <text x="420" y="93" text-anchor="middle" fill="#78909c" font-size="10">1mΩ, 1W, 4-Terminal Kelvin</text>
+
+      <!-- Resistor element -->
+      <rect x="355" y="115" width="130" height="24" rx="4" fill="#1b3a1f" stroke="#4caf50" stroke-width="2"/>
+      <text x="420" y="131" text-anchor="middle" fill="#a5d6a7" font-size="10" font-weight="600">1mΩ ELEMENT</text>
+
+      <!-- Pin I1 (top-left) - CURRENT IN -->
+      <rect x="300" y="101" width="30" height="18" rx="3" fill="#1b5e20" stroke="#66bb6a" stroke-width="1.5"/>
+      <text x="315" y="114" text-anchor="middle" fill="#ffb74d" font-size="10" font-weight="700">I1</text>
+      <!-- Wire from I1 to left -->
+      <line x1="300" y1="110" x2="100" y2="110" stroke="#66bb6a" stroke-width="2.5" marker-end="none"/>
+      <!-- MAINS_L label -->
+      <rect x="20" y="98" width="80" height="24" rx="4" fill="#1b3a1f" stroke="#66bb6a" stroke-width="1"/>
+      <text x="60" y="114" text-anchor="middle" fill="#66bb6a" font-size="11" font-weight="700">MAINS_L</text>
+      <!-- Arrow -->
+      <polygon points="100,104 110,110 100,116" fill="#66bb6a"/>
+
+      <!-- Pin I2 (top-right) - CURRENT OUT -->
+      <rect x="510" y="101" width="30" height="18" rx="3" fill="#1b5e20" stroke="#66bb6a" stroke-width="1.5"/>
+      <text x="525" y="114" text-anchor="middle" fill="#ffb74d" font-size="10" font-weight="700">I2</text>
+      <!-- Wire from I2 to right -->
+      <line x1="540" y1="110" x2="700" y2="110" stroke="#66bb6a" stroke-width="2.5"/>
+      <!-- Junction to K1 and K2 -->
+      <circle cx="700" cy="110" r="4" fill="#66bb6a"/>
+      <line x1="700" y1="110" x2="780" y2="85" stroke="#66bb6a" stroke-width="2"/>
+      <line x1="700" y1="110" x2="780" y2="135" stroke="#66bb6a" stroke-width="2"/>
+      <!-- K1 and K2 boxes -->
+      <rect x="780" y="72" width="80" height="26" rx="4" fill="#1a2332" stroke="#42a5f5" stroke-width="1.5"/>
+      <text x="820" y="89" text-anchor="middle" fill="#42a5f5" font-size="10" font-weight="600">K1 COM</text>
+      <rect x="780" y="122" width="80" height="26" rx="4" fill="#1a2332" stroke="#42a5f5" stroke-width="1.5"/>
+      <text x="820" y="139" text-anchor="middle" fill="#42a5f5" font-size="10" font-weight="600">K2 COM</text>
+
+      <!-- Internal lines I1 to element -->
+      <line x1="330" y1="115" x2="355" y2="122" stroke="#4caf50" stroke-width="1.5"/>
+      <!-- Internal lines I2 to element -->
+      <line x1="510" y1="115" x2="485" y2="122" stroke="#4caf50" stroke-width="1.5"/>
+
+      <!-- Pin E1 (bottom-left) - SENSE + -->
+      <rect x="300" y="145" width="30" height="18" rx="3" fill="#311b42" stroke="#ce93d8" stroke-width="1.5"/>
+      <text x="315" y="158" text-anchor="middle" fill="#ffb74d" font-size="10" font-weight="700">E1</text>
+      <!-- Internal line E1 to element -->
+      <line x1="330" y1="150" x2="355" y2="133" stroke="#ce93d8" stroke-width="1" stroke-dasharray="3,2"/>
+
+      <!-- Pin E2 (bottom-right) - SENSE - -->
+      <rect x="510" y="145" width="30" height="18" rx="3" fill="#311b42" stroke="#ce93d8" stroke-width="1.5"/>
+      <text x="525" y="158" text-anchor="middle" fill="#ffb74d" font-size="10" font-weight="700">E2</text>
+      <!-- Internal line E2 to element -->
+      <line x1="510" y1="150" x2="485" y2="133" stroke="#ce93d8" stroke-width="1" stroke-dasharray="3,2"/>
+
+      <!-- Sense wires going DOWN to HLW8012 -->
+      <line x1="300" y1="158" x2="250" y2="158" stroke="#ce93d8" stroke-width="2"/>
+      <line x1="250" y1="158" x2="250" y2="260" stroke="#ce93d8" stroke-width="2"/>
+      <line x1="250" y1="260" x2="380" y2="260" stroke="#ce93d8" stroke-width="2" marker-end="url(#arrowP)"/>
+
+      <line x1="540" y1="158" x2="590" y2="158" stroke="#ce93d8" stroke-width="2"/>
+      <line x1="590" y1="158" x2="590" y2="285" stroke="#ce93d8" stroke-width="2"/>
+      <line x1="590" y1="285" x2="380" y2="285" stroke="#ce93d8" stroke-width="2" marker-end="url(#arrowP)"/>
+
+      <!-- HLW8012 Box -->
+      <rect x="385" y="240" width="180" height="80" rx="8" fill="#1a1a2e" stroke="#7c4dff" stroke-width="2"/>
+      <text x="475" y="262" text-anchor="middle" fill="#b388ff" font-size="13" font-weight="700">HLW8012 (U5)</text>
+
+      <!-- V1P pin -->
+      <rect x="385" y="268" width="40" height="16" rx="2" fill="#311b42" stroke="#ce93d8" stroke-width="1"/>
+      <text x="405" y="280" text-anchor="middle" fill="#ce93d8" font-size="9" font-weight="600">V1P</text>
+      <text x="430" y="280" fill="#78909c" font-size="8">pin 2</text>
+
+      <!-- V1N pin -->
+      <rect x="385" y="290" width="40" height="16" rx="2" fill="#311b42" stroke="#ce93d8" stroke-width="1"/>
+      <text x="405" y="302" text-anchor="middle" fill="#ce93d8" font-size="9" font-weight="600">V1N</text>
+      <text x="430" y="302" fill="#78909c" font-size="8">pin 3</text>
+
+      <!-- Labels on sense wires -->
+      <text x="215" y="215" fill="#ce93d8" font-size="10" font-weight="600" transform="rotate(-90,215,215)">Sense +</text>
+      <text x="625" y="225" fill="#ce93d8" font-size="10" font-weight="600" transform="rotate(90,625,225)">Sense −</text>
+
+      <!-- Current flow arrow on top -->
+      <line x1="130" y1="80" x2="680" y2="80" stroke="#ffb74d" stroke-width="1.5" stroke-dasharray="8,4" marker-end="url(#arrowO)"/>
+      <text x="400" y="73" text-anchor="middle" fill="#ffb74d" font-size="10" font-weight="600">⚡ LOAD CURRENT FLOW (I1 → I2)</text>
+
+      <!-- GND on HLW8012 -->
+      <text x="540" y="302" fill="#78909c" font-size="9">V2P(pin4), GND(pin5)</text>
+
+    </svg>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-swatch" style="background:#66bb6a;"></div><span style="color:#66bb6a;">Current path (I1→I2) — high current</span></div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#ce93d8;"></div><span style="color:#ce93d8;">Sense path (E1→V1P, E2→V1N) — no current</span></div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#42a5f5;"></div><span style="color:#42a5f5;">Relay connections</span></div>
+    </div>
+  </div>
+
+  <!-- PIN MAPPING TABLE -->
+  <div class="schematic-box">
+    <div class="section-label">📋 R18 Pin Connection Summary</div>
+    <table class="pin-table">
+      <thead>
+        <tr>
+          <th>Pin</th>
+          <th>Function</th>
+          <th style="color:#ef5350;">Current (Wrong)</th>
+          <th style="color:#66bb6a;">Correct Connection</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pin-name">I1</span></td>
+          <td>Current IN (high current pad)</td>
+          <td class="error">Not Connected ✗</td>
+          <td class="correct">→ MAINS_L (net "L")</td>
+        </tr>
+        <tr>
+          <td><span class="pin-name">I2</span></td>
+          <td>Current OUT (high current pad)</td>
+          <td class="error">Not Connected ✗</td>
+          <td class="correct">→ K1 COM + K2 COM (relay loads)</td>
+        </tr>
+        <tr>
+          <td><span class="pin-name">E1</span></td>
+          <td>Voltage Sense + (Kelvin)</td>
+          <td class="error">Connected to L ✗ (carrying current!)</td>
+          <td class="correct">→ HLW8012 <span class="hlw-pin">V1P</span> (pin 2)</td>
+        </tr>
+        <tr>
+          <td><span class="pin-name">E2</span></td>
+          <td>Voltage Sense − (Kelvin)</td>
+          <td class="error">Connected to relay loads ✗</td>
+          <td class="correct">→ HLW8012 <span class="hlw-pin">V1N</span> (pin 3)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Key Principle:</strong> In a 4-terminal Kelvin shunt, <strong>I1/I2</strong> carry the full load current through thick pads, while <strong>E1/E2</strong> are thin sense-only connections that go directly to the HLW8012's differential current input (V1P/V1N). This eliminates PCB trace resistance from the measurement.<br><br>
+      <strong>Alternative (simpler):</strong> If you don't need Kelvin accuracy, remove R18 entirely and use your existing <strong>R10</strong> (standard 2-pin 1mΩ 2512) which is already correctly wired to V1P/V1N in your schematic.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

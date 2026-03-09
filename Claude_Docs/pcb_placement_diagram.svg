@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 900" font-family="Arial, sans-serif">
+  <!-- Title -->
+  <text x="350" y="25" text-anchor="middle" font-size="18" font-weight="bold" fill="#1B4F72">PCB Component Placement — 45mm × 50mm (2-Sided)</text>
+  
+  <!-- ===== TOP SIDE (F.Cu) — HV Components ===== -->
+  <text x="350" y="55" text-anchor="middle" font-size="14" font-weight="bold" fill="#E74C3C">TOP SIDE (F.Cu) — HIGH VOLTAGE COMPONENTS</text>
+  
+  <!-- Board outline -->
+  <rect x="100" y="70" width="450" height="370" fill="#1A2634" stroke="#F39C12" stroke-width="3" rx="4"/>
+  
+  <!-- Board dimensions -->
+  <text x="325" y="85" text-anchor="middle" font-size="11" fill="#F39C12">45mm × 50mm</text>
+  
+  <!-- HLK-2M05 (top-left) -->
+  <rect x="115" y="95" width="100" height="120" fill="#2C3E50" stroke="#3498DB" stroke-width="2" rx="3"/>
+  <text x="165" y="145" text-anchor="middle" font-size="12" font-weight="bold" fill="#3498DB">U1</text>
+  <text x="165" y="162" text-anchor="middle" font-size="10" fill="#AAA">HLK-2M05</text>
+  <text x="165" y="177" text-anchor="middle" font-size="9" fill="#888">AC-DC 5V</text>
+  <text x="165" y="192" text-anchor="middle" font-size="9" fill="#888">20×12mm</text>
+  
+  <!-- Relay K1 -->
+  <rect x="230" y="95" width="95" height="75" fill="#2C3E50" stroke="#E74C3C" stroke-width="2" rx="3"/>
+  <text x="278" y="125" text-anchor="middle" font-size="12" font-weight="bold" fill="#E74C3C">K1</text>
+  <text x="278" y="142" text-anchor="middle" font-size="10" fill="#AAA">G5Q-1A DC5</text>
+  <text x="278" y="157" text-anchor="middle" font-size="9" fill="#888">12.5×7.5mm</text>
+  
+  <!-- Relay K2 -->
+  <rect x="230" y="180" width="95" height="75" fill="#2C3E50" stroke="#E74C3C" stroke-width="2" rx="3"/>
+  <text x="278" y="210" text-anchor="middle" font-size="12" font-weight="bold" fill="#E74C3C">K2</text>
+  <text x="278" y="227" text-anchor="middle" font-size="10" fill="#AAA">G5Q-1A DC5</text>
+  <text x="278" y="242" text-anchor="middle" font-size="9" fill="#888">12.5×7.5mm</text>
+  
+  <!-- RV1 MOV -->
+  <circle cx="150" cy="260" r="20" fill="#2C3E50" stroke="#F39C12" stroke-width="2"/>
+  <text x="150" y="257" text-anchor="middle" font-size="10" font-weight="bold" fill="#F39C12">RV1</text>
+  <text x="150" y="270" text-anchor="middle" font-size="8" fill="#AAA">MOV</text>
+  
+  <!-- Fuse F1 -->
+  <rect x="115" y="300" width="30" height="12" fill="#2C3E50" stroke="#F39C12" stroke-width="1.5" rx="2"/>
+  <text x="130" y="309" text-anchor="middle" font-size="8" font-weight="bold" fill="#F39C12">F1</text>
+  <text x="130" y="330" text-anchor="middle" font-size="8" fill="#888">10A Fuse</text>
+  
+  <!-- J1 AC Mains Input (left edge) -->
+  <rect x="100" y="345" width="60" height="80" fill="#4A6FA5" stroke="#FFF" stroke-width="1.5" rx="3"/>
+  <text x="130" y="370" text-anchor="middle" font-size="10" font-weight="bold" fill="#FFF">J1</text>
+  <text x="130" y="385" text-anchor="middle" font-size="8" fill="#DDD">AC IN</text>
+  <circle cx="115" cy="400" r="5" fill="none" stroke="#FFF" stroke-width="1"/>
+  <text x="115" y="403" text-anchor="middle" font-size="6" fill="#FFF">L</text>
+  <circle cx="130" cy="400" r="5" fill="none" stroke="#FFF" stroke-width="1"/>
+  <text x="130" y="403" text-anchor="middle" font-size="6" fill="#FFF">N</text>
+  <circle cx="145" cy="400" r="5" fill="none" stroke="#FFF" stroke-width="1"/>
+  <text x="145" y="403" text-anchor="middle" font-size="5" fill="#FFF">GE</text>
+  
+  <!-- J3 Load 1 (right edge) -->
+  <rect x="490" y="95" width="50" height="55" fill="#27AE60" stroke="#FFF" stroke-width="1.5" rx="3"/>
+  <text x="515" y="115" text-anchor="middle" font-size="10" font-weight="bold" fill="#FFF">J3</text>
+  <text x="515" y="130" text-anchor="middle" font-size="8" fill="#DDD">LOAD1</text>
+  <circle cx="507" cy="140" r="4" fill="none" stroke="#FFF" stroke-width="1"/>
+  <circle cx="523" cy="140" r="4" fill="none" stroke="#FFF" stroke-width="1"/>
+  
+  <!-- J4 Load 2 (right edge) -->
+  <rect x="490" y="160" width="50" height="55" fill="#27AE60" stroke="#FFF" stroke-width="1.5" rx="3"/>
+  <text x="515" y="180" text-anchor="middle" font-size="10" font-weight="bold" fill="#FFF">J4</text>
+  <text x="515" y="195" text-anchor="middle" font-size="8" fill="#DDD">LOAD2</text>
+  <circle cx="507" cy="205" r="4" fill="none" stroke="#FFF" stroke-width="1"/>
+  <circle cx="523" cy="205" r="4" fill="none" stroke="#FFF" stroke-width="1"/>
+  
+  <!-- J5 SW1 Input (right edge, NEW) -->
+  <rect x="490" y="240" width="50" height="50" fill="#E67E22" stroke="#FFF" stroke-width="1.5" rx="3"/>
+  <text x="515" y="258" text-anchor="middle" font-size="10" font-weight="bold" fill="#FFF">J5</text>
+  <text x="515" y="273" text-anchor="middle" font-size="7" fill="#DDD">SW1 IN</text>
+  <text x="515" y="283" text-anchor="middle" font-size="7" fill="#FFF">★ NEW</text>
+  
+  <!-- J6 SW2 Input (right edge, NEW) -->
+  <rect x="490" y="300" width="50" height="50" fill="#E67E22" stroke="#FFF" stroke-width="1.5" rx="3"/>
+  <text x="515" y="318" text-anchor="middle" font-size="10" font-weight="bold" fill="#FFF">J6</text>
+  <text x="515" y="333" text-anchor="middle" font-size="7" fill="#DDD">SW2 IN</text>
+  <text x="515" y="343" text-anchor="middle" font-size="7" fill="#FFF">★ NEW</text>
+  
+  <!-- HV/LV Boundary Line -->
+  <line x1="115" y1="270" x2="540" y2="270" stroke="#E74C3C" stroke-width="1" stroke-dasharray="8,4"/>
+  <text x="430" y="266" font-size="9" font-weight="bold" fill="#E74C3C">← 3mm HV/LV clearance →</text>
+  
+  <!-- Test Points (bottom edge) -->
+  <rect x="350" y="400" width="120" height="25" fill="#2C3E50" stroke="#8E44AD" stroke-width="1.5" rx="2"/>
+  <text x="410" y="416" text-anchor="middle" font-size="9" font-weight="bold" fill="#8E44AD">TP1-TP4 (B.Cu via holes)</text>
+  
+  <!-- Mounting holes -->
+  <circle cx="120" cy="90" r="6" fill="none" stroke="#888" stroke-width="1.5"/>
+  <circle cx="530" cy="90" r="6" fill="none" stroke="#888" stroke-width="1.5"/>
+  <circle cx="120" cy="420" r="6" fill="none" stroke="#888" stroke-width="1.5"/>
+  <circle cx="530" cy="420" r="6" fill="none" stroke="#888" stroke-width="1.5"/>
+  
+  <!-- ===== BOTTOM SIDE (B.Cu) — LV Components ===== -->
+  <text x="350" y="485" text-anchor="middle" font-size="14" font-weight="bold" fill="#2E75B6">BOTTOM SIDE (B.Cu) — LOW VOLTAGE COMPONENTS (mirrored view)</text>
+  
+  <!-- Board outline -->
+  <rect x="100" y="500" width="450" height="370" fill="#1A3042" stroke="#2E75B6" stroke-width="3" rx="4"/>
+  
+  <!-- GND Pour indication -->
+  <rect x="105" y="505" width="440" height="360" fill="none" stroke="#27AE60" stroke-width="1" stroke-dasharray="3,3" rx="3"/>
+  <text x="325" y="520" text-anchor="middle" font-size="10" fill="#27AE60">GND Copper Pour (entire B.Cu)</text>
+  
+  <!-- ESP32-C6 (center) -->
+  <rect x="230" y="530" width="120" height="110" fill="#1E3A5F" stroke="#3498DB" stroke-width="2" rx="3"/>
+  <text x="290" y="565" text-anchor="middle" font-size="12" font-weight="bold" fill="#3498DB">U2</text>
+  <text x="290" y="582" text-anchor="middle" font-size="10" fill="#AAA">XIAO ESP32-C6</text>
+  <text x="290" y="597" text-anchor="middle" font-size="9" fill="#888">21×17.5mm</text>
+  <text x="290" y="612" text-anchor="middle" font-size="8" fill="#888">WiFi + BLE + Zigbee</text>
+  <text x="290" y="627" text-anchor="middle" font-size="8" fill="#3498DB">D0→SW1, D1→SW2</text>
+  
+  <!-- AMS1117 -->
+  <rect x="130" y="530" width="60" height="35" fill="#1E3A5F" stroke="#2E75B6" stroke-width="1.5" rx="2"/>
+  <text x="160" y="548" text-anchor="middle" font-size="9" font-weight="bold" fill="#2E75B6">U6</text>
+  <text x="160" y="560" text-anchor="middle" font-size="8" fill="#AAA">AMS1117</text>
+  
+  <!-- HLW8012 -->
+  <rect x="380" y="530" width="60" height="40" fill="#1E3A5F" stroke="#9B59B6" stroke-width="1.5" rx="2"/>
+  <text x="410" y="548" text-anchor="middle" font-size="9" font-weight="bold" fill="#9B59B6">U5</text>
+  <text x="410" y="563" text-anchor="middle" font-size="8" fill="#AAA">HLW8012</text>
+  
+  <!-- Optocouplers -->
+  <rect x="130" y="590" width="50" height="30" fill="#1E3A5F" stroke="#F39C12" stroke-width="1.5" rx="2"/>
+  <text x="155" y="605" text-anchor="middle" font-size="9" font-weight="bold" fill="#F39C12">U3</text>
+  <text x="155" y="616" text-anchor="middle" font-size="7" fill="#AAA">PC817S</text>
+  
+  <rect x="130" y="630" width="50" height="30" fill="#1E3A5F" stroke="#F39C12" stroke-width="1.5" rx="2"/>
+  <text x="155" y="645" text-anchor="middle" font-size="9" font-weight="bold" fill="#F39C12">U4</text>
+  <text x="155" y="656" text-anchor="middle" font-size="7" fill="#AAA">PC817S</text>
+  
+  <!-- Transistors -->
+  <rect x="195" y="660" width="30" height="20" fill="#1E3A5F" stroke="#E67E22" stroke-width="1.5" rx="2"/>
+  <text x="210" y="674" text-anchor="middle" font-size="8" font-weight="bold" fill="#E67E22">Q1</text>
+  
+  <rect x="235" y="660" width="30" height="20" fill="#1E3A5F" stroke="#E67E22" stroke-width="1.5" rx="2"/>
+  <text x="250" y="674" text-anchor="middle" font-size="8" font-weight="bold" fill="#E67E22">Q2</text>
+  
+  <!-- Diodes -->
+  <rect x="280" y="660" width="30" height="20" fill="#1E3A5F" stroke="#E74C3C" stroke-width="1.5" rx="2"/>
+  <text x="295" y="674" text-anchor="middle" font-size="8" font-weight="bold" fill="#E74C3C">D1</text>
+  
+  <rect x="320" y="660" width="30" height="20" fill="#1E3A5F" stroke="#E74C3C" stroke-width="1.5" rx="2"/>
+  <text x="335" y="674" text-anchor="middle" font-size="8" font-weight="bold" fill="#E74C3C">D2</text>
+  
+  <!-- SMD Resistors cluster -->
+  <rect x="370" y="600" width="120" height="70" fill="none" stroke="#2E75B6" stroke-width="1" stroke-dasharray="3,3" rx="3"/>
+  <text x="430" y="618" text-anchor="middle" font-size="9" fill="#2E75B6">SMD Resistors</text>
+  <text x="430" y="632" text-anchor="middle" font-size="8" fill="#AAA">R1-R9, R11-R17</text>
+  <text x="430" y="646" text-anchor="middle" font-size="8" fill="#AAA">(0402 & 0603)</text>
+  <text x="430" y="660" text-anchor="middle" font-size="8" fill="#AAA">R10 (2512 shunt)</text>
+  
+  <!-- SMD Capacitors cluster -->
+  <rect x="130" y="680" width="100" height="40" fill="none" stroke="#2E75B6" stroke-width="1" stroke-dasharray="3,3" rx="3"/>
+  <text x="180" y="698" text-anchor="middle" font-size="9" fill="#2E75B6">SMD Caps C1-C8</text>
+  <text x="180" y="712" text-anchor="middle" font-size="8" fill="#AAA">(0402 & 0805)</text>
+  
+  <!-- Test Points on bottom -->
+  <rect x="350" y="830" width="150" height="25" fill="#1E3A5F" stroke="#8E44AD" stroke-width="1.5" rx="2"/>
+  <text x="425" y="846" text-anchor="middle" font-size="9" font-weight="bold" fill="#8E44AD">TP_GND  TP_3V3  TP_TX  TP_RX</text>
+  
+  <!-- Legend -->
+  <rect x="105" y="740" width="140" height="115" fill="#0D1B2A" stroke="#555" stroke-width="1" rx="3"/>
+  <text x="175" y="758" text-anchor="middle" font-size="10" font-weight="bold" fill="#FFF">Legend</text>
+  <rect x="115" y="765" width="12" height="8" fill="#E74C3C"/>
+  <text x="135" y="773" font-size="9" fill="#AAA">HV / Relay</text>
+  <rect x="115" y="780" width="12" height="8" fill="#3498DB"/>
+  <text x="135" y="788" font-size="9" fill="#AAA">MCU / Power</text>
+  <rect x="115" y="795" width="12" height="8" fill="#27AE60"/>
+  <text x="135" y="803" font-size="9" fill="#AAA">Connectors</text>
+  <rect x="115" y="810" width="12" height="8" fill="#E67E22"/>
+  <text x="135" y="818" font-size="9" fill="#AAA">★ NEW Switch</text>
+  <rect x="115" y="825" width="12" height="8" fill="#9B59B6"/>
+  <text x="135" y="833" font-size="9" fill="#AAA">Metering</text>
+  <rect x="115" y="840" width="12" height="8" fill="#8E44AD"/>
+  <text x="135" y="848" font-size="9" fill="#AAA">Test Points</text>
+</svg>

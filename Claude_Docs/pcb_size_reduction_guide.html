@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCB Size Reduction — Smart Relay</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Syne:wght@400;600;700;800&display=swap');
+
+  :root {
+    --bg: #080a0f;
+    --s1: #0e1117;
+    --s2: #141820;
+    --border: #1e2535;
+    --accent: #f97316;
+    --blue: #38bdf8;
+    --green: #34d399;
+    --red: #f87171;
+    --yellow: #fbbf24;
+    --purple: #a78bfa;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); padding: 1.5rem; line-height: 1.6; }
+
+  h1 { font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 0.25rem; }
+  h2 { font-size: 1rem; font-weight: 700; color: var(--accent); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  h3 { font-size: 0.88rem; font-weight: 700; margin-bottom: 0.5rem; }
+
+  .sub { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-bottom: 2rem; }
+
+  .card {
+    background: var(--s1);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .card.accent-orange { border-left: 3px solid var(--accent); }
+  .card.accent-blue   { border-left: 3px solid var(--blue); }
+  .card.accent-green  { border-left: 3px solid var(--green); }
+  .card.accent-red    { border-left: 3px solid var(--red); }
+  .card.accent-purple { border-left: 3px solid var(--purple); }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+
+  @media(max-width:680px) { .grid2, .grid3 { grid-template-columns: 1fr; } }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    margin-right: 4px;
+  }
+  .tag.hv   { background: #450a0a; color: #f87171; }
+  .tag.lv   { background: #082032; color: #38bdf8; }
+  .tag.save { background: #052e16; color: #34d399; }
+  .tag.warn { background: #431407; color: #fb923c; }
+
+  /* Size comparison boxes */
+  .size-demo {
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
+    padding: 1.5rem;
+    background: var(--s2);
+    border-radius: 10px;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+  }
+
+  .pcb-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .pcb-rect {
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+  }
+
+  .pcb-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-align: center;
+  }
+  .pcb-sublabel {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  /* Component swap table */
+  table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+  th { background: var(--s2); color: var(--muted); font-weight: 600; padding: 0.5rem 0.7rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  td { padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--s2); }
+
+  .mono { font-family: var(--mono); color: #38bdf8; font-size: 0.75rem; }
+  .red  { color: var(--red); }
+  .green { color: var(--green); }
+  .yellow { color: var(--yellow); }
+  .orange { color: var(--accent); }
+
+  .tip {
+    background: var(--s2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    margin-top: 0.75rem;
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+  .tip-icon { font-size: 1rem; flex-shrink: 0; }
+
+  .step-list { list-style: none; }
+  .step-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.82rem;
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+  .step-list li:last-child { border-bottom: none; }
+  .step-n {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    min-width: 22px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  .saving-pill {
+    display: inline-block;
+    background: #052e16;
+    border: 1px solid #065f46;
+    color: var(--green);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 20px;
+    margin-left: 6px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Why Aqara Fits 45×48mm — You're at 60×60mm</h1>
+<div class="sub">// PCB size analysis + reduction roadmap for Indian switchboard fitment</div>
+
+<!-- ═══ SECTION 1: SIZE COMPARISON ═══ -->
+<h2>1. Visual Size Comparison</h2>
+
+<div class="card accent-orange">
+  <h3>Actual Dimensions — Your PCB vs Aqara T2</h3>
+  <div class="size-demo">
+
+    <!-- Indian switchboard reference -->
+    <div class="pcb-box">
+      <div class="pcb-rect" style="width:160px; height:160px; border: 2px dashed #475569; color:#64748b;">
+        Indian 2-gang<br>back box<br>~82×82mm<br>usable area
+      </div>
+      <div class="pcb-label" style="color:#64748b;">🇮🇳 Switchboard</div>
+      <div class="pcb-sublabel">Available space</div>
+    </div>
+
+    <!-- Your PCB -->
+    <div class="pcb-box">
+      <div class="pcb-rect" style="width:120px; height:120px; background:#450a0a; border: 2px solid #ef4444; color:#fca5a5;">
+        YOUR PCB<br>60×60mm<br>⚠ TOO BIG
+      </div>
+      <div class="pcb-label" style="color:#ef4444;">❌ Your Design</div>
+      <div class="pcb-sublabel">60 × 60 mm</div>
+    </div>
+
+    <!-- Aqara T2 -->
+    <div class="pcb-box">
+      <div class="pcb-rect" style="width:91px; height:96px; background:#052e16; border: 2px solid #10b981; color:#6ee7b7;">
+        AQARA T2<br>PCB ~38×40mm<br>+enclosure<br>=45.5×48mm
+      </div>
+      <div class="pcb-label" style="color:#10b981;">✓ Aqara T2</div>
+      <div class="pcb-sublabel">45.5 × 48 mm</div>
+    </div>
+
+    <!-- Target -->
+    <div class="pcb-box">
+      <div class="pcb-rect" style="width:90px; height:100px; background:#082032; border: 2px dashed #38bdf8; color:#7dd3fc;">
+        YOUR<br>TARGET<br>45×50mm<br>achievable!
+      </div>
+      <div class="pcb-label" style="color:#38bdf8;">🎯 Your Target</div>
+      <div class="pcb-sublabel">45 × 50 mm</div>
+    </div>
+
+  </div>
+  <div class="tip">
+    <span class="tip-icon">📐</span>
+    <span>The Aqara T2's <strong>outer enclosure is 45.5×48mm</strong> — the actual PCB inside is approximately <strong>38×42mm</strong>. The enclosure adds ~7mm all around. Your target of 45×50mm for the <em>PCB</em> is very achievable with the right component choices below.</span>
+  </div>
+</div>
+
+<!-- ═══ SECTION 2: WHY AQARA IS SMALLER ═══ -->
+<h2>2. How Aqara Achieves That Size — Their Secrets</h2>
+
+<div class="grid2">
+  <div class="card accent-purple">
+    <h3>🔌 No Traditional PSU Module</h3>
+    <p style="font-size:0.82rem; color:var(--muted);">Aqara does NOT use an HLK-PM01 module. They use a <strong>capacitor-dropper or tiny SMPS IC</strong> (like BP2525, BP2528 or similar single-chip mains-to-3.3V converter) directly on the PCB. These chips are 1–2mm SOP packages vs your HLK-PM01 which is <strong>34×20×15mm</strong> by itself — the single biggest space hog on your board.</p>
+  </div>
+
+  <div class="card accent-green">
+    <h3>📡 Integrated SoC — No Separate Module</h3>
+    <p style="font-size:0.82rem; color:var(--muted);">Aqara uses the <strong>EFR32MG24</strong> — a bare SoC chip (5×5mm QFN) with Zigbee built in. They don't use a development module like XIAO ESP32-C6 (which is 17.5×21mm DIP with PCB, USB port, LEDs, buttons all adding bulk you don't need).</p>
+  </div>
+
+  <div class="card accent-blue">
+    <h3>⚡ SMD Relays (or NO relays at all)</h3>
+    <p style="font-size:0.82rem; color:var(--muted);">Your HF3FF relay is <strong>19×15mm</strong> per unit × 2 = 38×15mm just for relays. Aqara uses either much smaller relays (like <strong>Omron G5Q = 12.5×7.5mm</strong>) or in some models uses <strong>triacs/SSRs</strong> instead of mechanical relays — no moving parts, tiny SMD package.</p>
+  </div>
+
+  <div class="card accent-red">
+    <h3>🔧 Zero Through-Hole Parts</h3>
+    <p style="font-size:0.82rem; color:var(--muted);">You have THT relays, THT transistors (TO-92), THT diodes (DO-41), THT optocouplers (DIP-4). Each THT component needs 2.54mm pin spacing, large drill holes, and keep-out zones. Aqara uses <strong>100% SMD</strong> — every component is surface mount, allowing much denser packing.</p>
+  </div>
+</div>
+
+<!-- ═══ SECTION 3: COMPONENT BY COMPONENT SAVINGS ═══ -->
+<h2>3. Component-by-Component Size Savings</h2>
+
+<div class="card">
+  <table>
+    <tr>
+      <th>Component</th>
+      <th>Your Current Choice</th>
+      <th>Current Size</th>
+      <th>Recommended Swap</th>
+      <th>New Size</th>
+      <th>Saving</th>
+    </tr>
+
+    <tr>
+      <td><strong>PSU</strong><br><span class="tag lv">U1</span></td>
+      <td><span class="mono">HLK-PM01</span><br>Potted module</td>
+      <td class="red">34×20×15mm<br><strong>680mm²</strong></td>
+      <td><span class="mono">BP2525 / Hi-Link HLK-PM01L</span><br>Single-chip SMPS or bare board</td>
+      <td class="green">~15×12mm<br><strong>180mm²</strong></td>
+      <td><span class="saving-pill">−500mm²</span></td>
+    </tr>
+
+    <tr>
+      <td><strong>MCU</strong><br><span class="tag lv">U2</span></td>
+      <td><span class="mono">XIAO ESP32-C6</span><br>DIP dev module</td>
+      <td class="red">21×17.5mm<br><strong>368mm²</strong></td>
+      <td><span class="mono">ESP32-C6-MINI-1</span> bare module<br>or <span class="mono">MGM240P</span> SoC</td>
+      <td class="green">13.2×16.6mm<br><strong>219mm²</strong></td>
+      <td><span class="saving-pill">−149mm²</span></td>
+    </tr>
+
+    <tr>
+      <td><strong>Relay ×2</strong><br><span class="tag hv">K1/K2</span></td>
+      <td><span class="mono">HF3FF</span><br>THT 5-pin</td>
+      <td class="red">19×15mm each<br><strong>570mm² total</strong></td>
+      <td><span class="mono">Omron G5Q-1</span><br>12.5×7.5mm THT<br><em>or</em> <span class="mono">G5SB</span> SMD relay</td>
+      <td class="green">12.5×7.5mm each<br><strong>188mm² total</strong></td>
+      <td><span class="saving-pill">−382mm²</span></td>
+    </tr>
+
+    <tr>
+      <td><strong>Optocouplers</strong><br><span class="tag lv">U4/U5</span></td>
+      <td><span class="mono">PC817</span><br>DIP-4 THT</td>
+      <td class="red">8×6mm each<br><strong>96mm² total</strong></td>
+      <td><span class="mono">PC817S</span> SMD-4<br>or <span class="mono">EL357N</span> SMD</td>
+      <td class="green">3.7×4mm each<br><strong>30mm² total</strong></td>
+      <td><span class="saving-pill">−66mm²</span></td>
+    </tr>
+
+    <tr>
+      <td><strong>Transistors</strong><br><span class="tag lv">Q1/Q2</span></td>
+      <td><span class="mono">S8050</span><br>TO-92 THT</td>
+      <td class="red">5×5mm each<br><strong>50mm² total</strong></td>
+      <td><span class="mono">MMBT8050</span><br>SOT-23 SMD</td>
+      <td class="green">1.3×2.4mm each<br><strong>6mm² total</strong></td>
+      <td><span class="saving-pill">−44mm²</span></td>
+    </tr>
+
+    <tr>
+      <td><strong>Flyback Diodes</strong><br><span class="tag lv">D1/D2</span></td>
+      <td><span class="mono">1N4007</span><br>DO-41 THT</td>
+      <td class="red">~27×4mm each<br><strong>216mm² total</strong></td>
+      <td><span class="mono">1N4007</span> SMD SMA<br>or <span class="mono">SS14</span> SMA</td>
+      <td class="green">4.4×2.7mm each<br><strong>24mm² total</strong></td>
+      <td><span class="saving-pill">−192mm²</span></td>
+    </tr>
+
+    <tr>
+      <td><strong>LDO Regulator</strong><br><span class="tag lv">U6</span></td>
+      <td><span class="mono">AMS1117</span><br>SOT-223 (already SMD)</td>
+      <td class="yellow">6.5×3.5mm<br><strong>Keep as-is</strong></td>
+      <td>Keep SOT-223 or swap to<br><span class="mono">MCP1700 SOT-23</span></td>
+      <td class="green">SOT-23 = 2.9×1.6mm</td>
+      <td><span class="saving-pill">−15mm²</span></td>
+    </tr>
+
+    <tr>
+      <td><strong>Fuse</strong><br><span class="tag hv">F1</span></td>
+      <td>5×20mm glass tube holder<br>(not yet placed)</td>
+      <td class="red">~30×10mm<br><strong>300mm²</strong></td>
+      <td><span class="mono">Littelfuse 0452002</span><br>1206 SMD fuse</td>
+      <td class="green">3.2×1.6mm<br><strong>5mm²</strong></td>
+      <td><span class="saving-pill">−295mm²</span></td>
+    </tr>
+
+    <tr>
+      <td><strong>Connectors</strong><br><span class="tag hv">J1–J5</span></td>
+      <td>5.08mm pitch screw terminals</td>
+      <td class="red">Large footprint</td>
+      <td>3.5mm pitch or 2.54mm<br>cage clamp terminals</td>
+      <td class="green">~30% smaller</td>
+      <td><span class="saving-pill">−significant</span></td>
+    </tr>
+
+  </table>
+
+  <div class="tip" style="margin-top:1rem;">
+    <span class="tip-icon">📊</span>
+    <span><strong>Total estimated area saving: ~1,643mm²</strong> — that's the equivalent of a <strong>40×41mm slab</strong> of PCB freed up just by switching to SMD. Your 60×60mm board can realistically shrink to <strong>42×48mm</strong> with all the swaps above.</span>
+  </div>
+</div>
+
+<!-- ═══ SECTION 4: BIGGEST WIN - PSU ═══ -->
+<h2>4. The #1 Win — Replace HLK-PM01</h2>
+
+<div class="card accent-orange">
+  <h3>Option A: HLK-PM01L (Bare Board) — Easiest Drop-In</h3>
+  <p style="font-size:0.82rem; color:var(--muted); margin-bottom:0.75rem;">Same electrical design as HLK-PM01 but without the outer plastic potted enclosure. Same pinout, same KiCad footprint works.</p>
+  <div style="display:flex; gap:1.5rem; font-family:var(--mono); font-size:0.78rem; flex-wrap:wrap;">
+    <div><span style="color:var(--red);">HLK-PM01: 34×20×15mm</span></div>
+    <div>→</div>
+    <div><span style="color:var(--green);">HLK-PM01L: ~22×17×9mm</span></div>
+    <div><span class="saving-pill">saves ~12mm width</span></div>
+  </div>
+
+  <h3 style="margin-top:1rem;">Option B: Hi-Link HLK-2M05 — Smaller, 2W</h3>
+  <p style="font-size:0.82rem; color:var(--muted); margin-bottom:0.75rem;">2W version, enough for ESP32-C6 + relays. Smaller footprint.</p>
+  <div style="display:flex; gap:1.5rem; font-family:var(--mono); font-size:0.78rem; flex-wrap:wrap;">
+    <div><span style="color:var(--red);">HLK-PM01: 34×20mm</span></div>
+    <div>→</div>
+    <div><span style="color:var(--green);">HLK-2M05: ~20×12mm</span></div>
+    <div><span class="saving-pill">saves ~60mm²</span></div>
+  </div>
+
+  <h3 style="margin-top:1rem;">Option C: Single-chip SMPS (Advanced — Like Aqara) ⭐</h3>
+  <p style="font-size:0.82rem; color:var(--muted); margin-bottom:0.75rem;">Replace the entire HLK module with a discrete SMPS IC. This is exactly what Aqara, Sonoff, Shelly all do.</p>
+  <table style="margin-top:0.5rem;">
+    <tr><th>IC</th><th>Input</th><th>Output</th><th>Package</th><th>Footprint on PCB</th></tr>
+    <tr><td class="mono">BP2525</td><td>85-265VAC</td><td>5V/300mA</td><td>SOP-8</td><td class="green">~5×6mm</td></tr>
+    <tr><td class="mono">BP2528</td><td>85-265VAC</td><td>5V/500mA</td><td>SOP-8</td><td class="green">~5×6mm</td></tr>
+    <tr><td class="mono">TNY268</td><td>85-265VAC</td><td>5V/360mA</td><td>DIP-8/SO-8</td><td class="green">~6×7mm</td></tr>
+    <tr><td class="mono">LNK302</td><td>85-265VAC</td><td>5V/200mA</td><td>SOT-23-6</td><td class="green">~3×3mm</td></tr>
+  </table>
+  <div class="tip" style="margin-top:0.75rem;">
+    <span class="tip-icon">⚠</span>
+    <span>Option C requires designing the transformer/inductor circuit yourself — more complex but gives maximum size reduction. For a commercial product this is the right path but requires extra EMC testing. Start with Option A or B for prototyping.</span>
+  </div>
+</div>
+
+<!-- ═══ SECTION 5: RELAY REPLACEMENT ═══ -->
+<h2>5. Relay Swap — HF3FF → G5Q</h2>
+
+<div class="card accent-blue">
+  <div class="grid2">
+    <div>
+      <h3 style="color:var(--red);">❌ Current: HF3FF (19×15mm each)</h3>
+      <ul style="font-size:0.8rem; color:var(--muted); padding-left:1rem; line-height:2;">
+        <li>19.0 × 15.2mm footprint</li>
+        <li>THT 5-pin (large drill holes)</li>
+        <li>Height: 15.5mm tall</li>
+        <li>Two of these = 38×15mm strip</li>
+        <li>Coil: 5VDC, 360mW</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color:var(--green);">✓ Recommended: Omron G5Q-1 (12.5×7.5mm)</h3>
+      <ul style="font-size:0.8rem; color:var(--muted); padding-left:1rem; line-height:2;">
+        <li><strong>12.5 × 7.5mm footprint</strong></li>
+        <li>THT, same 10A/250VAC rating</li>
+        <li>Height: 10mm tall (lower profile)</li>
+        <li>Two of these = 25×7.5mm</li>
+        <li>Coil: 5VDC, 200mW (less heat!)</li>
+        <li>KiCad: <span class="mono">Relay_THT:Relay_SPDT_Omron_G5Q</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="tip">
+    <span class="tip-icon">💡</span>
+    <span>The G5Q is a direct electrical equivalent to HF3FF — same 10A 250VAC rating, same SPDT contact form, same 5V coil. It's just a physically smaller "sugar cube" style relay. No schematic changes needed, just swap the footprint in KiCad.</span>
+  </div>
+</div>
+
+<!-- ═══ SECTION 6: MCU SWAP ═══ -->
+<h2>6. MCU Module Swap</h2>
+<div class="card accent-green">
+  <div class="grid2">
+    <div>
+      <h3 style="color:var(--red);">❌ Current: XIAO ESP32-C6 DIP (21×17.5mm)</h3>
+      <p style="font-size:0.8rem; color:var(--muted); line-height:1.8;">The XIAO is a great dev tool but includes USB-C port, LEDs, reset button, 5V regulator — things you don't need in a final product. All of these add bulk.</p>
+    </div>
+    <div>
+      <h3 style="color:var(--green);">✓ Recommended: ESP32-C6-MINI-1 (13.2×16.6mm)</h3>
+      <p style="font-size:0.8rem; color:var(--muted); line-height:1.8;">Bare ESP32-C6 module. Same chip, same Zigbee/WiFi, smaller PCB footprint, castellation pads for SMD soldering. Official Espressif module, CE/FCC certified for commercial use.</p>
+    </div>
+  </div>
+  <table style="margin-top:0.75rem;">
+    <tr><th>Module</th><th>Size</th><th>Pins</th><th>Antenna</th><th>Suitable for commercial</th></tr>
+    <tr><td class="mono">XIAO ESP32-C6</td><td class="red">21×17.5mm</td><td>DIP thru-hole</td><td>On-board ceramic</td><td>Prototype only</td></tr>
+    <tr><td class="mono">ESP32-C6-MINI-1</td><td class="green">13.2×16.6mm</td><td>Castellation SMD</td><td>On-board PCB antenna</td><td class="green">✓ Yes (FCC/CE)</td></tr>
+    <tr><td class="mono">ESP32-C6-WROOM-1</td><td class="yellow">18×20mm</td><td>Castellation SMD</td><td>External antenna option</td><td class="green">✓ Yes</td></tr>
+  </table>
+</div>
+
+<!-- ═══ SECTION 7: ACTION PLAN ═══ -->
+<h2>7. Step-by-Step Action Plan to Hit 45×50mm</h2>
+<div class="card accent-orange">
+  <ul class="step-list">
+    <li>
+      <span class="step-n">01</span>
+      <div><strong>Swap all THT passives to SMD</strong> — Diodes 1N4007 → SMA package. Transistors S8050 → MMBT8050 SOT-23. Optocouplers PC817 DIP → PC817S SMD. This alone reclaims huge area and removes the need for large drill keepouts. <span class="saving-pill">saves ~300mm²</span></div>
+    </li>
+    <li>
+      <span class="step-n">02</span>
+      <div><strong>Replace HF3FF relays with Omron G5Q-1-DC5</strong> — Same rating, smaller body. Place both relays side by side along one edge of the board. <span class="saving-pill">saves ~380mm²</span></div>
+    </li>
+    <li>
+      <span class="step-n">03</span>
+      <div><strong>Switch from XIAO to ESP32-C6-MINI-1</strong> — Reuse all your schematic logic, GPIO assignments stay the same. Update the symbol and footprint in KiCad. <span class="saving-pill">saves ~150mm²</span></div>
+    </li>
+    <li>
+      <span class="step-n">04</span>
+      <div><strong>Replace HLK-PM01 with HLK-PM01L (bare board)</strong> for prototyping. Plan for a BP2528-based discrete SMPS for production. <span class="saving-pill">saves ~500mm²</span></div>
+    </li>
+    <li>
+      <span class="step-n">05</span>
+      <div><strong>Use 3.5mm pitch screw terminals instead of 5.08mm</strong> — Many Indian panel connector suppliers carry 3.5mm pitch terminal blocks rated for 10A. Saves ~30% connector length.</div>
+    </li>
+    <li>
+      <span class="step-n">06</span>
+      <div><strong>Use SMD fuse 1206 (Littelfuse 0452002.MR)</strong> instead of any through-hole fuse holder. Already discussed — tiny footprint.</div>
+    </li>
+    <li>
+      <span class="step-n">07</span>
+      <div><strong>Place components on both sides of the PCB</strong> — Put the ESP32-C6 module and LV passives on top, put the relays and HV components on the bottom. KiCad supports this with the Fab_Back and Cu_Back layers. This is standard for commercial smart switches.</div>
+    </li>
+    <li>
+      <span class="step-n">08</span>
+      <div><strong>Eliminate the debug UART header J1</strong> — Add programming pads (test points) instead of a full connector. For production boards, a 6-pad UART footprint with no connector saves ~15×10mm.</div>
+    </li>
+  </ul>
+</div>
+
+<!-- ═══ SECTION 8: EXPECTED RESULT ═══ -->
+<h2>8. Expected Final Result After All Swaps</h2>
+<div class="grid3">
+  <div class="card" style="text-align:center;">
+    <div style="font-size:2rem; font-weight:800; color:var(--red);">60×60</div>
+    <div style="font-family:var(--mono); font-size:0.72rem; color:var(--muted);">Your current PCB (mm)</div>
+    <div style="font-size:0.8rem; margin-top:0.5rem; color:var(--red);">3600mm² total area</div>
+  </div>
+  <div class="card" style="text-align:center;">
+    <div style="font-size:2rem; font-weight:800; color:var(--yellow);">45×50</div>
+    <div style="font-family:var(--mono); font-size:0.72rem; color:var(--muted);">Target with all swaps (mm)</div>
+    <div style="font-size:0.8rem; margin-top:0.5rem; color:var(--yellow);">2250mm² total area</div>
+  </div>
+  <div class="card" style="text-align:center;">
+    <div style="font-size:2rem; font-weight:800; color:var(--green);">−37%</div>
+    <div style="font-family:var(--mono); font-size:0.72rem; color:var(--muted);">Area reduction</div>
+    <div style="font-size:0.8rem; margin-top:0.5rem; color:var(--green);">Fits Indian 2-gang box ✓</div>
+  </div>
+</div>
+
+<div class="tip">
+  <span class="tip-icon">🇮🇳</span>
+  <span>Standard Indian 2-gang modular switchboard (Anchor/Legrand style) back-box has approximately <strong>75×75mm internal usable depth area</strong>. A 45×50mm PCB fits comfortably with room for wiring. The Aqara T2 at 45.5×48mm is already right at this limit — that's why they made it exactly that size.</span>
+</div>
+
+</body>
+</html>

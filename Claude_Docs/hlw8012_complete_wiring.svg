@@ -1,0 +1,365 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 950" font-family="'Courier New', monospace">
+  <style>
+    .wire { stroke: #1a1a1a; stroke-width: 2; fill: none; }
+    .wire-hot { stroke: #c0392b; stroke-width: 2.5; fill: none; }
+    .wire-gnd { stroke: #2c3e50; stroke-width: 2; fill: none; }
+    .wire-3v3 { stroke: #e67e22; stroke-width: 2; fill: none; }
+    .wire-5v { stroke: #e74c3c; stroke-width: 2; fill: none; }
+    .wire-signal { stroke: #2980b9; stroke-width: 2; fill: none; }
+    .wire-fix { stroke: #27ae60; stroke-width: 2.5; fill: none; }
+    .wire-load { stroke: #8e44ad; stroke-width: 2.5; fill: none; }
+    .comp { fill: #f9f9f9; stroke: #333; stroke-width: 1.5; }
+    .ic { fill: #e8e8e8; stroke: #333; stroke-width: 2; }
+    .relay-box { fill: #fef9e7; stroke: #d4ac0d; stroke-width: 2; rx: 4; }
+    .conn-box { fill: #fdebd0; stroke: #e67e22; stroke-width: 2; rx: 3; }
+    .mcu-box { fill: #eaf2f8; stroke: #2980b9; stroke-width: 2; rx: 5; }
+    .fix-highlight { fill: #eafaf1; stroke: #27ae60; stroke-width: 2.5; rx: 5; stroke-dasharray: 6,3; }
+    .label { font-size: 11px; fill: #333; font-weight: bold; }
+    .value { font-size: 9px; fill: #666; }
+    .net { font-size: 11px; fill: #c0392b; font-weight: bold; }
+    .pin { font-size: 9px; fill: #555; }
+    .title { font-size: 20px; fill: #1a1a1a; font-weight: bold; }
+    .subtitle { font-size: 12px; fill: #555; }
+    .section { font-size: 13px; fill: #2c3e50; font-weight: bold; }
+    .fix-label { font-size: 11px; fill: #27ae60; font-weight: bold; }
+    .error-label { font-size: 11px; fill: #e74c3c; font-weight: bold; }
+    .dot { fill: #1a1a1a; }
+    .dot-fix { fill: #27ae60; }
+    .gnd-sym { stroke: #2c3e50; stroke-width: 2; fill: none; }
+  </style>
+
+  <rect width="1300" height="950" fill="#fefefe"/>
+
+  <!-- Title -->
+  <text x="650" y="35" text-anchor="middle" class="title">HLW8012 — Complete Wiring with Current Shunt Fix</text>
+  <text x="650" y="55" text-anchor="middle" class="subtitle">RelaySwitch_C6 — Navi Homelab — Showing R_SHUNT in Relay → Load path</text>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 1: VOLTAGE SENSING (Top Area) -->
+  <!-- ============================================================ -->
+  <text x="40" y="90" class="section">① VOLTAGE SENSING PATH (V1P/V1N) — Existing ✓</text>
+
+  <!-- L net -->
+  <text x="20" y="130" class="net" font-size="13">L</text>
+  <line x1="35" y1="127" x2="60" y2="127" class="wire-hot"/>
+  <circle cx="60" cy="127" r="3" class="dot"/>
+
+  <!-- R4 -->
+  <line x1="60" y1="127" x2="80" y2="127" class="wire"/>
+  <rect x="80" y="120" width="55" height="14" class="comp"/>
+  <text x="107" y="131" text-anchor="middle" class="label" font-size="9">R4</text>
+  <text x="107" y="145" text-anchor="middle" class="value">470k</text>
+
+  <!-- R6 -->
+  <line x1="135" y1="127" x2="155" y2="127" class="wire"/>
+  <rect x="155" y="120" width="55" height="14" class="comp"/>
+  <text x="182" y="131" text-anchor="middle" class="label" font-size="9">R6</text>
+  <text x="182" y="145" text-anchor="middle" class="value">470k</text>
+
+  <!-- R7 -->
+  <line x1="210" y1="127" x2="230" y2="127" class="wire"/>
+  <rect x="230" y="120" width="55" height="14" class="comp"/>
+  <text x="257" y="131" text-anchor="middle" class="label" font-size="9">R7</text>
+  <text x="257" y="145" text-anchor="middle" class="value">470k</text>
+
+  <!-- R8 -->
+  <line x1="285" y1="127" x2="305" y2="127" class="wire"/>
+  <rect x="305" y="120" width="55" height="14" class="comp"/>
+  <text x="332" y="131" text-anchor="middle" class="label" font-size="9">R8</text>
+  <text x="332" y="145" text-anchor="middle" class="value">470k</text>
+
+  <!-- R13 -->
+  <line x1="360" y1="127" x2="380" y2="127" class="wire"/>
+  <rect x="380" y="120" width="55" height="14" class="comp"/>
+  <text x="407" y="131" text-anchor="middle" class="label" font-size="9">R13</text>
+  <text x="407" y="145" text-anchor="middle" class="value">470k</text>
+
+  <!-- Junction after R13 -->
+  <line x1="435" y1="127" x2="470" y2="127" class="wire"/>
+  <circle cx="470" cy="127" r="4" class="dot"/>
+
+  <!-- R9 down to GND -->
+  <line x1="470" y1="127" x2="470" y2="155" class="wire"/>
+  <rect x="463" y="155" width="14" height="40" class="comp"/>
+  <text x="485" y="175" class="label" font-size="9">R9</text>
+  <text x="485" y="187" class="value">1k</text>
+  <line x1="470" y1="195" x2="470" y2="210" class="wire-gnd"/>
+  <line x1="458" y1="210" x2="482" y2="210" class="gnd-sym"/>
+  <line x1="462" y1="215" x2="478" y2="215" class="gnd-sym"/>
+  <line x1="466" y1="220" x2="474" y2="220" class="gnd-sym"/>
+
+  <!-- Tap point to V1P label -->
+  <line x1="470" y1="127" x2="540" y2="127" class="wire-signal"/>
+  <text x="545" y="131" class="label" font-size="10" fill="#2980b9">→ V1P (pin 2)</text>
+
+  <!-- R10 from tap back to L -->
+  <circle cx="470" cy="127" r="0"/>
+  <line x1="540" y1="127" x2="540" y2="100" class="wire"/>
+  <rect x="533" y="60" width="14" height="40" class="comp"/>
+  <text x="555" y="80" class="label" font-size="9">R10</text>
+  <text x="555" y="92" class="value">1MΩ</text>
+  <line x1="540" y1="60" x2="540" y2="45" class="wire"/>
+  <line x1="540" y1="45" x2="60" y2="45" class="wire-hot"/>
+  <line x1="60" y1="45" x2="60" y2="127" class="wire-hot"/>
+  <text x="300" y="40" text-anchor="middle" class="net">L (feedback via R10=1MΩ)</text>
+
+  <!-- V1N to GND -->
+  <text x="545" y="155" class="label" font-size="10">V1N (pin 3) → GND ✓</text>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 2: HLW8012 IC + Power + Output Pins -->
+  <!-- ============================================================ -->
+  <text x="40" y="270" class="section">② HLW8012 IC, POWER &amp; OUTPUTS — Existing ✓</text>
+
+  <!-- HLW8012 IC -->
+  <rect x="120" y="290" width="180" height="200" class="ic" rx="3"/>
+  <text x="210" y="320" text-anchor="middle" class="label" font-size="14">HLW8012 (U5)</text>
+
+  <!-- Left pins -->
+  <circle cx="120" cy="355" r="3" class="dot"/>
+  <text x="135" y="359" class="pin" font-size="10">VDD   1</text>
+
+  <circle cx="120" cy="390" r="3" class="dot"/>
+  <text x="135" y="394" class="pin" font-size="10">V1P   2</text>
+
+  <circle cx="120" cy="425" r="3" class="dot"/>
+  <text x="135" y="429" class="pin" font-size="10">V1N   3</text>
+
+  <circle cx="120" cy="460" r="3" class="dot"/>
+  <text x="135" y="464" class="pin" font-size="10">V2P   4</text>
+
+  <!-- Right pins -->
+  <circle cx="300" cy="355" r="3" class="dot"/>
+  <text x="255" y="359" class="pin" font-size="10">5  GND</text>
+
+  <circle cx="300" cy="390" r="3" class="dot"/>
+  <text x="263" y="394" class="pin" font-size="10">6  CF</text>
+
+  <circle cx="300" cy="425" r="3" class="dot"/>
+  <text x="259" y="429" class="pin" font-size="10">7  CF1</text>
+
+  <circle cx="300" cy="460" r="3" class="dot"/>
+  <text x="259" y="464" class="pin" font-size="10">8  SEL</text>
+
+  <!-- VDD - +5V -->
+  <line x1="120" y1="355" x2="70" y2="355" class="wire-5v"/>
+  <line x1="70" y1="355" x2="70" y2="340" class="wire-5v"/>
+  <text x="70" y="335" text-anchor="middle" class="net" style="fill:#e74c3c" font-size="12">+5V</text>
+
+  <!-- C6 decoupling -->
+  <circle cx="70" cy="355" r="3" class="dot"/>
+  <line x1="50" y1="355" x2="50" y2="368" class="wire"/>
+  <line x1="42" y1="368" x2="58" y2="368" stroke="#333" stroke-width="2"/>
+  <line x1="42" y1="374" x2="58" y2="374" stroke="#333" stroke-width="2"/>
+  <line x1="50" y1="374" x2="50" y2="390" class="wire-gnd"/>
+  <line x1="38" y1="390" x2="62" y2="390" class="gnd-sym"/>
+  <line x1="42" y1="395" x2="58" y2="395" class="gnd-sym"/>
+  <line x1="46" y1="400" x2="54" y2="400" class="gnd-sym"/>
+  <text x="30" y="370" class="label" font-size="8">C6</text>
+  <text x="22" y="380" class="value">100nF</text>
+
+  <!-- GND pin 5 -->
+  <line x1="300" y1="355" x2="340" y2="355" class="wire-gnd"/>
+  <line x1="340" y1="355" x2="340" y2="370" class="wire-gnd"/>
+  <line x1="328" y1="370" x2="352" y2="370" class="gnd-sym"/>
+  <line x1="332" y1="375" x2="348" y2="375" class="gnd-sym"/>
+  <line x1="336" y1="380" x2="344" y2="380" class="gnd-sym"/>
+
+  <!-- V1P connection indicator -->
+  <line x1="120" y1="390" x2="80" y2="390" class="wire-signal"/>
+  <text x="30" y="394" class="pin" font-size="9">from divider ↑</text>
+
+  <!-- V1N to GND -->
+  <line x1="120" y1="425" x2="80" y2="425" class="wire-gnd"/>
+  <line x1="80" y1="425" x2="80" y2="440" class="wire-gnd"/>
+  <line x1="68" y1="440" x2="92" y2="440" class="gnd-sym"/>
+  <line x1="72" y1="445" x2="88" y2="445" class="gnd-sym"/>
+  <line x1="76" y1="450" x2="84" y2="450" class="gnd-sym"/>
+
+  <!-- V2P — connect to shunt (shown below) -->
+  <line x1="120" y1="460" x2="60" y2="460" class="wire-fix"/>
+  <line x1="60" y1="460" x2="60" y2="620" class="wire-fix"/>
+  <text x="30" y="540" class="fix-label" font-size="10" transform="rotate(-90,30,540)">V2P to shunt ↓</text>
+
+  <!-- CF pin 6 -->
+  <line x1="300" y1="390" x2="370" y2="390" class="wire-signal"/>
+  <circle cx="370" cy="390" r="3" class="dot"/>
+  <!-- R12 pull-up -->
+  <line x1="370" y1="390" x2="370" y2="350" class="wire"/>
+  <rect x="363" y="310" width="14" height="40" class="comp"/>
+  <text x="390" y="330" class="label" font-size="9">R12</text>
+  <text x="390" y="342" class="value">1k</text>
+  <line x1="370" y1="310" x2="370" y2="295" class="wire-3v3"/>
+  <text x="370" y="290" text-anchor="middle" class="net" style="fill:#e67e22">+3V3</text>
+  <!-- HLW_CF to MCU -->
+  <line x1="370" y1="390" x2="500" y2="390" class="wire-signal"/>
+  <text x="420" y="385" class="label" font-size="9">HLW_CF</text>
+  <rect x="500" y="380" width="130" height="22" class="mcu-box"/>
+  <text x="565" y="395" text-anchor="middle" class="label" font-size="9" fill="#2980b9">MCU GPIO20</text>
+
+  <!-- CF1 pin 7 -->
+  <line x1="300" y1="425" x2="430" y2="425" class="wire-signal"/>
+  <circle cx="430" cy="425" r="3" class="dot"/>
+  <!-- R11 pull-up -->
+  <line x1="430" y1="425" x2="430" y2="350" class="wire"/>
+  <rect x="423" y="310" width="14" height="40" class="comp"/>
+  <text x="450" y="330" class="label" font-size="9">R11</text>
+  <text x="450" y="342" class="value">1k</text>
+  <line x1="430" y1="310" x2="430" y2="295" class="wire-3v3"/>
+  <text x="430" y="290" text-anchor="middle" class="net" style="fill:#e67e22">+3V3</text>
+  <!-- HLW_CF1 to MCU -->
+  <line x1="430" y1="425" x2="500" y2="425" class="wire-signal"/>
+  <text x="455" y="420" class="label" font-size="9">HLW_CF1</text>
+  <rect x="500" y="415" width="130" height="22" class="mcu-box"/>
+  <text x="565" y="430" text-anchor="middle" class="label" font-size="9" fill="#2980b9">MCU GPIO21</text>
+
+  <!-- SEL pin 8 -->
+  <line x1="300" y1="460" x2="500" y2="460" class="wire-signal"/>
+  <text x="380" y="455" class="label" font-size="9">HLW_SEL</text>
+  <rect x="500" y="450" width="130" height="22" class="mcu-box"/>
+  <text x="565" y="465" text-anchor="middle" class="label" font-size="9" fill="#2980b9">MCU GPIO22</text>
+
+  <!-- MCU label box -->
+  <rect x="490" y="370" width="150" height="115" rx="5" fill="none" stroke="#2980b9" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="565" y="498" text-anchor="middle" class="label" font-size="10" fill="#2980b9">XIAO-ESP32-C6 (U2)</text>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 3: RELAY + SHUNT + LOAD — THE FIX (Full Path) -->
+  <!-- ============================================================ -->
+  <rect x="30" y="560" width="1240" height="280" class="fix-highlight"/>
+  <text x="50" y="585" class="fix-label" font-size="14">③ FIX: Add R_SHUNT in Relay → Load Path (Current Sensing via V2P)</text>
+
+  <!-- ===== CHANNEL 1 ===== -->
+  <text x="80" y="618" class="section" font-size="12">CHANNEL 1</text>
+
+  <!-- +5V to relay coil -->
+  <text x="80" y="645" class="net" style="fill:#e74c3c">+5V</text>
+  <line x1="105" y1="642" x2="130" y2="642" class="wire-5v"/>
+
+  <!-- Relay K1 box -->
+  <rect x="130" y="625" width="160" height="65" class="relay-box"/>
+  <text x="210" y="645" text-anchor="middle" class="label" font-size="11">K1 — G5Q-1-DC5</text>
+  <text x="145" y="665" class="pin" font-size="9">COIL_1 (1)</text>
+  <text x="145" y="678" class="pin" font-size="9">COIL_2 (3) ←+5V</text>
+  <!-- Relay switch contacts -->
+  <text x="240" y="665" class="pin" font-size="9" text-anchor="end">COM (2)</text>
+  <text x="240" y="678" class="pin" font-size="9" text-anchor="end">NO (4)</text>
+
+  <!-- L input to COM -->
+  <text x="310" y="660" class="net">L</text>
+  <line x1="290" y1="657" x2="330" y2="657" class="wire-hot"/>
+
+  <!-- NO output -->
+  <line x1="290" y1="673" x2="350" y2="673" class="wire-load"/>
+  <text x="340" y="668" class="label" font-size="9" fill="#8e44ad">NO</text>
+
+  <!-- ★ R_SHUNT between NO and Load ★ -->
+  <rect x="350" y="666" width="80" height="14" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/>
+  <text x="390" y="677" text-anchor="middle" class="fix-label" font-size="10">R_SHUNT1</text>
+  <text x="390" y="695" text-anchor="middle" class="fix-label" font-size="9">1mΩ–10mΩ</text>
+
+  <!-- V2P tap on NO side of shunt -->
+  <circle cx="350" cy="673" r="4" class="dot-fix"/>
+  <line x1="350" y1="673" x2="350" y2="720" class="wire-fix"/>
+  <line x1="350" y1="720" x2="60" y2="720" class="wire-fix"/>
+  <line x1="60" y1="620" x2="60" y2="720" class="wire-fix"/>
+  <text x="200" y="715" text-anchor="middle" class="fix-label" font-size="10">← V2P (pin 4)</text>
+
+  <!-- GND side of shunt -->
+  <circle cx="430" cy="673" r="4" class="dot-fix"/>
+  <line x1="430" y1="673" x2="430" y2="720" class="wire-fix"/>
+  <line x1="430" y1="720" x2="430" y2="735" class="wire-gnd"/>
+  <line x1="418" y1="735" x2="442" y2="735" class="gnd-sym"/>
+  <line x1="422" y1="740" x2="438" y2="740" class="gnd-sym"/>
+  <line x1="426" y1="745" x2="434" y2="745" class="gnd-sym"/>
+  <text x="445" y="730" class="fix-label" font-size="9">GND (≈ V2N)</text>
+
+  <!-- After shunt to Load connector J3 -->
+  <line x1="430" y1="673" x2="500" y2="673" class="wire-load"/>
+  <rect x="500" y="658" width="100" height="30" class="conn-box"/>
+  <text x="550" y="677" text-anchor="middle" class="label" font-size="10">J3 — LOAD_CH1</text>
+
+  <!-- MAINS_N to J3 -->
+  <text x="510" y="710" class="pin" font-size="9">MAINS_N →</text>
+  <line x1="500" y1="700" x2="550" y2="700" class="wire"/>
+
+  <!-- ===== CHANNEL 2 ===== -->
+  <text x="660" y="618" class="section" font-size="12">CHANNEL 2</text>
+
+  <!-- +5V to relay coil -->
+  <text x="660" y="645" class="net" style="fill:#e74c3c">+5V</text>
+  <line x1="685" y1="642" x2="710" y2="642" class="wire-5v"/>
+
+  <!-- Relay K2 box -->
+  <rect x="710" y="625" width="160" height="65" class="relay-box"/>
+  <text x="790" y="645" text-anchor="middle" class="label" font-size="11">K2 — G5Q-1-DC5</text>
+  <text x="725" y="665" class="pin" font-size="9">COIL_1 (1)</text>
+  <text x="725" y="678" class="pin" font-size="9">COIL_2 (3) ←+5V</text>
+  <text x="820" y="665" class="pin" font-size="9" text-anchor="end">COM (2)</text>
+  <text x="820" y="678" class="pin" font-size="9" text-anchor="end">NO (4)</text>
+
+  <!-- L input to COM -->
+  <text x="890" y="660" class="net">L</text>
+  <line x1="870" y1="657" x2="910" y2="657" class="wire-hot"/>
+
+  <!-- NO output -->
+  <line x1="870" y1="673" x2="930" y2="673" class="wire-load"/>
+  <text x="920" y="668" class="label" font-size="9" fill="#8e44ad">NO</text>
+
+  <!-- ★ R_SHUNT2 ★ -->
+  <rect x="930" y="666" width="80" height="14" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/>
+  <text x="970" y="677" text-anchor="middle" class="fix-label" font-size="10">R_SHUNT2</text>
+  <text x="970" y="695" text-anchor="middle" class="fix-label" font-size="9">1mΩ–10mΩ</text>
+
+  <!-- After shunt to Load connector J4 -->
+  <line x1="1010" y1="673" x2="1080" y2="673" class="wire-load"/>
+  <rect x="1080" y="658" width="100" height="30" class="conn-box"/>
+  <text x="1130" y="677" text-anchor="middle" class="label" font-size="10">J4 — LOAD_CH2</text>
+
+  <!-- MAINS_N to J4 -->
+  <text x="1090" y="710" class="pin" font-size="9">MAINS_N →</text>
+  <line x1="1080" y1="700" x2="1130" y2="700" class="wire"/>
+
+  <!-- Note: single HLW8012 can only measure one channel -->
+  <rect x="700" y="730" width="560" height="45" fill="#fff3cd" stroke="#f39c12" stroke-width="1.5" rx="4"/>
+  <text x="720" y="750" class="label" font-size="10" fill="#e67e22">⚠ Note: HLW8012 has only ONE V2P input. You can measure one channel at a time.</text>
+  <text x="720" y="765" class="value" font-size="10" fill="#856404">Option A: Shunt on CH1 only.  Option B: Use SEL + mux to switch.  Option C: Add 2nd HLW8012.</text>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 4: Current Flow Annotation -->
+  <!-- ============================================================ -->
+  <!-- Big arrow showing current flow through CH1 -->
+  <text x="310" y="780" class="fix-label" font-size="11">Current flow: L → COM → NO → R_SHUNT → LOAD → N</text>
+  <text x="310" y="798" class="fix-label" font-size="10">V2P senses voltage DROP across R_SHUNT = I × R</text>
+
+  <!-- ============================================================ -->
+  <!-- Legend -->
+  <!-- ============================================================ -->
+  <rect x="30" y="855" width="1240" height="80" fill="#f5f5f5" stroke="#ccc" rx="4"/>
+  <text x="50" y="878" class="section" font-size="11">Legend:</text>
+
+  <line x1="130" y1="875" x2="170" y2="875" class="wire-hot"/>
+  <text x="175" y="879" class="value" font-size="10">L (Mains Live)</text>
+
+  <line x1="280" y1="875" x2="320" y2="875" class="wire-load"/>
+  <text x="325" y="879" class="value" font-size="10">Load path</text>
+
+  <line x1="420" y1="875" x2="460" y2="875" class="wire-fix"/>
+  <text x="465" y="879" class="fix-label" font-size="10">NEW (V2P shunt)</text>
+
+  <line x1="590" y1="875" x2="630" y2="875" class="wire-signal"/>
+  <text x="635" y="879" class="value" font-size="10">Signal to MCU</text>
+
+  <line x1="760" y1="875" x2="800" y2="875" class="wire-3v3"/>
+  <text x="805" y="879" class="value" font-size="10">+3V3</text>
+
+  <line x1="860" y1="875" x2="900" y2="875" class="wire-5v"/>
+  <text x="905" y="879" class="value" font-size="10">+5V</text>
+
+  <line x1="960" y1="875" x2="1000" y2="875" class="wire-gnd"/>
+  <text x="1005" y="879" class="value" font-size="10">GND</text>
+
+  <!-- Component values -->
+  <text x="50" y="920" class="label" font-size="10">Values: R4–R13=470kΩ | R9=1kΩ | R10=1MΩ | R11,R12=1kΩ | C6=100nF | R_SHUNT=1mΩ–10mΩ (size depends on max load current)</text>
+
+</svg>

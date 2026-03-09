@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESP32-C6 SuperMini Smart Relay PCB</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&family=Orbitron:wght@400;700&display=swap');
+
+  :root {
+    --pcb-green: #1a6b35;
+    --pcb-green-light: #2d8a4e;
+    --pcb-green-dark: #0f3d1e;
+    --copper: #b87333;
+    --copper-bright: #e8a050;
+    --soldermask: #1a5c30;
+    --silkscreen: #e8f0e8;
+    --hv-red: #8b1a1a;
+    --hv-red-light: #c0392b;
+    --lv-blue: #1a3a6b;
+    --component-gray: #888;
+    --ic-black: #1a1a1a;
+    --relay-blue: #2c3e6b;
+    --text-mono: 'Share Tech Mono', monospace;
+    --text-display: 'Orbitron', sans-serif;
+    --text-body: 'Rajdhani', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0f;
+    color: #e0e0e0;
+    font-family: var(--text-body);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .page-header {
+    text-align: center;
+    padding: 30px 20px 10px;
+    background: linear-gradient(180deg, #0f1520 0%, transparent 100%);
+  }
+
+  .page-header h1 {
+    font-family: var(--text-display);
+    font-size: clamp(16px, 3vw, 26px);
+    color: #4ade80;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(74,222,128,0.4);
+  }
+
+  .page-header p {
+    font-family: var(--text-mono);
+    font-size: 12px;
+    color: #888;
+    margin-top: 6px;
+    letter-spacing: 2px;
+  }
+
+  /* TAB CONTROLS */
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    font-family: var(--text-mono);
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding: 8px 20px;
+    background: #111;
+    border: 1px solid #333;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+  }
+
+  .tab-btn.active {
+    background: #1a3a1a;
+    border-color: #4ade80;
+    color: #4ade80;
+    box-shadow: 0 0 12px rgba(74,222,128,0.2);
+  }
+
+  .tab-btn:hover:not(.active) {
+    border-color: #555;
+    color: #bbb;
+  }
+
+  /* VIEW CONTAINERS */
+  .view { display: none; }
+  .view.active { display: block; }
+
+  /* ========================
+     PCB TOP VIEW
+  ======================== */
+  .pcb-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 20px;
+    flex-wrap: wrap;
+  }
+
+  .pcb-container {
+    position: relative;
+  }
+
+  .pcb-label {
+    font-family: var(--text-mono);
+    font-size: 11px;
+    color: #4ade80;
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+  }
+
+  /* SVG PCB */
+  .pcb-svg-wrap {
+    border: 1px solid #333;
+    background: #0a0a0a;
+    padding: 12px;
+    position: relative;
+  }
+
+  /* LEGEND */
+  .legend {
+    background: #0f1a0f;
+    border: 1px solid #2a3a2a;
+    padding: 16px;
+    min-width: 200px;
+    max-width: 240px;
+  }
+
+  .legend h3 {
+    font-family: var(--text-mono);
+    font-size: 11px;
+    color: #4ade80;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .legend-color {
+    width: 24px;
+    height: 14px;
+    border: 1px solid rgba(255,255,255,0.1);
+    flex-shrink: 0;
+  }
+
+  .legend-text {
+    font-family: var(--text-mono);
+    font-size: 10px;
+    color: #aaa;
+    line-height: 1.3;
+  }
+
+  /* TOOLTIP */
+  .tooltip {
+    position: fixed;
+    background: #111;
+    border: 1px solid #4ade80;
+    color: #e0e0e0;
+    padding: 10px 14px;
+    font-family: var(--text-mono);
+    font-size: 11px;
+    pointer-events: none;
+    z-index: 1000;
+    max-width: 240px;
+    line-height: 1.6;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    display: none;
+  }
+
+  .tooltip strong {
+    color: #4ade80;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+  }
+
+  /* ========================
+     SCHEMATIC VIEW
+  ======================== */
+  .schematic-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  /* ========================
+     3D ENCLOSURE VIEW
+  ======================== */
+  .enclosure-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .enclosure-view {
+    text-align: center;
+  }
+
+  .enc-label {
+    font-family: var(--text-mono);
+    font-size: 11px;
+    color: #4ade80;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  /* ========================
+     BOM TABLE
+  ======================== */
+  .bom-wrap {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .bom-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--text-mono);
+    font-size: 11px;
+  }
+
+  .bom-table th {
+    background: #1a3a1a;
+    color: #4ade80;
+    padding: 8px 12px;
+    text-align: left;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #4ade80;
+  }
+
+  .bom-table td {
+    padding: 7px 12px;
+    border-bottom: 1px solid #1a2a1a;
+    color: #ccc;
+    vertical-align: top;
+  }
+
+  .bom-table tr:nth-child(even) td { background: #0d150d; }
+  .bom-table tr:hover td { background: #1a2a1a; color: #fff; }
+
+  .tag {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
+  .tag-hv { background: #4a1010; color: #ff8080; }
+  .tag-lv { background: #10204a; color: #80b0ff; }
+  .tag-pwr { background: #2a2a00; color: #ffee80; }
+
+  /* DIM ANNOTATIONS */
+  .dim-bar {
+    font-family: var(--text-mono);
+    font-size: 10px;
+    fill: #ffcc44;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>ESP32-C6 SuperMini · Smart Relay PCB</h1>
+  <p>HF3FF · HLK-PM01 · PC817 · HLW8012 · 230VAC / 10A</p>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('top')">PCB TOP VIEW</button>
+  <button class="tab-btn" onclick="showTab('bottom')">PCB BOTTOM VIEW</button>
+  <button class="tab-btn" onclick="showTab('schematic')">BLOCK SCHEMATIC</button>
+  <button class="tab-btn" onclick="showTab('enclosure')">ENCLOSURE</button>
+  <button class="tab-btn" onclick="showTab('bom')">BOM</button>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<!-- ══════════════════════════════════════
+     TAB 1: PCB TOP VIEW
+══════════════════════════════════════ -->
+<div class="view active" id="view-top">
+  <div class="pcb-wrapper">
+    <div class="pcb-container">
+      <div class="pcb-label">▲ TOP SIDE (F.Cu) — COMPONENT SIDE</div>
+      <div class="pcb-svg-wrap">
+        <svg id="pcb-top" width="680" height="480" viewBox="0 0 680 480" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+
+          <!-- ── PCB BOARD OUTLINE ── -->
+          <defs>
+            <pattern id="hatch-hv" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
+              <line x1="0" y1="0" x2="0" y2="8" stroke="#3a0a0a" stroke-width="3"/>
+            </pattern>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+              <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="glow-strong">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- PCB background - green soldermask -->
+          <rect x="30" y="20" width="620" height="440" rx="6" fill="#1a5c30" stroke="#0d3018" stroke-width="3"/>
+
+          <!-- Board edge highlight -->
+          <rect x="30" y="20" width="620" height="440" rx="6" fill="none" stroke="#2d8a4e" stroke-width="1.5" opacity="0.5"/>
+
+          <!-- ── HV/LV ZONE DIVIDER ── -->
+          <!-- HV zone background (right side) -->
+          <rect x="360" y="25" width="285" height="430" rx="4" fill="url(#hatch-hv)" opacity="0.6"/>
+          <rect x="360" y="25" width="285" height="430" rx="4" fill="#300808" opacity="0.3"/>
+
+          <!-- Zone divider line -->
+          <line x1="360" y1="20" x2="360" y2="460" stroke="#ff4444" stroke-width="2" stroke-dasharray="8,4" opacity="0.7"/>
+
+          <!-- Zone labels -->
+          <text x="190" y="48" font-family="'Share Tech Mono'" font-size="11" fill="#80ff80" text-anchor="middle" letter-spacing="2" opacity="0.8">LOW VOLTAGE ZONE</text>
+          <text x="510" y="48" font-family="'Share Tech Mono'" font-size="11" fill="#ff8080" text-anchor="middle" letter-spacing="2" opacity="0.8">HIGH VOLTAGE ZONE</text>
+
+          <!-- Safety warning in HV zone -->
+          <text x="510" y="455" font-family="'Share Tech Mono'" font-size="9" fill="#ff6060" text-anchor="middle" opacity="0.7">⚠ 230VAC — DANGER</text>
+
+          <!-- ── MOUNTING HOLES ── -->
+          <circle cx="55" cy="45" r="6" fill="#0d3018" stroke="#b87333" stroke-width="1.5"/>
+          <circle cx="55" cy="45" r="3" fill="none" stroke="#b87333" stroke-width="1"/>
+          <circle cx="625" cy="45" r="6" fill="#0d3018" stroke="#b87333" stroke-width="1.5"/>
+          <circle cx="625" cy="45" r="3" fill="none" stroke="#b87333" stroke-width="1"/>
+          <circle cx="55" cy="435" r="6" fill="#0d3018" stroke="#b87333" stroke-width="1.5"/>
+          <circle cx="55" cy="435" r="3" fill="none" stroke="#b87333" stroke-width="1"/>
+          <circle cx="625" cy="435" r="6" fill="#0d3018" stroke="#b87333" stroke-width="1.5"/>
+          <circle cx="625" cy="435" r="3" fill="none" stroke="#b87333" stroke-width="1"/>
+
+          <!-- ══════════════════════
+               LOW VOLTAGE COMPONENTS
+          ══════════════════════ -->
+
+          <!-- ── ESP32-C6 SuperMini ── -->
+          <g id="esp32" class="component" data-tip="ESP32-C6 SuperMini|Wi-Fi 6 / BLE5 / Zigbee / Thread|3.3V, 160MHz RISC-V|GPIO0/1: Relay CH1/2|GPIO20/21/22: HLW8012">
+            <!-- PCB module body -->
+            <rect x="55" y="80" width="130" height="200" rx="4" fill="#2a2a3a" stroke="#4a4a6a" stroke-width="1.5"/>
+            <!-- Module silkscreen outline -->
+            <rect x="58" y="83" width="124" height="194" rx="3" fill="none" stroke="#c0c0d0" stroke-width="0.8" stroke-dasharray="4,2"/>
+            <!-- Chip area -->
+            <rect x="75" y="120" width="90" height="90" rx="3" fill="#111" stroke="#333" stroke-width="1"/>
+            <text x="120" y="162" font-family="'Share Tech Mono'" font-size="8" fill="#666" text-anchor="middle">ESP32-C6</text>
+            <text x="120" y="173" font-family="'Share Tech Mono'" font-size="7" fill="#555" text-anchor="middle">RISC-V 160MHz</text>
+            <!-- USB-C port -->
+            <rect x="88" y="81" width="44" height="9" rx="2" fill="#555" stroke="#888" stroke-width="1"/>
+            <text x="110" y="89" font-family="'Share Tech Mono'" font-size="6" fill="#aaa" text-anchor="middle">USB-C</text>
+            <!-- Antenna keepout indicator -->
+            <rect x="57" y="83" width="8" height="194" rx="0" fill="#1a4a2a" opacity="0.5"/>
+            <text x="61" y="160" font-family="'Share Tech Mono'" font-size="7" fill="#4ade80" text-anchor="middle" transform="rotate(-90,61,160)">RF KEEPOUT</text>
+            <!-- Left side stamp pins -->
+            <g fill="#b87333">
+              <rect x="55" y="95" width="6" height="5" rx="1"/>
+              <rect x="55" y="104" width="6" height="5" rx="1"/>
+              <rect x="55" y="113" width="6" height="5" rx="1"/>
+              <rect x="55" y="122" width="6" height="5" rx="1"/>
+              <rect x="55" y="131" width="6" height="5" rx="1"/>
+              <rect x="55" y="140" width="6" height="5" rx="1"/>
+              <rect x="55" y="149" width="6" height="5" rx="1"/>
+              <rect x="55" y="158" width="6" height="5" rx="1"/>
+              <rect x="55" y="167" width="6" height="5" rx="1"/>
+              <rect x="55" y="176" width="6" height="5" rx="1"/>
+              <rect x="55" y="185" width="6" height="5" rx="1"/>
+              <rect x="55" y="194" width="6" height="5" rx="1"/>
+              <rect x="55" y="203" width="6" height="5" rx="1"/>
+            </g>
+            <!-- Right side stamp pins -->
+            <g fill="#b87333">
+              <rect x="179" y="95" width="6" height="5" rx="1"/>
+              <rect x="179" y="104" width="6" height="5" rx="1"/>
+              <rect x="179" y="113" width="6" height="5" rx="1"/>
+              <rect x="179" y="122" width="6" height="5" rx="1"/>
+              <rect x="179" y="131" width="6" height="5" rx="1"/>
+              <rect x="179" y="140" width="6" height="5" rx="1"/>
+              <rect x="179" y="149" width="6" height="5" rx="1"/>
+              <rect x="179" y="158" width="6" height="5" rx="1"/>
+              <rect x="179" y="167" width="6" height="5" rx="1"/>
+              <rect x="179" y="176" width="6" height="5" rx="1"/>
+              <rect x="179" y="185" width="6" height="5" rx="1"/>
+              <rect x="179" y="194" width="6" height="5" rx="1"/>
+              <rect x="179" y="203" width="6" height="5" rx="1"/>
+            </g>
+            <!-- RGB LED -->
+            <circle cx="165" cy="97" r="4" fill="#223" stroke="#44f" stroke-width="1"/>
+            <circle cx="165" cy="97" r="2" fill="#4466ff" opacity="0.8"/>
+            <!-- Label -->
+            <text x="120" y="272" font-family="'Share Tech Mono'" font-size="9" fill="#80ff80" text-anchor="middle">ESP32-C6</text>
+            <text x="120" y="283" font-family="'Share Tech Mono'" font-size="8" fill="#60c060" text-anchor="middle">SUPERMINI</text>
+          </g>
+
+          <!-- ── AMS1117-3.3 LDO ── -->
+          <g id="ams1117" class="component" data-tip="AMS1117-3.3 LDO|SOT-223 Package|5V → 3.3V / 1A|Powers ESP32 + logic ICs">
+            <rect x="220" y="80" width="50" height="30" rx="2" fill="#2a2a2a" stroke="#555" stroke-width="1"/>
+            <rect x="222" y="82" width="46" height="26" rx="1" fill="#333" stroke="#666" stroke-width="0.5"/>
+            <text x="245" y="93" font-family="'Share Tech Mono'" font-size="7" fill="#aaa" text-anchor="middle">AMS1117</text>
+            <text x="245" y="103" font-family="'Share Tech Mono'" font-size="7" fill="#88aaff" text-anchor="middle">3.3V LDO</text>
+            <!-- Pins -->
+            <rect x="226" y="108" width="5" height="8" rx="1" fill="#b87333"/>
+            <rect x="236" y="108" width="5" height="8" rx="1" fill="#b87333"/>
+            <rect x="246" y="108" width="5" height="8" rx="1" fill="#b87333"/>
+            <rect x="256" y="108" width="5" height="8" rx="1" fill="#b87333"/>
+            <!-- Caps nearby -->
+            <rect x="224" y="122" width="10" height="18" rx="2" fill="#3a3a1a" stroke="#888" stroke-width="0.8"/>
+            <text x="229" y="134" font-family="'Share Tech Mono'" font-size="6" fill="#aaa" text-anchor="middle">10u</text>
+            <rect x="244" y="122" width="10" height="18" rx="2" fill="#3a3a1a" stroke="#888" stroke-width="0.8"/>
+            <text x="249" y="134" font-family="'Share Tech Mono'" font-size="6" fill="#aaa" text-anchor="middle">10u</text>
+          </g>
+
+          <!-- ── PC817 OPTOCOUPLERS ── -->
+          <!-- CH1 -->
+          <g id="pc817_1" class="component" data-tip="PC817 Optocoupler CH1|DIP-4 Package|GPIO0 → 1kΩ → LED input|5000V isolation barrier|Controls Relay CH1 via S8050">
+            <rect x="220" y="160" width="36" height="32" rx="2" fill="#111" stroke="#555" stroke-width="1"/>
+            <rect x="222" y="162" width="32" height="28" rx="1" fill="#1a1a1a" stroke="#333" stroke-width="0.5"/>
+            <text x="238" y="174" font-family="'Share Tech Mono'" font-size="7" fill="#aaa" text-anchor="middle">PC817</text>
+            <text x="238" y="183" font-family="'Share Tech Mono'" font-size="6" fill="#88aaff" text-anchor="middle">CH1</text>
+            <!-- DIP-4 pins -->
+            <rect x="220" y="165" width="4" height="4" rx="1" fill="#b87333"/>
+            <rect x="220" y="178" width="4" height="4" rx="1" fill="#b87333"/>
+            <rect x="252" y="165" width="4" height="4" rx="1" fill="#b87333"/>
+            <rect x="252" y="178" width="4" height="4" rx="1" fill="#b87333"/>
+            <!-- Isolation gap visual -->
+            <line x1="238" y1="162" x2="238" y2="190" stroke="#ff8800" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/>
+          </g>
+          <!-- CH2 -->
+          <g id="pc817_2" class="component" data-tip="PC817 Optocoupler CH2|DIP-4 Package|GPIO1 → 1kΩ → LED input|Controls Relay CH2 via S8050">
+            <rect x="220" y="205" width="36" height="32" rx="2" fill="#111" stroke="#555" stroke-width="1"/>
+            <rect x="222" y="207" width="32" height="28" rx="1" fill="#1a1a1a" stroke="#333" stroke-width="0.5"/>
+            <text x="238" y="219" font-family="'Share Tech Mono'" font-size="7" fill="#aaa" text-anchor="middle">PC817</text>
+            <text x="238" y="228" font-family="'Share Tech Mono'" font-size="6" fill="#88aaff" text-anchor="middle">CH2</text>
+            <rect x="220" y="210" width="4" height="4" rx="1" fill="#b87333"/>
+            <rect x="220" y="223" width="4" height="4" rx="1" fill="#b87333"/>
+            <rect x="252" y="210" width="4" height="4" rx="1" fill="#b87333"/>
+            <rect x="252" y="223" width="4" height="4" rx="1" fill="#b87333"/>
+            <line x1="238" y1="207" x2="238" y2="235" stroke="#ff8800" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/>
+          </g>
+
+          <!-- ── S8050 NPN TRANSISTORS ── -->
+          <g id="s8050_1" class="component" data-tip="S8050 NPN Transistor CH1|TO-92 Package|Drives relay coil ~72mA|Collector → Relay coil pin1|Base ← PC817 via 1kΩ">
+            <ellipse cx="290" cy="176" rx="11" ry="13" fill="#1a1a1a" stroke="#666" stroke-width="1"/>
+            <text x="290" y="174" font-family="'Share Tech Mono'" font-size="6" fill="#aaa" text-anchor="middle">S8050</text>
+            <text x="290" y="182" font-family="'Share Tech Mono'" font-size="6" fill="#aaa" text-anchor="middle">Q1</text>
+            <rect x="281" y="188" width="4" height="7" rx="1" fill="#b87333"/>
+            <rect x="287" y="188" width="4" height="7" rx="1" fill="#b87333"/>
+            <rect x="293" y="188" width="4" height="7" rx="1" fill="#b87333"/>
+          </g>
+
+          <g id="s8050_2" class="component" data-tip="S8050 NPN Transistor CH2|TO-92 Package|Drives relay coil ~72mA">
+            <ellipse cx="290" cy="221" rx="11" ry="13" fill="#1a1a1a" stroke="#666" stroke-width="1"/>
+            <text x="290" y="219" font-family="'Share Tech Mono'" font-size="6" fill="#aaa" text-anchor="middle">S8050</text>
+            <text x="290" y="227" font-family="'Share Tech Mono'" font-size="6" fill="#aaa" text-anchor="middle">Q2</text>
+            <rect x="281" y="233" width="4" height="7" rx="1" fill="#b87333"/>
+            <rect x="287" y="233" width="4" height="7" rx="1" fill="#b87333"/>
+            <rect x="293" y="233" width="4" height="7" rx="1" fill="#b87333"/>
+          </g>
+
+          <!-- ── 1N4007 FLYBACK DIODES ── -->
+          <g id="d1" class="component" data-tip="1N4007 Flyback Diode D1|DO-41 Through-hole|Suppresses relay coil back-EMF|Cathode to 5V rail|Anode to collector S8050">
+            <rect x="320" y="165" width="28" height="10" rx="4" fill="#1a1a2a" stroke="#555" stroke-width="1"/>
+            <rect x="342" y="165" width="5" height="10" rx="1" fill="#4444aa" opacity="0.8"/>
+            <text x="334" y="173" font-family="'Share Tech Mono'" font-size="6" fill="#8888ff" text-anchor="middle">1N4007</text>
+            <rect x="316" y="168" width="6" height="4" rx="1" fill="#b87333"/>
+            <rect x="346" y="168" width="6" height="4" rx="1" fill="#b87333"/>
+          </g>
+
+          <g id="d2" class="component" data-tip="1N4007 Flyback Diode D2|CH2 relay coil protection">
+            <rect x="320" y="210" width="28" height="10" rx="4" fill="#1a1a2a" stroke="#555" stroke-width="1"/>
+            <rect x="342" y="210" width="5" height="10" rx="1" fill="#4444aa" opacity="0.8"/>
+            <text x="334" y="218" font-family="'Share Tech Mono'" font-size="6" fill="#8888ff" text-anchor="middle">1N4007</text>
+            <rect x="316" y="213" width="6" height="4" rx="1" fill="#b87333"/>
+            <rect x="346" y="213" width="6" height="4" rx="1" fill="#b87333"/>
+          </g>
+
+          <!-- ── HLW8012 ENERGY MONITOR ── -->
+          <g id="hlw8012" class="component" data-tip="HLW8012 / BL0937 Energy IC|SOP-8 SMD Package|CF pin → GPIO20 (Power pulse)|CF1 pin → GPIO21 (V/I pulse)|SEL pin → GPIO22|~1% accuracy after calibration">
+            <rect x="220" y="310" width="60" height="40" rx="2" fill="#111" stroke="#555" stroke-width="1"/>
+            <rect x="222" y="312" width="56" height="36" rx="1" fill="#1a1a1a" stroke="#333" stroke-width="0.5"/>
+            <!-- Pin 1 marker -->
+            <circle cx="225" cy="315" r="2" fill="#fff" opacity="0.5"/>
+            <text x="250" y="328" font-family="'Share Tech Mono'" font-size="7" fill="#aaa" text-anchor="middle">HLW8012</text>
+            <text x="250" y="340" font-family="'Share Tech Mono'" font-size="6" fill="#ffaa44" text-anchor="middle">ENERGY MON.</text>
+            <!-- SOP-8 pins left -->
+            <rect x="211" y="316" width="10" height="3" rx="1" fill="#b87333"/>
+            <rect x="211" y="322" width="10" height="3" rx="1" fill="#b87333"/>
+            <rect x="211" y="328" width="10" height="3" rx="1" fill="#b87333"/>
+            <rect x="211" y="334" width="10" height="3" rx="1" fill="#b87333"/>
+            <!-- SOP-8 pins right -->
+            <rect x="279" y="316" width="10" height="3" rx="1" fill="#b87333"/>
+            <rect x="279" y="322" width="10" height="3" rx="1" fill="#b87333"/>
+            <rect x="279" y="328" width="10" height="3" rx="1" fill="#b87333"/>
+            <rect x="279" y="334" width="10" height="3" rx="1" fill="#b87333"/>
+          </g>
+
+          <!-- Voltage divider resistors for HLW8012 -->
+          <rect x="222" y="360" width="20" height="8" rx="2" fill="#5a3a1a" stroke="#888" stroke-width="0.8"/>
+          <text x="232" y="367" font-family="'Share Tech Mono'" font-size="6" fill="#daa" text-anchor="middle">470k</text>
+          <rect x="248" y="360" width="20" height="8" rx="2" fill="#5a3a1a" stroke="#888" stroke-width="0.8"/>
+          <text x="258" y="367" font-family="'Share Tech Mono'" font-size="6" fill="#daa" text-anchor="middle">470k</text>
+
+          <!-- ── EXPANSION HEADER ── -->
+          <g id="exp_header" class="component" data-tip="Expansion Header J4|2.54mm 8-pin male header|5V, GND, GPIO2/3/4/5|Connects to satellite relay boards|Adds CH3/CH4+ channels">
+            <rect x="80" y="305" width="16" height="100" rx="2" fill="#222" stroke="#555" stroke-width="1"/>
+            <text x="88" y="350" font-family="'Share Tech Mono'" font-size="7" fill="#aaa" text-anchor="middle" transform="rotate(-90,88,350)">EXP. HEADER J4</text>
+            <!-- 8 pins -->
+            <g fill="#b87333">
+              <rect x="82" y="310" width="12" height="8" rx="1"/>
+              <rect x="82" y="322" width="12" height="8" rx="1"/>
+              <rect x="82" y="334" width="12" height="8" rx="1"/>
+              <rect x="82" y="346" width="12" height="8" rx="1"/>
+              <rect x="82" y="358" width="12" height="8" rx="1"/>
+              <rect x="82" y="370" width="12" height="8" rx="1"/>
+              <rect x="82" y="382" width="12" height="8" rx="1"/>
+              <rect x="82" y="394" width="12" height="8" rx="1"/>
+            </g>
+          </g>
+
+          <!-- Programming Header -->
+          <g id="prog_header" class="component" data-tip="Programming Header J3|2.54mm 4-pin|3.3V, GND, TX, RX|USB-C on SuperMini also works|For field firmware update">
+            <rect x="160" y="305" width="50" height="16" rx="2" fill="#222" stroke="#555" stroke-width="1"/>
+            <text x="185" y="316" font-family="'Share Tech Mono'" font-size="6" fill="#aaa" text-anchor="middle">PROG. J3</text>
+            <g fill="#b87333">
+              <rect x="163" y="308" width="8" height="10" rx="1"/>
+              <rect x="175" y="308" width="8" height="10" rx="1"/>
+              <rect x="187" y="308" width="8" height="10" rx="1"/>
+              <rect x="199" y="308" width="8" height="10" rx="1"/>
+            </g>
+          </g>
+
+          <!-- SMD decoupling caps cluster -->
+          <g opacity="0.9">
+            <rect x="222" y="148" width="8" height="5" rx="1" fill="#4a4a2a" stroke="#888" stroke-width="0.5"/>
+            <rect x="234" y="148" width="8" height="5" rx="1" fill="#4a4a2a" stroke="#888" stroke-width="0.5"/>
+            <rect x="246" y="148" width="8" height="5" rx="1" fill="#4a4a2a" stroke="#888" stroke-width="0.5"/>
+            <rect x="258" y="148" width="8" height="5" rx="1" fill="#4a4a2a" stroke="#888" stroke-width="0.5"/>
+          </g>
+
+          <!-- ════════════════════════
+               HIGH VOLTAGE COMPONENTS
+          ════════════════════════ -->
+
+          <!-- ── HLK-PM01 PSU ── -->
+          <g id="hlk_pm01" class="component" data-tip="Hi-Link HLK-PM01|AC-DC Isolated Converter|85-264VAC → 5V/600mA|Internal isolation ~3kV|Safety certified: CE/UL/CCC">
+            <rect x="375" y="60" width="120" height="80" rx="4" fill="#2a1a00" stroke="#b87333" stroke-width="2"/>
+            <rect x="378" y="63" width="114" height="74" rx="3" fill="#3a2800" stroke="#c89040" stroke-width="1"/>
+            <!-- Component body detail -->
+            <rect x="385" y="70" width="100" height="55" rx="2" fill="#2a1e00"/>
+            <text x="435" y="93" font-family="'Share Tech Mono'" font-size="9" fill="#ffcc44" text-anchor="middle" filter="url(#glow)">HLK-PM01</text>
+            <text x="435" y="106" font-family="'Share Tech Mono'" font-size="8" fill="#ffaa22" text-anchor="middle">5V / 600mA</text>
+            <text x="435" y="118" font-family="'Share Tech Mono'" font-size="7" fill="#ff8800" text-anchor="middle">85-264VAC IN</text>
+            <!-- Module pins (SIP-4) -->
+            <g fill="#b87333">
+              <rect x="385" y="136" width="12" height="10" rx="1"/>
+              <rect x="405" y="136" width="12" height="10" rx="1"/>
+              <rect x="450" y="136" width="12" height="10" rx="1"/>
+              <rect x="470" y="136" width="12" height="10" rx="1"/>
+            </g>
+            <text x="391" y="155" font-family="'Share Tech Mono'" font-size="7" fill="#ff8080" text-anchor="middle">L</text>
+            <text x="411" y="155" font-family="'Share Tech Mono'" font-size="7" fill="#ff8080" text-anchor="middle">N</text>
+            <text x="456" y="155" font-family="'Share Tech Mono'" font-size="7" fill="#80ff80" text-anchor="middle">+V</text>
+            <text x="476" y="155" font-family="'Share Tech Mono'" font-size="7" fill="#80ff80" text-anchor="middle">-V</text>
+          </g>
+
+          <!-- ── HF3FF RELAY CH1 ── -->
+          <g id="relay1" class="component" data-tip="Hongfa HF3FF/005-1ZST Relay CH1|SPDT 10A 250VAC|5V Coil ~72mA|Coil pins 1&amp;2: Control|Pins 3/4/5: NO/COM/NC contacts|Body: 19×15×15mm">
+            <rect x="375" y="175" width="100" height="75" rx="3" fill="#1a2a4a" stroke="#4a6aaa" stroke-width="2"/>
+            <rect x="378" y="178" width="94" height="69" rx="2" fill="#1e3255" stroke="#3a5080" stroke-width="1"/>
+            <!-- Relay coil symbol -->
+            <rect x="395" y="190" width="30" height="20" rx="1" fill="none" stroke="#6688cc" stroke-width="1.5"/>
+            <!-- Coil winding lines -->
+            <g stroke="#4466aa" stroke-width="0.8">
+              <line x1="398" y1="195" x2="422" y2="195"/>
+              <line x1="398" y1="198" x2="422" y2="198"/>
+              <line x1="398" y1="201" x2="422" y2="201"/>
+              <line x1="398" y1="204" x2="422" y2="204"/>
+              <line x1="398" y1="207" x2="422" y2="207"/>
+            </g>
+            <text x="425" y="195" font-family="'Share Tech Mono'" font-size="7" fill="#88aaff">HF3FF</text>
+            <text x="425" y="205" font-family="'Share Tech Mono'" font-size="7" fill="#88aaff">RELAY</text>
+            <text x="425" y="215" font-family="'Share Tech Mono'" font-size="6" fill="#aaaaff">CH1</text>
+            <!-- Relay DIP-5 pins (bottom) -->
+            <g fill="#b87333">
+              <rect x="382" y="248" width="10" height="8" rx="1"/>
+              <rect x="397" y="248" width="10" height="8" rx="1"/>
+              <rect x="412" y="248" width="10" height="8" rx="1"/>
+              <rect x="427" y="248" width="10" height="8" rx="1"/>
+              <rect x="442" y="248" width="10" height="8" rx="1"/>
+            </g>
+            <text x="387" y="264" font-family="'Share Tech Mono'" font-size="6" fill="#aaa" text-anchor="middle">C+</text>
+            <text x="402" y="264" font-family="'Share Tech Mono'" font-size="6" fill="#aaa" text-anchor="middle">C-</text>
+            <text x="417" y="264" font-family="'Share Tech Mono'" font-size="6" fill="#ff8080" text-anchor="middle">NO</text>
+            <text x="432" y="264" font-family="'Share Tech Mono'" font-size="6" fill="#ff8080" text-anchor="middle">COM</text>
+            <text x="447" y="264" font-family="'Share Tech Mono'" font-size="6" fill="#ffaa44" text-anchor="middle">NC</text>
+          </g>
+
+          <!-- ── HF3FF RELAY CH2 ── -->
+          <g id="relay2" class="component" data-tip="Hongfa HF3FF/005-1ZST Relay CH2|SPDT 10A 250VAC|5V Coil|Second channel — expandable to CH3/CH4 via header">
+            <rect x="490" y="175" width="100" height="75" rx="3" fill="#1a2a4a" stroke="#4a6aaa" stroke-width="2"/>
+            <rect x="493" y="178" width="94" height="69" rx="2" fill="#1e3255" stroke="#3a5080" stroke-width="1"/>
+            <rect x="510" y="190" width="30" height="20" rx="1" fill="none" stroke="#6688cc" stroke-width="1.5"/>
+            <g stroke="#4466aa" stroke-width="0.8">
+              <line x1="513" y1="195" x2="537" y2="195"/>
+              <line x1="513" y1="198" x2="537" y2="198"/>
+              <line x1="513" y1="201" x2="537" y2="201"/>
+              <line x1="513" y1="204" x2="537" y2="204"/>
+              <line x1="513" y1="207" x2="537" y2="207"/>
+            </g>
+            <text x="540" y="195" font-family="'Share Tech Mono'" font-size="7" fill="#88aaff">HF3FF</text>
+            <text x="540" y="205" font-family="'Share Tech Mono'" font-size="7" fill="#88aaff">RELAY</text>
+            <text x="540" y="215" font-family="'Share Tech Mono'" font-size="6" fill="#aaaaff">CH2</text>
+            <g fill="#b87333">
+              <rect x="497" y="248" width="10" height="8" rx="1"/>
+              <rect x="512" y="248" width="10" height="8" rx="1"/>
+              <rect x="527" y="248" width="10" height="8" rx="1"/>
+              <rect x="542" y="248" width="10" height="8" rx="1"/>
+              <rect x="557" y="248" width="10" height="8" rx="1"/>
+            </g>
+            <text x="502" y="264" font-family="'Share Tech Mono'" font-size="6" fill="#aaa" text-anchor="middle">C+</text>
+            <text x="517" y="264" font-family="'Share Tech Mono'" font-size="6" fill="#aaa" text-anchor="middle">C-</text>
+            <text x="532" y="264" font-family="'Share Tech Mono'" font-size="6" fill="#ff8080" text-anchor="middle">NO</text>
+            <text x="547" y="264" font-family="'Share Tech Mono'" font-size="6" fill="#ff8080" text-anchor="middle">COM</text>
+            <text x="562" y="264" font-family="'Share Tech Mono'" font-size="6" fill="#ffaa44" text-anchor="middle">NC</text>
+          </g>
+
+          <!-- ── FUSE HOLDER ── -->
+          <g id="fuse" class="component" data-tip="Fuse Holder F1|5×20mm PCB-mount|10A 250VAC Glass Fuse|Series with LIVE input|First protection component after AC terminal">
+            <rect x="560" y="60" width="55" height="22" rx="4" fill="#3a2a00" stroke="#cc8800" stroke-width="1.5"/>
+            <!-- Fuse body -->
+            <rect x="568" y="63" width="38" height="16" rx="7" fill="#888" stroke="#aaa" stroke-width="1"/>
+            <rect x="572" y="65" width="30" height="12" rx="5" fill="#ccc" stroke="#ddd" stroke-width="0.5"/>
+            <!-- Fuse end caps -->
+            <rect x="563" y="64" width="7" height="14" rx="2" fill="#999"/>
+            <rect x="607" y="64" width="7" height="14" rx="2" fill="#999"/>
+            <text x="587" y="93" font-family="'Share Tech Mono'" font-size="8" fill="#ffcc44" text-anchor="middle">F1</text>
+            <text x="587" y="104" font-family="'Share Tech Mono'" font-size="7" fill="#cc8800" text-anchor="middle">10A 250VAC</text>
+          </g>
+
+          <!-- ── AC INPUT TERMINAL ── -->
+          <g id="ac_input" class="component" data-tip="AC Input Terminal J1|KF350 3-pin screw terminal|L = Live (BROWN wire)|N = Neutral (BLUE wire)|PE = Earth (GREEN/YELLOW — optional)">
+            <rect x="610" y="160" width="40" height="80" rx="2" fill="#1a1a1a" stroke="#666" stroke-width="1.5"/>
+            <!-- Terminal screw holes -->
+            <circle cx="630" cy="180" r="7" fill="#333" stroke="#888" stroke-width="1"/>
+            <circle cx="630" cy="180" r="4" fill="#555"/>
+            <line x1="626" y1="180" x2="634" y2="180" stroke="#aaa" stroke-width="1"/>
+            <line x1="630" y1="176" x2="630" y2="184" stroke="#aaa" stroke-width="1"/>
+            <circle cx="630" cy="200" r="7" fill="#333" stroke="#888" stroke-width="1"/>
+            <circle cx="630" cy="200" r="4" fill="#555"/>
+            <line x1="626" y1="200" x2="634" y2="200" stroke="#aaa" stroke-width="1"/>
+            <line x1="630" y1="196" x2="630" y2="204" stroke="#aaa" stroke-width="1"/>
+            <circle cx="630" cy="220" r="7" fill="#333" stroke="#888" stroke-width="1"/>
+            <circle cx="630" cy="220" r="4" fill="#555"/>
+            <line x1="626" y1="220" x2="634" y2="220" stroke="#aaa" stroke-width="1"/>
+            <line x1="630" y1="216" x2="630" y2="224" stroke="#aaa" stroke-width="1"/>
+            <text x="650" y="182" font-family="'Share Tech Mono'" font-size="9" fill="#ff6060">L</text>
+            <text x="650" y="202" font-family="'Share Tech Mono'" font-size="9" fill="#8080ff">N</text>
+            <text x="650" y="222" font-family="'Share Tech Mono'" font-size="9" fill="#80ff80">PE</text>
+            <text x="630" y="152" font-family="'Share Tech Mono'" font-size="8" fill="#ff8080" text-anchor="middle">AC IN</text>
+          </g>
+
+          <!-- ── LOAD OUTPUT TERMINALS ── -->
+          <g id="load1_term" class="component" data-tip="Load Terminal CH1|KF350 2-pin screw terminal|Connects to switched load|LIVE switched by Relay CH1 NO contact|Neutral direct (not switched)">
+            <rect x="375" y="280" width="90" height="35" rx="2" fill="#1a1a1a" stroke="#666" stroke-width="1.5"/>
+            <text x="420" y="293" font-family="'Share Tech Mono'" font-size="7" fill="#aaa" text-anchor="middle">LOAD CH1</text>
+            <g>
+              <circle cx="395" cy="305" r="7" fill="#333" stroke="#888" stroke-width="1"/>
+              <circle cx="395" cy="305" r="4" fill="#555"/>
+              <line x1="391" y1="305" x2="399" y2="305" stroke="#aaa" stroke-width="1"/>
+              <line x1="395" y1="301" x2="395" y2="309" stroke="#aaa" stroke-width="1"/>
+              <circle cx="420" cy="305" r="7" fill="#333" stroke="#888" stroke-width="1"/>
+              <circle cx="420" cy="305" r="4" fill="#555"/>
+              <line x1="416" y1="305" x2="424" y2="305" stroke="#aaa" stroke-width="1"/>
+              <line x1="420" y1="301" x2="420" y2="309" stroke="#aaa" stroke-width="1"/>
+              <circle cx="445" cy="305" r="7" fill="#333" stroke="#888" stroke-width="1"/>
+              <circle cx="445" cy="305" r="4" fill="#555"/>
+              <line x1="441" y1="305" x2="449" y2="305" stroke="#aaa" stroke-width="1"/>
+              <line x1="445" y1="301" x2="445" y2="309" stroke="#aaa" stroke-width="1"/>
+            </g>
+          </g>
+
+          <g id="load2_term" class="component" data-tip="Load Terminal CH2|KF350 2-pin screw terminal|Second switched output">
+            <rect x="490" y="280" width="90" height="35" rx="2" fill="#1a1a1a" stroke="#666" stroke-width="1.5"/>
+            <text x="535" y="293" font-family="'Share Tech Mono'" font-size="7" fill="#aaa" text-anchor="middle">LOAD CH2</text>
+            <g>
+              <circle cx="510" cy="305" r="7" fill="#333" stroke="#888" stroke-width="1"/>
+              <circle cx="510" cy="305" r="4" fill="#555"/>
+              <line x1="506" y1="305" x2="514" y2="305" stroke="#aaa" stroke-width="1"/>
+              <line x1="510" y1="301" x2="510" y2="309" stroke="#aaa" stroke-width="1"/>
+              <circle cx="535" cy="305" r="7" fill="#333" stroke="#888" stroke-width="1"/>
+              <circle cx="535" cy="305" r="4" fill="#555"/>
+              <line x1="531" y1="305" x2="539" y2="305" stroke="#aaa" stroke-width="1"/>
+              <line x1="535" y1="301" x2="535" y2="309" stroke="#aaa" stroke-width="1"/>
+              <circle cx="560" cy="305" r="7" fill="#333" stroke="#888" stroke-width="1"/>
+              <circle cx="560" cy="305" r="4" fill="#555"/>
+              <line x1="556" y1="305" x2="564" y2="305" stroke="#aaa" stroke-width="1"/>
+              <line x1="560" y1="301" x2="560" y2="309" stroke="#aaa" stroke-width="1"/>
+            </g>
+          </g>
+
+          <!-- ── SHUNT RESISTOR ── -->
+          <g id="shunt" class="component" data-tip="Current Shunt Resistor R_sh|1mΩ / 2W|In series with LIVE wire|Provides current signal to HLW8012 IP+ / IP-|Keep this trace short and thick (2mm min)">
+            <rect x="375" y="340" width="40" height="14" rx="5" fill="#5a3a1a" stroke="#cc8844" stroke-width="1.5"/>
+            <text x="395" y="351" font-family="'Share Tech Mono'" font-size="7" fill="#ffaa44" text-anchor="middle">1mΩ 2W</text>
+            <text x="395" y="365" font-family="'Share Tech Mono'" font-size="7" fill="#cc8800" text-anchor="middle">SHUNT</text>
+          </g>
+
+          <!-- ── MOV VARISTOR (optional) ── -->
+          <g id="mov" class="component" data-tip="MOV Varistor RV1 (Optional)|275VAC 10mm disc varistor|Surge/spike protection on AC input|Place across L and N terminals|Recommended for commercial product">
+            <circle cx="600" cy="310" r="14" fill="#2a1a2a" stroke="#8844aa" stroke-width="1.5"/>
+            <text x="600" y="308" font-family="'Share Tech Mono'" font-size="7" fill="#cc88ff" text-anchor="middle">MOV</text>
+            <text x="600" y="318" font-family="'Share Tech Mono'" font-size="6" fill="#aa66cc" text-anchor="middle">275V</text>
+          </g>
+
+          <!-- ════════════════
+               COPPER TRACES
+          ════════════════ -->
+
+          <!-- 5V power trace (LV zone) -->
+          <path d="M 479 143 L 320 143 L 320 100 L 215 100" stroke="#e8a050" stroke-width="3" fill="none" opacity="0.6"/>
+
+          <!-- 3.3V trace from LDO -->
+          <path d="M 220 95 L 185 95 L 185 90" stroke="#80aaff" stroke-width="2" fill="none" opacity="0.5"/>
+
+          <!-- GND traces (thin) -->
+          <path d="M 185 275 L 185 430 L 620 430 L 620 360" stroke="#4a8a4a" stroke-width="1.5" fill="none" opacity="0.4" stroke-dasharray="6,3"/>
+
+          <!-- GPIO0 → PC817 CH1 -->
+          <path d="M 185 131 L 200 131 L 200 171 L 220 171" stroke="#80ff80" stroke-width="1.5" fill="none" opacity="0.7"/>
+          <!-- GPIO1 → PC817 CH2 -->
+          <path d="M 185 140 L 205 140 L 205 218 L 220 218" stroke="#80ff80" stroke-width="1.5" fill="none" opacity="0.7"/>
+
+          <!-- PC817 CH1 → S8050 Q1 -->
+          <path d="M 256 172 L 279 176" stroke="#ffaa44" stroke-width="1.5" fill="none" opacity="0.7"/>
+          <!-- PC817 CH2 → S8050 Q2 -->
+          <path d="M 256 218 L 279 221" stroke="#ffaa44" stroke-width="1.5" fill="none" opacity="0.7"/>
+
+          <!-- S8050 → Relay coil (crossing HV/LV zone - special) -->
+          <path d="M 295 189 L 350 170 L 375 195" stroke="#ff8844" stroke-width="2" fill="none" opacity="0.8" stroke-dasharray="4,2"/>
+          <path d="M 295 235 L 350 225 L 375 230 L 490 230" stroke="#ff8844" stroke-width="2" fill="none" opacity="0.8" stroke-dasharray="4,2"/>
+
+          <!-- Mains LIVE trace (thick, HV zone) -->
+          <path d="M 620 180 L 560 180 L 560 70 L 615 70" stroke="#ff4444" stroke-width="4" fill="none" opacity="0.8"/>
+          <!-- Mains NEUTRAL trace -->
+          <path d="M 620 200 L 596 200 L 596 380 L 560 380" stroke="#6666ff" stroke-width="4" fill="none" opacity="0.8"/>
+
+          <!-- HLW8012 signal traces to ESP32 -->
+          <path d="M 220 320 L 210 320 L 210 290 L 185 290 L 185 175" stroke="#ffee44" stroke-width="1" fill="none" opacity="0.5" stroke-dasharray="3,2"/>
+
+          <!-- ════════════════
+               DIMENSION LINES
+          ════════════════ -->
+          <!-- Board width -->
+          <line x1="30" y1="470" x2="650" y2="470" stroke="#ffcc44" stroke-width="0.8" marker-start="url(#arr)" marker-end="url(#arr)"/>
+          <text x="340" y="480" font-family="'Share Tech Mono'" font-size="10" fill="#ffcc44" text-anchor="middle">120mm</text>
+
+          <!-- Board height -->
+          <line x1="665" y1="20" x2="665" y2="460" stroke="#ffcc44" stroke-width="0.8"/>
+          <text x="676" y="245" font-family="'Share Tech Mono'" font-size="10" fill="#ffcc44" text-anchor="middle" transform="rotate(90,676,245)">80mm</text>
+
+          <!-- Version/title text on PCB silkscreen -->
+          <text x="120" y="430" font-family="'Share Tech Mono'" font-size="9" fill="#c0d0c0" opacity="0.7">SMART-RELAY-C6 v1.0</text>
+          <text x="120" y="443" font-family="'Share Tech Mono'" font-size="8" fill="#a0b0a0" opacity="0.6">2-LAYER  2oz Cu  FR4</text>
+
+          <!-- Clickable overlays for hover -->
+          <rect x="55" y="80" width="130" height="200" rx="4" fill="transparent" stroke="transparent" class="component" data-tip="ESP32-C6 SuperMini|Wi-Fi 6 / BLE5 / Zigbee / Thread|3.3V, 160MHz RISC-V|GPIO0/1: Relay CH1/2|GPIO20/21/22: HLW8012" style="cursor:pointer"/>
+          <rect x="375" y="60" width="120" height="80" rx="4" fill="transparent" class="component" data-tip="Hi-Link HLK-PM01|85-264VAC → 5V/600mA|Isolated AC-DC converter|Safety certified CE/UL" style="cursor:pointer"/>
+          <rect x="375" y="175" width="100" height="90" rx="3" fill="transparent" class="component" data-tip="HF3FF/005-1ZST Relay CH1|SPDT 10A/250VAC|5V coil|Body: 19×15×15mm" style="cursor:pointer"/>
+          <rect x="490" y="175" width="100" height="90" rx="3" fill="transparent" class="component" data-tip="HF3FF/005-1ZST Relay CH2|SPDT 10A/250VAC|Expandable to 4ch via header" style="cursor:pointer"/>
+
+        </svg>
+      </div>
+    </div>
+
+    <!-- LEGEND -->
+    <div>
+      <div class="legend">
+        <h3>// LEGEND</h3>
+        <div class="legend-item"><div class="legend-color" style="background:#1a5c30;border-color:#2d8a4e"></div><div class="legend-text">PCB Soldermask<br>Green FR4 1.6mm</div></div>
+        <div class="legend-item"><div class="legend-color" style="background:#300808;border-color:#8b1a1a"></div><div class="legend-text">High Voltage Zone<br>230VAC — 3mm clearance</div></div>
+        <div class="legend-item"><div class="legend-color" style="background:#b87333"></div><div class="legend-text">Copper Pads<br>2oz ENIG finish</div></div>
+        <div class="legend-item"><div class="legend-color" style="background:#ff4444"></div><div class="legend-text">Mains LIVE Trace<br>4mm width min.</div></div>
+        <div class="legend-item"><div class="legend-color" style="background:#6666ff"></div><div class="legend-text">Mains NEUTRAL Trace<br>4mm width min.</div></div>
+        <div class="legend-item"><div class="legend-color" style="background:#e8a050"></div><div class="legend-text">5V DC Trace<br>1.5mm width</div></div>
+        <div class="legend-item"><div class="legend-color" style="background:#80aaff"></div><div class="legend-text">3.3V DC Trace<br>1mm width</div></div>
+        <div class="legend-item"><div class="legend-color" style="background:#80ff80"></div><div class="legend-text">GPIO Signal Traces<br>0.3mm width</div></div>
+        <div class="legend-item"><div class="legend-color" style="background:#ff8844"></div><div class="legend-text">Isolation Crossing<br>PC817 coil→collector</div></div>
+        <div class="legend-item"><div class="legend-color" style="background:#ff8800;height:4px"></div><div class="legend-text">HV/LV Boundary<br>Dashed red line</div></div>
+        <br>
+        <div style="font-family:'Share Tech Mono';font-size:10px;color:#4ade80;margin-bottom:6px;">// BOARD SPECS</div>
+        <div style="font-family:'Share Tech Mono';font-size:10px;color:#888;line-height:1.8;">
+          Size: 120 × 80mm<br>
+          Layers: 2 (F.Cu / B.Cu)<br>
+          Copper: 2oz (70µm)<br>
+          Material: FR4 1.6mm<br>
+          Finish: ENIG<br>
+          Min. track: 0.25mm<br>
+          Min. drill: 0.8mm<br>
+          Temp. range: -40~85°C
+        </div>
+      </div>
+
+      <div class="legend" style="margin-top:12px;">
+        <h3>// HOVER TO INSPECT</h3>
+        <div style="font-family:'Share Tech Mono';font-size:10px;color:#888;line-height:1.8;">
+          Hover over any<br>component to see<br>specs and connections
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     TAB 2: BOTTOM VIEW
+══════════════════════════════════════ -->
+<div class="view" id="view-bottom">
+  <div class="pcb-wrapper">
+    <div class="pcb-container">
+      <div class="pcb-label">▼ BOTTOM SIDE (B.Cu) — SOLDER SIDE / GND PLANE</div>
+      <div class="pcb-svg-wrap">
+        <svg width="680" height="480" viewBox="0 0 680 480" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+          <!-- PCB bottom - darker green -->
+          <rect x="30" y="20" width="620" height="440" rx="6" fill="#0f3a20" stroke="#0a2010" stroke-width="3"/>
+          <rect x="30" y="20" width="620" height="440" rx="6" fill="none" stroke="#1a5030" stroke-width="1.5" opacity="0.5"/>
+
+          <!-- GND copper pour (hatched) -->
+          <defs>
+            <pattern id="gnd-fill" patternUnits="userSpaceOnUse" width="12" height="12">
+              <rect width="12" height="12" fill="#0f4020"/>
+              <path d="M0,0 L12,12 M-2,10 L2,14 M10,-2 L14,2" stroke="#1a6030" stroke-width="0.5"/>
+            </pattern>
+          </defs>
+          <rect x="35" y="25" width="610" height="430" rx="4" fill="url(#gnd-fill)"/>
+
+          <!-- GND plane label -->
+          <text x="340" y="250" font-family="'Share Tech Mono'" font-size="48" fill="#1a5030" text-anchor="middle" opacity="0.3" font-weight="bold">GND</text>
+
+          <!-- Via stitching array -->
+          <g fill="#0d3018" stroke="#2d8040" stroke-width="1">
+            <!-- Row of stitching vias -->
+            <circle cx="80" cy="60" r="4"/><circle cx="120" cy="60" r="4"/>
+            <circle cx="160" cy="60" r="4"/><circle cx="200" cy="60" r="4"/>
+            <circle cx="240" cy="60" r="4"/><circle cx="280" cy="60" r="4"/>
+            <circle cx="320" cy="60" r="4"/>
+            <!-- Another row -->
+            <circle cx="80" cy="420" r="4"/><circle cx="120" cy="420" r="4"/>
+            <circle cx="160" cy="420" r="4"/><circle cx="200" cy="420" r="4"/>
+            <circle cx="240" cy="420" r="4"/><circle cx="280" cy="420" r="4"/>
+            <circle cx="320" cy="420" r="4"/>
+            <!-- Vertical -->
+            <circle cx="50" cy="100" r="4"/><circle cx="50" cy="150" r="4"/>
+            <circle cx="50" cy="200" r="4"/><circle cx="50" cy="250" r="4"/>
+            <circle cx="50" cy="300" r="4"/><circle cx="50" cy="350" r="4"/>
+            <circle cx="340" cy="100" r="4"/><circle cx="340" cy="150" r="4"/>
+            <circle cx="340" cy="200" r="4"/><circle cx="340" cy="250" r="4"/>
+            <circle cx="340" cy="300" r="4"/><circle cx="340" cy="350" r="4"/>
+          </g>
+
+          <!-- Through-hole component pads visible from bottom -->
+          <!-- ESP32-C6 stamp holes (mirrored) -->
+          <g fill="#b87333" opacity="0.9">
+            <!-- Left pads (appear on right when viewed from bottom — mirrored) -->
+            <rect x="179" y="95" width="6" height="5" rx="1"/>
+            <rect x="179" y="104" width="6" height="5" rx="1"/>
+            <rect x="179" y="113" width="6" height="5" rx="1"/>
+            <rect x="179" y="122" width="6" height="5" rx="1"/>
+            <rect x="179" y="131" width="6" height="5" rx="1"/>
+            <rect x="179" y="140" width="6" height="5" rx="1"/>
+            <rect x="179" y="149" width="6" height="5" rx="1"/>
+            <rect x="179" y="158" width="6" height="5" rx="1"/>
+            <rect x="179" y="167" width="6" height="5" rx="1"/>
+            <rect x="179" y="176" width="6" height="5" rx="1"/>
+            <rect x="179" y="185" width="6" height="5" rx="1"/>
+            <rect x="179" y="194" width="6" height="5" rx="1"/>
+            <rect x="179" y="203" width="6" height="5" rx="1"/>
+            <!-- Right pads -->
+            <rect x="55" y="95" width="6" height="5" rx="1"/>
+            <rect x="55" y="104" width="6" height="5" rx="1"/>
+            <rect x="55" y="113" width="6" height="5" rx="1"/>
+            <rect x="55" y="122" width="6" height="5" rx="1"/>
+            <rect x="55" y="131" width="6" height="5" rx="1"/>
+            <rect x="55" y="140" width="6" height="5" rx="1"/>
+            <rect x="55" y="149" width="6" height="5" rx="1"/>
+            <rect x="55" y="158" width="6" height="5" rx="1"/>
+            <rect x="55" y="167" width="6" height="5" rx="1"/>
+            <rect x="55" y="176" width="6" height="5" rx="1"/>
+            <rect x="55" y="185" width="6" height="5" rx="1"/>
+            <rect x="55" y="194" width="6" height="5" rx="1"/>
+            <rect x="55" y="203" width="6" height="5" rx="1"/>
+          </g>
+
+          <!-- Relay through-hole pads -->
+          <g fill="#c0a060" opacity="0.8">
+            <circle cx="387" cy="256" r="5"/><circle cx="402" cy="256" r="5"/>
+            <circle cx="417" cy="256" r="5"/><circle cx="432" cy="256" r="5"/>
+            <circle cx="447" cy="256" r="5"/>
+            <circle cx="502" cy="256" r="5"/><circle cx="517" cy="256" r="5"/>
+            <circle cx="532" cy="256" r="5"/><circle cx="547" cy="256" r="5"/>
+            <circle cx="562" cy="256" r="5"/>
+          </g>
+
+          <!-- Terminal block pads -->
+          <g fill="#c0a060" opacity="0.8">
+            <circle cx="395" cy="307" r="5"/><circle cx="420" cy="307" r="5"/><circle cx="445" cy="307" r="5"/>
+            <circle cx="510" cy="307" r="5"/><circle cx="535" cy="307" r="5"/><circle cx="560" cy="307" r="5"/>
+            <circle cx="630" cy="180" r="5"/><circle cx="630" cy="200" r="5"/><circle cx="630" cy="220" r="5"/>
+          </g>
+
+          <!-- Fuse holder pads -->
+          <circle cx="568" cy="71" r="5" fill="#c0a060" opacity="0.8"/>
+          <circle cx="607" cy="71" r="5" fill="#c0a060" opacity="0.8"/>
+
+          <!-- Mounting holes -->
+          <circle cx="55" cy="45" r="6" fill="#0a2010" stroke="#b87333" stroke-width="1.5"/>
+          <circle cx="55" cy="45" r="3" fill="none" stroke="#b87333" stroke-width="1"/>
+          <circle cx="625" cy="45" r="6" fill="#0a2010" stroke="#b87333" stroke-width="1.5"/>
+          <circle cx="625" cy="45" r="3" fill="none" stroke="#b87333" stroke-width="1"/>
+          <circle cx="55" cy="435" r="6" fill="#0a2010" stroke="#b87333" stroke-width="1.5"/>
+          <circle cx="55" cy="435" r="3" fill="none" stroke="#b87333" stroke-width="1"/>
+          <circle cx="625" cy="435" r="6" fill="#0a2010" stroke="#b87333" stroke-width="1.5"/>
+          <circle cx="625" cy="435" r="3" fill="none" stroke="#b87333" stroke-width="1"/>
+
+          <!-- B.Cu traces -->
+          <!-- 5V power plane strip -->
+          <rect x="195" y="88" width="170" height="12" rx="2" fill="#e8a050" opacity="0.4"/>
+          <text x="280" y="97" font-family="'Share Tech Mono'" font-size="7" fill="#e8a050" text-anchor="middle">+5V POWER RAIL</text>
+
+          <!-- Bottom silkscreen (mirrored product label) -->
+          <text x="340" y="430" font-family="'Share Tech Mono'" font-size="10" fill="#80c080" text-anchor="middle" opacity="0.6">SMART-RELAY-C6 v1.0  |  BOTTOM</text>
+
+          <!-- Thermal relief explanation -->
+          <text x="340" y="380" font-family="'Share Tech Mono'" font-size="11" fill="#2d8040" text-anchor="middle" opacity="0.8">⬛ SOLID GND COPPER POUR — ENTIRE LV ZONE</text>
+          <text x="340" y="395" font-family="'Share Tech Mono'" font-size="9" fill="#1a6030" text-anchor="middle" opacity="0.7">Stitching vias every ~8mm connect F.Cu and B.Cu GND planes</text>
+          <text x="340" y="408" font-family="'Share Tech Mono'" font-size="9" fill="#1a6030" text-anchor="middle" opacity="0.7">HV zone: NO ground pour — isolation maintained</text>
+        </svg>
+      </div>
+    </div>
+    <div>
+      <div class="legend">
+        <h3>// BOTTOM LAYER NOTES</h3>
+        <div style="font-family:'Share Tech Mono';font-size:10px;color:#888;line-height:2;">
+          ● Solid GND pour on<br>  entire LV zone<br>
+          ● No GND pour in<br>  HV zone (isolation)<br>
+          ● Via stitching every 8mm<br>
+          ● Through-hole pads<br>  visible from bottom<br>
+          ● Solder joints for<br>  THT components here<br>
+          ● No SMD on bottom<br>  (all SMD on top)
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     TAB 3: BLOCK SCHEMATIC
+══════════════════════════════════════ -->
+<div class="view" id="view-schematic">
+  <div class="schematic-wrap">
+    <svg width="720" height="520" viewBox="0 0 720 520" xmlns="http://www.w3.org/2000/svg" style="display:block;background:#0a0e14;border:1px solid #333;">
+      <defs>
+        <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#80ff80"/>
+        </marker>
+        <marker id="arrowhead-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#ff6060"/>
+        </marker>
+        <marker id="arrowhead-yellow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#ffcc44"/>
+        </marker>
+      </defs>
+
+      <!-- Title -->
+      <text x="360" y="28" font-family="'Share Tech Mono'" font-size="13" fill="#4ade80" text-anchor="middle" letter-spacing="3">SYSTEM BLOCK DIAGRAM</text>
+
+      <!-- ── MAINS INPUT ── -->
+      <rect x="20" y="60" width="80" height="50" rx="4" fill="#2a0808" stroke="#ff4444" stroke-width="2"/>
+      <text x="60" y="82" font-family="'Share Tech Mono'" font-size="9" fill="#ff8080" text-anchor="middle">230VAC</text>
+      <text x="60" y="95" font-family="'Share Tech Mono'" font-size="9" fill="#ff6060" text-anchor="middle">MAINS IN</text>
+
+      <!-- ── FUSE ── -->
+      <rect x="140" y="68" width="60" height="34" rx="12" fill="#3a2a00" stroke="#ffcc44" stroke-width="1.5"/>
+      <rect x="148" y="74" width="44" height="22" rx="8" fill="#888"/>
+      <text x="170" y="98" font-family="'Share Tech Mono'" font-size="8" fill="#ffcc44" text-anchor="middle">FUSE 10A</text>
+
+      <!-- ── HLK-PM01 ── -->
+      <rect x="240" y="55" width="110" height="60" rx="4" fill="#2a1800" stroke="#b87333" stroke-width="2"/>
+      <text x="295" y="78" font-family="'Share Tech Mono'" font-size="9" fill="#ffcc44" text-anchor="middle">HLK-PM01</text>
+      <text x="295" y="90" font-family="'Share Tech Mono'" font-size="8" fill="#cc8800" text-anchor="middle">AC-DC ISOLATED</text>
+      <text x="295" y="102" font-family="'Share Tech Mono'" font-size="8" fill="#cc8800" text-anchor="middle">5V / 600mA</text>
+
+      <!-- Fuse to HLK arrow -->
+      <line x1="100" y1="85" x2="140" y2="85" stroke="#ff6060" stroke-width="2" marker-end="url(#arrowhead-red)"/>
+      <line x1="200" y1="85" x2="240" y2="85" stroke="#ff6060" stroke-width="2" marker-end="url(#arrowhead-red)"/>
+
+      <!-- ── AMS1117 ── -->
+      <rect x="240" y="145" width="110" height="45" rx="4" fill="#0a1a2a" stroke="#80aaff" stroke-width="1.5"/>
+      <text x="295" y="163" font-family="'Share Tech Mono'" font-size="9" fill="#80aaff" text-anchor="middle">AMS1117-3.3</text>
+      <text x="295" y="177" font-family="'Share Tech Mono'" font-size="8" fill="#6090cc" text-anchor="middle">5V → 3.3V / 1A</text>
+
+      <!-- HLK to AMS1117 -->
+      <line x1="295" y1="115" x2="295" y2="145" stroke="#e8a050" stroke-width="2" marker-end="url(#arrowhead-yellow)"/>
+      <text x="308" y="132" font-family="'Share Tech Mono'" font-size="8" fill="#e8a050">+5V</text>
+
+      <!-- ── ESP32-C6 ── -->
+      <rect x="390" y="140" width="130" height="90" rx="4" fill="#0a1a0a" stroke="#4ade80" stroke-width="2"/>
+      <text x="455" y="163" font-family="'Share Tech Mono'" font-size="9" fill="#4ade80" text-anchor="middle">ESP32-C6</text>
+      <text x="455" y="175" font-family="'Share Tech Mono'" font-size="8" fill="#30b060" text-anchor="middle">SUPERMINI</text>
+      <text x="455" y="190" font-family="'Share Tech Mono'" font-size="7" fill="#208040" text-anchor="middle">Wi-Fi6 / BLE5</text>
+      <text x="455" y="202" font-family="'Share Tech Mono'" font-size="7" fill="#208040" text-anchor="middle">Zigbee / Thread</text>
+      <text x="455" y="214" font-family="'Share Tech Mono'" font-size="7" fill="#208040" text-anchor="middle">GPIO0/1/2/3/20/21/22</text>
+
+      <!-- AMS1117 to ESP32 -->
+      <line x1="350" y1="165" x2="390" y2="165" stroke="#80aaff" stroke-width="2" marker-end="url(#arrowhead)"/>
+      <text x="367" y="160" font-family="'Share Tech Mono'" font-size="8" fill="#80aaff">3.3V</text>
+
+      <!-- ── PC817 OPTOCOUPLER ── -->
+      <rect x="390" y="270" width="130" height="50" rx="4" fill="#1a1000" stroke="#ff8800" stroke-width="1.5"/>
+      <text x="455" y="290" font-family="'Share Tech Mono'" font-size="9" fill="#ffaa44" text-anchor="middle">PC817 × 2</text>
+      <text x="455" y="303" font-family="'Share Tech Mono'" font-size="8" fill="#cc8800" text-anchor="middle">ISOLATION BARRIER</text>
+      <text x="455" y="315" font-family="'Share Tech Mono'" font-size="7" fill="#aa6600" text-anchor="middle">5000V isolation</text>
+
+      <!-- ESP32 to PC817 -->
+      <line x1="455" y1="230" x2="455" y2="270" stroke="#80ff80" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+      <text x="464" y="252" font-family="'Share Tech Mono'" font-size="8" fill="#80ff80">GPIO</text>
+
+      <!-- ── S8050 NPN ── -->
+      <rect x="390" y="355" width="130" height="45" rx="4" fill="#1a1a00" stroke="#ffee44" stroke-width="1.5"/>
+      <text x="455" y="374" font-family="'Share Tech Mono'" font-size="9" fill="#ffee44" text-anchor="middle">S8050 NPN × 2</text>
+      <text x="455" y="389" font-family="'Share Tech Mono'" font-size="8" fill="#cccc00" text-anchor="middle">RELAY DRIVER</text>
+
+      <!-- PC817 to S8050 -->
+      <line x1="455" y1="320" x2="455" y2="355" stroke="#ffaa44" stroke-width="1.5" marker-end="url(#arrowhead-yellow)"/>
+
+      <!-- ── HF3FF RELAYS ── -->
+      <rect x="560" y="340" width="130" height="70" rx="4" fill="#0a0a2a" stroke="#8888ff" stroke-width="2"/>
+      <text x="625" y="365" font-family="'Share Tech Mono'" font-size="9" fill="#aaaaff" text-anchor="middle">HF3FF × 2</text>
+      <text x="625" y="378" font-family="'Share Tech Mono'" font-size="8" fill="#8888cc" text-anchor="middle">SPDT RELAY</text>
+      <text x="625" y="391" font-family="'Share Tech Mono'" font-size="7" fill="#6666aa" text-anchor="middle">10A 250VAC</text>
+      <text x="625" y="403" font-family="'Share Tech Mono'" font-size="7" fill="#6666aa" text-anchor="middle">NO / COM / NC</text>
+
+      <!-- S8050 to Relay -->
+      <line x1="520" y1="377" x2="560" y2="377" stroke="#ff8844" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#arrowhead-red)"/>
+      <text x="538" y="370" font-family="'Share Tech Mono'" font-size="7" fill="#ff8844">coil drv</text>
+
+      <!-- Flyback diode -->
+      <text x="538" y="393" font-family="'Share Tech Mono'" font-size="7" fill="#8888ff">← D 1N4007</text>
+
+      <!-- ── LOAD OUTPUT ── -->
+      <rect x="560" y="440" width="130" height="50" rx="4" fill="#2a0a00" stroke="#ff6060" stroke-width="1.5"/>
+      <text x="625" y="462" font-family="'Share Tech Mono'" font-size="9" fill="#ff8080" text-anchor="middle">LOAD OUTPUT</text>
+      <text x="625" y="477" font-family="'Share Tech Mono'" font-size="8" fill="#cc4040" text-anchor="middle">Screw Terminals</text>
+      <text x="625" y="487" font-family="'Share Tech Mono'" font-size="7" fill="#aa3030" text-anchor="middle">230VAC switched</text>
+
+      <!-- Relay to Load -->
+      <line x1="625" y1="410" x2="625" y2="440" stroke="#ff4444" stroke-width="2" marker-end="url(#arrowhead-red)"/>
+
+      <!-- ── HLW8012 ENERGY ── -->
+      <rect x="240" y="250" width="110" height="65" rx="4" fill="#1a1500" stroke="#ffcc44" stroke-width="1.5"/>
+      <text x="295" y="270" font-family="'Share Tech Mono'" font-size="9" fill="#ffcc44" text-anchor="middle">HLW8012</text>
+      <text x="295" y="283" font-family="'Share Tech Mono'" font-size="8" fill="#ccaa22" text-anchor="middle">ENERGY METER</text>
+      <text x="295" y="296" font-family="'Share Tech Mono'" font-size="7" fill="#aa8800" text-anchor="middle">V / I / P  ~1%</text>
+      <text x="295" y="308" font-family="'Share Tech Mono'" font-size="7" fill="#aa8800" text-anchor="middle">CF/CF1 pulse out</text>
+
+      <!-- HLW8012 to ESP32 -->
+      <line x1="350" y1="280" x2="390" y2="200" stroke="#ffcc44" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrowhead-yellow)"/>
+      <text x="375" y="248" font-family="'Share Tech Mono'" font-size="8" fill="#ffcc44">CF/CF1/SEL</text>
+
+      <!-- Mains to HLW8012 shunt -->
+      <line x1="100" y1="90" x2="130" y2="130" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <line x1="130" y1="130" x2="240" y2="280" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arrowhead-red)"/>
+      <text x="155" y="200" font-family="'Share Tech Mono'" font-size="7" fill="#ff6060">shunt + divider</text>
+      <text x="155" y="210" font-family="'Share Tech Mono'" font-size="7" fill="#ff6060">(mains connected)</text>
+
+      <!-- Mains NEUTRAL direct to output -->
+      <line x1="100" y1="92" x2="120" y2="92" stroke="#6666ff" stroke-width="2"/>
+      <line x1="120" y1="92" x2="120" y2="480" stroke="#6666ff" stroke-width="2"/>
+      <line x1="120" y1="480" x2="560" y2="480" stroke="#6666ff" stroke-width="2"/>
+      <text x="135" y="88" font-family="'Share Tech Mono'" font-size="8" fill="#8888ff">N (direct)</text>
+
+      <!-- Expansion header -->
+      <rect x="570" y="200" width="110" height="50" rx="4" fill="#0a1a1a" stroke="#44cccc" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <text x="625" y="222" font-family="'Share Tech Mono'" font-size="9" fill="#44cccc" text-anchor="middle">EXPANSION</text>
+      <text x="625" y="235" font-family="'Share Tech Mono'" font-size="8" fill="#228888" text-anchor="middle">+2-4 relay ch.</text>
+      <text x="625" y="246" font-family="'Share Tech Mono'" font-size="7" fill="#228888" text-anchor="middle">satellite board</text>
+
+      <line x1="520" y1="185" x2="560" y2="220" stroke="#44cccc" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arrowhead)"/>
+      <text x="545" y="200" font-family="'Share Tech Mono'" font-size="7" fill="#44cccc">GPIO2/3</text>
+
+      <!-- Legend box -->
+      <rect x="20" y="380" width="200" height="110" rx="4" fill="#0a0f0a" stroke="#333" stroke-width="1"/>
+      <text x="120" y="398" font-family="'Share Tech Mono'" font-size="9" fill="#4ade80" text-anchor="middle">// SIGNAL TYPES</text>
+      <line x1="30" y1="412" x2="70" y2="412" stroke="#ff4444" stroke-width="2"/><text x="80" y="416" font-family="'Share Tech Mono'" font-size="8" fill="#ff8080">230VAC Mains</text>
+      <line x1="30" y1="426" x2="70" y2="426" stroke="#e8a050" stroke-width="2"/><text x="80" y="430" font-family="'Share Tech Mono'" font-size="8" fill="#e8a050">+5V DC Power</text>
+      <line x1="30" y1="440" x2="70" y2="440" stroke="#80aaff" stroke-width="2"/><text x="80" y="444" font-family="'Share Tech Mono'" font-size="8" fill="#80aaff">+3.3V DC</text>
+      <line x1="30" y1="454" x2="70" y2="454" stroke="#80ff80" stroke-width="2"/><text x="80" y="458" font-family="'Share Tech Mono'" font-size="8" fill="#80ff80">GPIO Control</text>
+      <line x1="30" y1="468" x2="70" y2="468" stroke="#ff8844" stroke-width="2" stroke-dasharray="4,2"/><text x="80" y="472" font-family="'Share Tech Mono'" font-size="8" fill="#ff8844">Isolated Coil Drive</text>
+      <line x1="30" y1="482" x2="70" y2="482" stroke="#ffcc44" stroke-width="1.5" stroke-dasharray="3,2"/><text x="80" y="486" font-family="'Share Tech Mono'" font-size="8" fill="#ffcc44">Energy Pulse</text>
+
+    </svg>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     TAB 4: ENCLOSURE VIEWS
+══════════════════════════════════════ -->
+<div class="view" id="view-enclosure">
+  <div class="enclosure-wrap">
+
+    <!-- OUTSIDE VIEW -->
+    <div class="enclosure-view">
+      <div class="enc-label">OUTSIDE — FRONT FACE</div>
+      <svg width="280" height="380" viewBox="0 0 280 380" xmlns="http://www.w3.org/2000/svg">
+        <!-- Enclosure body -->
+        <rect x="20" y="20" width="240" height="340" rx="10" fill="#e8e0d8" stroke="#999" stroke-width="3"/>
+        <!-- Face plate detail -->
+        <rect x="25" y="25" width="230" height="330" rx="8" fill="#f0ece4"/>
+        <!-- Top label area -->
+        <rect x="30" y="30" width="220" height="50" rx="6" fill="#2a3a2a"/>
+        <text x="140" y="53" font-family="'Orbitron'" font-size="11" fill="#4ade80" text-anchor="middle" letter-spacing="2">SMART RELAY C6</text>
+        <text x="140" y="68" font-family="'Share Tech Mono'" font-size="8" fill="#208040" text-anchor="middle">Wi-Fi 6 · Zigbee · Thread</text>
+
+        <!-- Status LEDs -->
+        <text x="50" y="105" font-family="'Share Tech Mono'" font-size="8" fill="#555">PWR</text>
+        <circle cx="80" cy="100" r="5" fill="#44ff44" filter="url(#glow-strong)"/>
+        <text x="110" y="105" font-family="'Share Tech Mono'" font-size="8" fill="#555">WiFi</text>
+        <circle cx="143" cy="100" r="5" fill="#4488ff" filter="url(#glow-strong)"/>
+
+        <!-- Relay indicators -->
+        <rect x="30" y="120" width="100" height="70" rx="6" fill="#f5f0e8" stroke="#ccc" stroke-width="1"/>
+        <text x="80" y="138" font-family="'Share Tech Mono'" font-size="8" fill="#333" text-anchor="middle">RELAY  CH1</text>
+        <circle cx="80" cy="158" r="10" fill="#ff4444" stroke="#cc2222" stroke-width="1.5"/>
+        <text x="80" y="162" font-family="'Share Tech Mono'" font-size="7" fill="#fff" text-anchor="middle">OFF</text>
+        <text x="80" y="180" font-family="'Share Tech Mono'" font-size="7" fill="#888" text-anchor="middle">10A 250VAC</text>
+
+        <rect x="150" y="120" width="100" height="70" rx="6" fill="#f5f0e8" stroke="#ccc" stroke-width="1"/>
+        <text x="200" y="138" font-family="'Share Tech Mono'" font-size="8" fill="#333" text-anchor="middle">RELAY  CH2</text>
+        <circle cx="200" cy="158" r="10" fill="#44cc44" stroke="#228822" stroke-width="1.5"/>
+        <text x="200" y="162" font-family="'Share Tech Mono'" font-size="7" fill="#fff" text-anchor="middle">ON</text>
+        <text x="200" y="180" font-family="'Share Tech Mono'" font-size="7" fill="#888" text-anchor="middle">10A 250VAC</text>
+
+        <!-- USB-C port window -->
+        <rect x="110" y="208" width="60" height="16" rx="4" fill="#888" stroke="#666" stroke-width="1"/>
+        <rect x="118" y="211" width="44" height="10" rx="3" fill="#444"/>
+        <text x="140" y="234" font-family="'Share Tech Mono'" font-size="7" fill="#777" text-anchor="middle">USB-C (PROG)</text>
+
+        <!-- Reset button -->
+        <circle cx="240" cy="140" r="7" fill="#ddd" stroke="#aaa" stroke-width="1.5"/>
+        <circle cx="240" cy="140" r="4" fill="#bbb"/>
+        <text x="240" y="158" font-family="'Share Tech Mono'" font-size="6" fill="#777" text-anchor="middle">RST</text>
+
+        <!-- Bottom terminal area -->
+        <rect x="30" y="255" width="220" height="80" rx="6" fill="#2a2a2a"/>
+        <text x="140" y="272" font-family="'Share Tech Mono'" font-size="8" fill="#aaa" text-anchor="middle">TERMINAL CONNECTIONS</text>
+        <!-- Terminal labels -->
+        <g font-family="'Share Tech Mono'" font-size="9" text-anchor="middle">
+          <rect x="38" y="278" width="24" height="44" rx="3" fill="#333" stroke="#666" stroke-width="1"/>
+          <text x="50" y="307" fill="#ff8080">L</text>
+
+          <rect x="68" y="278" width="24" height="44" rx="3" fill="#333" stroke="#666" stroke-width="1"/>
+          <text x="80" y="307" fill="#8080ff">N</text>
+
+          <rect x="108" y="278" width="24" height="44" rx="3" fill="#333" stroke="#666" stroke-width="1"/>
+          <text x="120" y="295" fill="#80ff80" font-size="7">OUT1</text>
+          <text x="120" y="307" fill="#80ff80" font-size="7">L</text>
+
+          <rect x="138" y="278" width="24" height="44" rx="3" fill="#333" stroke="#666" stroke-width="1"/>
+          <text x="150" y="295" fill="#80ff80" font-size="7">OUT1</text>
+          <text x="150" y="307" fill="#8080ff" font-size="7">N</text>
+
+          <rect x="178" y="278" width="24" height="44" rx="3" fill="#333" stroke="#666" stroke-width="1"/>
+          <text x="190" y="295" fill="#80ff80" font-size="7">OUT2</text>
+          <text x="190" y="307" fill="#80ff80" font-size="7">L</text>
+
+          <rect x="208" y="278" width="24" height="44" rx="3" fill="#333" stroke="#666" stroke-width="1"/>
+          <text x="220" y="295" fill="#80ff80" font-size="7">OUT2</text>
+          <text x="220" y="307" fill="#8080ff" font-size="7">N</text>
+        </g>
+        <!-- Screw slots -->
+        <g fill="#555">
+          <rect x="47" y="315" width="6" height="4" rx="1"/>
+          <rect x="77" y="315" width="6" height="4" rx="1"/>
+          <rect x="117" y="315" width="6" height="4" rx="1"/>
+          <rect x="147" y="315" width="6" height="4" rx="1"/>
+          <rect x="187" y="315" width="6" height="4" rx="1"/>
+          <rect x="217" y="315" width="6" height="4" rx="1"/>
+        </g>
+
+        <!-- CE / BIS marks -->
+        <text x="50" y="358" font-family="'Rajdhani'" font-size="9" fill="#888">CE  BIS  RoHS</text>
+        <text x="200" y="358" font-family="'Share Tech Mono'" font-size="7" fill="#777" text-anchor="end">230V~  10A</text>
+      </svg>
+    </div>
+
+    <!-- INSIDE VIEW -->
+    <div class="enclosure-view">
+      <div class="enc-label">INSIDE — PCB IN ENCLOSURE</div>
+      <svg width="320" height="380" viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg">
+        <!-- Enclosure shell (cross-section) -->
+        <rect x="10" y="10" width="300" height="360" rx="10" fill="#d0c8c0" stroke="#999" stroke-width="3"/>
+        <rect x="16" y="16" width="288" height="348" rx="8" fill="#e8e0d8"/>
+
+        <!-- PCB inside -->
+        <rect x="30" y="55" width="260" height="200" rx="4" fill="#1a5c30" stroke="#0d3018" stroke-width="2"/>
+
+        <!-- HLK-PM01 on PCB -->
+        <rect x="168" y="62" width="54" height="34" rx="2" fill="#3a2800" stroke="#b87333" stroke-width="1.5"/>
+        <text x="195" y="74" font-family="'Share Tech Mono'" font-size="6" fill="#ffcc44" text-anchor="middle">HLK-PM01</text>
+        <text x="195" y="84" font-family="'Share Tech Mono'" font-size="5" fill="#cc8800" text-anchor="middle">5V PSU</text>
+
+        <!-- Fuse on PCB -->
+        <rect x="236" y="65" width="40" height="16" rx="6" fill="#888" stroke="#ccc" stroke-width="1"/>
+        <text x="256" y="77" font-family="'Share Tech Mono'" font-size="6" fill="#fff" text-anchor="middle">FUSE 10A</text>
+
+        <!-- ESP32 on PCB -->
+        <rect x="35" y="62" width="60" height="88" rx="3" fill="#2a2a3a" stroke="#4a4a6a" stroke-width="1"/>
+        <text x="65" y="103" font-family="'Share Tech Mono'" font-size="6" fill="#80ff80" text-anchor="middle">ESP32-C6</text>
+        <text x="65" y="113" font-family="'Share Tech Mono'" font-size="5" fill="#60c060" text-anchor="middle">SuperMini</text>
+
+        <!-- PC817s -->
+        <rect x="110" y="75" width="18" height="14" rx="1" fill="#111" stroke="#555" stroke-width="1"/>
+        <text x="119" y="85" font-family="'Share Tech Mono'" font-size="5" fill="#aaa" text-anchor="middle">817</text>
+        <rect x="110" y="95" width="18" height="14" rx="1" fill="#111" stroke="#555" stroke-width="1"/>
+        <text x="119" y="105" font-family="'Share Tech Mono'" font-size="5" fill="#aaa" text-anchor="middle">817</text>
+
+        <!-- HLW8012 -->
+        <rect x="110" y="130" width="30" height="18" rx="1" fill="#111" stroke="#555" stroke-width="1"/>
+        <text x="125" y="143" font-family="'Share Tech Mono'" font-size="5" fill="#ffaa44" text-anchor="middle">HLW8012</text>
+
+        <!-- Relays -->
+        <rect x="168" y="110" width="46" height="36" rx="2" fill="#1a2a4a" stroke="#4a6aaa" stroke-width="1.5"/>
+        <text x="191" y="130" font-family="'Share Tech Mono'" font-size="6" fill="#88aaff" text-anchor="middle">RELAY CH1</text>
+        <text x="191" y="140" font-family="'Share Tech Mono'" font-size="5" fill="#6688cc" text-anchor="middle">HF3FF</text>
+
+        <rect x="224" y="110" width="46" height="36" rx="2" fill="#1a2a4a" stroke="#4a6aaa" stroke-width="1.5"/>
+        <text x="247" y="130" font-family="'Share Tech Mono'" font-size="6" fill="#88aaff" text-anchor="middle">RELAY CH2</text>
+        <text x="247" y="140" font-family="'Share Tech Mono'" font-size="5" fill="#6688cc" text-anchor="middle">HF3FF</text>
+
+        <!-- Screw terminal blocks on PCB edge -->
+        <rect x="168" y="200" width="100" height="20" rx="2" fill="#1a1a1a" stroke="#666" stroke-width="1"/>
+        <text x="218" y="214" font-family="'Share Tech Mono'" font-size="6" fill="#aaa" text-anchor="middle">TERMINAL BLOCKS</text>
+
+        <!-- AC input terminals on right edge -->
+        <rect x="274" y="150" width="20" height="40" rx="2" fill="#1a1a1a" stroke="#666" stroke-width="1"/>
+        <text x="284" y="175" font-family="'Share Tech Mono'" font-size="5" fill="#aaa" text-anchor="middle" transform="rotate(-90,284,175)">AC IN</text>
+
+        <!-- HV zone indicator -->
+        <line x1="163" y1="55" x2="163" y2="255" stroke="#ff4444" stroke-width="1" stroke-dasharray="4,2" opacity="0.7"/>
+
+        <!-- Wire colors -->
+        <!-- Brown = Live -->
+        <path d="M 10 160 L 34 165" stroke="#8B4513" stroke-width="3" fill="none"/>
+        <!-- Blue = Neutral -->
+        <path d="M 10 175 L 34 172" stroke="#4444ff" stroke-width="3" fill="none"/>
+
+        <!-- Load wires from terminals through bottom -->
+        <path d="M 200 220 L 200 280 L 150 280" stroke="#80ff80" stroke-width="2.5" fill="none"/>
+        <path d="M 240 220 L 240 280 L 190 280" stroke="#80aaff" stroke-width="2.5" fill="none"/>
+
+        <!-- Enclosure mounting pillars -->
+        <circle cx="40" cy="270" r="8" fill="#bbb" stroke="#999" stroke-width="1"/>
+        <circle cx="40" cy="270" r="4" fill="#888"/>
+        <circle cx="280" cy="270" r="8" fill="#bbb" stroke="#999" stroke-width="1"/>
+        <circle cx="280" cy="270" r="4" fill="#888"/>
+
+        <!-- Bottom of enclosure -->
+        <rect x="16" y="290" width="288" height="74" rx="8" fill="#d0c8c0"/>
+        <text x="160" y="320" font-family="'Rajdhani'" font-size="11" fill="#888" text-anchor="middle">OUTPUT WIRES TO LOAD</text>
+
+        <!-- Wire bundles exiting bottom -->
+        <path d="M 100 290 L 100 364" stroke="#8B4513" stroke-width="3"/>
+        <path d="M 116 290 L 116 364" stroke="#4444ff" stroke-width="3"/>
+        <path d="M 160 290 L 160 364" stroke="#228822" stroke-width="3"/>
+        <path d="M 190 290 L 190 364" stroke="#228822" stroke-width="3"/>
+        <text x="108" y="358" font-family="'Share Tech Mono'" font-size="7" fill="#888" text-anchor="middle">L  N</text>
+        <text x="175" y="358" font-family="'Share Tech Mono'" font-size="7" fill="#888" text-anchor="middle">LOAD1 LOAD2</text>
+      </svg>
+    </div>
+
+    <!-- DIN RAIL VERSION -->
+    <div class="enclosure-view">
+      <div class="enc-label">OPTION B — DIN RAIL MODULE</div>
+      <svg width="180" height="380" viewBox="0 0 180 380" xmlns="http://www.w3.org/2000/svg">
+        <!-- DIN rail -->
+        <rect x="10" y="175" width="160" height="12" rx="2" fill="#888" stroke="#666" stroke-width="1"/>
+        <rect x="10" y="179" width="160" height="4" rx="1" fill="#aaa"/>
+
+        <!-- Module body -->
+        <rect x="40" y="40" width="100" height="280" rx="6" fill="#e0e0e0" stroke="#999" stroke-width="2"/>
+        <rect x="44" y="44" width="92" height="272" rx="5" fill="#f0f0f0"/>
+
+        <!-- DIN clip -->
+        <rect x="50" y="182" width="80" height="14" rx="2" fill="#888" stroke="#666" stroke-width="1"/>
+        <rect x="60" y="184" width="60" height="10" rx="1" fill="#999"/>
+
+        <!-- Front label -->
+        <rect x="46" y="48" width="88" height="40" rx="4" fill="#2a3a2a"/>
+        <text x="90" y="65" font-family="'Orbitron'" font-size="7" fill="#4ade80" text-anchor="middle">RELAY C6</text>
+        <text x="90" y="77" font-family="'Share Tech Mono'" font-size="6" fill="#208040" text-anchor="middle">2-CHANNEL</text>
+
+        <!-- CH indicators -->
+        <rect x="52" y="100" width="36" height="50" rx="4" fill="#ddd" stroke="#bbb" stroke-width="1"/>
+        <text x="70" y="115" font-family="'Share Tech Mono'" font-size="6" fill="#444" text-anchor="middle">CH1</text>
+        <circle cx="70" cy="130" r="8" fill="#ff4444"/>
+        <text x="70" y="134" font-family="'Share Tech Mono'" font-size="6" fill="#fff" text-anchor="middle">OFF</text>
+
+        <rect x="92" y="100" width="36" height="50" rx="4" fill="#ddd" stroke="#bbb" stroke-width="1"/>
+        <text x="110" y="115" font-family="'Share Tech Mono'" font-size="6" fill="#444" text-anchor="middle">CH2</text>
+        <circle cx="110" cy="130" r="8" fill="#44cc44"/>
+        <text x="110" y="134" font-family="'Share Tech Mono'" font-size="6" fill="#fff" text-anchor="middle">ON</text>
+
+        <!-- Terminals top -->
+        <rect x="50" y="215" width="80" height="50" rx="3" fill="#2a2a2a"/>
+        <text x="90" y="228" font-family="'Share Tech Mono'" font-size="6" fill="#aaa" text-anchor="middle">AC INPUT</text>
+        <g fill="#333" stroke="#666" stroke-width="0.5">
+          <rect x="56" y="232" width="18" height="28" rx="2"/>
+          <rect x="80" y="232" width="18" height="28" rx="2"/>
+          <rect x="104" y="232" width="18" height="28" rx="2"/>
+        </g>
+        <text x="65" y="252" font-family="'Share Tech Mono'" font-size="7" fill="#ff8080" text-anchor="middle">L</text>
+        <text x="89" y="252" font-family="'Share Tech Mono'" font-size="7" fill="#8080ff" text-anchor="middle">N</text>
+        <text x="113" y="252" font-family="'Share Tech Mono'" font-size="7" fill="#80ff80" text-anchor="middle">PE</text>
+
+        <!-- Terminals bottom -->
+        <rect x="50" y="275" width="80" height="30" rx="3" fill="#2a2a2a"/>
+        <text x="90" y="288" font-family="'Share Tech Mono'" font-size="6" fill="#aaa" text-anchor="middle">LOAD OUT</text>
+        <g fill="#333" stroke="#666" stroke-width="0.5">
+          <rect x="56" y="291" width="14" height="12" rx="1"/>
+          <rect x="73" y="291" width="14" height="12" rx="1"/>
+          <rect x="90" y="291" width="14" height="12" rx="1"/>
+          <rect x="107" y="291" width="14" height="12" rx="1"/>
+        </g>
+
+        <!-- CE mark area -->
+        <text x="90" y="358" font-family="'Rajdhani'" font-size="8" fill="#888" text-anchor="middle">CE  BIS  230V~ 10A</text>
+      </svg>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:10px 20px 20px;font-family:'Share Tech Mono';font-size:11px;color:#666;max-width:720px;margin:0 auto;line-height:2;">
+    LEFT: Compact wall-mount box (85×50×35mm) — recommended for India smart home market<br>
+    CENTER: PCB inside enclosure showing component layout and wire routing<br>
+    RIGHT: DIN rail module option (35mm rail) — for distribution board / panel installation
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     TAB 5: BOM
+══════════════════════════════════════ -->
+<div class="view" id="view-bom">
+  <div class="bom-wrap">
+    <div style="font-family:'Share Tech Mono';font-size:11px;color:#4ade80;margin-bottom:12px;letter-spacing:2px;">// BILL OF MATERIALS — ESP32-C6 SMART RELAY PCB (2-CHANNEL BASE BOARD)</div>
+    <table class="bom-table">
+      <thead>
+        <tr><th>REF</th><th>COMPONENT</th><th>VALUE / PART#</th><th>PKG</th><th>QTY</th><th>ZONE</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>U1</td><td>ESP32-C6 SuperMini</td><td>ESP32-C6FH4</td><td>Custom stamp</td><td>1</td><td><span class="tag tag-lv">LV</span></td></tr>
+        <tr><td>U2</td><td>Hi-Link AC-DC PSU</td><td>HLK-PM01 5V/600mA</td><td>SIP-4</td><td>1</td><td><span class="tag tag-hv">HV</span></td></tr>
+        <tr><td>U3</td><td>LDO Regulator</td><td>AMS1117-3.3</td><td>SOT-223</td><td>1</td><td><span class="tag tag-lv">LV</span></td></tr>
+        <tr><td>U4, U5</td><td>Optocoupler</td><td>PC817 or EL817</td><td>DIP-4</td><td>2</td><td><span class="tag tag-lv">LV</span></td></tr>
+        <tr><td>U6</td><td>Energy Monitor IC</td><td>HLW8012 or BL0937</td><td>SOP-8</td><td>1</td><td><span class="tag tag-hv">HV</span></td></tr>
+        <tr><td>RL1, RL2</td><td>Power Relay SPDT 10A</td><td>HF3FF/005-1ZST</td><td>DIP-5</td><td>2</td><td><span class="tag tag-hv">HV</span></td></tr>
+        <tr><td>Q1, Q2</td><td>NPN Transistor</td><td>S8050 or 2N2222</td><td>TO-92</td><td>2</td><td><span class="tag tag-lv">LV</span></td></tr>
+        <tr><td>D1, D2</td><td>Rectifier Diode</td><td>1N4007</td><td>DO-41</td><td>2</td><td><span class="tag tag-lv">LV</span></td></tr>
+        <tr><td>F1</td><td>Fuse Holder + Fuse</td><td>5×20mm 10A 250VAC</td><td>PCB-mount</td><td>1</td><td><span class="tag tag-hv">HV</span></td></tr>
+        <tr><td>RV1</td><td>MOV Varistor (opt.)</td><td>07D271K 275VAC</td><td>10mm disc</td><td>1</td><td><span class="tag tag-hv">HV</span></td></tr>
+        <tr><td>R1, R2</td><td>Resistor GPIO→PC817</td><td>1kΩ 0.25W</td><td>0402</td><td>2</td><td><span class="tag tag-lv">LV</span></td></tr>
+        <tr><td>R3, R4</td><td>Resistor Pull-up</td><td>10kΩ 0.25W</td><td>0402</td><td>2</td><td><span class="tag tag-lv">LV</span></td></tr>
+        <tr><td>R5, R6</td><td>Resistor Base</td><td>1kΩ 0.25W</td><td>0402</td><td>2</td><td><span class="tag tag-lv">LV</span></td></tr>
+        <tr><td>R7, R8</td><td>V-Divider HLW8012</td><td>470kΩ 0.25W</td><td>0402</td><td>2</td><td><span class="tag tag-hv">HV</span></td></tr>
+        <tr><td>R9</td><td>V-Divider Low-side</td><td>1kΩ 0.25W</td><td>0402</td><td>1</td><td><span class="tag tag-hv">HV</span></td></tr>
+        <tr><td>R_sh</td><td>Current Shunt</td><td>1mΩ 2W</td><td>2512</td><td>1</td><td><span class="tag tag-hv">HV</span></td></tr>
+        <tr><td>C1</td><td>Bulk Cap 5V</td><td>100µF 16V</td><td>Electrolytic D6.3</td><td>1</td><td><span class="tag tag-lv">LV</span></td></tr>
+        <tr><td>C2</td><td>Bulk Cap 3.3V</td><td>47µF 10V</td><td>Electrolytic D5</td><td>1</td><td><span class="tag tag-lv">LV</span></td></tr>
+        <tr><td>C3–C6</td><td>Decoupling Cap</td><td>100nF 10V</td><td>0402</td><td>4</td><td><span class="tag tag-lv">LV</span></td></tr>
+        <tr><td>C7, C8</td><td>LDO Input/Output</td><td>10µF 10V</td><td>0805</td><td>2</td><td><span class="tag tag-lv">LV</span></td></tr>
+        <tr><td>C9, C10</td><td>HLW8012 Filter</td><td>10nF 630V</td><td>0805</td><td>2</td><td><span class="tag tag-hv">HV</span></td></tr>
+        <tr><td>J1</td><td>AC Input Terminal</td><td>KF350 3P 3.5mm</td><td>THT</td><td>1</td><td><span class="tag tag-hv">HV</span></td></tr>
+        <tr><td>J2, J3</td><td>Load Output Terminal</td><td>KF350 3P 3.5mm</td><td>THT</td><td>2</td><td><span class="tag tag-hv">HV</span></td></tr>
+        <tr><td>J4</td><td>Programming Header</td><td>2.54mm 4P male</td><td>THT</td><td>1</td><td><span class="tag tag-lv">LV</span></td></tr>
+        <tr><td>J5</td><td>Expansion Header</td><td>2.54mm 8P male</td><td>THT</td><td>1</td><td><span class="tag tag-lv">LV</span></td></tr>
+        <tr><td>MH1–MH4</td><td>Mounting Holes</td><td>M3 3.2mm drill</td><td>NPTH</td><td>4</td><td><span class="tag tag-pwr">MECH</span></td></tr>
+        <tr><td>PCB</td><td>PCB</td><td>FR4 2L 2oz 1.6mm 120×80mm</td><td>ENIG</td><td>1</td><td><span class="tag tag-pwr">BASE</span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:16px;font-family:'Share Tech Mono';font-size:10px;color:#666;line-height:2;">
+      TOTAL COMPONENTS: 27 reference designators | ESTIMATED COST (India, prototype): ₹400–600 per unit<br>
+      VOLUME COST (100+ units): ~₹250–350 per unit | PCB FABRICATION (JLCPCB 5pcs): ~₹100–150
+    </div>
+  </div>
+</div>
+
+<script>
+  function showTab(name) {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('view-' + name).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Tooltip on hover
+  const tooltip = document.getElementById('tooltip');
+  document.querySelectorAll('.component[data-tip]').forEach(el => {
+    el.style.cursor = 'pointer';
+    el.addEventListener('mousemove', e => {
+      const parts = el.getAttribute('data-tip').split('|');
+      let html = `<strong>${parts[0]}</strong>`;
+      for (let i = 1; i < parts.length; i++) html += `${parts[i]}<br>`;
+      tooltip.innerHTML = html;
+      tooltip.style.display = 'block';
+      tooltip.style.left = (e.clientX + 14) + 'px';
+      tooltip.style.top = (e.clientY + 10) + 'px';
+    });
+    el.addEventListener('mouseleave', () => {
+      tooltip.style.display = 'none';
+    });
+  });
+</script>
+</body>
+</html>

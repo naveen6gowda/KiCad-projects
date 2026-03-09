@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RelaySwitch_C6 — PCB Layout Plan</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --bg: #0a0e17;
+    --surface: #111827;
+    --surface2: #1a2235;
+    --border: #2a3550;
+    --text: #e2e8f0;
+    --text-dim: #94a3b8;
+    --accent: #38bdf8;
+    --hv: #ef4444;
+    --lv: #22c55e;
+    --warn: #f59e0b;
+    --purple: #a78bfa;
+    --pink: #f472b6;
+    --teal: #2dd4bf;
+    --orange: #fb923c;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .header {
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, #111827 0%, var(--bg) 100%);
+  }
+  .header h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+  }
+  .header p {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .board-panel {
+    padding: 24px;
+    border-right: 1px solid var(--border);
+    min-height: 600px;
+  }
+  .board-panel h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .board-panel h2 .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    display: inline-block;
+  }
+
+  .pcb-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 50/45;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .pcb-board {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pcb-board.top { background: #0d3a0d; border: 2px solid #2a6b2a; }
+  .pcb-board.bottom { background: #0d0d3a; border: 2px solid #2a2a6b; }
+
+  .component {
+    position: absolute;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 2;
+  }
+  .component:hover {
+    transform: scale(1.04);
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+  }
+  .component .ref {
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .component .name {
+    font-size: 8px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 1px;
+  }
+  .component .dims {
+    font-size: 7px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 1px;
+  }
+
+  /* HV zone shading */
+  .hv-zone {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 72%;
+    background: repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(239,68,68,0.03) 8px, rgba(239,68,68,0.03) 16px);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .lv-zone {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 28%;
+    background: repeating-linear-gradient(-45deg, transparent, transparent 8px, rgba(34,197,94,0.03) 8px, rgba(34,197,94,0.03) 16px);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .isolation-line {
+    position: absolute;
+    left: 0; right: 0;
+    top: 72%;
+    height: 3px;
+    z-index: 5;
+    pointer-events: none;
+  }
+  .isolation-line::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: repeating-linear-gradient(90deg, var(--hv) 0, var(--hv) 8px, transparent 8px, transparent 14px);
+  }
+  .isolation-label {
+    position: absolute;
+    top: 69%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    color: var(--hv);
+    white-space: nowrap;
+    z-index: 6;
+    background: rgba(10,14,23,0.9);
+    padding: 1px 6px;
+    border-radius: 2px;
+  }
+
+  .zone-label {
+    position: absolute;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    z-index: 1;
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  /* Tooltip */
+  .tooltip {
+    display: none;
+    position: fixed;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 12px;
+    z-index: 1000;
+    max-width: 280px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    pointer-events: none;
+  }
+  .tooltip.show { display: block; }
+  .tooltip .tt-ref { font-weight: 700; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
+  .tooltip .tt-detail { color: var(--text-dim); margin-top: 4px; line-height: 1.5; }
+
+  /* Analysis section */
+  .analysis {
+    padding: 24px 32px;
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--border);
+  }
+  .analysis h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .space-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+  .space-table th {
+    text-align: left;
+    padding: 8px 12px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .space-table td {
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .space-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+  .tag {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+  }
+  .tag.hv { background: rgba(239,68,68,0.15); color: #fca5a5; }
+  .tag.lv { background: rgba(34,197,94,0.15); color: #86efac; }
+  .tag.tht { background: rgba(251,146,60,0.15); color: #fdba74; }
+  .tag.smd { background: rgba(167,139,250,0.15); color: #c4b5fd; }
+
+  .section-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .section-card h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--warn);
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .section-card p, .section-card li {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+  .section-card ul { margin-left: 16px; }
+  .section-card li { margin-bottom: 4px; }
+  .section-card .highlight { color: var(--accent); font-weight: 600; }
+  .section-card .danger { color: var(--hv); font-weight: 600; }
+  .section-card .ok { color: var(--lv); font-weight: 600; }
+
+  .recommendation {
+    background: linear-gradient(135deg, rgba(34,197,94,0.08), rgba(56,189,248,0.08));
+    border: 1px solid rgba(34,197,94,0.3);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .recommendation h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--lv);
+    margin-bottom: 8px;
+  }
+  .recommendation p, .recommendation li {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .step-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .step-box {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 18px;
+  }
+  .step-box .step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+    opacity: 0.4;
+  }
+  .step-box h4 {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 4px 0;
+    color: var(--text);
+  }
+  .step-box p {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  .dims-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    background: rgba(56,189,248,0.1);
+    color: var(--accent);
+    padding: 2px 6px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+
+  /* Mounting holes */
+  .mount-hole {
+    position: absolute;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 1.5px solid #555;
+    z-index: 3;
+  }
+  .mount-hole::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #333;
+    transform: translate(-50%, -50%);
+  }
+
+  .connector-edge {
+    position: absolute;
+    z-index: 4;
+  }
+
+  .grid-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .board-dims {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 900px) {
+    .main { grid-template-columns: 1fr; }
+    .board-panel { border-right: none; border-bottom: 1px solid var(--border); }
+    .step-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>▣ RelaySwitch_C6 — PCB Layout Plan</h1>
+  <p>45 × 50 mm • 2-Layer • 2-Channel Relay Board with HLW8012 Power Metering</p>
+</div>
+
+<div class="main">
+  <!-- TOP SIDE -->
+  <div class="board-panel">
+    <h2><span class="dot" style="background:var(--lv)"></span> TOP SIDE (F.Cu) — Proposed Layout</h2>
+    <div class="pcb-container">
+      <svg viewBox="0 0 500 450" style="width:100%;height:100%;" font-family="'JetBrains Mono', monospace">
+        <!-- Board background -->
+        <rect x="0" y="0" width="500" height="450" fill="#0d3a0d" rx="4" stroke="#2a6b2a" stroke-width="2"/>
+
+        <!-- Grid -->
+        <defs>
+          <pattern id="grid-t" width="50" height="50" patternUnits="userSpaceOnUse">
+            <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect x="0" y="0" width="500" height="450" fill="url(#grid-t)"/>
+
+        <!-- HV Zone shading -->
+        <rect x="0" y="0" width="500" height="320" fill="rgba(239,68,68,0.04)"/>
+        <!-- LV Zone shading -->
+        <rect x="0" y="320" width="500" height="130" fill="rgba(34,197,94,0.04)"/>
+
+        <!-- Isolation barrier -->
+        <line x1="0" y1="320" x2="500" y2="320" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="8,5"/>
+        <rect x="140" y="308" width="220" height="16" fill="#0d3a0d" rx="2"/>
+        <text x="250" y="320" text-anchor="middle" fill="#ef4444" font-size="9" font-weight="700">⚡ 3mm HV / LV ISOLATION ⚡</text>
+
+        <!-- Zone labels -->
+        <text x="10" y="18" fill="rgba(239,68,68,0.5)" font-size="9" font-weight="600">HIGH VOLTAGE ZONE</text>
+        <text x="10" y="340" fill="rgba(34,197,94,0.5)" font-size="9" font-weight="600">LOW VOLTAGE ZONE</text>
+
+        <!-- ========== ROW 1: CONNECTORS AT TOP EDGE ========== -->
+        <!-- J1 AC Mains In - 3 pin screw terminal -->
+        <rect x="8" y="5" width="98" height="55" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="1.5" rx="3"/>
+        <text x="57" y="24" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">J1</text>
+        <text x="57" y="36" text-anchor="middle" fill="#fca5a5" font-size="8">AC MAINS IN</text>
+        <text x="57" y="47" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7">3-pin 5.08mm</text>
+        <text x="57" y="56" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="6">L | N | E</text>
+
+        <!-- J3 Load CH1 - 2 pin screw terminal -->
+        <rect x="120" y="5" width="72" height="55" fill="rgba(251,146,60,0.2)" stroke="#fb923c" stroke-width="1.5" rx="3"/>
+        <text x="156" y="24" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">J3</text>
+        <text x="156" y="36" text-anchor="middle" fill="#fdba74" font-size="8">LOAD CH1</text>
+        <text x="156" y="47" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7">2-pin 5.08mm</text>
+
+        <!-- J4 Load CH2 - 2 pin screw terminal -->
+        <rect x="206" y="5" width="72" height="55" fill="rgba(251,146,60,0.2)" stroke="#fb923c" stroke-width="1.5" rx="3"/>
+        <text x="242" y="24" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">J4</text>
+        <text x="242" y="36" text-anchor="middle" fill="#fdba74" font-size="8">LOAD CH2</text>
+        <text x="242" y="47" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7">2-pin 5.08mm</text>
+
+        <!-- J5 SW1 - 2 pin header (LV) at right edge -->
+        <rect x="425" y="335" width="65" height="50" fill="rgba(34,197,94,0.15)" stroke="#22c55e" stroke-width="1.5" rx="3"/>
+        <text x="457" y="354" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">J5</text>
+        <text x="457" y="366" text-anchor="middle" fill="#86efac" font-size="8">SW1 IN</text>
+        <text x="457" y="377" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="7">2-pin 2.54mm</text>
+
+        <!-- J6 SW2 - 2 pin header (LV) at right edge -->
+        <rect x="425" y="392" width="65" height="50" fill="rgba(34,197,94,0.15)" stroke="#22c55e" stroke-width="1.5" rx="3"/>
+        <text x="457" y="411" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">J6</text>
+        <text x="457" y="423" text-anchor="middle" fill="#86efac" font-size="8">SW2 IN</text>
+        <text x="457" y="434" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="7">2-pin 2.54mm</text>
+
+        <!-- ========== ROW 2: PSU MODULE ========== -->
+        <rect x="8" y="70" width="150" height="90" fill="rgba(167,139,250,0.15)" stroke="#a78bfa" stroke-width="1.5" rx="3"/>
+        <text x="83" y="95" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">U1</text>
+        <text x="83" y="109" text-anchor="middle" fill="#c4b5fd" font-size="9">HLK-2M05</text>
+        <text x="83" y="121" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7">AC→DC 5V 2W</text>
+        <text x="83" y="132" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="7">34 × 20 × 15mm</text>
+        <text x="83" y="152" text-anchor="middle" fill="#c4b5fd" font-size="7">THT — tallest part</text>
+
+        <!-- F1 Fuse -->
+        <rect x="170" y="70" width="55" height="22" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1" rx="2"/>
+        <text x="197" y="84" text-anchor="middle" fill="#fca5a5" font-size="8" font-weight="600">F1 10A</text>
+        <text x="197" y="97" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="6">1206 SMD</text>
+
+        <!-- RV1 MOV -->
+        <circle cx="200" cy="120" r="18" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-width="1"/>
+        <text x="200" y="118" text-anchor="middle" fill="#c4b5fd" font-size="8" font-weight="600">RV1</text>
+        <text x="200" y="129" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="6">MOV 275V</text>
+
+        <!-- R10 Shunt -->
+        <rect x="170" y="145" width="60" height="18" fill="rgba(56,189,248,0.12)" stroke="#38bdf8" stroke-width="1" rx="2"/>
+        <text x="200" y="158" text-anchor="middle" fill="#7dd3fc" font-size="7" font-weight="600">R10 1mΩ 2512</text>
+
+        <!-- ========== ROW 3: RELAYS ========== -->
+        <rect x="245" y="70" width="120" height="90" fill="rgba(34,197,94,0.12)" stroke="#22c55e" stroke-width="1.5" rx="3"/>
+        <text x="305" y="95" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">K1</text>
+        <text x="305" y="109" text-anchor="middle" fill="#86efac" font-size="9">G5Q-1A-DC5</text>
+        <text x="305" y="121" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7">Relay Ch1</text>
+        <text x="305" y="132" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="7">12.5 × 7.5 × 10mm</text>
+        <text x="305" y="152" text-anchor="middle" fill="#86efac" font-size="7">THT</text>
+
+        <rect x="375" y="70" width="120" height="90" fill="rgba(34,197,94,0.12)" stroke="#22c55e" stroke-width="1.5" rx="3"/>
+        <text x="435" y="95" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">K2</text>
+        <text x="435" y="109" text-anchor="middle" fill="#86efac" font-size="9">G5Q-1A-DC5</text>
+        <text x="435" y="121" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7">Relay Ch2</text>
+        <text x="435" y="132" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="7">12.5 × 7.5 × 10mm</text>
+        <text x="435" y="152" text-anchor="middle" fill="#86efac" font-size="7">THT</text>
+
+        <!-- ========== ROW 4: HV ROUTING AREA ========== -->
+        <rect x="8" y="170" width="484" height="138" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4,4" rx="2"/>
+        <text x="250" y="190" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-size="10">HV TRACE ROUTING AREA</text>
+        <text x="250" y="205" text-anchor="middle" fill="rgba(255,255,255,0.1)" font-size="8">AC mains tracks — wide 1.5mm+ traces</text>
+        <text x="250" y="220" text-anchor="middle" fill="rgba(255,255,255,0.1)" font-size="8">J1→F1→HLK / J1→K1→J3 / J1→K2→J4</text>
+
+        <!-- HLW8012 voltage divider connection arrow -->
+        <line x1="200" y1="163" x2="200" y2="260" stroke="rgba(251,146,60,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="215" y="250" fill="rgba(251,146,60,0.5)" font-size="6" transform="rotate(-90 215 250)">VP to HLW via R</text>
+
+        <!-- ========== LV ZONE: BOTTOM SIDE COMPONENTS (CASTELLATED/SMD) ========== -->
+        <!-- ESP32-C6 on bottom side shown as ghost -->
+        <rect x="160" y="345" width="170" height="65" fill="none" stroke="rgba(56,189,248,0.2)" stroke-width="1" stroke-dasharray="4,3" rx="3"/>
+        <text x="245" y="370" text-anchor="middle" fill="rgba(56,189,248,0.3)" font-size="9">ESP32-C6 (on bottom)</text>
+        <text x="245" y="385" text-anchor="middle" fill="rgba(56,189,248,0.2)" font-size="7">ghost outline</text>
+
+        <!-- J2 Programming header (LV zone) -->
+        <rect x="8" y="345" width="55" height="65" fill="rgba(45,212,191,0.15)" stroke="#2dd4bf" stroke-width="1.5" rx="3"/>
+        <text x="35" y="365" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">J2</text>
+        <text x="35" y="377" text-anchor="middle" fill="#5eead4" font-size="7">PROG</text>
+        <text x="35" y="389" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="6">4-pin 2.54</text>
+        <text x="35" y="400" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="6">TX/RX/3V3/G</text>
+
+        <!-- Test Points near J2 -->
+        <circle cx="75" cy="350" r="5" fill="rgba(250,204,21,0.2)" stroke="#facc15" stroke-width="0.8"/>
+        <text x="75" y="353" text-anchor="middle" fill="#facc15" font-size="5">TP</text>
+
+        <!-- Dimension annotations -->
+        <line x1="0" y1="448" x2="500" y2="448" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+        <text x="250" y="446" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="8">← 50 mm →</text>
+        <line x1="498" y1="0" x2="498" y2="450" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+        <text x="496" y="225" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="8" transform="rotate(90 496 225)">← 45 mm →</text>
+
+        <!-- Mounting holes -->
+        <circle cx="15" cy="15" r="7" fill="none" stroke="#555" stroke-width="1.2"/>
+        <circle cx="15" cy="15" r="2.5" fill="#333"/>
+        <circle cx="485" cy="15" r="7" fill="none" stroke="#555" stroke-width="1.2"/>
+        <circle cx="485" cy="15" r="2.5" fill="#333"/>
+        <circle cx="15" cy="435" r="7" fill="none" stroke="#555" stroke-width="1.2"/>
+        <circle cx="15" cy="435" r="2.5" fill="#333"/>
+        <circle cx="485" cy="435" r="7" fill="none" stroke="#555" stroke-width="1.2"/>
+        <circle cx="485" cy="435" r="2.5" fill="#333"/>
+      </svg>
+    </div>
+    <div class="board-dims">Top: HV connectors + PSU + Relays + HV traces</div>
+  </div>
+
+  <!-- BOTTOM SIDE -->
+  <div class="board-panel">
+    <h2><span class="dot" style="background:var(--accent)"></span> BOTTOM SIDE (B.Cu) — Proposed Layout</h2>
+    <div class="pcb-container">
+      <svg viewBox="0 0 500 450" style="width:100%;height:100%;" font-family="'JetBrains Mono', monospace">
+        <!-- Board background -->
+        <rect x="0" y="0" width="500" height="450" fill="#0d0d3a" rx="4" stroke="#2a2a6b" stroke-width="2"/>
+
+        <defs>
+          <pattern id="grid-b" width="50" height="50" patternUnits="userSpaceOnUse">
+            <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect x="0" y="0" width="500" height="450" fill="url(#grid-b)"/>
+
+        <!-- GND pour indication -->
+        <rect x="3" y="3" width="494" height="444" fill="none" stroke="rgba(68,68,255,0.15)" stroke-width="1" stroke-dasharray="3,3" rx="3"/>
+        <text x="250" y="445" text-anchor="middle" fill="rgba(68,68,255,0.3)" font-size="8">GND COPPER POUR — ENTIRE B.Cu</text>
+
+        <!-- Isolation barrier -->
+        <line x1="0" y1="320" x2="500" y2="320" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="8,5"/>
+        <rect x="130" y="308" width="240" height="16" fill="#0d0d3a" rx="2"/>
+        <text x="250" y="320" text-anchor="middle" fill="#ef4444" font-size="9" font-weight="700">⚡ NO LV TRACES ABOVE THIS LINE ⚡</text>
+
+        <!-- HV area label -->
+        <text x="250" y="160" text-anchor="middle" fill="rgba(239,68,68,0.15)" font-size="14" font-weight="700">HV GND POUR ONLY</text>
+        <text x="250" y="178" text-anchor="middle" fill="rgba(239,68,68,0.1)" font-size="9">No LV components — THT pins protrude here</text>
+        <text x="250" y="195" text-anchor="middle" fill="rgba(239,68,68,0.08)" font-size="8">HLK-2M05, K1, K2, J1, J3, J4 pads visible</text>
+
+        <!-- THT pin ghosts from top side -->
+        <rect x="8" y="5" width="98" height="55" fill="none" stroke="rgba(239,68,68,0.1)" stroke-width="0.8" stroke-dasharray="2,2" rx="2"/>
+        <text x="57" y="35" text-anchor="middle" fill="rgba(239,68,68,0.15)" font-size="7">J1 pads</text>
+
+        <rect x="120" y="5" width="72" height="55" fill="none" stroke="rgba(251,146,60,0.1)" stroke-width="0.8" stroke-dasharray="2,2" rx="2"/>
+        <text x="156" y="35" text-anchor="middle" fill="rgba(251,146,60,0.15)" font-size="7">J3 pads</text>
+
+        <rect x="206" y="5" width="72" height="55" fill="none" stroke="rgba(251,146,60,0.1)" stroke-width="0.8" stroke-dasharray="2,2" rx="2"/>
+        <text x="242" y="35" text-anchor="middle" fill="rgba(251,146,60,0.15)" font-size="7">J4 pads</text>
+
+        <rect x="8" y="70" width="150" height="90" fill="none" stroke="rgba(167,139,250,0.1)" stroke-width="0.8" stroke-dasharray="2,2" rx="2"/>
+        <text x="83" y="120" text-anchor="middle" fill="rgba(167,139,250,0.15)" font-size="7">U1 HLK pads</text>
+
+        <rect x="245" y="70" width="120" height="90" fill="none" stroke="rgba(34,197,94,0.1)" stroke-width="0.8" stroke-dasharray="2,2" rx="2"/>
+        <text x="305" y="120" text-anchor="middle" fill="rgba(34,197,94,0.15)" font-size="7">K1 pads</text>
+
+        <rect x="375" y="70" width="120" height="90" fill="none" stroke="rgba(34,197,94,0.1)" stroke-width="0.8" stroke-dasharray="2,2" rx="2"/>
+        <text x="435" y="120" text-anchor="middle" fill="rgba(34,197,94,0.15)" font-size="7">K2 pads</text>
+
+        <!-- ========== LV ZONE: ALL SMD COMPONENTS ========== -->
+        <!-- ESP32-C6 XIAO -->
+        <rect x="170" y="340" width="185" height="68" fill="rgba(56,189,248,0.2)" stroke="#38bdf8" stroke-width="2" rx="4"/>
+        <text x="262" y="363" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">U2</text>
+        <text x="262" y="377" text-anchor="middle" fill="#7dd3fc" font-size="10">XIAO ESP32-C6</text>
+        <text x="262" y="391" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7">21 × 17.5mm — Castellated SMD</text>
+        <text x="262" y="402" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="7">CENTER of LV zone</text>
+
+        <!-- Pin labels ESP32 left -->
+        <text x="165" y="350" text-anchor="end" fill="rgba(134,239,172,0.6)" font-size="6">D0→K1</text>
+        <text x="165" y="360" text-anchor="end" fill="rgba(134,239,172,0.6)" font-size="6">D1→K2</text>
+        <text x="165" y="370" text-anchor="end" fill="rgba(250,204,21,0.6)" font-size="6">D2→SW1</text>
+        <text x="165" y="380" text-anchor="end" fill="rgba(134,239,172,0.6)" font-size="6">D3→CF1</text>
+        <text x="165" y="390" text-anchor="end" fill="rgba(134,239,172,0.6)" font-size="6">D4→SEL</text>
+        <text x="165" y="400" text-anchor="end" fill="rgba(250,204,21,0.6)" font-size="6">D5→SW2</text>
+
+        <!-- Pin labels ESP32 right -->
+        <text x="360" y="350" fill="rgba(148,163,184,0.5)" font-size="6">VBUS(NC)</text>
+        <text x="360" y="360" fill="rgba(148,163,184,0.5)" font-size="6">GND</text>
+        <text x="360" y="370" fill="rgba(148,163,184,0.5)" font-size="6">3V3</text>
+        <text x="360" y="380" fill="rgba(148,163,184,0.5)" font-size="6">D10(free)</text>
+        <text x="360" y="390" fill="rgba(134,239,172,0.6)" font-size="6">D9→CF</text>
+
+        <!-- HLW8012 -->
+        <rect x="8" y="340" width="78" height="50" fill="rgba(251,146,60,0.2)" stroke="#fb923c" stroke-width="1.5" rx="3"/>
+        <text x="47" y="360" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">U5</text>
+        <text x="47" y="373" text-anchor="middle" fill="#fdba74" font-size="8">HLW8012</text>
+        <text x="47" y="384" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="7">SOIC-8</text>
+
+        <!-- Voltage divider resistors -->
+        <rect x="8" y="395" width="78" height="28" fill="rgba(250,204,21,0.1)" stroke="rgba(250,204,21,0.3)" stroke-width="0.8" rx="2"/>
+        <text x="47" y="408" text-anchor="middle" fill="#fde68a" font-size="7" font-weight="600">R4,R6,R7,R8,R13</text>
+        <text x="47" y="418" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="6">470kΩ×5 (0402)</text>
+
+        <!-- R11, R12 -->
+        <rect x="92" y="340" width="48" height="24" fill="rgba(250,204,21,0.1)" stroke="rgba(250,204,21,0.3)" stroke-width="0.8" rx="2"/>
+        <text x="116" y="353" text-anchor="middle" fill="#fde68a" font-size="7" font-weight="600">R11,R12</text>
+        <text x="116" y="361" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="6">1kΩ 0402</text>
+
+        <!-- Optocouplers -->
+        <rect x="92" y="370" width="36" height="30" fill="rgba(167,139,250,0.15)" stroke="#a78bfa" stroke-width="1" rx="2"/>
+        <text x="110" y="385" text-anchor="middle" fill="#c4b5fd" font-size="8" font-weight="600">U3</text>
+        <text x="110" y="396" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="6">PC817</text>
+
+        <rect x="132" y="370" width="36" height="30" fill="rgba(167,139,250,0.15)" stroke="#a78bfa" stroke-width="1" rx="2"/>
+        <text x="150" y="385" text-anchor="middle" fill="#c4b5fd" font-size="8" font-weight="600">U4</text>
+        <text x="150" y="396" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="6">PC817</text>
+
+        <!-- Transistors -->
+        <rect x="92" y="405" width="34" height="22" fill="rgba(244,114,182,0.15)" stroke="#f472b6" stroke-width="0.8" rx="2"/>
+        <text x="109" y="417" text-anchor="middle" fill="#f9a8d4" font-size="7" font-weight="600">Q1</text>
+
+        <rect x="130" y="405" width="34" height="22" fill="rgba(244,114,182,0.15)" stroke="#f472b6" stroke-width="0.8" rx="2"/>
+        <text x="147" y="417" text-anchor="middle" fill="#f9a8d4" font-size="7" font-weight="600">Q2</text>
+
+        <!-- Flyback diodes -->
+        <rect x="92" y="430" width="26" height="16" fill="rgba(34,197,94,0.12)" stroke="rgba(34,197,94,0.3)" stroke-width="0.8" rx="1"/>
+        <text x="105" y="441" text-anchor="middle" fill="#86efac" font-size="6">D1</text>
+
+        <rect x="122" y="430" width="26" height="16" fill="rgba(34,197,94,0.12)" stroke="rgba(34,197,94,0.3)" stroke-width="0.8" rx="1"/>
+        <text x="135" y="441" text-anchor="middle" fill="#86efac" font-size="6">D2</text>
+
+        <!-- Decoupling caps -->
+        <rect x="365" y="415" width="85" height="28" fill="rgba(250,204,21,0.1)" stroke="rgba(250,204,21,0.25)" stroke-width="0.8" rx="2"/>
+        <text x="407" y="428" text-anchor="middle" fill="#fde68a" font-size="7" font-weight="600">C1–C8</text>
+        <text x="407" y="438" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="6">Decoupling caps</text>
+
+        <!-- R1, R3 opto LED resistors -->
+        <rect x="152" y="430" width="40" height="16" fill="rgba(250,204,21,0.08)" stroke="rgba(250,204,21,0.2)" stroke-width="0.8" rx="1"/>
+        <text x="172" y="441" text-anchor="middle" fill="#fde68a" font-size="6">R1,R3</text>
+
+        <!-- Switch input components -->
+        <rect x="455" y="340" width="40" height="105" fill="rgba(45,212,191,0.1)" stroke="rgba(45,212,191,0.3)" stroke-width="0.8" rx="2"/>
+        <text x="475" y="360" text-anchor="middle" fill="#5eead4" font-size="7" font-weight="600">SW</text>
+        <text x="475" y="375" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="6">R14-R17</text>
+        <text x="475" y="390" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="6">C7,C8</text>
+        <text x="475" y="405" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="6">Pull-up</text>
+        <text x="475" y="420" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="6">& filter</text>
+
+        <!-- J2 prog header ghost (THT, placed on top but pads here) -->
+        <rect x="8" y="430" width="55" height="18" fill="none" stroke="rgba(45,212,191,0.2)" stroke-width="0.8" stroke-dasharray="2,2" rx="2"/>
+        <text x="35" y="443" text-anchor="middle" fill="rgba(45,212,191,0.25)" font-size="6">J2 pads</text>
+
+        <!-- J5, J6 ghost pads -->
+        <rect x="425" y="335" width="28" height="50" fill="none" stroke="rgba(34,197,94,0.15)" stroke-width="0.6" stroke-dasharray="2,2" rx="1"/>
+        <rect x="425" y="392" width="28" height="50" fill="none" stroke="rgba(34,197,94,0.15)" stroke-width="0.6" stroke-dasharray="2,2" rx="1"/>
+
+        <!-- Mounting holes -->
+        <circle cx="15" cy="15" r="7" fill="none" stroke="#555" stroke-width="1.2"/>
+        <circle cx="15" cy="15" r="2.5" fill="#333"/>
+        <circle cx="485" cy="15" r="7" fill="none" stroke="#555" stroke-width="1.2"/>
+        <circle cx="485" cy="15" r="2.5" fill="#333"/>
+        <circle cx="15" cy="435" r="7" fill="none" stroke="#555" stroke-width="1.2"/>
+        <circle cx="15" cy="435" r="2.5" fill="#333"/>
+        <circle cx="485" cy="435" r="7" fill="none" stroke="#555" stroke-width="1.2"/>
+        <circle cx="485" cy="435" r="2.5" fill="#333"/>
+      </svg>
+    </div>
+    <div class="board-dims">Bottom: ESP32-C6 + HLW8012 + Opto + Passives (all SMD)</div>
+  </div>
+</div>
+
+<!-- ANALYSIS SECTION -->
+<div class="analysis">
+  <h2>📐 Space Analysis & Fit Feasibility</h2>
+
+  <table class="space-table">
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>Size (mm)</th>
+        <th>Side</th>
+        <th>Type</th>
+        <th>Zone</th>
+        <th>Area (mm²)</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>J1</strong> AC Mains In (3-pin)</td>
+        <td><span class="dims-badge">15.2 × 8.5</span></td>
+        <td>TOP</td>
+        <td><span class="tag tht">THT</span></td>
+        <td><span class="tag hv">HV</span></td>
+        <td>129</td>
+        <td>Edge-mount, top edge. 5.08mm pitch screw terminal</td>
+      </tr>
+      <tr>
+        <td><strong>J3</strong> Load CH1 (2-pin)</td>
+        <td><span class="dims-badge">10.2 × 8.5</span></td>
+        <td>TOP</td>
+        <td><span class="tag tht">THT</span></td>
+        <td><span class="tag hv">HV</span></td>
+        <td>87</td>
+        <td>Adjacent to J1, top edge</td>
+      </tr>
+      <tr>
+        <td><strong>J4</strong> Load CH2 (2-pin)</td>
+        <td><span class="dims-badge">10.2 × 8.5</span></td>
+        <td>TOP</td>
+        <td><span class="tag tht">THT</span></td>
+        <td><span class="tag hv">HV</span></td>
+        <td>87</td>
+        <td>Adjacent to J3, top edge</td>
+      </tr>
+      <tr>
+        <td><strong>J5</strong> SW1 In (2-pin)</td>
+        <td><span class="dims-badge">5.1 × 2.54</span></td>
+        <td>TOP</td>
+        <td><span class="tag tht">THT</span></td>
+        <td><span class="tag lv">LV</span></td>
+        <td>13</td>
+        <td>Right edge, LV zone</td>
+      </tr>
+      <tr>
+        <td><strong>J6</strong> SW2 In (2-pin)</td>
+        <td><span class="dims-badge">5.1 × 2.54</span></td>
+        <td>TOP</td>
+        <td><span class="tag tht">THT</span></td>
+        <td><span class="tag lv">LV</span></td>
+        <td>13</td>
+        <td>Right edge, LV zone, below J5</td>
+      </tr>
+      <tr>
+        <td><strong>J2</strong> Prog Header (4-pin)</td>
+        <td><span class="dims-badge">10.2 × 2.54</span></td>
+        <td>TOP</td>
+        <td><span class="tag tht">THT</span></td>
+        <td><span class="tag lv">LV</span></td>
+        <td>26</td>
+        <td>Left edge of LV zone, for programming</td>
+      </tr>
+      <tr>
+        <td><strong>U1</strong> HLK-2M05</td>
+        <td><span class="dims-badge">34 × 20 × 15h</span></td>
+        <td>TOP</td>
+        <td><span class="tag tht">THT</span></td>
+        <td><span class="tag hv">HV</span></td>
+        <td>680</td>
+        <td>⚠️ LARGEST component — 15mm tall</td>
+      </tr>
+      <tr>
+        <td><strong>K1</strong> G5Q Relay Ch1</td>
+        <td><span class="dims-badge">12.5 × 7.5 × 10h</span></td>
+        <td>TOP</td>
+        <td><span class="tag tht">THT</span></td>
+        <td><span class="tag hv">HV</span></td>
+        <td>94</td>
+        <td>Next to K2, centered on board</td>
+      </tr>
+      <tr>
+        <td><strong>K2</strong> G5Q Relay Ch2</td>
+        <td><span class="dims-badge">12.5 × 7.5 × 10h</span></td>
+        <td>TOP</td>
+        <td><span class="tag tht">THT</span></td>
+        <td><span class="tag hv">HV</span></td>
+        <td>94</td>
+        <td>Next to K1</td>
+      </tr>
+      <tr>
+        <td><strong>U2</strong> XIAO ESP32-C6</td>
+        <td><span class="dims-badge">21 × 17.5</span></td>
+        <td>BOTTOM</td>
+        <td><span class="tag smd">SMD</span></td>
+        <td><span class="tag lv">LV</span></td>
+        <td>368</td>
+        <td>Castellated — solders flat to B.Cu</td>
+      </tr>
+      <tr>
+        <td><strong>U5</strong> HLW8012</td>
+        <td><span class="dims-badge">5 × 4</span></td>
+        <td>BOTTOM</td>
+        <td><span class="tag smd">SOIC-8</span></td>
+        <td><span class="tag lv">LV</span></td>
+        <td>20</td>
+        <td>Near R10 shunt via connection</td>
+      </tr>
+      <tr>
+        <td><strong>U3, U4</strong> PC817S</td>
+        <td><span class="dims-badge">4.5 × 3.5 each</span></td>
+        <td>BOTTOM</td>
+        <td><span class="tag smd">SMD</span></td>
+        <td><span class="tag lv">LV</span></td>
+        <td>32</td>
+        <td>Relay isolation optocouplers</td>
+      </tr>
+      <tr>
+        <td>Q1, Q2, D1, D2, Caps, Resistors</td>
+        <td><span class="dims-badge">various 0402–SMA</span></td>
+        <td>BOTTOM</td>
+        <td><span class="tag smd">SMD</span></td>
+        <td><span class="tag lv">LV</span></td>
+        <td>~80</td>
+        <td>Small SMD, fit around ESP32</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-card">
+    <h3>⚠️ THE CORE PROBLEM: Will Everything Fit?</h3>
+    <p>Your board is <span class="highlight">50 × 45mm = 2,250 mm²</span> total. Here's the math:</p>
+    <ul>
+      <li><strong>TOP side HV zone</strong> (72% = ~32mm height × 50mm): <span class="highlight">1,600 mm²</span> available → THT components need ~<span class="danger">1,190 mm²</span> + routing clearance</li>
+      <li><strong>TOP side LV zone</strong> (28% = ~13mm height × 50mm): <span class="highlight">650 mm²</span> → J2 + J5 + J6 need ~52 mm² — plenty of room</li>
+      <li><strong>BOTTOM side LV zone</strong>: <span class="highlight">650 mm²</span> available → SMD components need ~500 mm² — <span class="ok">fits with careful placement</span></li>
+      <li><strong>BOTTOM side HV zone</strong>: Reserved for GND pour + THT pin soldering only</li>
+    </ul>
+    <p style="margin-top:12px"><span class="ok">✅ VERDICT: It DOES fit</span> — but ONLY with the optimized layout shown above. The key changes from your original SVGs:</p>
+  </div>
+
+  <h2 style="margin-top:24px">🔧 Critical Layout Changes (vs. your current design)</h2>
+
+  <div class="step-grid">
+    <div class="step-box">
+      <div class="step-num">01</div>
+      <h4>Move ALL connectors to ONE edge</h4>
+      <p>Place J1, J3, J4 along the <strong>top edge</strong> in a row. This eliminates wasted space from having connectors on the bottom edge (your original SVG) — connectors at two edges creates a routing nightmare on a 45mm board. All screw terminals pointing outward from the same edge makes wiring much easier in an Indian switchboard.</p>
+    </div>
+    <div class="step-box">
+      <div class="step-num">02</div>
+      <h4>HLK-2M05 directly below J1</h4>
+      <p>Place U1 (HLK) in the <strong>top-left quadrant</strong>, immediately below J1. This minimizes AC mains trace length from L/N pins → HLK input. Keep F1 fuse and RV1 MOV between J1 and HLK. The R10 shunt goes between J1/N and HLK to intercept mains current for metering.</p>
+    </div>
+    <div class="step-box">
+      <div class="step-num">03</div>
+      <h4>K1 and K2 side-by-side, right of HLK</h4>
+      <p>Both relays in the <strong>top-right quadrant</strong>, horizontally aligned. This keeps relay output pins close to J3/J4 load connectors. Short, wide traces from relay contacts to screw terminals = lower resistance, better thermal performance.</p>
+    </div>
+    <div class="step-box">
+      <div class="step-num">04</div>
+      <h4>Middle band = HV routing only</h4>
+      <p>The ~14mm band between Row 2 (components) and the isolation barrier is <strong>pure routing space</strong> for wide AC traces (1.5mm+ for 10A). No components here — just traces: J1→F1→HLK, J1→K1→J3, J1→K2→J4. This is where your 230V tracks run.</p>
+    </div>
+    <div class="step-box">
+      <div class="step-num">05</div>
+      <h4>J5, J6 on right edge, LV zone</h4>
+      <p>Move switch inputs to the <strong>right edge</strong> of the LV zone, vertically stacked. This keeps them physically separated from HV, close to the ESP32 GPIO pins on the bottom side, and accessible for wall switch wiring.</p>
+    </div>
+    <div class="step-box">
+      <div class="step-num">06</div>
+      <h4>ESP32-C6 centered on bottom LV zone</h4>
+      <p>The XIAO module goes <strong>dead center of the LV zone on B.Cu</strong>. Castellated pads solder directly to copper. All supporting SMD components (U3, U4, Q1, Q2, HLW8012, resistors, caps) radiate outward from the ESP32 in the remaining LV area.</p>
+    </div>
+    <div class="step-box">
+      <div class="step-num">07</div>
+      <h4>HLW8012 on bottom-left of LV zone</h4>
+      <p>Place U5 (HLW8012) at the <strong>left side of B.Cu LV zone</strong>, directly below where R10 shunt is on the top side. Use vias to bring the current sense signal from R10 (F.Cu) down to HLW8012 (B.Cu). Voltage divider resistors (R4, R6, R7, R8, R13) cluster around U5.</p>
+    </div>
+    <div class="step-box">
+      <div class="step-num">08</div>
+      <h4>J2 programming header — left edge LV zone</h4>
+      <p>4-pin header for TX/RX/3V3/GND on the <strong>left edge of the LV zone</strong>. This gives easy access during development without interfering with the switch wiring on the right side.</p>
+    </div>
+  </div>
+
+  <div class="recommendation" style="margin-top:24px">
+    <h3>✅ KiCad Placement Sequence</h3>
+    <p>Follow this exact order in the PCB editor for best results:</p>
+    <ol style="margin-left:16px; line-height:2;">
+      <li><strong>Draw board outline</strong> — 50mm wide × 45mm tall on Edge.Cuts</li>
+      <li><strong>Place J1, J3, J4</strong> — flush against top edge, left-to-right. Lock positions (right-click → Lock)</li>
+      <li><strong>Place U1 (HLK-2M05)</strong> — below J1, top-left quadrant</li>
+      <li><strong>Place K1, K2</strong> — right of HLK, aligned to top row</li>
+      <li><strong>Place F1, RV1, R10</strong> — between J1 and HLK (F.Cu)</li>
+      <li><strong>Flip to B.Cu</strong> — Place U2 (ESP32-C6) centered in LV zone</li>
+      <li><strong>Place U5 (HLW8012)</strong> — bottom-left of LV zone on B.Cu</li>
+      <li><strong>Place U3, U4, Q1, Q2</strong> — between HLW8012 and ESP32 on B.Cu</li>
+      <li><strong>Place J5, J6</strong> — right edge, LV zone (F.Cu, pads through to B.Cu)</li>
+      <li><strong>Place J2</strong> — left edge, LV zone (F.Cu)</li>
+      <li><strong>Scatter passives</strong> — close to their parent ICs, all on B.Cu</li>
+      <li><strong>Route HV traces first</strong> — wide 1.5mm+ traces on F.Cu only</li>
+      <li><strong>Route LV signals</strong> — 0.2mm traces on B.Cu only, staying below isolation line</li>
+      <li><strong>Pour GND</strong> — full B.Cu pour, HV GND pour on F.Cu HV zone (separated from LV GND)</li>
+    </ol>
+  </div>
+
+  <div class="section-card">
+    <h3>🔴 Critical Safety Rules for Layout</h3>
+    <ul>
+      <li><span class="danger">3mm minimum clearance</span> between HV and LV traces/copper — this is your isolation barrier</li>
+      <li><span class="danger">No LV traces on F.Cu above the isolation line</span> — F.Cu HV zone is for mains traces only</li>
+      <li><span class="danger">No LV traces on B.Cu above the isolation line</span> — only GND pour with THT pads</li>
+      <li>HV mains traces: minimum <span class="highlight">1.5mm width</span> for 10A, 2mm preferred</li>
+      <li>Route voltage divider from mains (for HLW8012 VP) through <span class="highlight">series 470kΩ resistors</span> — this is your safe isolation path for power metering</li>
+      <li>Optocoupler U3/U4 provide galvanic isolation for relay control — <span class="highlight">maintain 3mm clearance</span> across their package</li>
+      <li>Place <span class="highlight">slot cutouts</span> on the isolation barrier line if your fabricator supports them — adds mechanical creepage distance</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <h3>💡 Space-Saving Tips</h3>
+    <ul>
+      <li>If still tight: consider <strong>3.81mm pitch</strong> screw terminals instead of 5.08mm — saves ~6mm across J1+J3+J4</li>
+      <li>Use <strong>spring terminals</strong> (e.g., Wago 2060 series) — smaller footprint than traditional screw types</li>
+      <li>R10 shunt (2512) can go <strong>under the HLK module</strong> if there's vertical clearance — the HLK is 15mm tall, R10 is only ~1mm</li>
+      <li>Test points can be <strong>via-in-pad</strong> — no separate TP footprints needed, saves ~3mm²</li>
+      <li>Consider <strong>removing mounting holes</strong> — at 45×50mm, the board will be held by the switchboard module enclosure, not screws</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>

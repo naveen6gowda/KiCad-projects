@@ -9359,7 +9359,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 273.05 40.64 0)
 			(effects
 				(font
@@ -11716,7 +11716,7 @@
 				)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "T250mA/250V"
 			(at 46.99 34.29 0)
 			(effects
 				(font

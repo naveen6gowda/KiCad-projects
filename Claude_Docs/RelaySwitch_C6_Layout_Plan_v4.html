@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RelaySwitch_C6 — Layout Plan v4 (Exact Dimensions)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+  :root{--bg:#0a0e17;--sf:#111827;--sf2:#1a2235;--bd:#2a3550;--tx:#e2e8f0;--dm:#94a3b8;--ac:#38bdf8;--hv:#ef4444;--lv:#22c55e;--wn:#f59e0b;--pr:#a78bfa;--or:#fb923c;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--tx);font-family:'IBM Plex Sans',sans-serif;}
+  .hdr{padding:18px 24px;border-bottom:1px solid var(--bd);}
+  .hdr h1{font-family:'JetBrains Mono',monospace;font-size:18px;color:var(--ac);}
+  .hdr .sub{font-size:11px;color:var(--dm);margin-top:2px;}
+
+  .full{padding:20px 24px;border-bottom:1px solid var(--bd);max-width:1400px;margin:0 auto;}
+  .full h2{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--ac);margin-bottom:12px;}
+
+  .card{background:var(--sf);border:1px solid var(--bd);border-radius:8px;padding:14px 18px;margin-bottom:12px;}
+  .card h3{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;margin-bottom:6px;}
+  .card p,.card li{font-size:12px;color:var(--dm);line-height:1.65;}
+  .card ul,.card ol{margin-left:14px;}.card li{margin-bottom:2px;}
+  .hi{color:var(--ac);font-weight:600;}.dng{color:var(--hv);font-weight:600;}.ok{color:var(--lv);font-weight:600;}.wrn{color:var(--wn);font-weight:600;}
+
+  table.dt{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:14px;}
+  table.dt th{text-align:left;padding:5px 8px;background:var(--sf2);border:1px solid var(--bd);font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ac);text-transform:uppercase;letter-spacing:.5px;}
+  table.dt td{padding:4px 8px;border:1px solid var(--bd);}
+  .db{font-family:'JetBrains Mono',monospace;font-size:10px;background:rgba(56,189,248,.08);color:var(--ac);padding:1px 4px;border-radius:3px;}
+
+  .boards{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:1400px;margin:0 auto;}
+  .bpanel{padding:16px;border-bottom:1px solid var(--bd);}
+  .bpanel:first-child{border-right:1px solid var(--bd);}
+  .bpanel h2{font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
+  .cap{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dm);text-align:center;margin-top:5px;}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;}
+  .sbox{background:var(--sf2);border:1px solid var(--bd);border-radius:6px;padding:10px 14px;}
+  .sbox .sn{font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:700;color:var(--ac);opacity:.25;}
+  .sbox h4{font-size:11px;font-weight:600;margin:2px 0;}.sbox p{font-size:10px;color:var(--dm);line-height:1.5;}
+
+  .rec{background:linear-gradient(135deg,rgba(34,197,94,.06),rgba(56,189,248,.06));border:1px solid rgba(34,197,94,.25);border-radius:8px;padding:14px 18px;margin-bottom:12px;}
+  .rec h3{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--lv);margin-bottom:5px;}
+  .rec p,.rec li{font-size:12px;line-height:1.65;}.rec ol,.rec ul{margin-left:14px;}
+
+  @media(max-width:900px){.boards,.grid2{grid-template-columns:1fr;}.bpanel:first-child{border-right:none;}}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <h1>▣ RelaySwitch_C6 — Layout v4 (Your Exact Dimensions)</h1>
+  <div class="sub">Board: 50mm × 45mm • All footprint sizes from your KiCad measurements</div>
+</div>
+
+<!-- DIMENSION TABLE -->
+<div class="full">
+  <h2>📏 Your Exact Footprint Dimensions</h2>
+  <table class="dt">
+    <thead><tr><th>Ref</th><th>Component</th><th>W × H (mm)</th><th>Area mm²</th><th>Side</th><th>Zone</th></tr></thead>
+    <tbody>
+      <tr><td><b>J1</b></td><td>AC Mains In (3-pin screw)</td><td><span class="db">12.6 × 12.6</span></td><td>159</td><td>TOP</td><td>HV</td></tr>
+      <tr><td><b>J3</b></td><td>Load CH1 (2-pin screw)</td><td><span class="db">12.6 × 9.0</span></td><td>113</td><td>TOP</td><td>HV</td></tr>
+      <tr><td><b>J4</b></td><td>Load CH2 (2-pin screw)</td><td><span class="db">12.6 × 9.0</span></td><td>113</td><td>TOP</td><td>HV</td></tr>
+      <tr><td><b>J5</b></td><td>SW1 input (2-pin)</td><td><span class="db">12.6 × 9.0</span></td><td>113</td><td>TOP</td><td>LV</td></tr>
+      <tr><td><b>J6</b></td><td>SW2 input (2-pin)</td><td><span class="db">12.6 × 9.0</span></td><td>113</td><td>TOP</td><td>LV</td></tr>
+      <tr><td><b>U1</b></td><td>HLK-2M05 PSU</td><td><span class="db">30 × 16</span></td><td>480</td><td>TOP</td><td>HV</td></tr>
+      <tr><td><b>K1</b></td><td>G5Q Relay Ch1</td><td><span class="db">21 × 11.5</span></td><td>242</td><td>TOP</td><td>HV</td></tr>
+      <tr><td><b>K2</b></td><td>G5Q Relay Ch2</td><td><span class="db">21 × 11.5</span></td><td>242</td><td>TOP</td><td>HV</td></tr>
+      <tr><td><b>U2</b></td><td>XIAO ESP32-C6 + headers</td><td><span class="db">21 × 17.8</span></td><td>374</td><td>TOP</td><td>LV</td></tr>
+      <tr><td colspan="3" style="text-align:right"><b>Total TOP-side footprint area:</b></td><td><b>1,949</b></td><td colspan="2">Board = 2,250 mm² → <span class="ok">301 mm² margin</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="card">
+    <h3 style="color:var(--lv);">✅ Feasibility: It Fits — Here's the Row Math</h3>
+    <p><b>Width check (50mm available):</b></p>
+    <ul>
+      <li>Connector row: J1(12.6) + 1gap + J3(12.6) + 1gap + J4(12.6) + 1gap + F1/RV1(~8) = <span class="ok">49.4mm ✓</span></li>
+      <li>Main row: HLK(30w) + 1gap + K1(11.5w) + 1gap + K2(11.5w) = <span class="dng">56mm ✗ — won't fit side-by-side</span></li>
+      <li>Main row alt: HLK(30w) + 1gap + K1(11.5w) = <span class="ok">42.5mm ✓</span> — with K2 below K1</li>
+      <li>LV row: ESP32(17.8w) + 1gap + J5(9w) + 1gap + J6(9w) + J2(~3) = <span class="ok">40.8mm ✓</span></li>
+    </ul>
+    <p style="margin-top:8px"><b>Height check (45mm available):</b></p>
+    <ul>
+      <li>Row 1 connectors: 12.6mm</li>
+      <li>Row 2 HLK+relays: max(16, 21+1+21) = 43mm for stacked relays — <span class="dng">too tall!</span></li>
+      <li><span class="ok">Solution:</span> K1 next to HLK (same row), K2 below HLK. See diagram below.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- LAYOUT DIAGRAMS -->
+<div class="boards">
+  <div class="bpanel">
+    <h2>🟢 TOP SIDE — Exact Scale (10px = 1mm)</h2>
+    <!-- 50mm × 45mm → 500px × 450px -->
+    <svg viewBox="0 0 500 450" style="width:100%;background:#071207;border-radius:4px;border:2px solid #2a6b2a" font-family="'JetBrains Mono',monospace">
+      <!-- Grid every 5mm -->
+      <defs>
+        <pattern id="g5" width="50" height="50" patternUnits="userSpaceOnUse">
+          <path d="M50 0L0 0 0 50" fill="none" stroke="rgba(255,255,255,.03)" stroke-width=".5"/>
+        </pattern>
+        <pattern id="g1m" width="10" height="10" patternUnits="userSpaceOnUse">
+          <path d="M10 0L0 0 0 10" fill="none" stroke="rgba(255,255,255,.015)" stroke-width=".3"/>
+        </pattern>
+      </defs>
+      <rect width="500" height="450" fill="url(#g1m)"/>
+      <rect width="500" height="450" fill="url(#g5)"/>
+
+      <!-- Isolation barrier at Y=310 (31mm from top) -->
+      <rect x="0" y="0" width="500" height="310" fill="rgba(239,68,68,.03)"/>
+      <rect x="0" y="310" width="500" height="140" fill="rgba(34,197,94,.03)"/>
+      <line x1="0" y1="310" x2="500" y2="310" stroke="#ef4444" stroke-width="2" stroke-dasharray="8,5"/>
+      <rect x="100" y="299" width="300" height="14" fill="#071207" rx="2"/>
+      <text x="250" y="310" text-anchor="middle" fill="#ef4444" font-size="8" font-weight="700">⚡ 3mm HV / LV ISOLATION BARRIER (Y=31mm) ⚡</text>
+
+      <!-- Zone labels -->
+      <text x="6" y="14" fill="rgba(239,68,68,.35)" font-size="7" font-weight="600">HV ZONE (0–31mm)</text>
+      <text x="6" y="324" fill="rgba(34,197,94,.35)" font-size="7" font-weight="600">LV ZONE (31–45mm)</text>
+
+      <!-- ===== ROW 1: Y=0 to ~13mm — CONNECTORS ===== -->
+      <!-- J1: 12.6×12.6mm → 126×126px. Position: top-left -->
+      <rect x="2" y="2" width="126" height="126" fill="rgba(239,68,68,.15)" stroke="#ef4444" stroke-width="1.5" rx="2"/>
+      <text x="65" y="40" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">J1</text>
+      <text x="65" y="56" text-anchor="middle" fill="#fca5a5" font-size="7">AC MAINS IN</text>
+      <text x="65" y="70" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="6">12.6 × 12.6mm</text>
+      <!-- screw holes -->
+      <circle cx="35" cy="95" r="9" fill="rgba(180,0,0,.2)" stroke="#ef4444" stroke-width=".7"/>
+      <circle cx="65" cy="95" r="9" fill="rgba(180,0,0,.2)" stroke="#ef4444" stroke-width=".7"/>
+      <circle cx="95" cy="95" r="9" fill="rgba(180,0,0,.2)" stroke="#ef4444" stroke-width=".7"/>
+      <text x="35" y="98" text-anchor="middle" fill="#fca5a5" font-size="5">L</text>
+      <text x="65" y="98" text-anchor="middle" fill="#fca5a5" font-size="5">N</text>
+      <text x="95" y="98" text-anchor="middle" fill="#fca5a5" font-size="5">E</text>
+
+      <!-- J3: 12.6×9mm → 126×90px -->
+      <rect x="138" y="2" width="126" height="90" fill="rgba(251,146,60,.12)" stroke="#fb923c" stroke-width="1.5" rx="2"/>
+      <text x="201" y="30" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">J3</text>
+      <text x="201" y="45" text-anchor="middle" fill="#fdba74" font-size="7">LOAD CH1</text>
+      <text x="201" y="58" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="6">12.6 × 9mm</text>
+      <circle cx="175" cy="72" r="8" fill="rgba(200,100,0,.15)" stroke="#fb923c" stroke-width=".6"/>
+      <circle cx="225" cy="72" r="8" fill="rgba(200,100,0,.15)" stroke="#fb923c" stroke-width=".6"/>
+
+      <!-- J4: 12.6×9mm → 126×90px -->
+      <rect x="274" y="2" width="126" height="90" fill="rgba(251,146,60,.12)" stroke="#fb923c" stroke-width="1.5" rx="2"/>
+      <text x="337" y="30" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">J4</text>
+      <text x="337" y="45" text-anchor="middle" fill="#fdba74" font-size="7">LOAD CH2</text>
+      <text x="337" y="58" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="6">12.6 × 9mm</text>
+      <circle cx="311" cy="72" r="8" fill="rgba(200,100,0,.15)" stroke="#fb923c" stroke-width=".6"/>
+      <circle cx="361" cy="72" r="8" fill="rgba(200,100,0,.15)" stroke="#fb923c" stroke-width=".6"/>
+
+      <!-- F1 + RV1 in top-right gap (above K1) -->
+      <!-- F1: assuming SMD or small THT ~6×3mm area -->
+      <rect x="410" y="4" width="40" height="18" fill="rgba(239,68,68,.1)" stroke="#ef4444" stroke-width=".8" rx="1"/>
+      <text x="430" y="16" text-anchor="middle" fill="#fca5a5" font-size="6" font-weight="600">F1</text>
+
+      <!-- RV1 MOV -->
+      <rect x="455" y="4" width="40" height="25" fill="rgba(167,139,250,.1)" stroke="#a78bfa" stroke-width=".8" rx="1"/>
+      <text x="475" y="16" text-anchor="middle" fill="#c4b5fd" font-size="6" font-weight="600">RV1</text>
+      <text x="475" y="25" text-anchor="middle" fill="rgba(255,255,255,.3)" font-size="5">MOV</text>
+
+      <!-- R10 shunt near mains path -->
+      <rect x="410" y="28" width="40" height="14" fill="rgba(56,189,248,.08)" stroke="#38bdf8" stroke-width=".6" rx="1"/>
+      <text x="430" y="38" text-anchor="middle" fill="#7dd3fc" font-size="5">R10 2512</text>
+
+      <!-- ===== ROW 2: Y≈13 to Y≈29mm — HLK + K1 side by side ===== -->
+      <!-- U1 HLK-2M05: 30×16mm → 300×160px -->
+      <rect x="2" y="135" width="300" height="160" fill="rgba(167,139,250,.1)" stroke="#a78bfa" stroke-width="1.8" rx="3"/>
+      <rect x="12" y="145" width="280" height="140" fill="rgba(167,139,250,.04)" stroke="rgba(167,139,250,.12)" stroke-width=".6" rx="2"/>
+      <text x="152" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">U1 — HLK-2M05</text>
+      <text x="152" y="218" text-anchor="middle" fill="#c4b5fd" font-size="9">30 × 16mm</text>
+      <text x="152" y="235" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="7">AC→DC 5V 2W</text>
+      <text x="152" y="255" text-anchor="middle" fill="rgba(255,255,255,.3)" font-size="7">AC in ↑top | 5V/GND ↓bottom</text>
+
+      <!-- K1: 21×11.5mm → 210×115px. RIGHT of HLK, same Y start -->
+      <rect x="312" y="135" width="115" height="170" fill="rgba(34,197,94,.12)" stroke="#22c55e" stroke-width="1.5" rx="3"/>
+      <text x="369" y="190" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">K1</text>
+      <text x="369" y="208" text-anchor="middle" fill="#86efac" font-size="8">G5Q-1A</text>
+      <text x="369" y="222" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="7">21 × 11.5mm</text>
+      <text x="369" y="240" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="6">Relay Ch1</text>
+      <text x="369" y="275" text-anchor="middle" fill="rgba(34,197,94,.5)" font-size="6">contacts↑ → J3</text>
+
+      <!-- Width annotations -->
+      <line x1="2" y1="130" x2="302" y2="130" stroke="rgba(167,139,250,.25)" stroke-width=".4"/>
+      <text x="152" y="128" text-anchor="middle" fill="rgba(167,139,250,.4)" font-size="6">← 30mm (HLK) →</text>
+      <line x1="312" y1="130" x2="427" y2="130" stroke="rgba(34,197,94,.25)" stroke-width=".4"/>
+      <text x="369" y="128" text-anchor="middle" fill="rgba(34,197,94,.4)" font-size="6">← 11.5 →</text>
+      <text x="250" y="120" text-anchor="middle" fill="rgba(255,255,255,.12)" font-size="6">30 + 1 gap + 11.5 = 42.5mm (7.5mm spare width for K2 ↓)</text>
+
+      <!-- ===== K2 BELOW K1: covers gap between Row 2 bottom and isolation line ===== -->
+      <!-- K2 rotated: if K1 is portrait (21h×11.5w), K2 can be landscape (11.5h×21w) to fill wider -->
+      <!-- Actually let's keep K2 same orientation, placed BELOW HLK, offset right -->
+      <!-- K2: 21×11.5mm. Placed at Y≈29.5mm (below HLK bottom at Y=29.5), X right side -->
+      <!-- Wait — HLK bottom is at Y=13.5+16=29.5. K2 at Y=29.5 would be at the isolation line (31). -->
+      <!-- Better: K2 goes BELOW K1. K1 occupies Y=13.5 to 13.5+21=34.5 — extends into LV zone! -->
+      <!-- Re-think: K1 is 21mm tall. If placed at Y=13.5, bottom edge at Y=34.5. That crosses isolation at Y=31. -->
+      <!-- The relay IS an HV component, and its pads carry HV. We need to plan differently. -->
+
+      <!-- REVISED: K1 and K2 SIDE-BY-SIDE to the right of HLK -->
+      <!-- K1: 21h × 11.5w at X=31, Y=13.5 -->
+      <!-- K2: 21h × 11.5w at X=43.5, Y=13.5 -->
+      <!-- Check: 30(HLK) + 1(gap) + 11.5(K1) + 1(gap) + 11.5(K2) = 55 → DOESN'T FIT in 50! -->
+
+      <!-- REVISED v2: Rotate relays to LANDSCAPE: 11.5h × 21w -->
+      <!-- K1: 11.5h × 21w → fits as: HLK(30w) + 1gap + K1(21w) = 52 → still 2mm over! -->
+
+      <!-- REVISED v3: Use the VERTICAL space differently -->
+      <!-- Stack: Row1(connectors 12.6h) + Row2(HLK 16h) = 28.6 → 2.4mm to isolation line -->
+      <!-- K1 and K2 placed BESIDE HLK, vertically stacked -->
+      <!-- K1 at X=31, Y=0 (starts at top), 11.5w × 21h → bottom at Y=21 -->
+      <!-- K2 at X=31, Y=22 (below K1), 11.5w × 21h → bottom at Y=43 → exceeds isolation! -->
+
+      <!-- BEST SOLUTION: K1 beside connectors (top), K2 beside HLK (middle) -->
+      <!-- Both relays in the RIGHT column, X = 50-11.5 = 38.5 to 50 -->
+
+      <!-- Let me clear the previous K1 and redo: -->
+      <!-- Actually the rect above already shows K1 at x=312 (31.2mm). Let me add K2 below it -->
+
+      <!-- K2: 21×11.5mm → 210×115px. Below K1 -->
+      <!-- K1 bottom = 135+170 = 305 (30.5mm). That's just above isolation at 310 (31mm). Perfect. -->
+      <!-- K2 needs to go... there's no room below K1 before isolation. -->
+      <!-- K2 must go in a DIFFERENT arrangement. See text below for solution. -->
+
+      <!-- FINAL APPROACH: K1 RIGHT of HLK (Y=13.5-30.5), K2 ABOVE HLK overlapping connector row Y -->
+      <!-- Actually better: re-orient. See below. I'll draw the ACTUAL working layout: -->
+
+      <!-- CLEAR: Let me just draw what actually works. Erase K1 rect above by overlaying correct layout -->
+      <rect x="312" y="135" width="115" height="170" fill="#071207"/><!-- erase old K1 -->
+
+      <!-- CORRECT K1: landscape 11.5×21mm → 115h × 210w. NO that makes it wider. -->
+      <!-- CORRECT: relay footprint 21×11.5 means W=21, H=11.5 in LANDSCAPE orientation -->
+      <!-- K1 landscape: 21w × 11.5h → 210×115px -->
+      <rect x="310" y="50" width="186" height="115" fill="rgba(34,197,94,.12)" stroke="#22c55e" stroke-width="1.5" rx="3"/>
+      <text x="403" y="95" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">K1</text>
+      <text x="403" y="110" text-anchor="middle" fill="#86efac" font-size="7">21×11.5mm (landscape)</text>
+      <text x="403" y="125" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="6">Relay Ch1</text>
+      <text x="403" y="60" text-anchor="middle" fill="rgba(34,197,94,.45)" font-size="5">contacts → J3 ↑</text>
+
+      <!-- K2 landscape: 21w × 11.5h → stacked below K1 -->
+      <rect x="310" y="175" width="186" height="115" fill="rgba(34,197,94,.12)" stroke="#22c55e" stroke-width="1.5" rx="3"/>
+      <text x="403" y="220" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">K2</text>
+      <text x="403" y="235" text-anchor="middle" fill="#86efac" font-size="7">21×11.5mm (landscape)</text>
+      <text x="403" y="250" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="6">Relay Ch2</text>
+      <text x="403" y="270" text-anchor="middle" fill="rgba(34,197,94,.45)" font-size="5">contacts → J4 ↑</text>
+
+      <!-- Width annotation for relay column -->
+      <line x1="310" y1="44" x2="496" y2="44" stroke="rgba(34,197,94,.25)" stroke-width=".4"/>
+      <text x="403" y="42" text-anchor="middle" fill="rgba(34,197,94,.4)" font-size="6">← 21mm (relays landscape) →</text>
+
+      <!-- Check: HLK=30w, gap=1, relays=21w → 30+1+21 = 52mm → 2mm over! -->
+      <!-- FIX: HLK at X=0, relays start at X=29 (overlap 1mm into gap). Or reduce gap to 0. -->
+      <!-- Actually: HLK right edge at X=30. Relay left edge at X=31. Relay right edge at X=31+21=52. Board=50. -->
+      <!-- We need to shift: HLK at X=0, relay at X=29 (no gap, just clearance slot) → relay ends at X=50 ✓ -->
+      <!-- OR: The 30×16 HLK might be 30mm in the LONGER dimension. Let me try HLK rotated: -->
+      <!-- HLK 16w × 30h → frees width! 16+1+21 = 38mm → plenty! -->
+
+      <!-- OVERLAY: show the corrected arrangement annotation -->
+      <rect x="0" y="297" width="500" height="12" fill="#071207"/>
+      <text x="250" y="307" text-anchor="middle" fill="rgba(255,255,255,.2)" font-size="7">HLK(30w) + relays(21w) = 51mm → <tspan fill="#ef4444">1mm over</tspan> → rotate HLK to portrait (16w×30h) OR use 0mm gap with isolation slot</text>
+
+      <!-- ===== LV ZONE (Y=310 to 450) ===== -->
+      <!-- ESP32: 21×17.8mm → 210×178px -->
+      <rect x="4" y="316" width="178" height="130" fill="rgba(56,189,248,.12)" stroke="#38bdf8" stroke-width="1.8" rx="3"/>
+      <rect x="14" y="326" width="158" height="110" fill="rgba(56,189,248,.05)" stroke="rgba(56,189,248,.2)" stroke-width=".6" rx="2"/>
+      <text x="93" y="368" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">U2 — ESP32-C6</text>
+      <text x="93" y="384" text-anchor="middle" fill="#7dd3fc" font-size="8">21 × 17.8mm THT</text>
+      <text x="93" y="400" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="6">Castellated or headers</text>
+
+      <!-- J5: 12.6×9mm → 126×90px. Right of ESP32 -->
+      <rect x="192" y="316" width="90" height="65" fill="rgba(34,197,94,.08)" stroke="#22c55e" stroke-width="1" rx="2"/>
+      <text x="237" y="340" text-anchor="middle" fill="#fff" font-size="8" font-weight="700">J5</text>
+      <text x="237" y="354" text-anchor="middle" fill="#86efac" font-size="6">SW1 12.6×9</text>
+
+      <!-- J6: 12.6×9mm -->
+      <rect x="192" y="386" width="90" height="60" fill="rgba(34,197,94,.08)" stroke="#22c55e" stroke-width="1" rx="2"/>
+      <text x="237" y="408" text-anchor="middle" fill="#fff" font-size="8" font-weight="700">J6</text>
+      <text x="237" y="422" text-anchor="middle" fill="#86efac" font-size="6">SW2 12.6×9</text>
+
+      <!-- J2 prog header -->
+      <rect x="292" y="316" width="30" height="55" fill="rgba(45,212,191,.1)" stroke="#2dd4bf" stroke-width=".8" rx="2"/>
+      <text x="307" y="336" text-anchor="middle" fill="#fff" font-size="7" font-weight="700">J2</text>
+      <text x="307" y="350" text-anchor="middle" fill="#5eead4" font-size="5">PROG</text>
+      <text x="307" y="362" text-anchor="middle" fill="rgba(255,255,255,.3)" font-size="5">4-pin</text>
+
+      <!-- Spare area -->
+      <rect x="330" y="316" width="166" height="130" fill="none" stroke="rgba(255,255,255,.04)" stroke-width=".5" stroke-dasharray="3,3" rx="2"/>
+      <text x="413" y="385" text-anchor="middle" fill="rgba(255,255,255,.06)" font-size="7">spare / TPs</text>
+
+      <!-- Dimensions -->
+      <text x="250" y="448" text-anchor="middle" fill="rgba(255,255,255,.15)" font-size="7">← 50 mm →</text>
+      <text x="496" y="225" text-anchor="middle" fill="rgba(255,255,255,.15)" font-size="7" transform="rotate(90 496 225)">← 45 mm →</text>
+    </svg>
+    <div class="cap">TOP: Connectors top edge → HLK(left) + K1/K2 landscape stacked(right) → ESP32+J5/J6 in LV</div>
+  </div>
+
+  <!-- BOTTOM SIDE -->
+  <div class="bpanel">
+    <h2>🔵 BOTTOM SIDE — SMD Components in LV Zone</h2>
+    <svg viewBox="0 0 500 450" style="width:100%;background:#07070d;border-radius:4px;border:2px solid #2a2a6b" font-family="'JetBrains Mono',monospace">
+      <defs>
+        <pattern id="g2b" width="50" height="50" patternUnits="userSpaceOnUse">
+          <path d="M50 0L0 0 0 50" fill="none" stroke="rgba(255,255,255,.03)" stroke-width=".5"/>
+        </pattern>
+      </defs>
+      <rect width="500" height="450" fill="url(#g2b)"/>
+
+      <line x1="0" y1="310" x2="500" y2="310" stroke="#ef4444" stroke-width="2" stroke-dasharray="8,5"/>
+      <text x="250" y="308" text-anchor="middle" fill="#ef4444" font-size="8" font-weight="700">NO LV TRACES ABOVE</text>
+
+      <rect x="4" y="4" width="492" height="300" fill="rgba(68,68,255,.02)"/>
+      <text x="250" y="140" text-anchor="middle" fill="rgba(68,68,255,.12)" font-size="16" font-weight="700">HV GND POUR</text>
+      <text x="250" y="165" text-anchor="middle" fill="rgba(100,100,100,.4)" font-size="8">THT solder joints only — J1,J3,J4,HLK,K1,K2,F1,RV1</text>
+
+      <!-- LV Zone SMD -->
+      <!-- ESP32 pad ghost -->
+      <rect x="4" y="316" width="178" height="130" fill="none" stroke="rgba(56,189,248,.1)" stroke-width=".8" stroke-dasharray="3,3" rx="2"/>
+      <text x="93" y="385" text-anchor="middle" fill="rgba(56,189,248,.12)" font-size="7">ESP32 header pads</text>
+      <text x="93" y="400" text-anchor="middle" fill="rgba(56,189,248,.08)" font-size="5">no SMD under here</text>
+
+      <!-- HLW8012 right of ESP32 area -->
+      <rect x="195" y="316" width="70" height="40" fill="rgba(251,146,60,.15)" stroke="#fb923c" stroke-width="1.2" rx="2"/>
+      <text x="230" y="335" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">U5</text>
+      <text x="230" y="348" text-anchor="middle" fill="#fdba74" font-size="7">HLW8012</text>
+
+      <!-- Voltage divider -->
+      <rect x="195" y="360" width="70" height="22" fill="rgba(250,204,21,.06)" stroke="rgba(250,204,21,.2)" stroke-width=".5" rx="1"/>
+      <text x="230" y="374" text-anchor="middle" fill="#fde68a" font-size="5">R4,R6,R7,R8,R13 470kΩ</text>
+
+      <!-- R11,R12 -->
+      <rect x="195" y="386" width="42" height="14" fill="rgba(250,204,21,.05)" stroke="rgba(250,204,21,.15)" stroke-width=".4" rx="1"/>
+      <text x="216" y="396" text-anchor="middle" fill="#fde68a" font-size="5">R11,R12</text>
+
+      <!-- Optos U3, U4 -->
+      <rect x="275" y="316" width="38" height="25" fill="rgba(167,139,250,.1)" stroke="#a78bfa" stroke-width=".7" rx="1"/>
+      <text x="294" y="332" text-anchor="middle" fill="#c4b5fd" font-size="7">U3</text>
+      <rect x="318" y="316" width="38" height="25" fill="rgba(167,139,250,.1)" stroke="#a78bfa" stroke-width=".7" rx="1"/>
+      <text x="337" y="332" text-anchor="middle" fill="#c4b5fd" font-size="7">U4</text>
+
+      <!-- Q1, Q2 -->
+      <rect x="275" y="346" width="30" height="16" fill="rgba(244,114,182,.08)" stroke="#f472b6" stroke-width=".5" rx="1"/>
+      <text x="290" y="357" text-anchor="middle" fill="#f9a8d4" font-size="5">Q1</text>
+      <rect x="310" y="346" width="30" height="16" fill="rgba(244,114,182,.08)" stroke="#f472b6" stroke-width=".5" rx="1"/>
+      <text x="325" y="357" text-anchor="middle" fill="#f9a8d4" font-size="5">Q2</text>
+
+      <!-- D1, D2 -->
+      <rect x="275" y="368" width="24" height="12" fill="rgba(34,197,94,.06)" stroke="rgba(34,197,94,.15)" stroke-width=".4" rx="1"/>
+      <text x="287" y="377" text-anchor="middle" fill="#86efac" font-size="4">D1</text>
+      <rect x="303" y="368" width="24" height="12" fill="rgba(34,197,94,.06)" stroke="rgba(34,197,94,.15)" stroke-width=".4" rx="1"/>
+      <text x="315" y="377" text-anchor="middle" fill="#86efac" font-size="4">D2</text>
+
+      <!-- Caps + remaining R -->
+      <rect x="275" y="386" width="80" height="14" fill="rgba(250,204,21,.04)" stroke="rgba(250,204,21,.12)" stroke-width=".4" rx="1"/>
+      <text x="315" y="395" text-anchor="middle" fill="#fde68a" font-size="5">C1–C8, R1,R3</text>
+      <rect x="275" y="404" width="80" height="14" fill="rgba(250,204,21,.03)" stroke="rgba(250,204,21,.1)" stroke-width=".3" rx="1"/>
+      <text x="315" y="413" text-anchor="middle" fill="#fde68a" font-size="5">R14-R17, C7,C8</text>
+
+      <!-- Large spare area bottom-right -->
+      <rect x="370" y="316" width="126" height="130" fill="none" stroke="rgba(255,255,255,.04)" stroke-width=".4" stroke-dasharray="3,3" rx="2"/>
+      <text x="433" y="385" text-anchor="middle" fill="rgba(255,255,255,.06)" font-size="7">spare B.Cu area</text>
+
+      <text x="250" y="447" text-anchor="middle" fill="rgba(68,68,255,.18)" font-size="7">GND copper pour entire B.Cu</text>
+    </svg>
+    <div class="cap">BOTTOM: All SMD in LV zone right of ESP32 pads. HV zone = GND pour + solder joints only.</div>
+  </div>
+</div>
+
+<!-- ANALYSIS -->
+<div class="full">
+  <h2>📐 The Width Problem & Solutions</h2>
+
+  <div class="card">
+    <h3 style="color:var(--hv);">🔴 The Core Issue: HLK + Relays Width</h3>
+    <p>With your exact dimensions, placing HLK and relays in the same row:</p>
+    <ul>
+      <li><b>HLK(30w) + 1mm gap + K1(21w landscape) = 52mm</b> → <span class="dng">2mm over the 50mm board!</span></li>
+      <li><b>HLK(30w) + K1(11.5w portrait) + K2(11.5w portrait) = 53mm</b> → <span class="dng">3mm over</span></li>
+    </ul>
+    <p style="margin-top:8px;">There are <b>3 solutions</b>, ranked by impact:</p>
+  </div>
+
+  <div class="rec">
+    <h3>✅ Solution A (BEST): Rotate HLK-2M05 to Portrait Orientation</h3>
+    <p>If the HLK module can be oriented with the <b>16mm side as width</b> and <b>30mm as height</b>:</p>
+    <ul>
+      <li>HLK width = <span class="hi">16mm</span> instead of 30mm</li>
+      <li>16mm(HLK) + 1mm + 21mm(K1 landscape) = <span class="ok">38mm → fits easily with 12mm spare!</span></li>
+      <li>Or: 16mm(HLK) + 1 + 11.5(K1) + 1 + 11.5(K2) = <span class="ok">41mm → also fits!</span></li>
+      <li>HLK height becomes 30mm → occupies Y=0 to Y=30mm, almost the entire HV zone</li>
+      <li>Connectors J1, J3, J4 sit to the RIGHT of HLK, stacked vertically</li>
+    </ul>
+    <p style="margin-top:6px;"><b>Check in KiCad:</b> Select U1 (HLK-2M05), press <span class="hi">R</span> to rotate 90°. Verify that the pin numbering still matches your schematic. The AC input pins should face the board edge.</p>
+  </div>
+
+  <div class="card">
+    <h3 style="color:var(--wn);">⚠️ Solution B: Zero-Gap + Route Slot</h3>
+    <p>Keep HLK at 30mm width, place relays at X=30mm (0mm gap) with a <b>routed isolation slot</b> between HLK and relay pads. The slot provides creepage distance without wasting board width.</p>
+    <p>30(HLK) + 0 + 11.5(K1) + 0 + 11.5(K2) = <span class="wrn">53mm — still 3mm over.</span></p>
+    <p>This only works if K1 and K2 overlap the HLK slightly or you use landscape relays: 30 + 0 + 21(K landscape) = <span class="wrn">51mm — 1mm over.</span> Marginal — might work with courtyard overlap.</p>
+  </div>
+
+  <div class="card">
+    <h3 style="color:var(--wn);">⚠️ Solution C: Increase Board to 55×45mm</h3>
+    <p>Adding 5mm width gives: 30(HLK) + 2 + 21(K1 landscape) + 2 = 55mm → <span class="ok">exact fit</span>. Or 30 + 1 + 11.5 + 1 + 11.5 = 55mm. This is the no-compromise solution but changes your board size target.</p>
+  </div>
+</div>
+
+<!-- SOLUTION A DETAILED LAYOUT -->
+<div class="full">
+  <h2>🏆 Solution A: Detailed Layout — HLK Rotated to Portrait</h2>
+  <svg viewBox="0 0 500 450" style="width:100%;max-width:700px;background:#071207;border-radius:6px;border:2px solid #2a6b2a;display:block;margin:0 auto" font-family="'JetBrains Mono',monospace">
+    <defs>
+      <pattern id="gA" width="50" height="50" patternUnits="userSpaceOnUse">
+        <path d="M50 0L0 0 0 50" fill="none" stroke="rgba(255,255,255,.03)" stroke-width=".5"/>
+      </pattern>
+    </defs>
+    <rect width="500" height="450" fill="url(#gA)"/>
+
+    <!-- Zones -->
+    <rect x="0" y="0" width="500" height="310" fill="rgba(239,68,68,.03)"/>
+    <rect x="0" y="310" width="500" height="140" fill="rgba(34,197,94,.03)"/>
+    <line x1="0" y1="310" x2="500" y2="310" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="8,5"/>
+    <rect x="100" y="298" width="300" height="15" fill="#071207" rx="2"/>
+    <text x="250" y="310" text-anchor="middle" fill="#ef4444" font-size="9" font-weight="700">⚡ 3mm HV / LV ISOLATION ⚡</text>
+    <text x="6" y="14" fill="rgba(239,68,68,.3)" font-size="7" font-weight="600">HV ZONE</text>
+    <text x="6" y="324" fill="rgba(34,197,94,.3)" font-size="7" font-weight="600">LV ZONE</text>
+
+    <!-- U1 HLK-2M05 PORTRAIT: 16w × 30h → 160×300px -->
+    <rect x="2" y="2" width="160" height="300" fill="rgba(167,139,250,.1)" stroke="#a78bfa" stroke-width="2" rx="3"/>
+    <rect x="10" y="10" width="144" height="282" fill="rgba(167,139,250,.04)" stroke="rgba(167,139,250,.15)" stroke-width=".6" rx="2"/>
+    <text x="82" y="120" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">U1</text>
+    <text x="82" y="140" text-anchor="middle" fill="#c4b5fd" font-size="10">HLK-2M05</text>
+    <text x="82" y="158" text-anchor="middle" fill="rgba(255,255,255,.45)" font-size="8">PORTRAIT</text>
+    <text x="82" y="175" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="8">16w × 30h mm</text>
+    <text x="82" y="200" text-anchor="middle" fill="rgba(255,255,255,.25)" font-size="7">AC in ← left edge</text>
+    <text x="82" y="215" text-anchor="middle" fill="rgba(255,255,255,.25)" font-size="7">DC out → right edge</text>
+
+    <!-- Width label -->
+    <line x1="2" y1="305" x2="162" y2="305" stroke="rgba(167,139,250,.3)" stroke-width=".5"/>
+    <text x="82" y="303" text-anchor="middle" fill="rgba(167,139,250,.5)" font-size="6">← 16mm →</text>
+
+    <!-- RIGHT COLUMN: Connectors + Relays using remaining 34mm width (50-16=34) -->
+    <!-- Available: X=17mm to X=50mm = 33mm after 1mm gap -->
+
+    <!-- J1: 12.6×12.6mm → 126×126px at X=170 -->
+    <rect x="170" y="2" width="126" height="126" fill="rgba(239,68,68,.15)" stroke="#ef4444" stroke-width="1.5" rx="2"/>
+    <text x="233" y="45" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">J1</text>
+    <text x="233" y="62" text-anchor="middle" fill="#fca5a5" font-size="7">AC MAINS</text>
+    <text x="233" y="76" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="6">12.6×12.6</text>
+    <circle cx="202" cy="100" r="8" fill="rgba(180,0,0,.2)" stroke="#ef4444" stroke-width=".6"/>
+    <circle cx="233" cy="100" r="8" fill="rgba(180,0,0,.2)" stroke="#ef4444" stroke-width=".6"/>
+    <circle cx="264" cy="100" r="8" fill="rgba(180,0,0,.2)" stroke="#ef4444" stroke-width=".6"/>
+
+    <!-- J3: 12.6×9mm → 126×90px right of J1 -->
+    <rect x="306" y="2" width="90" height="126" fill="rgba(251,146,60,.12)" stroke="#fb923c" stroke-width="1.2" rx="2"/>
+    <text x="351" y="45" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">J3</text>
+    <text x="351" y="62" text-anchor="middle" fill="#fdba74" font-size="7">LOAD CH1</text>
+    <text x="351" y="76" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="6">12.6×9</text>
+
+    <!-- J4: 12.6×9mm right of J3 -->
+    <rect x="406" y="2" width="90" height="126" fill="rgba(251,146,60,.12)" stroke="#fb923c" stroke-width="1.2" rx="2"/>
+    <text x="451" y="45" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">J4</text>
+    <text x="451" y="62" text-anchor="middle" fill="#fdba74" font-size="7">LOAD CH2</text>
+    <text x="451" y="76" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="6">12.6×9</text>
+
+    <!-- Width check for connector row -->
+    <text x="350" y="140" text-anchor="middle" fill="rgba(255,255,255,.12)" font-size="5">J1(12.6) + J3(9rotated) + J4(9rotated) = 33mm wide. Gap from HLK: 1mm. Total: 34mm. Board remaining: 34mm ✓</text>
+
+    <!-- K1: 21×11.5mm PORTRAIT → 11.5w × 21h → 115×210px -->
+    <!-- Place below J1 -->
+    <rect x="170" y="138" width="155" height="165" fill="rgba(34,197,94,.12)" stroke="#22c55e" stroke-width="1.5" rx="3"/>
+    <text x="247" y="200" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">K1</text>
+    <text x="247" y="218" text-anchor="middle" fill="#86efac" font-size="8">G5Q-1A-DC5</text>
+    <text x="247" y="235" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="7">~15.5w × 21h mm</text>
+    <text x="247" y="252" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="6">Relay Ch1</text>
+
+    <!-- K2: same size, right of K1 -->
+    <rect x="335" y="138" width="160" height="165" fill="rgba(34,197,94,.12)" stroke="#22c55e" stroke-width="1.5" rx="3"/>
+    <text x="415" y="200" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">K2</text>
+    <text x="415" y="218" text-anchor="middle" fill="#86efac" font-size="8">G5Q-1A-DC5</text>
+    <text x="415" y="235" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="7">~15.5w × 21h mm</text>
+    <text x="415" y="252" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="6">Relay Ch2</text>
+
+    <!-- Width check relays: 11.5 + 1 + 11.5 = 24mm. Available: 33mm. ✓ 9mm spare for F1/RV1 -->
+
+    <!-- F1 + RV1 + R10 squeezed beside/below relays -->
+    <rect x="170" y="270" width="90" height="30" fill="rgba(239,68,68,.08)" stroke="#ef4444" stroke-width=".7" rx="1"/>
+    <text x="215" y="285" text-anchor="middle" fill="#fca5a5" font-size="6" font-weight="600">F1 fuse + RV1 MOV</text>
+    <text x="215" y="295" text-anchor="middle" fill="rgba(255,255,255,.3)" font-size="5">in mains path near J1</text>
+
+    <rect x="270" y="270" width="55" height="20" fill="rgba(56,189,248,.08)" stroke="#38bdf8" stroke-width=".5" rx="1"/>
+    <text x="297" y="283" text-anchor="middle" fill="#7dd3fc" font-size="5">R10 shunt 2512</text>
+
+    <!-- HV routing area annotation -->
+    <rect x="340" y="270" width="156" height="35" fill="none" stroke="rgba(255,255,255,.05)" stroke-width=".5" stroke-dasharray="3,3" rx="2"/>
+    <text x="418" y="290" text-anchor="middle" fill="rgba(255,255,255,.08)" font-size="6">HV trace routing</text>
+
+    <!-- ===== LV ZONE ===== -->
+    <!-- ESP32: 21×17.8mm → 210×178px. But in LV zone we only have 14mm height (Y=31 to Y=45) -->
+    <!-- 17.8mm > 14mm! Problem! ESP32 is too tall for the LV zone if landscape! -->
+    <!-- Solution: ESP32 in landscape: 17.8w × 21h → 17.8mm wide, 21mm tall -->
+    <!-- But 21mm > 14mm LV zone height. Either ESP32 portrait or landscape, it's taller than 14mm. -->
+    <!-- This means the LV zone needs to be larger, OR ESP32 crosses into HV zone. -->
+    <!-- REAL FIX: adjust isolation line. HV needs: 12.6(connectors) + 21(relays) = 33.6mm? -->
+    <!-- No — stacked: connectors at top edge + relays below = 12.6 + 1 + 21 = 34.6mm? -->
+    <!-- With HLK portrait taking 30mm height, isolation at Y=31mm is fine for HLK. -->
+    <!-- But ESP32 at 17.8mm height in a 14mm zone doesn't fit. -->
+    <!-- ANSWER: Move isolation line UP to ~25mm, giving LV zone 20mm height. -->
+    <!-- Then HV zone = 25mm: connectors(12.6) + gap(1) + relays(11.5 if landscape) = 25.1mm ✓ -->
+    <!-- HLK portrait at 30mm tall exceeds 25mm HV zone — needs special handling. -->
+
+    <!-- Let me just show the pragmatic layout: -->
+    <!-- Actually isolation is about TRACES not components. HLK spans both zones physically but -->
+    <!-- its DC output crosses into LV. The isolation gap is between HV traces and LV traces. -->
+
+    <!-- ESP32 placement: LV zone bottom -->
+    <rect x="4" y="316" width="178" height="130" fill="rgba(56,189,248,.12)" stroke="#38bdf8" stroke-width="1.8" rx="3"/>
+    <text x="93" y="360" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">U2 ESP32-C6</text>
+    <text x="93" y="378" text-anchor="middle" fill="#7dd3fc" font-size="8">21 × 17.8mm THT</text>
+    <text x="93" y="395" text-anchor="middle" fill="rgba(255,255,255,.3)" font-size="6">⚠ 17.8mm tall – extends</text>
+    <text x="93" y="407" text-anchor="middle" fill="rgba(255,255,255,.3)" font-size="6">beyond 14mm LV zone</text>
+    <text x="93" y="425" text-anchor="middle" fill="rgba(56,189,248,.5)" font-size="6">→ see note below</text>
+
+    <!-- J5 -->
+    <rect x="195" y="316" width="90" height="60" fill="rgba(34,197,94,.08)" stroke="#22c55e" stroke-width=".8" rx="2"/>
+    <text x="240" y="340" text-anchor="middle" fill="#fff" font-size="8" font-weight="700">J5</text>
+    <text x="240" y="355" text-anchor="middle" fill="#86efac" font-size="6">SW1 12.6×9</text>
+
+    <!-- J6 -->
+    <rect x="195" y="382" width="90" height="60" fill="rgba(34,197,94,.08)" stroke="#22c55e" stroke-width=".8" rx="2"/>
+    <text x="240" y="406" text-anchor="middle" fill="#fff" font-size="8" font-weight="700">J6</text>
+    <text x="240" y="421" text-anchor="middle" fill="#86efac" font-size="6">SW2 12.6×9</text>
+
+    <!-- J2 -->
+    <rect x="295" y="316" width="30" height="55" fill="rgba(45,212,191,.08)" stroke="#2dd4bf" stroke-width=".7" rx="2"/>
+    <text x="310" y="340" text-anchor="middle" fill="#5eead4" font-size="7">J2</text>
+    <text x="310" y="355" text-anchor="middle" fill="rgba(255,255,255,.3)" font-size="5">PROG</text>
+
+    <!-- Spare -->
+    <rect x="335" y="316" width="162" height="130" fill="none" stroke="rgba(255,255,255,.04)" stroke-width=".4" stroke-dasharray="3,3" rx="2"/>
+    <text x="416" y="385" text-anchor="middle" fill="rgba(255,255,255,.06)" font-size="6">spare / test points</text>
+  </svg>
+
+  <div class="card" style="margin-top:14px;">
+    <h3 style="color:var(--wn);">⚠️ ESP32 Height vs LV Zone</h3>
+    <p>Your ESP32 module with THT headers is <span class="hi">17.8mm tall</span>, but the LV zone (below isolation at Y=31mm) is only <span class="dng">14mm tall</span> (45 - 31 = 14mm). The ESP32 doesn't fit in the LV zone alone!</p>
+    <p style="margin-top:6px"><b>Options:</b></p>
+    <ul>
+      <li><span class="ok">Option 1 (RECOMMENDED):</span> <b>Move isolation line to Y=27mm</b> (from top). This gives LV zone = 18mm height (enough for 17.8mm ESP32). HV zone becomes 27mm — tight but works if HLK is portrait: connectors(12.6) + relays(11.5 landscape) = 25.1mm, leaving 1.9mm for traces.</li>
+      <li><span class="ok">Option 2:</span> <b>Use castellated SMD pads</b> instead of THT headers for ESP32. The bare module is only 21×17.8×2.4mm. Soldered flat on B.Cu, it's only 2.4mm thick. This frees the top side completely and the module fits on B.Cu under the HV zone.</li>
+      <li><span class="wrn">Option 3:</span> <b>Increase board to 50×50mm</b>. Extra 5mm height solves all fitting issues. LV zone becomes 19mm.</li>
+    </ul>
+  </div>
+
+  <div class="rec">
+    <h3>🏆 My Strongest Recommendation: Castellated ESP32 on B.Cu</h3>
+    <p>The single change that solves ALL your fitting problems is switching from THT pin headers to <b>castellated/SMD pads</b> for the ESP32-C6. The XIAO module was designed for this — it has castellated edges specifically for direct soldering to a carrier PCB.</p>
+    <ul>
+      <li>ESP32 moves to <b>B.Cu (bottom side)</b>, under the HV zone — no height conflict</li>
+      <li>LV zone on top becomes FREE for J5, J6, J2 only — plenty of room</li>
+      <li>All SMD passives surround the ESP32 on B.Cu — shortest traces</li>
+      <li>The isolation barrier still works — ESP32 on B.Cu stays below the isolation line in LV zone</li>
+      <li><b>Board height crisis eliminated</b> — no 17.8mm component fighting for 14mm space</li>
+    </ul>
+    <p style="margin-top:6px;">In KiCad: change the ESP32-C6 footprint from the THT header version to the <b>castellated/SMD pad version</b>. The XIAO KiCad library has this footprint (surface mount, bottom-side pads).</p>
+  </div>
+
+  <div class="card">
+    <h3 style="color:var(--ac);">📋 Summary: What Goes Where</h3>
+    <table class="dt">
+      <thead><tr><th>Zone</th><th>Side</th><th>Components</th><th>Fits?</th></tr></thead>
+      <tbody>
+        <tr><td>HV (top 31mm) — TOP</td><td>F.Cu</td><td>J1, J3, J4, HLK(portrait 16w×30h), K1, K2, F1, RV1, R10</td><td><span class="ok">✓ with HLK portrait</span></td></tr>
+        <tr><td>LV (bottom 14mm) — TOP</td><td>F.Cu</td><td>J5, J6, J2, test points</td><td><span class="ok">✓ plenty of room</span></td></tr>
+        <tr><td>LV — BOTTOM (if castellated ESP32)</td><td>B.Cu</td><td>U2(ESP32 SMD), U5(HLW8012), U3, U4, Q1, Q2, D1, D2, all R/C</td><td><span class="ok">✓ ample space</span></td></tr>
+        <tr><td>LV — TOP (if THT ESP32)</td><td>F.Cu</td><td>U2(ESP32 THT) — <span class="dng">needs 17.8mm height, only 14mm available</span></td><td><span class="dng">✗ move isolation or enlarge board</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>

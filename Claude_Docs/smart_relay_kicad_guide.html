@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Relay PCB — KiCad Schematic Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Syne:wght@400;600;700;800&display=swap');
+
+  :root {
+    --bg: #0d0f14;
+    --surface: #13161e;
+    --surface2: #1a1e28;
+    --border: #252a38;
+    --accent: #f0a500;
+    --accent2: #00d4aa;
+    --danger: #ff4d4d;
+    --text: #e8eaf0;
+    --muted: #6b7280;
+    --code-bg: #0a0c10;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* Top nav */
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(13,15,20,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; gap: 1rem; height: 52px;
+  }
+  .topbar-title { font-size: 0.85rem; font-weight: 700; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; }
+  .topbar-sub { font-size: 0.75rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
+
+  /* Layout */
+  .layout { display: flex; min-height: calc(100vh - 52px); }
+
+  .sidebar {
+    width: 260px; min-width: 260px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 1.5rem 0;
+    position: sticky; top: 52px;
+    height: calc(100vh - 52px);
+    overflow-y: auto;
+  }
+
+  .sidebar-section { padding: 0 1.2rem; margin-bottom: 1.5rem; }
+  .sidebar-section-title { font-size: 0.65rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.5rem; padding: 0 0.3rem; }
+
+  .sidebar a {
+    display: flex; align-items: center; gap: 0.6rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: all 0.15s;
+  }
+  .sidebar a:hover { background: var(--surface2); color: var(--text); }
+  .sidebar a .num { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent); min-width: 18px; }
+
+  /* Main content */
+  .main { flex: 1; padding: 2.5rem 3rem; max-width: 900px; }
+
+  h1 { font-size: 2rem; font-weight: 800; color: var(--text); margin-bottom: 0.4rem; }
+  .subtitle { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; margin-bottom: 2.5rem; }
+
+  /* Sheet cards */
+  .sheet {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+  }
+
+  .sheet-header {
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .sheet-num {
+    background: var(--accent);
+    color: #000;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .sheet-title { font-size: 1.05rem; font-weight: 700; }
+  .sheet-desc { font-size: 0.78rem; color: var(--muted); margin-left: auto; font-family: 'JetBrains Mono', monospace; }
+
+  .sheet-body { padding: 1.5rem; }
+
+  /* Steps */
+  .step {
+    display: flex; gap: 1rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .step-num {
+    min-width: 28px; height: 28px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .step-content { flex: 1; }
+  .step-action { font-weight: 600; font-size: 0.9rem; color: var(--text); margin-bottom: 0.3rem; }
+  .step-detail { font-size: 0.83rem; color: var(--muted); }
+
+  /* Code / command */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--accent2);
+  }
+
+  .cmd-block {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+    margin-top: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent2);
+    white-space: pre-wrap;
+    line-height: 1.6;
+  }
+
+  /* Warning / info / danger boxes */
+  .box {
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin: 0.8rem 0;
+    font-size: 0.83rem;
+    display: flex; gap: 0.6rem; align-items: flex-start;
+  }
+  .box.warn { background: rgba(240,165,0,0.08); border: 1px solid rgba(240,165,0,0.3); color: #f0c040; }
+  .box.danger { background: rgba(255,77,77,0.08); border: 1px solid rgba(255,77,77,0.35); color: #ff8080; }
+  .box.info { background: rgba(0,212,170,0.07); border: 1px solid rgba(0,212,170,0.3); color: #00d4aa; }
+  .box-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+
+  /* Net table */
+  .net-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin-top: 0.5rem; }
+  .net-table th { background: var(--surface2); color: var(--muted); font-weight: 600; padding: 0.5rem 0.7rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .net-table td { padding: 0.45rem 0.7rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  .net-table tr:last-child td { border-bottom: none; }
+  .net-table tr:hover td { background: var(--surface2); }
+  .net { font-family: 'JetBrains Mono', monospace; color: var(--accent2); font-size: 0.78rem; }
+  .pin { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 0.78rem; }
+
+  /* Circuit diagram SVG section */
+  .diagram {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+  }
+  .diagram svg { display: block; }
+
+  /* Summary checklist */
+  .checklist { list-style: none; }
+  .checklist li { padding: 0.35rem 0; font-size: 0.85rem; display: flex; gap: 0.5rem; align-items: flex-start; }
+  .checklist li::before { content: '✓'; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+
+  /* Component pill */
+  .cpill {
+    display: inline-block;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.05rem 0.4rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    margin: 0 1px;
+  }
+
+  /* Hero section */
+  .hero {
+    background: linear-gradient(135deg, var(--surface2) 0%, var(--surface) 100%);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .hero-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-top: 1rem; }
+  .hero-stat { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 0.8rem; text-align: center; }
+  .hero-stat .val { font-size: 1.3rem; font-weight: 800; color: var(--accent); }
+  .hero-stat .lbl { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-title">Smart Relay PCB</span>
+  <span class="topbar-sub">// KiCad Schematic — Complete Step-by-Step Guide</span>
+</div>
+
+<div class="layout">
+
+<!-- Sidebar -->
+<nav class="sidebar">
+  <div class="sidebar-section">
+    <div class="sidebar-section-title">Sheets</div>
+    <a href="#sheet1"><span class="num">1</span> Project Setup</a>
+    <a href="#sheet2"><span class="num">2</span> Power Supply</a>
+    <a href="#sheet3"><span class="num">3</span> MCU (XIAO ESP32-C6)</a>
+    <a href="#sheet4"><span class="num">4</span> Relay Ch1</a>
+    <a href="#sheet5"><span class="num">5</span> Relay Ch2</a>
+    <a href="#sheet6"><span class="num">6</span> Energy Monitor</a>
+    <a href="#sheet7"><span class="num">7</span> Mains Input &amp; Fuse</a>
+    <a href="#sheet8"><span class="num">8</span> Net Labels &amp; DRC</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-section-title">Reference</div>
+    <a href="#gpio-table"><span class="num">→</span> GPIO Table</a>
+    <a href="#net-list"><span class="num">→</span> Net List</a>
+    <a href="#safety"><span class="num">⚠</span> Safety Rules</a>
+  </div>
+</nav>
+
+<!-- Main -->
+<main class="main">
+
+  <h1>KiCad Schematic Guide</h1>
+  <div class="subtitle">XIAO ESP32-C6 · 2-Channel Smart Relay · 230VAC / 10A · ESPHome</div>
+
+  <!-- Hero stats -->
+  <div class="hero">
+    <p style="font-size:0.82rem; color:var(--muted);">Complete schematic divided into logical sub-sheets for clarity. Follow each sheet in order — all nets are cross-referenced by label so connections span sheets cleanly.</p>
+    <div class="hero-grid">
+      <div class="hero-stat"><div class="val">8</div><div class="lbl">Schematic Sheets</div></div>
+      <div class="hero-stat"><div class="val">2</div><div class="lbl">Relay Channels</div></div>
+      <div class="hero-stat"><div class="val">5kV</div><div class="lbl">Isolation (PC817)</div></div>
+      <div class="hero-stat"><div class="val">10A</div><div class="lbl">Max Load / Channel</div></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SHEET 1 — PROJECT SETUP -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="sheet" id="sheet1">
+    <div class="sheet-header">
+      <span class="sheet-num">SHEET 1</span>
+      <span class="sheet-title">KiCad Project Setup & Libraries</span>
+      <span class="sheet-desc">Do this once before drawing</span>
+    </div>
+    <div class="sheet-body">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-action">Create a new KiCad project</div>
+          <div class="step-detail">Open KiCad → <em>File → New Project</em>. Name it <code>smart_relay_xiao</code>. Accept the default folder structure.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-action">Add Seeed XIAO library (if not already present)</div>
+          <div class="step-detail">
+            Open the <strong>Schematic Editor</strong> → <em>Preferences → Manage Symbol Libraries</em>.<br>
+            Click <strong>+</strong> (Add). Set <em>Name</em> = <code>Seeed_XIAO</code>.
+            <div class="cmd-block">https://github.com/Seeed-Studio/OPL_Kicad_Library</div>
+            Clone/download that repo. Point the library path to <code>Seeed_XIAO_ESP32C6.kicad_sym</code>.
+            <div class="box warn"><span class="box-icon">⚠</span> "Library already exists" warning is harmless — click OK and continue. The library loads correctly.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-action">Verify built-in libraries are active</div>
+          <div class="step-detail">
+            Ensure these are enabled in <em>Manage Symbol Libraries → Global Libraries</em>:
+            <ul style="margin-top:0.4rem; padding-left:1.2rem; font-size:0.83rem; color:var(--muted);">
+              <li><code>Device</code> — resistors, caps, diodes, transistors</li>
+              <li><code>Relay_THT</code> — SRD-05VDC-SL-C relay</li>
+              <li><code>Isolator</code> — PC817</li>
+              <li><code>Regulator_Linear</code> — AMS1117-3.3</li>
+              <li><code>Connector</code> — terminal blocks</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-action">Set up hierarchical sheets</div>
+          <div class="step-detail">
+            In the root schematic, use <em>Place → Hierarchical Sheet</em> to create 7 sub-sheets:<br>
+            <code>psu.kicad_sch</code> · <code>mcu.kicad_sch</code> · <code>relay_ch1.kicad_sch</code> · <code>relay_ch2.kicad_sch</code> · <code>energy_monitor.kicad_sch</code> · <code>mains_input.kicad_sch</code><br><br>
+            <em>Alternatively:</em> you can draw everything on a single sheet — use <strong>Net Labels</strong> to connect distant parts.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-action">Add a title block</div>
+          <div class="step-detail">
+            <em>File → Page Settings</em>. Set:<br>
+            Title: <code>Smart Relay PCB</code> · Rev: <code>1.0</code> · Date: today · Company: your name
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SHEET 2 — POWER SUPPLY -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="sheet" id="sheet2">
+    <div class="sheet-header">
+      <span class="sheet-num">SHEET 2</span>
+      <span class="sheet-title">Power Supply — HLK-PM01 + AMS1117-3.3</span>
+      <span class="sheet-desc">psu.kicad_sch</span>
+    </div>
+    <div class="sheet-body">
+
+      <div class="box info"><span class="box-icon">ℹ</span> HLK-PM01 produces an isolated 5VDC output from 230VAC mains. AMS1117-3.3 steps 5V down to 3.3V for the ESP32.</div>
+
+      <!-- ASCII diagram -->
+      <div class="diagram">
+        <pre style="color:var(--accent2); font-size:0.78rem; line-height:1.5;">
+  MAINS_L ─────────────────┐
+                        [HLK-PM01]  230VAC→5VDC
+  MAINS_N ─────────────────┘    │
+                                 │ +5V ──┬────── +5V net label
+                                 │       │
+                                 ⏚      [C1 100µF/10V] to GND
+                                         │
+                                +5V ─────┤IN  [AMS1117-3.3]  OUT ─── +3V3 net label
+                                         │TAB/ADJ to GND
+                                         │
+                                       [C2 10µF] [C3 100nF]  both to GND
+        </pre>
+      </div>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-action">Place HLK-PM01 symbol</div>
+          <div class="step-detail">
+            Press <code>A</code> → search <code>HLK-PM01</code>.<br>
+            If not found, use a generic 4-pin power module or a custom symbol with pins: <code>L</code>, <code>N</code>, <code>+Vo</code>, <code>-Vo</code> (GND).<br>
+            Place it on the left side of the sheet.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-action">Connect HLK-PM01 mains pins to net labels</div>
+          <div class="step-detail">
+            Add net labels: press <code>L</code>.<br>
+            • <code>L</code> pin → net label <code>MAINS_L</code><br>
+            • <code>N</code> pin → net label <code>MAINS_N</code><br>
+            • <code>-Vo</code> (GND) pin → Power symbol <code>GND</code> (press <code>P</code>, search <code>GND</code>)
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-action">Add 5V output decoupling capacitor C1</div>
+          <div class="step-detail">
+            Press <code>A</code> → <code>Device:C</code>. Place near HLK-PM01 +Vo pin.<br>
+            Value: <code>100µF 10V</code> · Ref: <code>C1</code><br>
+            Connect: <em>+</em> pin to <code>+5V</code> net · <em>−</em> pin to <code>GND</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-action">Place AMS1117-3.3 LDO (SOT-223)</div>
+          <div class="step-detail">
+            Press <code>A</code> → search <code>AMS1117-3.3</code> in <code>Regulator_Linear</code>.<br>
+            Place to the right of HLK-PM01.<br>
+            • <code>IN</code> pin → wire → <code>+5V</code> net label<br>
+            • <code>GND</code> / <code>ADJ</code> pin → <code>GND</code> power symbol<br>
+            • <code>OUT</code> pin → net label <code>+3V3</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-action">Add AMS1117 input &amp; output capacitors</div>
+          <div class="step-detail">
+            <strong>C2</strong> (10µF ceramic) — on AMS1117 IN pin to GND<br>
+            <strong>C3</strong> (100nF ceramic) — on AMS1117 OUT (+3V3) to GND<br>
+            <strong>C4</strong> (10µF ceramic) — on AMS1117 OUT (+3V3) to GND
+            <div class="box warn"><span class="box-icon">⚠</span> AMS1117 thermal tab (on SOT-223) must connect to GND. Assign footprint <code>Package_TO_SOT_SMD:SOT-223-3_TabPin2</code> which ties the tab to pin 2 (GND).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <div class="step-action">Add power flags to suppress ERC warnings</div>
+          <div class="step-detail">
+            Press <code>P</code> → search <code>PWR_FLAG</code>.<br>
+            Place one on the <code>+5V</code> net and one on <code>+3V3</code> net (both connected to the respective net). This tells ERC these nets are driven.
+          </div>
+        </div>
+      </div>
+
+      <!-- Net table for this sheet -->
+      <table class="net-table" style="margin-top:1rem;">
+        <tr><th>Ref</th><th>Part</th><th>Value</th><th>Key Net</th></tr>
+        <tr><td>U1</td><td>HLK-PM01</td><td>230→5V 3W</td><td class="net">MAINS_L, MAINS_N, +5V, GND</td></tr>
+        <tr><td>U2</td><td>AMS1117-3.3</td><td>SOT-223</td><td class="net">+5V → +3V3</td></tr>
+        <tr><td>C1</td><td>Electrolytic</td><td>100µF 10V</td><td class="net">+5V bypass</td></tr>
+        <tr><td>C2–C4</td><td>Ceramic</td><td>100nF / 10µF</td><td class="net">+3V3 bypass</td></tr>
+      </table>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SHEET 3 — MCU -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="sheet" id="sheet3">
+    <div class="sheet-header">
+      <span class="sheet-num">SHEET 3</span>
+      <span class="sheet-title">MCU — XIAO ESP32-C6 (DIP)</span>
+      <span class="sheet-desc">mcu.kicad_sch</span>
+    </div>
+    <div class="sheet-body">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-action">Place XIAO ESP32-C6 symbol</div>
+          <div class="step-detail">
+            Press <code>A</code> → search <code>XIAO-ESP32-C6-DIP</code> in <code>Seeed_XIAO</code> library.<br>
+            Place centrally on the sheet. This module has 14 pins (7 per side).
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-action">Connect power pins</div>
+          <div class="step-detail">
+            • <code>3V3</code> pin → net label <code>+3V3</code> (from PSU sheet)<br>
+            • <code>GND</code> pins (both) → <code>GND</code> power symbol<br>
+            • <code>5V</code> pin → net label <code>+5V</code> (can leave unconnected if powering via 3V3 only — add a "No Connect" <code>X</code> flag if unused)
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-action">Assign GPIO net labels for relay control</div>
+          <div class="step-detail">
+            Press <code>L</code> to place net labels:
+            <table class="net-table" style="margin-top:0.4rem;">
+              <tr><th>XIAO Pin</th><th>GPIO</th><th>Net Label</th><th>Function</th></tr>
+              <tr><td class="pin">D0</td><td class="pin">GPIO0</td><td class="net">RELAY_CH1_IN</td><td>Relay 1 optocoupler input</td></tr>
+              <tr><td class="pin">D1</td><td class="pin">GPIO1</td><td class="net">RELAY_CH2_IN</td><td>Relay 2 optocoupler input</td></tr>
+              <tr><td class="pin">D9</td><td class="pin">GPIO20</td><td class="net">HLW_CF</td><td>Energy monitor CF pin</td></tr>
+              <tr><td class="pin">D3</td><td class="pin">GPIO21</td><td class="net">HLW_CF1</td><td>Energy monitor CF1 pin</td></tr>
+              <tr><td class="pin">D4</td><td class="pin">GPIO22</td><td class="net">HLW_SEL</td><td>Energy monitor mode select</td></tr>
+              <tr><td class="pin">D6/TX</td><td class="pin">GPIO16</td><td class="net">UART_TX</td><td>Debug UART</td></tr>
+              <tr><td class="pin">D7/RX</td><td class="pin">GPIO17</td><td class="net">UART_RX</td><td>Debug UART</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-action">Add "No Connect" flags on unused pins</div>
+          <div class="step-detail">
+            Press <code>Q</code> (No Connect). Place on:<br>
+            <code>GPIO12</code>, <code>GPIO13</code>, <code>GPIO14</code> — <strong>RESERVED, do not use</strong> (these are connected to flash memory inside XIAO).<br>
+            Also add No Connect on any other D-pins not assigned above.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-action">Add decoupling capacitors on 3V3</div>
+          <div class="step-detail">
+            Place <strong>C5</strong> (100nF ceramic) from <code>+3V3</code> to <code>GND</code> near the XIAO symbol. This provides local HF bypass.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <div class="step-action">Add UART debug header (optional but recommended)</div>
+          <div class="step-detail">
+            Press <code>A</code> → <code>Connector:Conn_01x04_Pin</code>. Ref: <code>J1</code>. Value: <code>UART_DEBUG</code>.<br>
+            Connect: Pin1→GND, Pin2→+3V3, Pin3→<code>UART_TX</code>, Pin4→<code>UART_RX</code>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SHEET 4 — RELAY CH1 -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="sheet" id="sheet4">
+    <div class="sheet-header">
+      <span class="sheet-num">SHEET 4</span>
+      <span class="sheet-title">Relay Channel 1 — PC817 + S8050 + SRD-05VDC</span>
+      <span class="sheet-desc">relay_ch1.kicad_sch</span>
+    </div>
+    <div class="sheet-body">
+
+      <div class="box info"><span class="box-icon">ℹ</span> Signal path: GPIO0 → R (330Ω) → PC817 LED anode → PC817 LED cathode → GND. PC817 phototransistor drives S8050 base → S8050 collector energises relay coil. 1N4007 clamps back-EMF.</div>
+
+      <div class="diagram">
+        <pre style="color:var(--accent2); font-size:0.78rem; line-height:1.5;">
+RELAY_CH1_IN (GPIO0)
+      │
+     [R1 330Ω]
+      │
+      ├── PC817 U4 pin1 (LED Anode)
+      │        pin2 (LED Cathode) ── GND
+      │
+      │   PC817 pin3 (Collector) ─── +5V
+      │   PC817 pin4 (Emitter)  ─┬─ [R2 10kΩ] ── GND
+      │                          └─ S8050 Q1 Base
+      │
+      │   S8050 Q1 Collector ────── Relay K1 Coil pin1
+      │   S8050 Q1 Emitter  ─────── GND
+      │
+      │   [D1 1N4007] cathode ──── +5V
+      │               anode  ──── Relay K1 Coil pin1
+      │
+      │   Relay K1 Coil pin2 ───── +5V
+      │
+      │   Relay K1 COM ──────────── LOAD_L_SWITCHED (to mains output)
+      │   Relay K1 NO  ──────────── MAINS_L_RELAY (from mains input)
+      │   Relay K1 NC  ──────────── No Connect (X)
+        </pre>
+      </div>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-action">Place input resistor R1</div>
+          <div class="step-detail">
+            Press <code>A</code> → <code>Device:R</code>. Ref: <code>R1</code>. Value: <code>330</code>.<br>
+            Pin 1 → net label <code>RELAY_CH1_IN</code><br>
+            Pin 2 → wire going right to PC817 anode
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-action">Place PC817 optocoupler U4</div>
+          <div class="step-detail">
+            Press <code>A</code> → <code>Isolator:PC817</code> (DIP-4).<br>
+            • Pin 1 (LED Anode, <code>A</code>) → connect to R1 pin 2<br>
+            • Pin 2 (LED Cathode, <code>K</code>) → <code>GND</code><br>
+            • Pin 3 (Collector, <code>C</code>) → net label <code>+5V</code> (via 10kΩ optional pull-up, see next step)<br>
+            • Pin 4 (Emitter, <code>E</code>) → wire → S8050 base (see step 4)
+            <div class="box warn"><span class="box-icon">⚠</span> PC817 CTR is ~100%. At 3.3V GPIO, R1=330Ω gives ~9mA LED current (well above 1mA minimum). Output transistor will saturate properly.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-action">Add pull-up resistor R2 on PC817 collector</div>
+          <div class="step-detail">
+            Press <code>A</code> → <code>Device:R</code>. Ref: <code>R2</code>. Value: <code>10k</code>.<br>
+            • R2 pin 1 → <code>+5V</code> power symbol<br>
+            • R2 pin 2 → connects to PC817 pin 3 (Collector) AND S8050 Base junction
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-action">Place S8050 NPN transistor Q1</div>
+          <div class="step-detail">
+            Press <code>A</code> → <code>Device:Q_NPN_BCE</code> → search <code>S8050</code> or use generic NPN (assign S8050 in properties).<br>
+            • <code>B</code> (Base) → junction: PC817 Emitter + R2 bottom<br>
+            • <code>C</code> (Collector) → Relay K1 Coil pin (one end)<br>
+            • <code>E</code> (Emitter) → <code>GND</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-action">Place flyback diode D1 across relay coil</div>
+          <div class="step-detail">
+            Press <code>A</code> → <code>Device:D</code>. Part: <code>1N4007</code>.<br>
+            Orientation: <strong>cathode toward +5V</strong> (pointing up), anode toward Q1 collector.<br>
+            • Anode → Q1 Collector node (same as Relay Coil pin 1)<br>
+            • Cathode → <code>+5V</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <div class="step-action">Place SRD-05VDC-SL-C relay K1</div>
+          <div class="step-detail">
+            Press <code>A</code> → <code>Relay_THT:Relay_SPDT_Songle_SRD-05VDC-SL-C</code>.<br>
+            Pin assignment:
+            <table class="net-table" style="margin-top:0.4rem;">
+              <tr><th>Relay Pin</th><th>Connection</th><th>Net Label</th></tr>
+              <tr><td class="pin">Coil+</td><td>+5V power symbol</td><td class="net">+5V</td></tr>
+              <tr><td class="pin">Coil−</td><td>Q1 Collector</td><td>— (wire)</td></tr>
+              <tr><td class="pin">COM</td><td>Load output</td><td class="net">LOAD_CH1</td></tr>
+              <tr><td class="pin">NO</td><td>Mains Live (switched)</td><td class="net">MAINS_L_SW</td></tr>
+              <tr><td class="pin">NC</td><td>No Connect</td><td>X flag</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-content">
+          <div class="step-action">Add screw terminal for load output</div>
+          <div class="step-detail">
+            Press <code>A</code> → <code>Connector:Screw_Terminal_01x02</code>. Ref: <code>J2</code>. Value: <code>LOAD_CH1</code>.<br>
+            • Pin 1 → net label <code>LOAD_CH1</code> (Relay COM)<br>
+            • Pin 2 → net label <code>MAINS_N</code> (Neutral)
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SHEET 5 — RELAY CH2 -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="sheet" id="sheet5">
+    <div class="sheet-header">
+      <span class="sheet-num">SHEET 5</span>
+      <span class="sheet-title">Relay Channel 2 — (identical to Ch1)</span>
+      <span class="sheet-desc">relay_ch2.kicad_sch</span>
+    </div>
+    <div class="sheet-body">
+
+      <div class="box info"><span class="box-icon">ℹ</span> Channel 2 is identical to Channel 1. Simply duplicate the entire Channel 1 sub-circuit and update references and net labels.</div>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-action">Duplicate CH1 circuit on a new sheet</div>
+          <div class="step-detail">
+            Select all of the CH1 schematic. Press <code>Ctrl+C</code> then open <code>relay_ch2.kicad_sch</code> and paste with <code>Ctrl+V</code>.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-action">Update all reference designators</div>
+          <div class="step-detail">
+            Change: <code>R1→R3</code>, <code>R2→R4</code>, <code>U4→U5</code>, <code>Q1→Q2</code>, <code>D1→D2</code>, <code>K1→K2</code>, <code>J2→J3</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-action">Update all net labels</div>
+          <div class="step-detail">
+            Double-click each net label and change:<br>
+            <code>RELAY_CH1_IN → RELAY_CH2_IN</code><br>
+            <code>LOAD_CH1 → LOAD_CH2</code><br>
+            <code>MAINS_L_SW</code> stays the same (same mains live rail feeds both NO contacts)
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-action">Verify screw terminal J3</div>
+          <div class="step-detail">
+            • Pin 1 → <code>LOAD_CH2</code><br>
+            • Pin 2 → <code>MAINS_N</code>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SHEET 6 — ENERGY MONITOR -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="sheet" id="sheet6">
+    <div class="sheet-header">
+      <span class="sheet-num">SHEET 6</span>
+      <span class="sheet-title">Energy Monitor — HLW8012 / BL0937</span>
+      <span class="sheet-desc">energy_monitor.kicad_sch</span>
+    </div>
+    <div class="sheet-body">
+
+      <div class="box danger"><span class="box-icon">⚡</span> <strong>DANGER:</strong> HLW8012 VP and IP pins are connected directly to mains voltage through a voltage divider. Maintain 5mm minimum clearance from all LV signals on the PCB.</div>
+
+      <div class="diagram">
+        <pre style="color:var(--accent2); font-size:0.78rem; line-height:1.5;">
+MAINS_L ──[R5 1MΩ]──[R6 1MΩ]──[R7 1MΩ]──[R8 1MΩ]──┬── VP pin (HLW8012)
+                                                      └──[R9 1kΩ]── GND
+
+MAINS_L ──[CT / shunt]── IP+ pin (HLW8012)
+                    GND ── IP- pin (HLW8012)
+
+HLW8012 VCC ── +5V
+HLW8012 GND ── GND
+HLW8012 CF  ── HLW_CF  (GPIO20 / D9)
+HLW8012 CF1 ── HLW_CF1 (GPIO21 / D3)
+HLW8012 SEL ── HLW_SEL (GPIO22 / D4)
+        </pre>
+      </div>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-action">Place HLW8012 IC symbol</div>
+          <div class="step-detail">
+            Press <code>A</code> → search <code>HLW8012</code>. If not in library, create a custom symbol with pins:<br>
+            <code>VCC</code>, <code>GND</code>, <code>CF</code>, <code>CF1</code>, <code>SEL</code>, <code>VP</code>, <code>VN</code>, <code>IP+</code>, <code>IP−</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-action">Wire power and digital pins</div>
+          <div class="step-detail">
+            • <code>VCC</code> → <code>+5V</code> power symbol<br>
+            • <code>GND</code> → <code>GND</code> power symbol<br>
+            • <code>CF</code> → net label <code>HLW_CF</code><br>
+            • <code>CF1</code> → net label <code>HLW_CF1</code><br>
+            • <code>SEL</code> → net label <code>HLW_SEL</code><br>
+            Add bypass cap C6 (100nF) from VCC to GND.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-action">Build voltage divider on VP pin (HIGH VOLTAGE ZONE)</div>
+          <div class="step-detail">
+            Place 4× <code>Device:R</code> in series: R5, R6, R7, R8 each = <code>1MΩ</code>.<br>
+            Top of R5 → net label <code>MAINS_L</code><br>
+            Junction of R8 bottom and R9 top → VP pin of HLW8012<br>
+            R9 = <code>1kΩ</code>, bottom → <code>GND</code><br>
+            <div class="box warn"><span class="box-icon">⚠</span> On PCB: these resistors must be in the HV zone. The HLW8012 chip straddles the isolation boundary — VP/IP pins go toward HV, digital pins (CF/CF1/SEL) go toward LV.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-action">Wire current sensing (shunt resistor method)</div>
+          <div class="step-detail">
+            Place R10 = <code>1mΩ</code> (or use a proper current transformer).<br>
+            • R10 pin 1 → net label <code>MAINS_L</code> or inline with load<br>
+            • R10 pin 2 → <code>IP+</code> pin of HLW8012<br>
+            • <code>IP−</code> pin → <code>GND</code><br><br>
+            <em>Alternative (safer):</em> Use a 5A/5mA current transformer (CT) between MAINS_L and load, connecting secondary to IP+/IP−.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SHEET 7 — MAINS INPUT & FUSE -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="sheet" id="sheet7">
+    <div class="sheet-header">
+      <span class="sheet-num">SHEET 7</span>
+      <span class="sheet-title">Mains Input, Fuse & MOV</span>
+      <span class="sheet-desc">mains_input.kicad_sch</span>
+    </div>
+    <div class="sheet-body">
+
+      <div class="box danger"><span class="box-icon">⚡</span> <strong>CRITICAL SAFETY:</strong> The fuse F1 goes in the LIVE wire only. Never fuse the neutral. The MOV goes between Live and Neutral to clamp surges.</div>
+
+      <div class="diagram">
+        <pre style="color:var(--accent2); font-size:0.78rem; line-height:1.5;">
+  J_MAINS connector (IEC 3-pin or screw terminal)
+  │
+  ├── PE (Earth/Ground) ──────────────────────── Chassis GND (PE symbol)
+  │
+  ├── N (Neutral) ──────────────────────────────── MAINS_N net label
+  │
+  └── L (Live) ──[F1 10A 250VAC]──┬─────────────── MAINS_L net label
+                                   │
+                               [MOV1 275VAC]
+                                   │
+                               MAINS_N (bottom of MOV)
+        </pre>
+      </div>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-action">Place mains input connector J_MAINS</div>
+          <div class="step-detail">
+            Press <code>A</code> → <code>Connector:Screw_Terminal_01x03</code>. Ref: <code>J4</code>. Value: <code>AC_MAINS_IN</code>.<br>
+            Label pins: Pin1=L, Pin2=N, Pin3=PE (Earth)
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-action">Place fuse F1 in LIVE wire</div>
+          <div class="step-detail">
+            Press <code>A</code> → <code>Device:Fuse</code>. Ref: <code>F1</code>. Value: <code>10A 250VAC 5x20mm</code>.<br>
+            • F1 pin 1 → J4 pin 1 (L input)<br>
+            • F1 pin 2 → net label <code>MAINS_L</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-action">Wire Neutral net</div>
+          <div class="step-detail">
+            J4 pin 2 (N) → net label <code>MAINS_N</code> directly (no fuse on neutral).
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-action">Add MOV surge protection (optional but recommended)</div>
+          <div class="step-detail">
+            Press <code>A</code> → <code>Device:Varistor</code>. Ref: <code>RV1</code>. Value: <code>275VAC MOV</code>.<br>
+            • MOV pin 1 → <code>MAINS_L</code><br>
+            • MOV pin 2 → <code>MAINS_N</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-action">Wire Earth (PE)</div>
+          <div class="step-detail">
+            J4 pin 3 (PE) → <code>PWR:Earth</code> power symbol (press <code>P</code>, search <code>Earth</code>). This represents chassis ground, separate from signal GND.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <div class="step-action">Add relay mains input connector J5</div>
+          <div class="step-detail">
+            For distributing switched mains to loads, add <code>Screw_Terminal_01x02</code>. Ref: <code>J5</code>.<br>
+            Pin 1 → <code>MAINS_L_SW</code> (connected to relay NO contact)<br>
+            Pin 2 → <code>MAINS_N</code>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SHEET 8 — NET LABELS & DRC -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="sheet" id="sheet8">
+    <div class="sheet-header">
+      <span class="sheet-num">SHEET 8</span>
+      <span class="sheet-title">Cross-Sheet Net Labels, ERC & DRC</span>
+      <span class="sheet-desc">Final verification steps</span>
+    </div>
+    <div class="sheet-body">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-action">Verify all net labels are consistent across sheets</div>
+          <div class="step-detail">
+            These labels must appear identically spelled on every sheet that connects them:
+            <table class="net-table" style="margin-top:0.4rem;">
+              <tr><th>Net Label</th><th>Used In Sheets</th><th>Voltage Level</th></tr>
+              <tr><td class="net">+5V</td><td>PSU, MCU, Relay×2, Energy</td><td>5VDC LV</td></tr>
+              <tr><td class="net">+3V3</td><td>PSU, MCU</td><td>3.3VDC LV</td></tr>
+              <tr><td class="net">GND</td><td>All sheets</td><td>Signal GND</td></tr>
+              <tr><td class="net">MAINS_L</td><td>Mains, PSU, Energy, Relay×2</td><td>230VAC HV ⚡</td></tr>
+              <tr><td class="net">MAINS_N</td><td>Mains, PSU, Relay×2</td><td>230VAC HV ⚡</td></tr>
+              <tr><td class="net">RELAY_CH1_IN</td><td>MCU, Relay Ch1</td><td>3.3V LV</td></tr>
+              <tr><td class="net">RELAY_CH2_IN</td><td>MCU, Relay Ch2</td><td>3.3V LV</td></tr>
+              <tr><td class="net">HLW_CF / CF1 / SEL</td><td>MCU, Energy</td><td>5V LV</td></tr>
+              <tr><td class="net">MAINS_L_SW</td><td>Relay Ch1, Ch2, Mains</td><td>230VAC HV ⚡</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-action">Run ERC (Electrical Rules Check)</div>
+          <div class="step-detail">
+            <em>Inspect → Electrical Rules Checker → Run ERC</em>.<br>
+            Expected clean: 0 errors after fixing. Common issues:<br>
+            • "Pin unconnected" → add <code>No Connect</code> flag (X)<br>
+            • "Net not driven" → add <code>PWR_FLAG</code> on +5V and +3V3 nets<br>
+            • "Multiple drivers" → check for accidental label duplicates
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-action">Annotate all components</div>
+          <div class="step-detail">
+            <em>Tools → Annotate Schematic</em>. Use <em>Keep existing</em> to preserve manually assigned refs. All <code>?</code> refs will be auto-numbered.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-action">Assign footprints to all symbols</div>
+          <div class="step-detail">
+            <em>Tools → Edit Symbol Fields</em> or press <code>E</code> on each component. Key assignments:
+            <table class="net-table" style="margin-top:0.4rem;">
+              <tr><th>Ref</th><th>Symbol</th><th>Footprint</th></tr>
+              <tr><td>U1</td><td>HLK-PM01</td><td>HLK-PM01 (custom or from Seeed lib)</td></tr>
+              <tr><td>U2</td><td>AMS1117-3.3</td><td><code>Package_TO_SOT_SMD:SOT-223-3_TabPin2</code></td></tr>
+              <tr><td>U3</td><td>XIAO ESP32-C6</td><td>Seeed XIAO DIP footprint</td></tr>
+              <tr><td>U4,U5</td><td>PC817</td><td><code>Package_DIP:DIP-4_W7.62mm</code></td></tr>
+              <tr><td>Q1,Q2</td><td>S8050</td><td><code>Package_TO_SOT_THT:TO-92_Inline</code></td></tr>
+              <tr><td>K1,K2</td><td>SRD-05VDC-SL-C</td><td><code>Relay_THT:Relay_SPDT_Songle_SRD-05VDC-SL-C</code></td></tr>
+              <tr><td>D1,D2</td><td>1N4007</td><td><code>Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal</code></td></tr>
+              <tr><td>F1</td><td>Fuse</td><td><code>Fuse:Fuseholder_Cylinder_5x20mm_Horizontal_Open</code></td></tr>
+              <tr><td>RV1</td><td>Varistor</td><td><code>Varistor:RV_Disc_D10.5mm_W3.5mm_P7.5mm</code></td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-action">Generate Netlist and open PCB editor</div>
+          <div class="step-detail">
+            <em>File → Export → Netlist</em> → KiCad format → Save.<br>
+            Open PCB editor: <em>Tools → Update PCB from Schematic</em> (or <code>F8</code> in PCB editor).<br>
+            All components will appear as ratsnest ready for placement.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- GPIO TABLE -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="sheet" id="gpio-table">
+    <div class="sheet-header">
+      <span class="sheet-num">REF</span>
+      <span class="sheet-title">Complete GPIO Assignment Table</span>
+      <span class="sheet-desc">XIAO ESP32-C6</span>
+    </div>
+    <div class="sheet-body">
+      <table class="net-table">
+        <tr><th>GPIO</th><th>XIAO Pin Label</th><th>Net Label in Schematic</th><th>Connected To</th><th>Direction</th></tr>
+        <tr><td class="pin">GPIO0</td><td class="pin">D0</td><td class="net">RELAY_CH1_IN</td><td>R1 → PC817 U4</td><td>OUTPUT</td></tr>
+        <tr><td class="pin">GPIO1</td><td class="pin">D1</td><td class="net">RELAY_CH2_IN</td><td>R3 → PC817 U5</td><td>OUTPUT</td></tr>
+        <tr><td class="pin">GPIO20</td><td class="pin">D9</td><td class="net">HLW_CF</td><td>HLW8012 CF pin</td><td>INPUT</td></tr>
+        <tr><td class="pin">GPIO21</td><td class="pin">D3</td><td class="net">HLW_CF1</td><td>HLW8012 CF1 pin</td><td>INPUT</td></tr>
+        <tr><td class="pin">GPIO22</td><td class="pin">D4</td><td class="net">HLW_SEL</td><td>HLW8012 SEL pin</td><td>OUTPUT</td></tr>
+        <tr><td class="pin">GPIO16</td><td class="pin">D6/TX</td><td class="net">UART_TX</td><td>Debug header J1</td><td>OUTPUT</td></tr>
+        <tr><td class="pin">GPIO17</td><td class="pin">D7/RX</td><td class="net">UART_RX</td><td>Debug header J1</td><td>INPUT</td></tr>
+        <tr><td class="pin">GPIO12</td><td class="pin">—</td><td>No Connect</td><td>⚠ RESERVED (flash)</td><td>—</td></tr>
+        <tr><td class="pin">GPIO13</td><td class="pin">—</td><td>No Connect</td><td>⚠ RESERVED (flash)</td><td>—</td></tr>
+        <tr><td class="pin">GPIO14</td><td class="pin">—</td><td>No Connect</td><td>⚠ RESERVED (flash)</td><td>—</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- SAFETY RULES -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="sheet" id="safety">
+    <div class="sheet-header">
+      <span class="sheet-num">⚠</span>
+      <span class="sheet-title">Critical Safety Rules for Schematic & PCB</span>
+      <span class="sheet-desc">Do not proceed without reviewing</span>
+    </div>
+    <div class="sheet-body">
+      <ul class="checklist">
+        <li>Fuse F1 is placed in the <strong>LIVE (L) wire only</strong> — never on neutral</li>
+        <li>PC817 provides 5kV optical isolation — this gap must also be reflected as a <strong>keepout zone on PCB</strong></li>
+        <li>HLW8012 VP/IP pins carry mains voltage — <strong>5mm minimum clearance</strong> from all LV copper on PCB</li>
+        <li>General HV/LV boundary: <strong>3mm minimum clearance</strong> between zones</li>
+        <li>All mains-carrying traces on PCB: <strong>minimum 2mm trace width</strong> (preferably 2.5mm for 10A)</li>
+        <li>AMS1117 SOT-223 thermal tab (Pin 2) must be soldered to a GND copper pour</li>
+        <li>GPIO12, GPIO13, GPIO14 on XIAO must have <strong>No Connect flags</strong> — these are internally wired to the flash memory chip</li>
+        <li>1N4007 flyback diodes must be present on <strong>both</strong> relay coils (K1 and K2)</li>
+        <li>MOV275 clamps L-to-N surges — polarity does not matter but ensure voltage rating ≥ 275VAC</li>
+        <li>Earth/PE pin of J4 must connect to chassis (PCB mounting screw) — do not connect PE to signal GND</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+</div>
+
+</body>
+</html>
