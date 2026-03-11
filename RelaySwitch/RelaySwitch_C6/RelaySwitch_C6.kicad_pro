@@ -559,7 +559,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../Review/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",

@@ -1,5 +1,6 @@
 KiCad specific ignores
 *.bak 
+*.zip
 *.kicad_prl 
 *-backups/ 
 fp-info-cache
