@@ -1635,22 +1635,20 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "SW501"
-				(at -16.256 -5.842 90)
+			(property "Reference" "SW"
+				(at 0 7.62 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
 			(property "Value" "TS-1010A-B"
-				(at -7.62 6.096 0)
+				(at 0 -7.62 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
 			(property "Footprint" "easyeda2kicad:SW-SMD_TS-1010A-B"
@@ -4560,7 +4558,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:SW-SMD_TS-1010A-B"
+		(property "Footprint" "CM5_MINIMA_local:SW-SMD_TS-1010A-B"
 			(at 39.37 115.57 0)
 			(effects
 				(font

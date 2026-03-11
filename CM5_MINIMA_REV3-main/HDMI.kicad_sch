@@ -4484,7 +4484,7 @@
 				)
 			)
 		)
-		(property "Footprint" "STMPS2151STR:SOT95P280X145-5N"
+		(property "Footprint" "seeed esp32:SOT95P280X145-5N"
 			(at 45.72 118.11 0)
 			(effects
 				(font

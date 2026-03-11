@@ -1,0 +1,1263 @@
+** Drc report for CM5_MINIMA_3.kicad_pcb **
+** Created on 2026-03-11T12:07:18+0100 **
+
+** Found 298 DRC violations **
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1325 mm)
+    Rule: netclass '100ohm'; error
+    @(101,3500 mm, 72,2682 mm): Track [/CM5/ETH_PI.TRD1_N] on B.Cu, length 0,1125 mm
+    @(101,9350 mm, 72,2082 mm): Pad 6 [unconnected-(U401-NC-Pad6)] of U401 on B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,1000 mm)
+    Local override; error
+    @(106,7500 mm, 110,0602 mm): Track [/IO/SCL] on F.Cu, length 15,7500 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1325 mm)
+    Rule: netclass '100ohm'; error
+    @(101,3375 mm, 68,1932 mm): Track [/CM5/ETH_PI.TRD3_N] on B.Cu, length 0,1125 mm
+    @(101,9225 mm, 68,1332 mm): Pad 6 [unconnected-(U402-NC-Pad6)] of U402 on B.Cu
+[clearance]: Clearance violation (netclass '90ohm' clearance 0,2000 mm; actual 0,1712 mm)
+    Rule: netclass '90ohm'; error
+    @(94,5500 mm, 94,2802 mm): Via [GND] on F.Cu - B.Cu
+    @(95,2900 mm, 94,1102 mm): Pad 165 [/CM5/USB3-1-D_N] of Module302 on B.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,0725 mm)
+    Rule: netclass '100ohm'; error
+    @(101,9225 mm, 68,1332 mm): Pad 6 [unconnected-(U402-NC-Pad6)] of U402 on B.Cu
+    @(101,4500 mm, 68,1932 mm): Track [/CM5/ETH_PI.TRD3_N] on B.Cu, length 0,0849 mm
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,0000 mm)
+    Local override; error
+    @(107,0500 mm, 111,1602 mm): Track [/IO/SDA] on F.Cu, length 15,7500 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,9499 mm)
+    Local override; error
+    @(91,9230 mm, 77,6714 mm): Track [/CM5/PCIE_PI.CLK_N] on B.Cu, length 12,6121 mm
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,2253 mm)
+    Local override; error
+    @(95,2900 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,6994 mm)
+    Local override; error
+    @(94,4791 mm, 62,5032 mm): Track [/CM5/PCIE_PI.CLK_N] on B.Cu, length 21,7218 mm
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,0000 mm)
+    Local override; error
+    @(91,9230 mm, 65,0593 mm): Track [/CM5/PCIE_PI.CLK_N] on B.Cu, length 3,6149 mm
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,0000 mm)
+    Local override; error
+    @(98,2120 mm, 64,5302 mm): Track [+3V3_PI] on F.Cu, length 4,4070 mm
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+[shorting_items]: Items shorting two nets (nets +3V3_PI and )
+    Local override; error
+    @(93,6350 mm, 76,7702 mm): Track [+3V3_PI] on F.Cu, length 4,5770 mm
+    @(97,8660 mm, 76,7702 mm): Pad 12 [<no net>] of J1 on F.Cu
+[shorting_items]: Items shorting two nets (nets +3V3_PI and Net-(J1-LED_G-))
+    Local override; error
+    @(97,6500 mm, 64,3142 mm): Track [+3V3_PI] on F.Cu, length 0,3055 mm
+    @(97,8660 mm, 64,5302 mm): Pad 14 [Net-(J1-LED_G-)] of J1 on F.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,0000 mm)
+    Local override; error
+    @(93,8050 mm, 64,5302 mm): Track [+3V3_PI] on F.Cu, length 1,6688 mm
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,2336 mm)
+    Local override; error
+    @(92,1500 mm, 66,3602 mm): Track [+3V3_PI] on F.Cu, length 8,9250 mm
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,4623 mm)
+    Local override; error
+    @(92,6250 mm, 65,7102 mm): Track [+3V3_PI] on F.Cu, length 0,1750 mm
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+[shorting_items]: Items shorting two nets (nets +3V3_PI and Net-(J1-LED_G-))
+    Local override; error
+    @(97,6500 mm, 61,8602 mm): Track [+3V3_PI] on F.Cu, length 2,4540 mm
+    @(97,8660 mm, 64,5302 mm): Pad 14 [Net-(J1-LED_G-)] of J1 on F.Cu
+[shorting_items]: Items shorting two nets (nets  and +3V3_PI)
+    Local override; error
+    @(97,8660 mm, 76,7702 mm): Pad 12 [<no net>] of J1 on F.Cu
+    @(99,7900 mm, 76,7702 mm): Track [+3V3_PI] on F.Cu, length 1,5780 mm
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,5655 mm)
+    Local override; error
+    @(92,6250 mm, 65,8852 mm): Track [+3V3_PI] on F.Cu, length 0,6718 mm
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,0911 mm)
+    Local override; error
+    @(93,6600 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,9500 mm)
+    Local override; error
+    @(102,1900 mm, 110,0102 mm): Track [+3V3_PI] on In3.Cu, length 12,3400 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1050 mm)
+    Rule: netclass '100ohm'; error
+    @(98,7900 mm, 101,3502 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,0849 mm
+    @(98,8500 mm, 101,9202 mm): Pad 4 [/CM5/HDMI_PI.CK_N] of D401 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.CK_P and unconnected-(D401-NC-Pad7))
+    Local override; error
+    @(98,8500 mm, 102,7802 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,2150 mm
+    @(98,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D401-NC-Pad7)] of D401 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.CK_N and /CM5/HDMI_PI.CK_P)
+    Local override; error
+    @(98,8500 mm, 101,9202 mm): Pad 4 [/CM5/HDMI_PI.CK_N] of D401 on F.Cu
+    @(98,8500 mm, 101,4102 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,5100 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1650 mm)
+    Rule: netclass '100ohm'; error
+    @(98,8500 mm, 101,9202 mm): Pad 4 [/CM5/HDMI_PI.CK_N] of D401 on F.Cu
+    @(98,7900 mm, 102,5052 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,0150 mm
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.CK_N and /CM5/HDMI_PI.CK_P)
+    Local override; error
+    @(98,8500 mm, 101,9202 mm): Pad 4 [/CM5/HDMI_PI.CK_N] of D401 on F.Cu
+    @(98,8500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,5100 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1800 mm)
+    Rule: netclass '100ohm'; error
+    @(98,8500 mm, 101,9202 mm): Pad 4 [/CM5/HDMI_PI.CK_N] of D401 on F.Cu
+    @(98,8500 mm, 102,5652 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,0849 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1650 mm)
+    Rule: netclass '100ohm'; error
+    @(98,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D401-NC-Pad7)] of D401 on F.Cu
+    @(98,7900 mm, 103,6202 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,2700 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1050 mm)
+    Rule: netclass '100ohm'; error
+    @(98,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D401-NC-Pad7)] of D401 on F.Cu
+    @(98,7900 mm, 103,3502 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,0849 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1650 mm)
+    Rule: netclass '100ohm'; error
+    @(98,8500 mm, 101,9202 mm): Pad 4 [/CM5/HDMI_PI.CK_N] of D401 on F.Cu
+    @(98,7900 mm, 101,1615 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,1887 mm
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,0000 mm)
+    Local override; error
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+    @(94,4750 mm, 63,8352 mm): Via [GND] on F.Cu - B.Cu
+[shorting_items]: Items shorting two nets (nets unconnected-(D401-NC-Pad7) and /CM5/HDMI_PI.CK_P)
+    Local override; error
+    @(98,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D401-NC-Pad7)] of D401 on F.Cu
+    @(98,8500 mm, 103,2902 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,5100 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1050 mm)
+    Rule: netclass '100ohm'; error
+    @(98,8500 mm, 101,9202 mm): Pad 4 [/CM5/HDMI_PI.CK_N] of D401 on F.Cu
+    @(98,7900 mm, 102,4902 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,0849 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1050 mm)
+    Rule: netclass '100ohm'; error
+    @(98,4100 mm, 102,4902 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,0849 mm
+    @(98,3500 mm, 101,9202 mm): Pad 5 [GND] of D401 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1650 mm)
+    Rule: netclass '100ohm'; error
+    @(98,4100 mm, 103,6202 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,2700 mm
+    @(98,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D401-NC-Pad6)] of D401 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1050 mm)
+    Rule: netclass '100ohm'; error
+    @(98,4100 mm, 101,3502 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,0849 mm
+    @(98,3500 mm, 101,9202 mm): Pad 5 [GND] of D401 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1650 mm)
+    Rule: netclass '100ohm'; error
+    @(98,4100 mm, 101,3189 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,0313 mm
+    @(98,3500 mm, 101,9202 mm): Pad 5 [GND] of D401 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.CK_N and unconnected-(D401-NC-Pad6))
+    Local override; error
+    @(98,3500 mm, 103,2902 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,5100 mm
+    @(98,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D401-NC-Pad6)] of D401 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1963 mm)
+    Rule: netclass '100ohm'; error
+    @(98,2754 mm, 101,1843 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,1903 mm
+    @(98,3500 mm, 101,9202 mm): Pad 5 [GND] of D401 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.CK_N and GND)
+    Local override; error
+    @(98,3500 mm, 101,4641 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,4561 mm
+    @(98,3500 mm, 101,9202 mm): Pad 5 [GND] of D401 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1650 mm)
+    Rule: netclass '100ohm'; error
+    @(98,4100 mm, 102,5052 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,0150 mm
+    @(98,3500 mm, 101,9202 mm): Pad 5 [GND] of D401 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.CK_N and GND)
+    Local override; error
+    @(98,3500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,5100 mm
+    @(98,3500 mm, 101,9202 mm): Pad 5 [GND] of D401 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1800 mm)
+    Rule: netclass '100ohm'; error
+    @(98,3500 mm, 102,5652 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,0849 mm
+    @(98,3500 mm, 101,9202 mm): Pad 5 [GND] of D401 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1050 mm)
+    Rule: netclass '100ohm'; error
+    @(98,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D401-NC-Pad6)] of D401 on F.Cu
+    @(98,4100 mm, 103,3502 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,0849 mm
+[shorting_items]: Items shorting two nets (nets unconnected-(D401-NC-Pad6) and /CM5/HDMI_PI.CK_N)
+    Local override; error
+    @(98,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D401-NC-Pad6)] of D401 on F.Cu
+    @(98,3500 mm, 102,7802 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,2150 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,0511 mm)
+    Rule: netclass '100ohm'; error
+    @(98,3500 mm, 101,9202 mm): Pad 5 [GND] of D401 on F.Cu
+    @(98,3500 mm, 101,4102 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,0539 mm
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,3516 mm)
+    Local override; error
+    @(98,9164 mm, 112,9512 mm): Track [/CC2] on B.Cu, length 2,9228 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D0_N and unconnected-(D401-NC-Pad9))
+    Local override; error
+    @(99,8500 mm, 102,5652 mm): Track [/CM5/HDMI_PI.D0_N] on F.Cu, length 0,0849 mm
+    @(99,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D401-NC-Pad9)] of D401 on F.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,0000 mm)
+    Local override; error
+    @(95,9936 mm, 112,9512 mm): Track [/CC2] on B.Cu, length 2,8208 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D0_N and unconnected-(D401-NC-Pad9))
+    Local override; error
+    @(99,9100 mm, 102,4902 mm): Track [/CM5/HDMI_PI.D0_N] on F.Cu, length 0,0849 mm
+    @(99,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D401-NC-Pad9)] of D401 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D0_N and unconnected-(D401-NC-Pad9))
+    Local override; error
+    @(99,9100 mm, 102,5052 mm): Track [/CM5/HDMI_PI.D0_N] on F.Cu, length 0,0150 mm
+    @(99,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D401-NC-Pad9)] of D401 on F.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,2475 mm)
+    Local override; error
+    @(93,9990 mm, 110,9566 mm): Track [/CC2] on B.Cu, length 4,9604 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D0_N and unconnected-(D401-NC-Pad9))
+    Local override; error
+    @(99,8500 mm, 103,2902 mm): Track [/CM5/HDMI_PI.D0_N] on F.Cu, length 0,5100 mm
+    @(99,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D401-NC-Pad9)] of D401 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D0_N and unconnected-(D401-NC-Pad9))
+    Local override; error
+    @(99,8500 mm, 102,7802 mm): Track [/CM5/HDMI_PI.D0_N] on F.Cu, length 0,2150 mm
+    @(99,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D401-NC-Pad9)] of D401 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D0_N and unconnected-(D401-NC-Pad9))
+    Local override; error
+    @(99,8500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.D0_N] on F.Cu, length 0,5100 mm
+    @(99,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D401-NC-Pad9)] of D401 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1050 mm)
+    Rule: netclass '100ohm'; error
+    @(99,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D401-NC-Pad9)] of D401 on F.Cu
+    @(99,9100 mm, 103,3502 mm): Track [/CM5/HDMI_PI.D0_N] on F.Cu, length 0,0849 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1650 mm)
+    Rule: netclass '100ohm'; error
+    @(99,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D401-NC-Pad9)] of D401 on F.Cu
+    @(99,9100 mm, 103,6202 mm): Track [/CM5/HDMI_PI.D0_N] on F.Cu, length 0,2700 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0,1300 mm; actual 0,0450 mm)
+    Rule: netclass 'Default'; error
+    @(96,0500 mm, 109,2102 mm): Via [GND] on F.Cu - B.Cu
+    @(95,9700 mm, 109,8202 mm): Pad 3 [/CM5/HDMI_PI.SDA] of D403 on B.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.SCL and unconnected-(D403-NC-Pad6))
+    Local override; error
+    @(96,9700 mm, 110,6802 mm): Track [/CM5/HDMI_PI.SCL] on B.Cu, length 0,8600 mm
+    @(96,9700 mm, 110,6802 mm): Pad 6 [unconnected-(D403-NC-Pad6)] of D403 on B.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.SCL and unconnected-(D403-NC-Pad6))
+    Local override; error
+    @(96,9700 mm, 110,6802 mm): Track [/CM5/HDMI_PI.SCL] on B.Cu, length 0,4600 mm
+    @(96,9700 mm, 110,6802 mm): Pad 6 [unconnected-(D403-NC-Pad6)] of D403 on B.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.SCL and GND)
+    Local override; error
+    @(96,9400 mm, 109,0102 mm): Track [/CM5/HDMI_PI.SCL] on B.Cu, length 0,7800 mm
+    @(96,9700 mm, 109,8202 mm): Pad 5 [GND] of D403 on B.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1650 mm)
+    Rule: netclass '100ohm'; error
+    @(95,2900 mm, 99,7102 mm): Pad 193 [/CM5/DPHY1_P.D2_N] of Module302 on B.Cu
+    @(96,0300 mm, 99,7502 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0,1300 mm; actual 0,0450 mm)
+    Rule: netclass 'Default'; error
+    @(96,9700 mm, 110,6802 mm): Pad 6 [unconnected-(D403-NC-Pad6)] of D403 on B.Cu
+    @(96,9700 mm, 111,1402 mm): Track [/CM5/HDMI_PI.SCL] on B.Cu, length 0,5374 mm
+[shorting_items]: Items shorting two nets (nets GND and /CM5/HDMI_PI.SCL)
+    Local override; error
+    @(96,9700 mm, 109,8202 mm): Pad 5 [GND] of D403 on B.Cu
+    @(96,9400 mm, 109,7902 mm): Track [/CM5/HDMI_PI.SCL] on B.Cu, length 0,0424 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1650 mm)
+    Rule: netclass '100ohm'; error
+    @(103,2900 mm, 103,6202 mm): Track [/CM5/HDMI_PI.D2_P] on F.Cu, length 0,2700 mm
+    @(103,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D402-NC-Pad10)] of D402 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D2_P and unconnected-(D402-NC-Pad10))
+    Local override; error
+    @(103,3500 mm, 103,2902 mm): Track [/CM5/HDMI_PI.D2_P] on F.Cu, length 0,5100 mm
+    @(103,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D402-NC-Pad10)] of D402 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D2_P and unconnected-(D402-NC-Pad10))
+    Local override; error
+    @(103,2900 mm, 102,4902 mm): Track [/CM5/HDMI_PI.D2_P] on F.Cu, length 0,0849 mm
+    @(103,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D402-NC-Pad10)] of D402 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1050 mm)
+    Rule: netclass '100ohm'; error
+    @(103,2900 mm, 103,3502 mm): Track [/CM5/HDMI_PI.D2_P] on F.Cu, length 0,0849 mm
+    @(103,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D402-NC-Pad10)] of D402 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D2_P and unconnected-(D402-NC-Pad10))
+    Local override; error
+    @(103,3500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.D2_P] on F.Cu, length 0,5100 mm
+    @(103,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D402-NC-Pad10)] of D402 on F.Cu
+[shorting_items]: Items shorting two nets (nets unconnected-(D402-NC-Pad10) and /CM5/HDMI_PI.D2_P)
+    Local override; error
+    @(103,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D402-NC-Pad10)] of D402 on F.Cu
+    @(103,3500 mm, 102,7802 mm): Track [/CM5/HDMI_PI.D2_P] on F.Cu, length 0,2150 mm
+[shorting_items]: Items shorting two nets (nets unconnected-(D402-NC-Pad10) and /CM5/HDMI_PI.D2_P)
+    Local override; error
+    @(103,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D402-NC-Pad10)] of D402 on F.Cu
+    @(103,2900 mm, 102,5052 mm): Track [/CM5/HDMI_PI.D2_P] on F.Cu, length 0,0150 mm
+[shorting_items]: Items shorting two nets (nets unconnected-(D402-NC-Pad10) and /CM5/HDMI_PI.D2_P)
+    Local override; error
+    @(103,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D402-NC-Pad10)] of D402 on F.Cu
+    @(103,3500 mm, 102,5652 mm): Track [/CM5/HDMI_PI.D2_P] on F.Cu, length 0,0849 mm
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,6421 mm)
+    Local override; error
+    @(91,1500 mm, 63,7502 mm): Via [GND] on F.Cu - B.Cu
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D0_P and unconnected-(D401-NC-Pad10))
+    Local override; error
+    @(100,3500 mm, 102,5652 mm): Track [/CM5/HDMI_PI.D0_P] on F.Cu, length 0,0849 mm
+    @(100,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D401-NC-Pad10)] of D401 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D0_P and unconnected-(D401-NC-Pad10))
+    Local override; error
+    @(100,2900 mm, 102,5052 mm): Track [/CM5/HDMI_PI.D0_P] on F.Cu, length 0,0150 mm
+    @(100,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D401-NC-Pad10)] of D401 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.SDA and GND)
+    Local override; error
+    @(95,9700 mm, 109,8202 mm): Pad 3 [/CM5/HDMI_PI.SDA] of D403 on B.Cu
+    @(95,9700 mm, 109,8202 mm): Track [GND] on B.Cu, length 0,8600 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1050 mm)
+    Rule: netclass '100ohm'; error
+    @(100,2900 mm, 103,3502 mm): Track [/CM5/HDMI_PI.D0_P] on F.Cu, length 0,0849 mm
+    @(100,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D401-NC-Pad10)] of D401 on F.Cu
+[shorting_items]: Items shorting two nets (nets Net-(J1-LED_G-) and )
+    Local override; error
+    @(98,2120 mm, 77,7902 mm): Track [Net-(J1-LED_G-)] on F.Cu, length 0,3465 mm
+    @(97,8660 mm, 77,7902 mm): Pad 11 [<no net>] of J1 on F.Cu
+[shorting_items]: Items shorting two nets (nets Net-(J1-LED_G-) and )
+    Local override; error
+    @(98,4570 mm, 78,0352 mm): Track [Net-(J1-LED_G-)] on F.Cu, length 1,8430 mm
+    @(97,8660 mm, 77,7902 mm): Pad 11 [<no net>] of J1 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D0_P and unconnected-(D401-NC-Pad10))
+    Local override; error
+    @(100,2900 mm, 102,4902 mm): Track [/CM5/HDMI_PI.D0_P] on F.Cu, length 0,0849 mm
+    @(100,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D401-NC-Pad10)] of D401 on F.Cu
+[shorting_items]: Items shorting two nets (nets Net-(J1-SHIELD) and )
+    Local override; error
+    @(86,1250 mm, 62,0852 mm): Track [Net-(J1-SHIELD)] on F.Cu, length 2,0540 mm
+    @(83,6500 mm, 62,0102 mm): Pad 16 [<no net>] of J1 on F.Cu
+[shorting_items]: Items shorting two nets (nets Net-(J1-SHIELD) and )
+    Local override; error
+    @(84,0000 mm, 80,0502 mm): Track [Net-(J1-SHIELD)] on F.Cu, length 0,2758 mm
+    @(83,6500 mm, 80,3102 mm): Pad 15 [<no net>] of J1 on F.Cu
+[shorting_items]: Items shorting two nets (nets Net-(J1-SHIELD) and )
+    Local override; error
+    @(82,1800 mm, 79,8552 mm): Track [Net-(J1-SHIELD)] on F.Cu, length 0,2899 mm
+    @(83,6500 mm, 80,3102 mm): Pad 15 [<no net>] of J1 on F.Cu
+[shorting_items]: Items shorting two nets (nets  and Net-(J1-SHIELD))
+    Local override; error
+    @(83,6500 mm, 62,0102 mm): Pad 16 [<no net>] of J1 on F.Cu
+    @(84,0710 mm, 62,0852 mm): Track [Net-(J1-SHIELD)] on F.Cu, length 0,1061 mm
+[shorting_items]: Items shorting two nets (nets Net-(J1-SHIELD) and )
+    Local override; error
+    @(83,8700 mm, 79,8552 mm): Track [Net-(J1-SHIELD)] on F.Cu, length 1,6900 mm
+    @(83,6500 mm, 80,3102 mm): Pad 15 [<no net>] of J1 on F.Cu
+[shorting_items]: Items shorting two nets (nets Net-(J1-SHIELD) and )
+    Local override; error
+    @(81,9750 mm, 80,0602 mm): Via [Net-(J1-SHIELD)] on F.Cu - B.Cu
+    @(83,6500 mm, 80,3102 mm): Pad 15 [<no net>] of J1 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D0_P and unconnected-(D401-NC-Pad10))
+    Local override; error
+    @(100,3500 mm, 102,7802 mm): Track [/CM5/HDMI_PI.D0_P] on F.Cu, length 0,2150 mm
+    @(100,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D401-NC-Pad10)] of D401 on F.Cu
+[shorting_items]: Items shorting two nets (nets unconnected-(D401-NC-Pad10) and /CM5/HDMI_PI.D0_P)
+    Local override; error
+    @(100,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D401-NC-Pad10)] of D401 on F.Cu
+    @(100,3500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.D0_P] on F.Cu, length 0,5100 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1650 mm)
+    Rule: netclass '100ohm'; error
+    @(100,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D401-NC-Pad10)] of D401 on F.Cu
+    @(100,2900 mm, 103,6202 mm): Track [/CM5/HDMI_PI.D0_P] on F.Cu, length 0,2700 mm
+[shorting_items]: Items shorting two nets (nets unconnected-(D401-NC-Pad10) and /CM5/HDMI_PI.D0_P)
+    Local override; error
+    @(100,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D401-NC-Pad10)] of D401 on F.Cu
+    @(100,3500 mm, 103,2902 mm): Track [/CM5/HDMI_PI.D0_P] on F.Cu, length 0,5100 mm
+[clearance]: Clearance violation (netclass '90ohm' clearance 0,2000 mm; actual 0,1934 mm)
+    Rule: netclass '90ohm'; error
+    @(93,3250 mm, 81,0602 mm): Track [/CM5/PCIE_PI.nWAKE] on B.Cu, length 0,9192 mm
+    @(92,2100 mm, 81,3102 mm): Pad 102 [/CM5/PCIE_PI.nCLKREQ] of Module302 on B.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,0449 mm)
+    Rule: netclass '100ohm'; error
+    @(102,3018 mm, 68,5132 mm): Track [/CM5/ETH_PI.TRD3_P] on B.Cu, length 1,7210 mm
+    @(101,9225 mm, 68,6332 mm): Pad 7 [unconnected-(U402-NC-Pad7)] of U402 on B.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D1_N and unconnected-(D402-NC-Pad6))
+    Local override; error
+    @(101,4100 mm, 102,4902 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,0849 mm
+    @(101,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D402-NC-Pad6)] of D402 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D1_N and unconnected-(D402-NC-Pad6))
+    Local override; error
+    @(101,3500 mm, 102,7802 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,2150 mm
+    @(101,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D402-NC-Pad6)] of D402 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,0725 mm)
+    Rule: netclass '100ohm'; error
+    @(101,4500 mm, 68,5732 mm): Track [/CM5/ETH_PI.TRD3_P] on B.Cu, length 0,0849 mm
+    @(101,9225 mm, 68,6332 mm): Pad 7 [unconnected-(U402-NC-Pad7)] of U402 on B.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1650 mm)
+    Rule: netclass '100ohm'; error
+    @(101,3500 mm, 101,9202 mm): Pad 5 [GND] of D402 on F.Cu
+    @(101,4100 mm, 101,2040 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,1462 mm
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D1_N and unconnected-(D402-NC-Pad6))
+    Local override; error
+    @(101,3500 mm, 103,2902 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,5100 mm
+    @(101,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D402-NC-Pad6)] of D402 on F.Cu
+[shorting_items]: Items shorting two nets (nets unconnected-(D402-NC-Pad6) and /CM5/HDMI_PI.D1_N)
+    Local override; error
+    @(101,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D402-NC-Pad6)] of D402 on F.Cu
+    @(101,3500 mm, 102,5652 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,0849 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1325 mm)
+    Rule: netclass '100ohm'; error
+    @(101,3375 mm, 68,5732 mm): Track [/CM5/ETH_PI.TRD3_P] on B.Cu, length 0,1125 mm
+    @(101,9225 mm, 68,6332 mm): Pad 7 [unconnected-(U402-NC-Pad7)] of U402 on B.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1050 mm)
+    Rule: netclass '100ohm'; error
+    @(101,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D402-NC-Pad6)] of D402 on F.Cu
+    @(101,4100 mm, 103,3502 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,0849 mm
+[shorting_items]: Items shorting two nets (nets unconnected-(D402-NC-Pad6) and /CM5/HDMI_PI.D1_N)
+    Local override; error
+    @(101,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D402-NC-Pad6)] of D402 on F.Cu
+    @(101,3500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,5100 mm
+[shorting_items]: Items shorting two nets (nets GND and /CM5/HDMI_PI.D1_N)
+    Local override; error
+    @(101,3500 mm, 101,9202 mm): Pad 5 [GND] of D402 on F.Cu
+    @(101,3500 mm, 101,4102 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,5100 mm
+[shorting_items]: Items shorting two nets (nets unconnected-(D402-NC-Pad6) and /CM5/HDMI_PI.D1_N)
+    Local override; error
+    @(101,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D402-NC-Pad6)] of D402 on F.Cu
+    @(101,4100 mm, 102,5052 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,0150 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,0036 mm)
+    Rule: netclass '100ohm'; error
+    @(102,2658 mm, 68,5492 mm): Track [/CM5/ETH_PI.TRD3_P] on B.Cu, length 0,0509 mm
+    @(101,9225 mm, 68,6332 mm): Pad 7 [unconnected-(U402-NC-Pad7)] of U402 on B.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1050 mm)
+    Rule: netclass '100ohm'; error
+    @(101,3500 mm, 101,9202 mm): Pad 5 [GND] of D402 on F.Cu
+    @(101,4100 mm, 101,3502 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,0849 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1650 mm)
+    Rule: netclass '100ohm'; error
+    @(101,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D402-NC-Pad6)] of D402 on F.Cu
+    @(101,4100 mm, 103,6202 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,2700 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,0036 mm)
+    Rule: netclass '100ohm'; error
+    @(102,2783 mm, 74,1242 mm): Track [/CM5/ETH_PI.TRD0_P] on B.Cu, length 0,0509 mm
+    @(101,9350 mm, 74,2082 mm): Pad 10 [unconnected-(U401-NC-Pad10)] of U401 on B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,8583 mm)
+    Local override; error
+    @(95,4700 mm, 110,6802 mm): Track [/CM5/HDMI_PI.HOTPLUG] on B.Cu, length 0,8600 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,0449 mm)
+    Rule: netclass '100ohm'; error
+    @(102,3143 mm, 74,0882 mm): Track [/CM5/ETH_PI.TRD0_P] on B.Cu, length 15,1650 mm
+    @(101,9350 mm, 74,2082 mm): Pad 10 [unconnected-(U401-NC-Pad10)] of U401 on B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,6201 mm)
+    Local override; error
+    @(95,4700 mm, 109,0620 mm): Track [/CM5/HDMI_PI.HOTPLUG] on B.Cu, length 0,7582 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,3217 mm)
+    Local override; error
+    @(95,4700 mm, 110,6802 mm): Track [/CM5/HDMI_PI.HOTPLUG] on B.Cu, length 0,6800 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,3216 mm)
+    Local override; error
+    @(95,4700 mm, 111,3602 mm): Track [/CM5/HDMI_PI.HOTPLUG] on B.Cu, length 1,2869 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,7320 mm)
+    Local override; error
+    @(96,3800 mm, 112,2702 mm): Track [/CM5/HDMI_PI.HOTPLUG] on B.Cu, length 2,1500 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D1_P and /CM5/HDMI_PI.D1_N)
+    Local override; error
+    @(101,8500 mm, 101,4102 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,5100 mm
+    @(101,8500 mm, 101,9202 mm): Pad 4 [/CM5/HDMI_PI.D1_N] of D402 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D1_P and unconnected-(D402-NC-Pad7))
+    Local override; error
+    @(101,8500 mm, 102,5652 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,0849 mm
+    @(101,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D402-NC-Pad7)] of D402 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1050 mm)
+    Rule: netclass '100ohm'; error
+    @(101,8500 mm, 101,9202 mm): Pad 4 [/CM5/HDMI_PI.D1_N] of D402 on F.Cu
+    @(101,7900 mm, 101,3502 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,0849 mm
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D1_P and unconnected-(D402-NC-Pad7))
+    Local override; error
+    @(101,7900 mm, 102,4902 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,0849 mm
+    @(101,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D402-NC-Pad7)] of D402 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D1_P and unconnected-(D402-NC-Pad7))
+    Local override; error
+    @(101,8500 mm, 102,7802 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,2150 mm
+    @(101,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D402-NC-Pad7)] of D402 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D1_P and unconnected-(D402-NC-Pad7))
+    Local override; error
+    @(101,8500 mm, 103,2902 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,5100 mm
+    @(101,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D402-NC-Pad7)] of D402 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1650 mm)
+    Rule: netclass '100ohm'; error
+    @(101,7900 mm, 103,6202 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,2700 mm
+    @(101,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D402-NC-Pad7)] of D402 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1050 mm)
+    Rule: netclass '100ohm'; error
+    @(101,7900 mm, 103,3502 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,0849 mm
+    @(101,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D402-NC-Pad7)] of D402 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D1_P and unconnected-(D402-NC-Pad7))
+    Local override; error
+    @(101,7900 mm, 102,5052 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,0150 mm
+    @(101,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D402-NC-Pad7)] of D402 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1325 mm)
+    Rule: netclass '100ohm'; error
+    @(101,3500 mm, 74,1482 mm): Track [/CM5/ETH_PI.TRD0_P] on B.Cu, length 0,1125 mm
+    @(101,9350 mm, 74,2082 mm): Pad 10 [unconnected-(U401-NC-Pad10)] of U401 on B.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1325 mm)
+    Rule: netclass '100ohm'; error
+    @(101,3500 mm, 73,7682 mm): Track [/CM5/ETH_PI.TRD0_N] on B.Cu, length 0,1125 mm
+    @(101,9350 mm, 73,7082 mm): Pad 9 [unconnected-(U401-NC-Pad9)] of U401 on B.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D1_P and unconnected-(D402-NC-Pad7))
+    Local override; error
+    @(101,8500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,5100 mm
+    @(101,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D402-NC-Pad7)] of D402 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1650 mm)
+    Rule: netclass '100ohm'; error
+    @(101,8500 mm, 101,9202 mm): Pad 4 [/CM5/HDMI_PI.D1_N] of D402 on F.Cu
+    @(101,7900 mm, 99,7115 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 1,6387 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,0725 mm)
+    Rule: netclass '100ohm'; error
+    @(101,4625 mm, 73,7682 mm): Track [/CM5/ETH_PI.TRD0_N] on B.Cu, length 0,0849 mm
+    @(101,9350 mm, 73,7082 mm): Pad 9 [unconnected-(U401-NC-Pad9)] of U401 on B.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D2_N and unconnected-(D402-NC-Pad9))
+    Local override; error
+    @(102,8500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.D2_N] on F.Cu, length 0,5100 mm
+    @(102,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D402-NC-Pad9)] of D402 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.D2_N and unconnected-(D402-NC-Pad9))
+    Local override; error
+    @(102,9100 mm, 102,5052 mm): Track [/CM5/HDMI_PI.D2_N] on F.Cu, length 0,0150 mm
+    @(102,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D402-NC-Pad9)] of D402 on F.Cu
+[shorting_items]: Items shorting two nets (nets unconnected-(D402-NC-Pad9) and /CM5/HDMI_PI.D2_N)
+    Local override; error
+    @(102,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D402-NC-Pad9)] of D402 on F.Cu
+    @(102,8500 mm, 102,7802 mm): Track [/CM5/HDMI_PI.D2_N] on F.Cu, length 0,2150 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1650 mm)
+    Rule: netclass '100ohm'; error
+    @(102,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D402-NC-Pad9)] of D402 on F.Cu
+    @(102,9100 mm, 103,6202 mm): Track [/CM5/HDMI_PI.D2_N] on F.Cu, length 0,2700 mm
+[shorting_items]: Items shorting two nets (nets unconnected-(D402-NC-Pad9) and /CM5/HDMI_PI.D2_N)
+    Local override; error
+    @(102,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D402-NC-Pad9)] of D402 on F.Cu
+    @(102,8500 mm, 103,2902 mm): Track [/CM5/HDMI_PI.D2_N] on F.Cu, length 0,5100 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1050 mm)
+    Rule: netclass '100ohm'; error
+    @(102,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D402-NC-Pad9)] of D402 on F.Cu
+    @(102,9100 mm, 103,3502 mm): Track [/CM5/HDMI_PI.D2_N] on F.Cu, length 0,0849 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,0725 mm)
+    Rule: netclass '100ohm'; error
+    @(101,9350 mm, 74,2082 mm): Pad 10 [unconnected-(U401-NC-Pad10)] of U401 on B.Cu
+    @(101,4625 mm, 74,1482 mm): Track [/CM5/ETH_PI.TRD0_P] on B.Cu, length 0,0849 mm
+[shorting_items]: Items shorting two nets (nets unconnected-(D402-NC-Pad9) and /CM5/HDMI_PI.D2_N)
+    Local override; error
+    @(102,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D402-NC-Pad9)] of D402 on F.Cu
+    @(102,8500 mm, 102,5652 mm): Track [/CM5/HDMI_PI.D2_N] on F.Cu, length 0,0849 mm
+[shorting_items]: Items shorting two nets (nets unconnected-(D402-NC-Pad9) and /CM5/HDMI_PI.D2_N)
+    Local override; error
+    @(102,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D402-NC-Pad9)] of D402 on F.Cu
+    @(102,9100 mm, 102,4902 mm): Track [/CM5/HDMI_PI.D2_N] on F.Cu, length 0,0849 mm
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,5027 mm)
+    Local override; error
+    @(97,0800 mm, 111,8602 mm): Track [/CM5/HDMI_PI.SDA] on B.Cu, length 1,1300 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,1785 mm)
+    Local override; error
+    @(96,4700 mm, 111,2502 mm): Track [/CM5/HDMI_PI.SDA] on B.Cu, length 0,8627 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[shorting_items]: Items shorting two nets (nets unconnected-(D403-NC-Pad7) and /CM5/HDMI_PI.SDA)
+    Local override; error
+    @(96,4700 mm, 110,6802 mm): Pad 7 [unconnected-(D403-NC-Pad7)] of D403 on B.Cu
+    @(96,4700 mm, 110,6802 mm): Track [/CM5/HDMI_PI.SDA] on B.Cu, length 0,8600 mm
+[shorting_items]: Items shorting two nets (nets /CM5/HDMI_PI.SCL and /CM5/HDMI_PI.SDA)
+    Local override; error
+    @(96,4700 mm, 109,8202 mm): Pad 4 [/CM5/HDMI_PI.SCL] of D403 on B.Cu
+    @(96,4700 mm, 108,8952 mm): Track [/CM5/HDMI_PI.SDA] on B.Cu, length 0,9250 mm
+[shorting_items]: Items shorting two nets (nets unconnected-(D403-NC-Pad7) and /CM5/HDMI_PI.SDA)
+    Local override; error
+    @(96,4700 mm, 110,6802 mm): Pad 7 [unconnected-(D403-NC-Pad7)] of D403 on B.Cu
+    @(96,4700 mm, 110,6802 mm): Track [/CM5/HDMI_PI.SDA] on B.Cu, length 0,5700 mm
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,0000 mm)
+    Local override; error
+    @(96,1100 mm, 112,6702 mm): Track [/CM5/HDMI_PI.CEC] on B.Cu, length 1,6122 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,4360 mm)
+    Local override; error
+    @(98,8000 mm, 112,6702 mm): Track [/CM5/HDMI_PI.CEC] on B.Cu, length 2,6900 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,6349 mm)
+    Local override; error
+    @(94,9700 mm, 110,6802 mm): Track [/CM5/HDMI_PI.CEC] on B.Cu, length 0,8600 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,4564 mm)
+    Local override; error
+    @(94,9700 mm, 108,9402 mm): Track [/CM5/HDMI_PI.CEC] on B.Cu, length 0,8800 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,0000 mm)
+    Local override; error
+    @(94,9700 mm, 111,5302 mm): Track [/CM5/HDMI_PI.CEC] on B.Cu, length 0,8500 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,0449 mm)
+    Rule: netclass '100ohm'; error
+    @(101,9350 mm, 72,7082 mm): Pad 7 [unconnected-(U401-NC-Pad7)] of U401 on B.Cu
+    @(104,9369 mm, 72,5882 mm): Track [/CM5/ETH_PI.TRD1_P] on B.Cu, length 2,6226 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1325 mm)
+    Rule: netclass '100ohm'; error
+    @(101,9350 mm, 72,7082 mm): Pad 7 [unconnected-(U401-NC-Pad7)] of U401 on B.Cu
+    @(101,3500 mm, 72,6482 mm): Track [/CM5/ETH_PI.TRD1_P] on B.Cu, length 0,1125 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,0036 mm)
+    Rule: netclass '100ohm'; error
+    @(101,9350 mm, 72,7082 mm): Pad 7 [unconnected-(U401-NC-Pad7)] of U401 on B.Cu
+    @(102,3143 mm, 72,5882 mm): Track [/CM5/ETH_PI.TRD1_P] on B.Cu, length 0,0509 mm
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,0725 mm)
+    Rule: netclass '100ohm'; error
+    @(101,4500 mm, 69,6932 mm): Track [/CM5/ETH_PI.TRD2_N] on B.Cu, length 0,0849 mm
+    @(101,9225 mm, 69,6332 mm): Pad 9 [unconnected-(U402-NC-Pad9)] of U402 on B.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,0725 mm)
+    Rule: netclass '100ohm'; error
+    @(101,9350 mm, 72,7082 mm): Pad 7 [unconnected-(U401-NC-Pad7)] of U401 on B.Cu
+    @(101,4625 mm, 72,6482 mm): Track [/CM5/ETH_PI.TRD1_P] on B.Cu, length 0,0849 mm
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,4266 mm)
+    Local override; error
+    @(94,6009 mm, 62,7972 mm): Track [/CM5/PCIE_PI.CLK_P] on B.Cu, length 21,4782 mm
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,6916 mm)
+    Local override; error
+    @(92,2170 mm, 77,7932 mm): Track [/CM5/PCIE_PI.CLK_P] on B.Cu, length 12,6121 mm
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,0000 mm)
+    Local override; error
+    @(92,2170 mm, 65,1811 mm): Track [/CM5/PCIE_PI.CLK_P] on B.Cu, length 3,3713 mm
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1325 mm)
+    Rule: netclass '100ohm'; error
+    @(101,3375 mm, 69,6932 mm): Track [/CM5/ETH_PI.TRD2_N] on B.Cu, length 0,1125 mm
+    @(101,9225 mm, 69,6332 mm): Pad 9 [unconnected-(U402-NC-Pad9)] of U402 on B.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,0036 mm)
+    Rule: netclass '100ohm'; error
+    @(102,2658 mm, 70,0492 mm): Track [/CM5/ETH_PI.TRD2_P] on B.Cu, length 0,0509 mm
+    @(101,9225 mm, 70,1332 mm): Pad 10 [unconnected-(U402-NC-Pad10)] of U402 on B.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,0449 mm)
+    Rule: netclass '100ohm'; error
+    @(102,3018 mm, 70,0132 mm): Track [/CM5/ETH_PI.TRD2_P] on B.Cu, length 17,8325 mm
+    @(101,9225 mm, 70,1332 mm): Pad 10 [unconnected-(U402-NC-Pad10)] of U402 on B.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,0725 mm)
+    Rule: netclass '100ohm'; error
+    @(101,4500 mm, 70,0732 mm): Track [/CM5/ETH_PI.TRD2_P] on B.Cu, length 0,0849 mm
+    @(101,9225 mm, 70,1332 mm): Pad 10 [unconnected-(U402-NC-Pad10)] of U402 on B.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,0725 mm)
+    Rule: netclass '100ohm'; error
+    @(101,4625 mm, 72,2682 mm): Track [/CM5/ETH_PI.TRD1_N] on B.Cu, length 0,0849 mm
+    @(101,9350 mm, 72,2082 mm): Pad 6 [unconnected-(U401-NC-Pad6)] of U401 on B.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1325 mm)
+    Rule: netclass '100ohm'; error
+    @(101,9225 mm, 70,1332 mm): Pad 10 [unconnected-(U402-NC-Pad10)] of U402 on B.Cu
+    @(101,3375 mm, 70,0732 mm): Track [/CM5/ETH_PI.TRD2_P] on B.Cu, length 0,1125 mm
+[shorting_items]: Items shorting two nets (nets +BATT and GND)
+    Local override; error
+    @(82,7500 mm, 106,4402 mm): Track [+BATT] on B.Cu, length 0,7400 mm
+    @(82,7500 mm, 106,5002 mm): Pad 1 [GND] of CN1 on B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0,1300 mm; actual 0,0750 mm)
+    Rule: netclass 'Default'; error
+    @(82,4200 mm, 107,5102 mm): Track [+BATT] on B.Cu, length 0,3700 mm
+    @(82,7500 mm, 106,5002 mm): Pad 1 [GND] of CN1 on B.Cu
+[shorting_items]: Items shorting two nets (nets GND and +BATT)
+    Local override; error
+    @(82,7500 mm, 106,5002 mm): Pad 1 [GND] of CN1 on B.Cu
+    @(82,7500 mm, 107,1802 mm): Track [+BATT] on B.Cu, length 0,4667 mm
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,0000 mm)
+    Local override; error
+    @(105,2900 mm, 111,3502 mm): Track [+BATT] on In3.Cu, length 18,0700 mm
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,0000 mm)
+    Local override; error
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+    @(94,4750 mm, 63,8352 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,0000 mm)
+    Local override; error
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+    @(94,4750 mm, 63,8352 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,0000 mm)
+    Local override; error
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+    @(94,4750 mm, 63,8352 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,0000 mm)
+    Local override; error
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+    @(94,4750 mm, 63,8352 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,0000 mm)
+    Local override; error
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+    @(94,4750 mm, 63,8352 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 0,0000 mm)
+    Local override; error
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+    @(94,4750 mm, 63,8352 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,3003 mm)
+    Local override; error
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(95,2900 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,1661 mm)
+    Local override; error
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(93,6600 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,1661 mm)
+    Local override; error
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(93,6600 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,3003 mm)
+    Local override; error
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(95,2900 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,1661 mm)
+    Local override; error
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(93,6600 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,3003 mm)
+    Local override; error
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(95,2900 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,1661 mm)
+    Local override; error
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(93,6600 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,3003 mm)
+    Local override; error
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(95,2900 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,1661 mm)
+    Local override; error
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(93,6600 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,3003 mm)
+    Local override; error
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(95,2900 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,1661 mm)
+    Local override; error
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(93,6600 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (pad clearance 1,7000 mm; actual 1,3003 mm)
+    Local override; error
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(95,2900 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,0000 mm)
+    Rule: board setup constraints hole; error
+    @(83,6500 mm, 80,3102 mm): Pad 15 [<no net>] of J1 on F.Cu
+    @(81,9750 mm, 80,0602 mm): Via [Net-(J1-SHIELD)] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1800 mm)
+    Rule: netclass '100ohm'; error
+    @(100,3500 mm, 101,9202 mm): Pad 1 [/CM5/HDMI_PI.D0_P] of D401 on F.Cu
+    @(100,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D401-NC-Pad10)] of D401 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1800 mm)
+    Rule: netclass '100ohm'; error
+    @(99,8500 mm, 101,9202 mm): Pad 2 [/CM5/HDMI_PI.D0_N] of D401 on F.Cu
+    @(99,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D401-NC-Pad9)] of D401 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1800 mm)
+    Rule: netclass '100ohm'; error
+    @(99,3500 mm, 101,9202 mm): Pad 3 [/CM5/HDMI_PI.CK_P] of D401 on F.Cu
+    @(99,3500 mm, 102,7802 mm): Pad 8 [GND] of D401 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1800 mm)
+    Rule: netclass '100ohm'; error
+    @(98,8500 mm, 101,9202 mm): Pad 4 [/CM5/HDMI_PI.CK_N] of D401 on F.Cu
+    @(98,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D401-NC-Pad7)] of D401 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1800 mm)
+    Rule: netclass '100ohm'; error
+    @(103,3500 mm, 101,9202 mm): Pad 1 [/CM5/HDMI_PI.D2_P] of D402 on F.Cu
+    @(103,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D402-NC-Pad10)] of D402 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1800 mm)
+    Rule: netclass '100ohm'; error
+    @(102,8500 mm, 101,9202 mm): Pad 2 [/CM5/HDMI_PI.D2_N] of D402 on F.Cu
+    @(102,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D402-NC-Pad9)] of D402 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1800 mm)
+    Rule: netclass '100ohm'; error
+    @(102,3500 mm, 101,9202 mm): Pad 3 [/CM5/HDMI_PI.D1_P] of D402 on F.Cu
+    @(102,3500 mm, 102,7802 mm): Pad 8 [GND] of D402 on F.Cu
+[clearance]: Clearance violation (netclass '100ohm' clearance 0,2000 mm; actual 0,1800 mm)
+    Rule: netclass '100ohm'; error
+    @(101,8500 mm, 101,9202 mm): Pad 4 [/CM5/HDMI_PI.D1_N] of D402 on F.Cu
+    @(101,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D402-NC-Pad7)] of D402 on F.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0,2000 mm; actual 0,1200 mm)
+    Rule: board setup constraints hole; error
+    @(95,9700 mm, 109,8202 mm): Pad 3 [/CM5/HDMI_PI.SDA] of D403 on B.Cu
+    @(96,0500 mm, 109,2102 mm): Via [GND] on F.Cu - B.Cu
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(92,5900 mm, 102,2502 mm): Footprint U405
+    @(95,1000 mm, 102,9102 mm): Footprint C502
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(92,5900 mm, 102,2502 mm): Footprint U405
+    @(89,5500 mm, 102,2602 mm): Footprint C701
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0,2495 mm; actual 0,0000 mm)
+    Rule: board setup constraints; error
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+    @(94,4750 mm, 63,8352 mm): Via [GND] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0,2495 mm; actual 0,0000 mm)
+    Rule: board setup constraints; error
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+    @(94,4750 mm, 63,8352 mm): Via [GND] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(95,2900 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(93,6600 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(94,4750 mm, 63,8352 mm): Via [GND] on F.Cu - B.Cu
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(127,2500 mm, 64,6102 mm): NPTH pad of Module301
+    @(127,2500 mm, 64,6102 mm): NPTH pad of Module302
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(127,2500 mm, 112,6102 mm): NPTH pad of Module301
+    @(127,2500 mm, 112,6102 mm): NPTH pad of Module302
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(95,9700 mm, 109,8202 mm): Track [GND] on B.Cu, length 0,8600 mm
+    @(95,9700 mm, 109,8202 mm): Pad 3 [/CM5/HDMI_PI.SDA] of D403 on B.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,2120 mm, 77,7902 mm): Track [Net-(J1-LED_G-)] on F.Cu, length 0,3465 mm
+    @(97,8660 mm, 77,7902 mm): Pad 11 [<no net>] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,4570 mm, 78,0352 mm): Track [Net-(J1-LED_G-)] on F.Cu, length 1,8430 mm
+    @(97,8660 mm, 77,7902 mm): Pad 11 [<no net>] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(86,1250 mm, 62,0852 mm): Track [Net-(J1-SHIELD)] on F.Cu, length 2,0540 mm
+    @(83,6500 mm, 62,0102 mm): Pad 16 [<no net>] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(84,0000 mm, 80,0502 mm): Track [Net-(J1-SHIELD)] on F.Cu, length 0,2758 mm
+    @(83,6500 mm, 80,3102 mm): Pad 15 [<no net>] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(82,1800 mm, 79,8552 mm): Track [Net-(J1-SHIELD)] on F.Cu, length 0,2899 mm
+    @(83,6500 mm, 80,3102 mm): Pad 15 [<no net>] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(84,0710 mm, 62,0852 mm): Track [Net-(J1-SHIELD)] on F.Cu, length 0,1061 mm
+    @(83,6500 mm, 62,0102 mm): Pad 16 [<no net>] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(83,8700 mm, 79,8552 mm): Track [Net-(J1-SHIELD)] on F.Cu, length 1,6900 mm
+    @(83,6500 mm, 80,3102 mm): Pad 15 [<no net>] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(81,9750 mm, 80,0602 mm): Via [Net-(J1-SHIELD)] on F.Cu - B.Cu
+    @(83,6500 mm, 80,3102 mm): Pad 15 [<no net>] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,2120 mm, 64,5302 mm): Track [+3V3_PI] on F.Cu, length 4,4070 mm
+    @(97,8660 mm, 64,5302 mm): Pad 14 [Net-(J1-LED_G-)] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(93,6350 mm, 76,7702 mm): Track [+3V3_PI] on F.Cu, length 4,5770 mm
+    @(97,8660 mm, 76,7702 mm): Pad 12 [<no net>] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(97,6500 mm, 64,3142 mm): Track [+3V3_PI] on F.Cu, length 0,3055 mm
+    @(97,8660 mm, 64,5302 mm): Pad 14 [Net-(J1-LED_G-)] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(97,6500 mm, 61,8602 mm): Track [+3V3_PI] on F.Cu, length 2,4540 mm
+    @(97,8660 mm, 64,5302 mm): Pad 14 [Net-(J1-LED_G-)] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(99,7900 mm, 76,7702 mm): Track [+3V3_PI] on F.Cu, length 1,5780 mm
+    @(97,8660 mm, 76,7702 mm): Pad 12 [<no net>] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,8500 mm, 102,7802 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,2150 mm
+    @(98,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D401-NC-Pad7)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,8500 mm, 101,4102 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,5100 mm
+    @(98,8500 mm, 101,9202 mm): Pad 4 [/CM5/HDMI_PI.CK_N] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,7900 mm, 102,5052 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,0150 mm
+    @(98,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D401-NC-Pad7)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,8500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,5100 mm
+    @(98,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D401-NC-Pad7)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,8500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,5100 mm
+    @(98,8500 mm, 101,9202 mm): Pad 4 [/CM5/HDMI_PI.CK_N] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,8500 mm, 102,5652 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,0849 mm
+    @(98,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D401-NC-Pad7)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,8500 mm, 103,2902 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,5100 mm
+    @(98,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D401-NC-Pad7)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,7900 mm, 102,4902 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,0849 mm
+    @(98,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D401-NC-Pad7)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,4100 mm, 102,4902 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,0849 mm
+    @(98,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D401-NC-Pad6)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,3500 mm, 103,2902 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,5100 mm
+    @(98,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D401-NC-Pad6)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,3500 mm, 101,4641 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,4561 mm
+    @(98,3500 mm, 101,9202 mm): Pad 5 [GND] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,4100 mm, 102,5052 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,0150 mm
+    @(98,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D401-NC-Pad6)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,3500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,5100 mm
+    @(98,3500 mm, 101,9202 mm): Pad 5 [GND] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,3500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,5100 mm
+    @(98,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D401-NC-Pad6)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,3500 mm, 102,5652 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,0849 mm
+    @(98,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D401-NC-Pad6)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(98,3500 mm, 102,7802 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,2150 mm
+    @(98,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D401-NC-Pad6)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(99,8500 mm, 102,5652 mm): Track [/CM5/HDMI_PI.D0_N] on F.Cu, length 0,0849 mm
+    @(99,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D401-NC-Pad9)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(99,9100 mm, 102,4902 mm): Track [/CM5/HDMI_PI.D0_N] on F.Cu, length 0,0849 mm
+    @(99,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D401-NC-Pad9)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(99,9100 mm, 102,5052 mm): Track [/CM5/HDMI_PI.D0_N] on F.Cu, length 0,0150 mm
+    @(99,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D401-NC-Pad9)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(99,8500 mm, 103,2902 mm): Track [/CM5/HDMI_PI.D0_N] on F.Cu, length 0,5100 mm
+    @(99,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D401-NC-Pad9)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(99,8500 mm, 102,7802 mm): Track [/CM5/HDMI_PI.D0_N] on F.Cu, length 0,2150 mm
+    @(99,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D401-NC-Pad9)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(99,8500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.D0_N] on F.Cu, length 0,5100 mm
+    @(99,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D401-NC-Pad9)] of D401 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(96,9700 mm, 110,6802 mm): Track [/CM5/HDMI_PI.SCL] on B.Cu, length 0,8600 mm
+    @(96,9700 mm, 110,6802 mm): Pad 6 [unconnected-(D403-NC-Pad6)] of D403 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(96,9700 mm, 110,6802 mm): Track [/CM5/HDMI_PI.SCL] on B.Cu, length 0,8600 mm
+    @(96,9700 mm, 109,8202 mm): Pad 5 [GND] of D403 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(96,9700 mm, 110,6802 mm): Track [/CM5/HDMI_PI.SCL] on B.Cu, length 0,4600 mm
+    @(96,9700 mm, 110,6802 mm): Pad 6 [unconnected-(D403-NC-Pad6)] of D403 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(96,9400 mm, 109,0102 mm): Track [/CM5/HDMI_PI.SCL] on B.Cu, length 0,7800 mm
+    @(96,9700 mm, 109,8202 mm): Pad 5 [GND] of D403 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(96,9400 mm, 109,7902 mm): Track [/CM5/HDMI_PI.SCL] on B.Cu, length 0,0424 mm
+    @(96,9700 mm, 109,8202 mm): Pad 5 [GND] of D403 on B.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(103,3500 mm, 103,2902 mm): Track [/CM5/HDMI_PI.D2_P] on F.Cu, length 0,5100 mm
+    @(103,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D402-NC-Pad10)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(103,2900 mm, 102,4902 mm): Track [/CM5/HDMI_PI.D2_P] on F.Cu, length 0,0849 mm
+    @(103,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D402-NC-Pad10)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(103,3500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.D2_P] on F.Cu, length 0,5100 mm
+    @(103,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D402-NC-Pad10)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(103,3500 mm, 102,7802 mm): Track [/CM5/HDMI_PI.D2_P] on F.Cu, length 0,2150 mm
+    @(103,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D402-NC-Pad10)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(103,2900 mm, 102,5052 mm): Track [/CM5/HDMI_PI.D2_P] on F.Cu, length 0,0150 mm
+    @(103,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D402-NC-Pad10)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(103,3500 mm, 102,5652 mm): Track [/CM5/HDMI_PI.D2_P] on F.Cu, length 0,0849 mm
+    @(103,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D402-NC-Pad10)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(100,3500 mm, 102,5652 mm): Track [/CM5/HDMI_PI.D0_P] on F.Cu, length 0,0849 mm
+    @(100,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D401-NC-Pad10)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(100,2900 mm, 102,5052 mm): Track [/CM5/HDMI_PI.D0_P] on F.Cu, length 0,0150 mm
+    @(100,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D401-NC-Pad10)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(100,2900 mm, 102,4902 mm): Track [/CM5/HDMI_PI.D0_P] on F.Cu, length 0,0849 mm
+    @(100,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D401-NC-Pad10)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(100,3500 mm, 102,7802 mm): Track [/CM5/HDMI_PI.D0_P] on F.Cu, length 0,2150 mm
+    @(100,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D401-NC-Pad10)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(100,3500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.D0_P] on F.Cu, length 0,5100 mm
+    @(100,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D401-NC-Pad10)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(100,3500 mm, 103,2902 mm): Track [/CM5/HDMI_PI.D0_P] on F.Cu, length 0,5100 mm
+    @(100,3500 mm, 102,7802 mm): Pad 10 [unconnected-(D401-NC-Pad10)] of D401 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(101,4100 mm, 102,4902 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,0849 mm
+    @(101,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D402-NC-Pad6)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(101,3500 mm, 102,7802 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,2150 mm
+    @(101,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D402-NC-Pad6)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(101,3500 mm, 103,2902 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,5100 mm
+    @(101,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D402-NC-Pad6)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(101,3500 mm, 102,5652 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,0849 mm
+    @(101,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D402-NC-Pad6)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(101,3500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,5100 mm
+    @(101,3500 mm, 101,9202 mm): Pad 5 [GND] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(101,3500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,5100 mm
+    @(101,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D402-NC-Pad6)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(101,3500 mm, 101,4102 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,5100 mm
+    @(101,3500 mm, 101,9202 mm): Pad 5 [GND] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(101,4100 mm, 102,5052 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,0150 mm
+    @(101,3500 mm, 102,7802 mm): Pad 6 [unconnected-(D402-NC-Pad6)] of D402 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(95,4700 mm, 110,6802 mm): Track [/CM5/HDMI_PI.HOTPLUG] on B.Cu, length 0,8600 mm
+    @(95,4700 mm, 110,6802 mm): Pad 9 [unconnected-(D403-NC-Pad9)] of D403 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(95,4700 mm, 110,6802 mm): Track [/CM5/HDMI_PI.HOTPLUG] on B.Cu, length 0,6800 mm
+    @(95,4700 mm, 110,6802 mm): Pad 9 [unconnected-(D403-NC-Pad9)] of D403 on B.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(101,8500 mm, 101,4102 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,5100 mm
+    @(101,8500 mm, 101,9202 mm): Pad 4 [/CM5/HDMI_PI.D1_N] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(101,8500 mm, 102,5652 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,0849 mm
+    @(101,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D402-NC-Pad7)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(101,7900 mm, 102,4902 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,0849 mm
+    @(101,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D402-NC-Pad7)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(101,8500 mm, 102,7802 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,2150 mm
+    @(101,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D402-NC-Pad7)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(101,8500 mm, 103,2902 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,5100 mm
+    @(101,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D402-NC-Pad7)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(101,7900 mm, 102,5052 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,0150 mm
+    @(101,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D402-NC-Pad7)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(101,8500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,5100 mm
+    @(101,8500 mm, 101,9202 mm): Pad 4 [/CM5/HDMI_PI.D1_N] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(101,8500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,5100 mm
+    @(101,8500 mm, 102,7802 mm): Pad 7 [unconnected-(D402-NC-Pad7)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(102,8500 mm, 102,4302 mm): Track [/CM5/HDMI_PI.D2_N] on F.Cu, length 0,5100 mm
+    @(102,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D402-NC-Pad9)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(102,9100 mm, 102,5052 mm): Track [/CM5/HDMI_PI.D2_N] on F.Cu, length 0,0150 mm
+    @(102,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D402-NC-Pad9)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(102,8500 mm, 102,7802 mm): Track [/CM5/HDMI_PI.D2_N] on F.Cu, length 0,2150 mm
+    @(102,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D402-NC-Pad9)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(102,8500 mm, 103,2902 mm): Track [/CM5/HDMI_PI.D2_N] on F.Cu, length 0,5100 mm
+    @(102,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D402-NC-Pad9)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(102,8500 mm, 102,5652 mm): Track [/CM5/HDMI_PI.D2_N] on F.Cu, length 0,0849 mm
+    @(102,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D402-NC-Pad9)] of D402 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(102,9100 mm, 102,4902 mm): Track [/CM5/HDMI_PI.D2_N] on F.Cu, length 0,0849 mm
+    @(102,8500 mm, 102,7802 mm): Pad 9 [unconnected-(D402-NC-Pad9)] of D402 on F.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(96,4700 mm, 110,6802 mm): Track [/CM5/HDMI_PI.SDA] on B.Cu, length 0,8600 mm
+    @(96,4700 mm, 109,8202 mm): Pad 4 [/CM5/HDMI_PI.SCL] of D403 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(96,4700 mm, 110,6802 mm): Track [/CM5/HDMI_PI.SDA] on B.Cu, length 0,8600 mm
+    @(96,4700 mm, 110,6802 mm): Pad 7 [unconnected-(D403-NC-Pad7)] of D403 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(96,4700 mm, 108,8952 mm): Track [/CM5/HDMI_PI.SDA] on B.Cu, length 0,9250 mm
+    @(96,4700 mm, 109,8202 mm): Pad 4 [/CM5/HDMI_PI.SCL] of D403 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(96,4700 mm, 110,6802 mm): Track [/CM5/HDMI_PI.SDA] on B.Cu, length 0,5700 mm
+    @(96,4700 mm, 110,6802 mm): Pad 7 [unconnected-(D403-NC-Pad7)] of D403 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(94,9700 mm, 110,6802 mm): Track [/CM5/HDMI_PI.CEC] on B.Cu, length 0,8600 mm
+    @(94,9700 mm, 110,6802 mm): Pad 10 [unconnected-(D403-NC-Pad10)] of D403 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(94,9700 mm, 111,5302 mm): Track [/CM5/HDMI_PI.CEC] on B.Cu, length 0,8500 mm
+    @(94,9700 mm, 110,6802 mm): Pad 10 [unconnected-(D403-NC-Pad10)] of D403 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(82,7500 mm, 106,4402 mm): Track [+BATT] on B.Cu, length 0,7400 mm
+    @(82,7500 mm, 106,5002 mm): Pad 1 [GND] of CN1 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(82,7500 mm, 107,1802 mm): Track [+BATT] on B.Cu, length 0,4667 mm
+    @(82,7500 mm, 106,5002 mm): Pad 1 [GND] of CN1 on B.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+    @(97,8660 mm, 65,5502 mm): Pad 13 [Net-(J1-LED_Y-)] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(94,2500 mm, 64,6102 mm): NPTH pad of Module302
+    @(97,8660 mm, 64,5302 mm): Pad 14 [Net-(J1-LED_G-)] of J1 on F.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(91,8400 mm, 113,0402 mm): PTH pad SH3 [<no net>] of J501
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(91,8400 mm, 113,0402 mm): PTH pad SH3 [<no net>] of J501
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(94,9700 mm, 109,8202 mm): Pad 1 [/CM5/HDMI_PI.CEC] of D403 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(95,4700 mm, 109,8202 mm): Pad 2 [/CM5/HDMI_PI.HOTPLUG] of D403 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(95,4700 mm, 110,6802 mm): Pad 9 [unconnected-(D403-NC-Pad9)] of D403 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(94,9700 mm, 110,6802 mm): Pad 10 [unconnected-(D403-NC-Pad10)] of D403 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(95,9700 mm, 109,8202 mm): Pad 3 [/CM5/HDMI_PI.SDA] of D403 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(96,9700 mm, 110,6802 mm): Pad 6 [unconnected-(D403-NC-Pad6)] of D403 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(96,4700 mm, 110,6802 mm): Pad 7 [unconnected-(D403-NC-Pad7)] of D403 on B.Cu
+[solder_mask_bridge]: Rear solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; warning
+    @(94,2500 mm, 112,6102 mm): NPTH pad of Module302
+    @(95,9700 mm, 110,6802 mm): Pad 8 [GND] of D403 on B.Cu
+
+** Found 16 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(74,9900 mm, 36,0552 mm): Zone [GND] on F.Cu, B.Cu and 3 more, priority 0
+    @(74,9900 mm, 36,0552 mm): Zone [GND] on F.Cu, B.Cu and 3 more, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(93,6600 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+    @(95,2900 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(94,4750 mm, 63,8352 mm): Via [GND] on F.Cu - B.Cu
+    @(74,9900 mm, 36,0552 mm): Zone [GND] on F.Cu, B.Cu and 3 more, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(74,9900 mm, 36,0552 mm): Zone [GND] on F.Cu, B.Cu and 3 more, priority 0
+    @(95,2900 mm, 115,2102 mm): Via [GND] on F.Cu - B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(95,9700 mm, 109,8202 mm): Track [GND] on B.Cu, length 0,8600 mm
+    @(96,9700 mm, 109,8202 mm): Pad 5 [GND] of D403 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(96,0500 mm, 109,2102 mm): Via [GND] on F.Cu - B.Cu
+    @(95,9700 mm, 109,8202 mm): Track [GND] on B.Cu, length 0,8600 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(99,3500 mm, 102,7802 mm): Pad 8 [GND] of D401 on F.Cu
+    @(98,3500 mm, 101,9202 mm): Pad 5 [GND] of D401 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(102,3500 mm, 102,7802 mm): Pad 8 [GND] of D402 on F.Cu
+    @(101,3500 mm, 101,9202 mm): Pad 5 [GND] of D402 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(100,6400 mm, 77,6952 mm): Track [Net-(J1-LED_G-)] on F.Cu, length 0,3850 mm
+    @(97,8660 mm, 64,5302 mm): Pad 14 [Net-(J1-LED_G-)] of J1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(98,8500 mm, 101,4102 mm): Track [/CM5/HDMI_PI.CK_P] on F.Cu, length 0,5100 mm
+    @(99,3500 mm, 101,9202 mm): Pad 3 [/CM5/HDMI_PI.CK_P] of D401 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(98,3500 mm, 101,4641 mm): Track [/CM5/HDMI_PI.CK_N] on F.Cu, length 0,4561 mm
+    @(98,8500 mm, 101,9202 mm): Pad 4 [/CM5/HDMI_PI.CK_N] of D401 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(96,4700 mm, 109,8202 mm): Pad 4 [/CM5/HDMI_PI.SCL] of D403 on B.Cu
+    @(96,9400 mm, 109,0102 mm): Track [/CM5/HDMI_PI.SCL] on B.Cu, length 0,7800 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(101,3500 mm, 101,4102 mm): Track [/CM5/HDMI_PI.D1_N] on F.Cu, length 0,5100 mm
+    @(101,8500 mm, 101,9202 mm): Pad 4 [/CM5/HDMI_PI.D1_N] of D402 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(101,8500 mm, 101,4102 mm): Track [/CM5/HDMI_PI.D1_P] on F.Cu, length 0,5100 mm
+    @(102,3500 mm, 101,9202 mm): Pad 3 [/CM5/HDMI_PI.D1_P] of D402 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(96,4700 mm, 110,6802 mm): Track [/CM5/HDMI_PI.SDA] on B.Cu, length 0,8600 mm
+    @(95,9700 mm, 109,8202 mm): Pad 3 [/CM5/HDMI_PI.SDA] of D403 on B.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(83,7500 mm, 106,5002 mm): Pad 2 [+BATT] of CN1 on B.Cu
+    @(82,7500 mm, 106,4402 mm): Track [+BATT] on B.Cu, length 0,7400 mm
+
+** Found 0 Footprint errors **
+
+** End of Report **

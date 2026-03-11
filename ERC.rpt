@@ -1,65 +1,66 @@
-ERC report (2026-03-11T07:32:46+0100, Encoding UTF8)
+ERC report (2026-03-11T11:39:05+0100, Encoding UTF8)
 
 ***** Sheet /
-[lib_symbol_issues]: The current configuration does not include the symbol library 'Samacsys'
+[unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(5750 mils, 1700 mils): Symbol J1 [GLPLX-SMT-188S7-QQ-Y_G]
-[lib_symbol_issues]: The current configuration does not include the symbol library 'CM5IO'
+    @(7300 mils, 2050 mils): Horizontal Wire, length 250 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(4150 mils, 1550 mils): Symbol U701 [AP2553W6]
-[lib_symbol_issues]: Symbol 'SM02B-SRSS-TB(LF)(SN)' not found in symbol library 'EasyEDA'
+    @(7050 mils, 2150 mils): Horizontal Wire, length 400 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(4700 mils, 9400 mils): Symbol CN1 [SM02B-SRSS-TB(LF)(SN)]
-[footprint_link_issues]: The current configuration does not include the footprint library 'Antmicro-footprints'.
+    @(7100 mils, 2250 mils): Horizontal Wire, length 50 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(14050 mils, 9550 mils): Symbol M303 [Compute-Module-4_H1.5mm]
-[lib_symbol_issues]: The current configuration does not include the symbol library 'antmicroModules'
-    ; warning
-    @(14050 mils, 9550 mils): Symbol M303 [Compute-Module-4_H1.5mm]
-[footprint_link_issues]: The current configuration does not include the footprint library 'easyeda2kicad'.
-    ; warning
-    @(1150 mils, 4550 mils): Symbol SW501 [TS-1010A-B]
-[lib_symbol_mismatch]: Symbol 'TS-1010A-B' doesn't match copy in library 'EasyEDA'
-    ; warning
-    @(1150 mils, 4550 mils): Symbol SW501 [TS-1010A-B]
-[lib_symbol_issues]: The current configuration does not include the symbol library 'CM5IO'
-    ; warning
-    @(2650 mils, 6600 mils): Symbol U702 [AP3441SHE-7B]
-[lib_symbol_issues]: The current configuration does not include the symbol library 'CM5IO'
-    ; warning
-    @(8250 mils, 5100 mils): Symbol U703 [ASEK-32.768KHZ-L-R-T]
-[footprint_link_issues]: The current configuration does not include the footprint library '_pico'.
-    ; warning
-    @(9900 mils, 3450 mils): Symbol M701 [SolderNut]
-[lib_symbol_issues]: The current configuration does not include the symbol library 'CM5IO'
-    ; warning
-    @(9900 mils, 3450 mils): Symbol M701 [SolderNut]
-[footprint_link_issues]: The current configuration does not include the footprint library '_pico'.
-    ; warning
-    @(9900 mils, 4100 mils): Symbol M702 [SolderNut]
-[lib_symbol_issues]: The current configuration does not include the symbol library 'CM5IO'
-    ; warning
-    @(9900 mils, 4100 mils): Symbol M702 [SolderNut]
-[lib_symbol_issues]: The current configuration does not include the symbol library 'CM5IO'
-    ; warning
-    @(10000 mils, 5600 mils): Symbol M705 [M.2_Screw]
-[footprint_link_issues]: The current configuration does not include the footprint library 'STMPS2151STR'.
-    ; warning
-    @(1800 mils, 4650 mils): Symbol U405 [STMPS2151STR]
+    @(7050 mils, 2350 mils): Horizontal Wire, length 400 mils
 
 ***** Sheet /Zigbee_Thread/
 
 ***** Sheet /CM5/
-[pin_to_pin]: Pins of type Unspecified and Power input are connected
-    ; warning
-    @(4850 mils, 9350 mils): Symbol CN1 Pin 1 [1, Unspecified, Line]
-    @(5150 mils, 9250 mils): Symbol #PWR02 Pin 1 [Power input, Line]
-[pin_to_pin]: Pins of type Unspecified and Power input are connected
-    ; warning
-    @(4850 mils, 9450 mils): Symbol CN1 Pin 2 [2, Unspecified, Line]
-    @(5150 mils, 9500 mils): Symbol #PWR0311 Pin 1 [Power input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(14050 mils, 9750 mils): Symbol M303 Pin 1 [1, Passive, Line]
 
 ***** Sheet /Ethernet/
+[pin_not_connected]: Pin not connected
+    ; error
+    @(5750 mils, 2800 mils): Symbol J1 Pin 13 [LED_Y-, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(6750 mils, 1700 mils): Symbol J1 Pin J1 [TX1+, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(6750 mils, 1800 mils): Symbol J1 Pin J2 [TX1-, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(6750 mils, 1900 mils): Symbol J1 Pin J3 [TX2+, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(6750 mils, 2000 mils): Symbol J1 Pin J6 [TX2-, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(6250 mils, 3300 mils): Symbol J1 Pin SH [SHIELD, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(6750 mils, 2100 mils): Symbol J1 Pin J4 [TX3+, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(6750 mils, 2200 mils): Symbol J1 Pin J5 [TX3-, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(6750 mils, 2300 mils): Symbol J1 Pin J7 [TX4+, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(6750 mils, 2400 mils): Symbol J1 Pin J8 [TX4-, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(7100 mils, 2650 mils): Symbol R402 Pin 2 [Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(7450 mils, 2000 mils): Symbol #PWR0301 Pin 1 [Power input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(7300 mils, 2650 mils): Symbol R401 Pin 2 [Passive, Line]
 
 ***** Sheet /HDMI/
 
@@ -71,4 +72,4 @@ ERC report (2026-03-11T07:32:46+0100, Encoding UTF8)
 
 ***** Sheet /DSI_CSI/
 
- ** ERC messages: 17  Errors 0  Warnings 17
+ ** ERC messages: 18  Errors 14  Warnings 4

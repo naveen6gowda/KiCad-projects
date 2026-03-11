@@ -1,0 +1,133 @@
+Info: Processing symbol 'C101:Capacitor_SMD:C_0402_1005Metric'.
+Info: Processing symbol 'C102:Capacitor_SMD:C_0402_1005Metric'.
+Info: Processing symbol 'C401:Capacitor_SMD:C_0402_1005Metric'.
+Info: Processing symbol 'C501:Capacitor_SMD:C_0402_1005Metric'.
+Info: Processing symbol 'C502:Capacitor_SMD:C_0402_1005Metric'.
+Info: Processing symbol 'C503:Capacitor_SMD:C_0402_1005Metric'.
+Info: Processing symbol 'C601:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C701:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C702:Capacitor_Tantalum_SMD:CP_EIA-3528-21_Kemet-B'.
+Info: Processing symbol 'C703:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C704:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C705:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C706:Capacitor_SMD:C_0402_1005Metric'.
+Info: Processing symbol 'C707:Capacitor_SMD:C_0402_1005Metric'.
+Info: Processing symbol 'C708:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C709:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C710:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C711:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C712:Capacitor_SMD:C_0402_1005Metric'.
+Info: Processing symbol 'CN1:Connector_JST:JST_SH_SM02B-SRSS-TB_1x02-1MP_P1.00mm_Horizontal'.
+Info: Processing symbol 'SW101:CM5_MINIMA_local:SW-SMD_MK-11C04-G013'.
+Info: Processing symbol 'SW501:CM5_MINIMA_local:SW-SMD_TS-1010A-B'.
+Info: Processing symbol 'D101:Package_TO_SOT_SMD:SOT-416'.
+Info: Processing symbol 'D401:CM5_MINIMA_local:DFN2510A-10_L2.5-W1.0-P0.50-BL'.
+Info: Processing symbol 'D402:CM5_MINIMA_local:DFN2510A-10_L2.5-W1.0-P0.50-BL'.
+Info: Processing symbol 'D403:CM5_MINIMA_local:DFN2510A-10_L2.5-W1.0-P0.50-BL'.
+Info: Processing symbol 'D502:Package_TO_SOT_SMD:SOT-416'.
+Info: Processing symbol 'D605:CM5_MINIMA_local:LED-SMD_L1.7-W0.6-RD'.
+Info: Processing symbol 'D606:CM5_MINIMA_local:LED-SMD_L1.7-W0.6-RD'.
+Info: Processing symbol 'D701:Package_TO_SOT_SMD:SOT-416'.
+Info: Processing symbol 'D702:CM5_MINIMA_local:LED-SMD_L1.7-W0.6-RD'.
+Info: Processing symbol 'H101:MountingHole:MountingHole_2.2mm_M2_DIN965_Pad_TopBottom'.
+Info: Processing symbol 'H102:MountingHole:MountingHole_2.7mm_Pad'.
+Info: Processing symbol 'H103:MountingHole:MountingHole_2.7mm_Pad'.
+Info: Processing symbol 'H104:MountingHole:MountingHole_2.7mm_Pad'.
+Info: Processing symbol 'H105:MountingHole:MountingHole_2.7mm_Pad'.
+Info: Processing symbol 'J1:CM5_MINIMA_local:GLPLXSMT188S7QQYG'.
+Info: Processing symbol 'TP101:TestPoint:TestPoint_Pad_D1.0mm'.
+Info: Processing symbol 'TP102:TestPoint:TestPoint_Pad_D1.0mm'.
+Info: Processing symbol 'TP103:TestPoint:TestPoint_Pad_D1.0mm'.
+Info: Processing symbol 'TP104:TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm'.
+Info: Processing symbol 'J2:Connector_PinHeader_1.27mm:PinHeader_1x05_P1.27mm_Vertical'.
+Info: Processing symbol 'J101:CM5_MINIMA_local:USB-C-SMD_TYPEC-305-ACP16H458'.
+Info: Processing symbol 'TP105:TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm'.
+Info: Processing symbol 'TP106:TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm'.
+Info: Processing symbol 'U1:Package_LGA:LGA-16_3x3mm_P0.5mm_LayoutBorder3x5y'.
+Info: Processing symbol 'U2:CM5_MINIMA_local:MGM240L_SIL'.
+Info: Processing symbol 'J501:CM5_MINIMA_local:EDAC 690-019-298-412'.
+Info: Processing symbol 'U401:Package_SON:USON-10_2.5x1.0mm_P0.5mm'.
+Info: Processing symbol 'M701:CM5_MINIMA_local:MountingHole_3mm_Pad'.
+Info: Processing symbol 'U402:Package_SON:USON-10_2.5x1.0mm_P0.5mm'.
+Info: Processing symbol 'U405:seeed esp32:SOT95P280X145-5N'.
+Info: Processing symbol 'J502:Connector_JST:JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical'.
+Info: Processing symbol 'J503:Connector_JST:JST_SUR_BM10B-SURS-TF_1x10-1MP_P0.80mm_Vertical'.
+Info: Processing symbol 'J601:Connector_JST:JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical'.
+Info: Processing symbol 'U602:Package_TO_SOT_SMD:SOT-353_SC-70-5'.
+Info: Processing symbol 'U701:Package_TO_SOT_SMD:SOT-23-6'.
+Info: Processing symbol 'J701:CM5_MINIMA_local:M.2 M Key socket_2230_2242'.
+Info: Processing symbol 'U702:Package_DFN_QFN:DFN-8-1EP_2x2mm_P0.5mm_EP1.05x1.75mm'.
+Info: Processing symbol 'U703:Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm'.
+Info: Processing symbol 'J802:CM5_MINIMA_local:Hirose_FH12-22S-0.5SH_1x22-1MP_P0.50mm_Horizontal'.
+Info: Processing symbol 'USB701:CM5_MINIMA_local:USB-C-SMD_TYPEC-305-ACP16H458'.
+Info: Total warnings: 22, errors: 12.
+Info: Processing symbol 'L701:Inductor_SMD:L_Coilcraft_XAL5030-XXX'.
+Info: Processing symbol 'M303:CM5_MINIMA_local:Compute-Module-4_H1.5mm'.
+Info: Processing symbol 'R402:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'M702:CM5_MINIMA_local:MountingHole_3mm_Pad'.
+Info: Processing symbol 'Module301:CM5_MINIMA_local:Raspberry-Pi-5-Compute-Module_GPIO'.
+Info: Processing symbol 'Module302:CM5_MINIMA_local:Raspberry-Pi-5-Compute-Module_HSS'.
+Info: Processing symbol 'R1:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R2:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R3:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R101:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R102:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R103:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R104:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R107:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R108:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R401:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R403:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R501:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R502:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R605:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R606:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R701:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R702:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R703:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R704:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R705:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R706:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R707:Resistor_SMD:R_0402_1005Metric'.
+Removed unused net unconnected-(CN1-Pad3).
+Removed unused net unconnected-(CN1-Pad4).
+Removed unused net unconnected-(U405-FAULT-Pad3).
+
+
+Warning: No net found for component J1 pad 11 (no pin 11 in symbol).
+Warning: No net found for component J101 pad 1 (no pin 1 in symbol).
+Warning: No net found for component J101 pad 1 (no pin 1 in symbol).
+Warning: No net found for component J101 pad 1 (no pin 1 in symbol).
+Warning: No net found for component J101 pad 1 (no pin 1 in symbol).
+Warning: No net found for component J501 pad SH1 (no pin SH1 in symbol).
+Warning: No net found for component J501 pad SH4 (no pin SH4 in symbol).
+Warning: No net found for component J501 pad SH3 (no pin SH3 in symbol).
+Warning: No net found for component J601 pad MP (no pin MP in symbol).
+Warning: No net found for component J601 pad MP (no pin MP in symbol).
+Warning: No net found for component J701 pad S1 (no pin S1 in symbol).
+Warning: No net found for component J701 pad S2 (no pin S2 in symbol).
+Warning: No net found for component J802 pad MP (no pin MP in symbol).
+Warning: No net found for component J802 pad MP (no pin MP in symbol).
+Warning: No net found for component M702 pad 1 (no pin 1 in symbol).
+Warning: No net found for component J501 pad SH2 (no pin SH2 in symbol).
+Warning: No net found for component M701 pad 1 (no pin 1 in symbol).
+Warning: No net found for component CN1 pad MP (no pin MP in symbol).
+Warning: No net found for component CN1 pad MP (no pin MP in symbol).
+Warning: No net found for component J1 pad 16 (no pin 16 in symbol).
+Warning: No net found for component J1 pad 12 (no pin 12 in symbol).
+Warning: No net found for component J1 pad 15 (no pin 15 in symbol).
+Error: J1 pad J8 not found in CM5_MINIMA_local:GLPLXSMT188S7QQYG.
+Error: J1 pad J7 not found in CM5_MINIMA_local:GLPLXSMT188S7QQYG.
+Error: J1 pad SH not found in CM5_MINIMA_local:GLPLXSMT188S7QQYG.
+Error: J101 pad S1 not found in CM5_MINIMA_local:USB-C-SMD_TYPEC-305-ACP16H458.
+Error: J501 pad SH not found in CM5_MINIMA_local:EDAC 690-019-298-412.
+Error: M303 pad 1 not found in CM5_MINIMA_local:Compute-Module-4_H1.5mm.
+Error: J1 pad J2 not found in CM5_MINIMA_local:GLPLXSMT188S7QQYG.
+Error: J1 pad J6 not found in CM5_MINIMA_local:GLPLXSMT188S7QQYG.
+Error: J1 pad J3 not found in CM5_MINIMA_local:GLPLXSMT188S7QQYG.
+Error: J1 pad J5 not found in CM5_MINIMA_local:GLPLXSMT188S7QQYG.
+Error: J1 pad J4 not found in CM5_MINIMA_local:GLPLXSMT188S7QQYG.
+Error: J1 pad J1 not found in CM5_MINIMA_local:GLPLXSMT188S7QQYG.
+
+
+Info: Total warnings: 22, errors: 12.

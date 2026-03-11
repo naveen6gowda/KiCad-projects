@@ -15,8 +15,8 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U702"
-				(at 0 11.43 0)
+			(property "Reference" "U"
+				(at -6.35 10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -24,7 +24,7 @@
 				)
 			)
 			(property "Value" "AP3441SHE-7B"
-				(at 0 8.89 0)
+				(at 0 7.62 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -50,42 +50,6 @@
 				)
 			)
 			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Field5" "AP3441SHE-7B"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Field6" "AP3441SHE-7B"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Field7" "Diodes"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Part Description" "3A DC-DC converter"
 				(at 0 0 0)
 				(effects
 					(font
@@ -180,7 +144,7 @@
 						)
 					)
 				)
-				(pin power_in line
+				(pin input line
 					(at 1.27 -6.35 90)
 					(length 2.54)
 					(name "PAD"
@@ -277,8 +241,8 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U703"
-				(at 0 9.525 0)
+			(property "Reference" "U"
+				(at -5.08 6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -286,7 +250,7 @@
 				)
 			)
 			(property "Value" "ASEK-32.768KHZ-L-R-T"
-				(at 0 6.985 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -320,42 +284,6 @@
 					(hide yes)
 				)
 			)
-			(property "Field5" "ASEK-32.768KHZ-L-R-T"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Field6" "ASEK-32.768KHZ-L-R-T"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Field7" "abracon"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Part Description" "32KHz Xtal oscilator"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
 			(symbol "ASEK-32.768KHZ-L-R-T_0_1"
 				(rectangle
 					(start -6.35 5.08)
@@ -370,7 +298,7 @@
 				)
 			)
 			(symbol "ASEK-32.768KHZ-L-R-T_1_1"
-				(pin power_in line
+				(pin input line
 					(at -8.89 3.81 0)
 					(length 2.54)
 					(name "EN"
@@ -6136,7 +6064,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "_pico:MountingHole_3mm_Pad"
+		(property "Footprint" "CM5_MINIMA_local:MountingHole_3mm_Pad"
 			(at 251.46 87.63 0)
 			(effects
 				(font
@@ -6706,7 +6634,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "_pico:MountingHole_3mm_Pad"
+		(property "Footprint" "CM5_MINIMA_local:MountingHole_3mm_Pad"
 			(at 251.46 104.14 0)
 			(effects
 				(font
