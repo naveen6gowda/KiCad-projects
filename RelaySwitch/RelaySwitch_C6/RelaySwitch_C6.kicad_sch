@@ -11,6 +11,193 @@
 		(company "Navi homelab")
 	)
 	(lib_symbols
+		(symbol "0443_500:0443.500"
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "F"
+				(at 13.97 6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Value" "0443.500"
+				(at 13.97 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "0443500DR"
+				(at 13.97 -96.19 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.littelfuse.com/~/media/electronics/datasheets/fuses/littelfuse_fuse_443_datasheet.pdf.pdf"
+				(at 13.97 -196.19 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Description" "Surface Mount Fuses 280VAC 0.5A .6ohms 443LC NANO2"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Height" "3.05"
+				(at 13.97 -396.19 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Name" "LITTELFUSE"
+				(at 13.97 -496.19 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Part_Number" "0443.500"
+				(at 13.97 -596.19 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Part Number" ""
+				(at 13.97 -696.19 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Price/Stock" ""
+				(at 13.97 -796.19 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Arrow Part Number" ""
+				(at 13.97 -896.19 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Arrow Price/Stock" ""
+				(at 13.97 -996.19 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(symbol "0443.500_1_1"
+				(rectangle
+					(start 5.08 1.27)
+					(end 12.7 -1.27)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 0) (xy 12.7 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 17.78 0 180)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:C_Small"
 			(pin_numbers
 				(hide yes)
@@ -133,143 +320,6 @@
 				(pin passive line
 					(at 0 -2.54 90)
 					(length 2.032)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Device:Fuse_Small"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0.254)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "F"
-				(at 0 -1.524 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "Fuse_Small"
-				(at 0 1.524 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Fuse, small symbol"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "fuse"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "*Fuse*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Fuse_Small_0_1"
-				(rectangle
-					(start -1.27 0.508)
-					(end 1.27 -0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 0) (xy 1.27 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "Fuse_Small_1_1"
-				(pin passive line
-					(at -2.54 0 0)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 0 180)
-					(length 1.27)
 					(name "~"
 						(effects
 							(font
@@ -3671,6 +3721,12 @@
 		(uuid "3ffe9de0-e869-46f8-8f00-6095121ebd39")
 	)
 	(junction
+		(at 55.88 25.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4013920a-670d-4418-b775-17a61cf5f50c")
+	)
+	(junction
 		(at 30.48 163.83)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3681,6 +3737,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5091154e-0262-4a02-b0d3-b37303b6054d")
+	)
+	(junction
+		(at 49.53 39.37)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "556fbc6e-757a-4c1e-851a-24e261168944")
 	)
 	(junction
 		(at 90.17 88.9)
@@ -3747,12 +3809,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b92ee996-8d4c-41eb-8fd4-5af5950f7102")
-	)
-	(junction
-		(at 49.53 39.37)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c5f32f17-3216-44bb-abda-0dedcf377e7f")
 	)
 	(junction
 		(at 77.47 86.36)
@@ -4030,16 +4086,6 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 36.83) (xy 55.88 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "25ea9692-92e9-4419-9e08-c534782632f6")
-	)
-	(wire
-		(pts
 			(xy 30.48 157.48) (xy 30.48 163.83)
 		)
 		(stroke
@@ -4190,16 +4236,6 @@
 	)
 	(wire
 		(pts
-			(xy 30.48 36.83) (xy 44.45 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3bc35fdc-4424-4891-91ec-114ce5d2864c")
-	)
-	(wire
-		(pts
 			(xy 215.9 102.87) (xy 215.9 105.41)
 		)
 		(stroke
@@ -4227,16 +4263,6 @@
 			(type default)
 		)
 		(uuid "3d662986-e952-44f8-b60b-8279e307a6ab")
-	)
-	(wire
-		(pts
-			(xy 55.88 49.53) (xy 55.88 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3e42e143-c6f2-47c9-b69b-bcdff7c122b1")
 	)
 	(wire
 		(pts
@@ -4470,6 +4496,16 @@
 	)
 	(wire
 		(pts
+			(xy 30.48 36.83) (xy 31.75 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5989ccef-b1b4-4983-b3bd-8c64f8c24fb8")
+	)
+	(wire
+		(pts
 			(xy 156.21 132.08) (xy 156.21 142.24)
 		)
 		(stroke
@@ -4500,7 +4536,7 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 39.37) (xy 58.42 39.37)
+			(xy 30.48 39.37) (xy 49.53 39.37)
 		)
 		(stroke
 			(width 0)
@@ -4650,6 +4686,16 @@
 	)
 	(wire
 		(pts
+			(xy 55.88 25.4) (xy 55.88 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7398814f-290f-4cbc-920d-3cfa1f0afdad")
+	)
+	(wire
+		(pts
 			(xy 224.79 58.42) (xy 222.25 58.42)
 		)
 		(stroke
@@ -4790,6 +4836,16 @@
 	)
 	(wire
 		(pts
+			(xy 49.53 25.4) (xy 55.88 25.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "89dacddb-8342-488d-96f9-6d8ac25a7b20")
+	)
+	(wire
+		(pts
 			(xy 106.68 165.1) (xy 125.73 165.1)
 		)
 		(stroke
@@ -4807,6 +4863,16 @@
 			(type default)
 		)
 		(uuid "8d0ac517-ece9-4f27-b2bd-1f94608cd28d")
+	)
+	(wire
+		(pts
+			(xy 49.53 39.37) (xy 58.42 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8d4016a0-c091-465c-a76f-1063498baca6")
 	)
 	(wire
 		(pts
@@ -4867,16 +4933,6 @@
 			(type default)
 		)
 		(uuid "926431cc-d538-4b8d-b3ba-b5172db262e5")
-	)
-	(wire
-		(pts
-			(xy 49.53 39.37) (xy 49.53 49.53)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9525d061-4309-4745-910a-86b818de7726")
 	)
 	(wire
 		(pts
@@ -5050,16 +5106,6 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 36.83) (xy 55.88 25.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a74d9bd6-0242-4746-ac2a-42dac58be192")
-	)
-	(wire
-		(pts
 			(xy 68.58 165.1) (xy 106.68 165.1)
 		)
 		(stroke
@@ -5140,16 +5186,6 @@
 	)
 	(wire
 		(pts
-			(xy 30.48 39.37) (xy 49.53 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "af2d2db5-68e3-4ac3-a97d-e617a53f4359")
-	)
-	(wire
-		(pts
 			(xy 267.97 38.1) (xy 273.05 38.1)
 		)
 		(stroke
@@ -5157,16 +5193,6 @@
 			(type default)
 		)
 		(uuid "af2f5d9e-aa28-4d26-ba8b-33ce4a3b3f2c")
-	)
-	(wire
-		(pts
-			(xy 49.53 49.53) (xy 55.88 49.53)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b067f69a-9636-4fc3-bd06-92d0c2f6d1db")
 	)
 	(wire
 		(pts
@@ -5370,6 +5396,16 @@
 	)
 	(wire
 		(pts
+			(xy 49.53 34.29) (xy 49.53 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c2d73298-b01a-4c4c-a8f9-e1523d1297b8")
+	)
+	(wire
+		(pts
 			(xy 30.48 41.91) (xy 44.45 41.91)
 		)
 		(stroke
@@ -5550,6 +5586,16 @@
 	)
 	(wire
 		(pts
+			(xy 49.53 26.67) (xy 49.53 25.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eabe4d15-5c7f-47b9-9a18-261028f818d0")
+	)
+	(wire
+		(pts
 			(xy 83.82 60.96) (xy 83.82 63.5)
 		)
 		(stroke
@@ -5699,7 +5745,7 @@
 		(uuid "1aa851a0-b49f-4f6a-9a83-e2944685ad34")
 	)
 	(label "L"
-		(at 34.29 36.83 0)
+		(at 30.48 36.83 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8816,7 +8862,7 @@
 	)
 	(symbol
 		(lib_id "Device:Varistor")
-		(at 55.88 44.45 0)
+		(at 49.53 30.48 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8824,7 +8870,7 @@
 		(dnp no)
 		(uuid "816a6ef0-915d-49b7-acd1-a3e2c70bf74b")
 		(property "Reference" "RV1"
-			(at 51.054 44.958 0)
+			(at 50.8 29.972 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8833,7 +8879,7 @@
 			)
 		)
 		(property "Value" "275VAC MOV"
-			(at 56.134 49.276 0)
+			(at 36.83 26.924 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8842,7 +8888,7 @@
 			)
 		)
 		(property "Footprint" "Varistor:RV_Disc_D7mm_W3.4mm_P5mm"
-			(at 54.102 44.45 90)
+			(at 47.752 30.48 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8851,7 +8897,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 55.88 44.45 0)
+			(at 49.53 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8860,7 +8906,7 @@
 			)
 		)
 		(property "Description" "Voltage dependent resistor"
-			(at 55.88 44.45 0)
+			(at 49.53 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8869,7 +8915,7 @@
 			)
 		)
 		(property "Sim.Name" "kicad_builtin_varistor"
-			(at 55.88 44.45 0)
+			(at 49.53 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8878,7 +8924,7 @@
 			)
 		)
 		(property "Sim.Device" "SUBCKT"
-			(at 55.88 44.45 0)
+			(at 49.53 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8887,7 +8933,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=A 2=B"
-			(at 55.88 44.45 0)
+			(at 49.53 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8896,7 +8942,7 @@
 			)
 		)
 		(property "Sim.Params" "threshold=1k"
-			(at 55.88 44.45 0)
+			(at 49.53 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8905,7 +8951,7 @@
 			)
 		)
 		(property "Sim.Library" "${KICAD9_SYMBOL_DIR}/Simulation_SPICE.sp"
-			(at 55.88 44.45 0)
+			(at 49.53 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11993,8 +12039,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:Fuse_Small")
-		(at 46.99 36.83 0)
+		(lib_id "0443_500:0443.500")
+		(at 31.75 36.83 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12002,23 +12048,43 @@
 		(dnp no)
 		(uuid "fe772ba2-6cf3-4201-9e77-af6add56f94b")
 		(property "Reference" "F1"
-			(at 46.736 34.798 0)
+			(at 40.64 34.544 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "T250mA/250V"
-			(at 46.228 31.75 0)
+		(property "Value" "Littelfuse 443.500"
+			(at 36.576 32.766 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Fuse:Fuseholder_Clip-5x20mm_Littelfuse_111_Inline_P20.00x5.00mm_D1.05mm_Horizontal"
-			(at 46.99 36.83 0)
+		(property "Footprint" "easyeda2kicad:0443500DR"
+			(at 45.72 133.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.littelfuse.com/~/media/electronics/datasheets/fuses/littelfuse_fuse_443_datasheet.pdf.pdf"
+			(at 45.72 233.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "Surface Mount Fuses 280VAC 0.5A .6ohms 443LC NANO2"
+			(at 31.75 36.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12026,21 +12092,73 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 46.99 36.83 0)
+		(property "Height" "3.05"
+			(at 45.72 433.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left top)
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 46.99 36.83 0)
+		(property "Manufacturer_Name" "LITTELFUSE"
+			(at 45.72 533.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "0443.500"
+			(at 45.72 633.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" ""
+			(at 45.72 733.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" ""
+			(at 45.72 833.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Arrow Part Number" ""
+			(at 45.72 933.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Arrow Price/Stock" ""
+			(at 45.72 1033.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
 				(hide yes)
 			)
 		)
