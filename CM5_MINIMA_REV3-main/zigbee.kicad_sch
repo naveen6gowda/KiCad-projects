@@ -2003,7 +2003,7 @@
 				)
 			)
 		)
-		(property "Footprint" "CM5_MINIMA_local:MGM240L_SIL"
+		(property "Footprint" "Zigbee MGM240LD22VIF2:MGM240L_SIL"
 			(at 113.03 83.82 0)
 			(effects
 				(font

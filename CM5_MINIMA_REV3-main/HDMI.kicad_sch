@@ -11,7 +11,7 @@
 		(company "Pierluigi Colangeli")
 	)
 	(lib_symbols
-		(symbol "Connector:HDMI_A_1.4"
+		(symbol "CM5IO:HDMI_A_1.4"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -112,6 +112,60 @@
 					)
 					(fill
 						(type none)
+					)
+				)
+				(pin passive line
+					(at 7.62 -27.94 90)
+					(length 2.54)
+					(name "SH"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "SH2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 -27.94 90)
+					(length 2.54)
+					(name "SH"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "SH3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 -27.94 90)
+					(length 2.54)
+					(name "SH"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "SH4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
 					)
 				)
 			)
@@ -520,7 +574,7 @@
 							)
 						)
 					)
-					(number "SH"
+					(number "SH1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -670,11 +724,11 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "EasyEDA:PUSB3F96X"
+		(symbol "EasyEDA:STMPS2151STR"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "D"
+			(property "Reference" "U405"
 				(at 0 10.16 0)
 				(effects
 					(font
@@ -682,16 +736,16 @@
 					)
 				)
 			)
-			(property "Value" "PUSB3F96X"
-				(at 0 -10.16 0)
+			(property "Value" "STMPS2151STR"
+				(at 0 7.62 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Footprint" "easyeda2kicad:DFN2510A-10_L2.5-W1.0-P0.50-BL"
-				(at 0 -12.7 0)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+				(at 0 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -699,8 +753,8 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://lcsc.com/product-detail/Diodes-ESD_Nexperia-PUSB3F96_C478121.html"
-				(at 0 -15.24 0)
+			(property "Datasheet" "https://lcsc.com/product-detail/PMIC-Power-Distribution-Switches_STMicroelectronics_STMPS2151STR_STMPS2151STR_C135998.html"
+				(at 0 -12.7 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -717,8 +771,8 @@
 					(hide yes)
 				)
 			)
-			(property "LCSC Part" "C478121"
-				(at 0 -17.78 0)
+			(property "LCSC Part" "C135998"
+				(at 0 -15.24 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -726,10 +780,10 @@
 					(hide yes)
 				)
 			)
-			(symbol "PUSB3F96X_0_1"
+			(symbol "STMPS2151STR_0_1"
 				(rectangle
-					(start -6.35 7.62)
-					(end 6.35 -7.62)
+					(start -10.16 5.59)
+					(end 10.16 -5.59)
 					(stroke
 						(width 0)
 						(type default)
@@ -739,7 +793,7 @@
 					)
 				)
 				(circle
-					(center -5.08 6.35)
+					(center -8.89 4.32)
 					(radius 0.38)
 					(stroke
 						(width 0)
@@ -749,84 +803,23 @@
 						(type none)
 					)
 				)
-				(pin unspecified line
-					(at 8.89 5.08 180)
-					(length 2.54)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+				(circle
+					(center -8.89 4.32)
+					(radius 0.38)
+					(stroke
+						(width 0)
+						(type default)
 					)
-					(number "10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 8.89 2.54 180)
-					(length 2.54)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 8.89 -2.54 180)
-					(length 2.54)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 8.89 -5.08 180)
-					(length 2.54)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+					(fill
+						(type none)
 					)
 				)
 			)
-			(symbol "PUSB3F96X_1_1"
-				(pin passive line
-					(at -8.89 5.08 0)
+			(symbol "STMPS2151STR_1_1"
+				(pin power_out line
+					(at -12.7 2.54 0)
 					(length 2.54)
-					(name "CH1"
+					(name "VOUT"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -841,10 +834,10 @@
 						)
 					)
 				)
-				(pin passive line
-					(at -8.89 2.54 0)
+				(pin power_in line
+					(at -12.7 0 0)
 					(length 2.54)
-					(name "CH2"
+					(name "GND"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -859,10 +852,10 @@
 						)
 					)
 				)
-				(pin passive line
-					(at -8.89 0 0)
+				(pin output line
+					(at -12.7 -2.54 0)
 					(length 2.54)
-					(name "GND"
+					(name "FAULT"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -877,28 +870,10 @@
 						)
 					)
 				)
-				(pin passive line
-					(at -8.89 -2.54 0)
+				(pin power_in line
+					(at 12.7 2.54 180)
 					(length 2.54)
-					(name "CH3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -8.89 -5.08 0)
-					(length 2.54)
-					(name "CH4"
+					(name "VIN"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -913,17 +888,17 @@
 						)
 					)
 				)
-				(pin passive line
-					(at 8.89 0 180)
+				(pin input line
+					(at 12.7 -2.54 180)
 					(length 2.54)
-					(name "GND"
+					(name "EN"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "8"
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -938,8 +913,8 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "D"
-				(at 0 10.16 0)
+			(property "Reference" "D402"
+				(at 0 13.716 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -947,14 +922,14 @@
 				)
 			)
 			(property "Value" "PUSB3F96X"
-				(at 0 -10.16 0)
+				(at 0 11.176 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Footprint" "easyeda2kicad:DFN2510A-10_L2.5-W1.0-P0.50-BL"
+			(property "Footprint" "EasyEDA:DFN2510A-10_L2.5-W1.0-P0.50-BL"
 				(at 0 -12.7 0)
 				(effects
 					(font
@@ -973,7 +948,7 @@
 				)
 			)
 			(property "Description" ""
-				(at 0 0 0)
+				(at 0 1.27 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -992,8 +967,8 @@
 			)
 			(symbol "PUSB3F96X_1_0_1"
 				(rectangle
-					(start -6.35 7.62)
-					(end 6.35 -7.62)
+					(start -6.35 10.16)
+					(end 6.35 -6.35)
 					(stroke
 						(width 0)
 						(type default)
@@ -1003,7 +978,7 @@
 					)
 				)
 				(circle
-					(center -5.08 6.35)
+					(center -5.08 8.89)
 					(radius 0.38)
 					(stroke
 						(width 0)
@@ -1013,82 +988,46 @@
 						(type none)
 					)
 				)
-				(pin unspecified line
-					(at 8.89 5.08 180)
-					(length 2.54)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+				(polyline
+					(pts
+						(xy 1.27 1.27) (xy 3.81 1.27) (xy 3.81 0)
 					)
-					(number "10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
-				(pin unspecified line
-					(at 8.89 2.54 180)
-					(length 2.54)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+				(polyline
+					(pts
+						(xy 2.54 3.81) (xy 2.54 1.27) (xy 1.27 -1.27) (xy 3.81 -1.27) (xy 2.54 1.27)
 					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
-				(pin unspecified line
-					(at 8.89 -2.54 180)
-					(length 2.54)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+				(polyline
+					(pts
+						(xy 2.54 -1.27) (xy 2.54 -3.81)
 					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+					(stroke
+						(width 0)
+						(type default)
 					)
-				)
-				(pin unspecified line
-					(at 8.89 -5.08 180)
-					(length 2.54)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+					(fill
+						(type none)
 					)
 				)
 			)
 			(symbol "PUSB3F96X_1_1_1"
 				(pin passive line
-					(at -8.89 5.08 0)
+					(at -8.89 6.35 0)
 					(length 2.54)
 					(name "CH1"
 						(effects
@@ -1106,180 +1045,9 @@
 					)
 				)
 				(pin passive line
-					(at -8.89 2.54 0)
+					(at -8.89 6.35 0)
 					(length 2.54)
-					(name "CH2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -8.89 0 0)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -8.89 -2.54 0)
-					(length 2.54)
-					(name "CH3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -8.89 -5.08 0)
-					(length 2.54)
-					(name "CH4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 8.89 0 180)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "PUSB3F96X_2"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "D"
-				(at 0 10.16 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "PUSB3F96X"
-				(at 0 -10.16 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "easyeda2kicad:DFN2510A-10_L2.5-W1.0-P0.50-BL"
-				(at 0 -12.7 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
 					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://lcsc.com/product-detail/Diodes-ESD_Nexperia-PUSB3F96_C478121.html"
-				(at 0 -15.24 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "LCSC Part" "C478121"
-				(at 0 -17.78 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "PUSB3F96X_2_0_1"
-				(rectangle
-					(start -6.35 7.62)
-					(end 6.35 -7.62)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(circle
-					(center -5.08 6.35)
-					(radius 0.38)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin unspecified line
-					(at 8.89 5.08 180)
-					(length 2.54)
 					(name "NC"
 						(effects
 							(font
@@ -1295,82 +1063,8 @@
 						)
 					)
 				)
-				(pin unspecified line
-					(at 8.89 2.54 180)
-					(length 2.54)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 8.89 -2.54 180)
-					(length 2.54)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 8.89 -5.08 180)
-					(length 2.54)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "PUSB3F96X_2_1_1"
 				(pin passive line
-					(at -8.89 5.08 0)
-					(length 2.54)
-					(name "CH1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -8.89 2.54 0)
+					(at -8.89 3.81 0)
 					(length 2.54)
 					(name "CH2"
 						(effects
@@ -1388,16 +1082,17 @@
 					)
 				)
 				(pin passive line
-					(at -8.89 0 0)
+					(at -8.89 3.81 0)
 					(length 2.54)
-					(name "GND"
+					(hide yes)
+					(name "NC"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "3"
+					(number "9"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1406,7 +1101,7 @@
 					)
 				)
 				(pin passive line
-					(at -8.89 -2.54 0)
+					(at -8.89 1.27 0)
 					(length 2.54)
 					(name "CH3"
 						(effects
@@ -1424,7 +1119,26 @@
 					)
 				)
 				(pin passive line
-					(at -8.89 -5.08 0)
+					(at -8.89 1.27 0)
+					(length 2.54)
+					(hide yes)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -8.89 -1.27 0)
 					(length 2.54)
 					(name "CH4"
 						(effects
@@ -1442,8 +1156,46 @@
 					)
 				)
 				(pin passive line
-					(at 8.89 0 180)
+					(at -8.89 -1.27 0)
 					(length 2.54)
+					(hide yes)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -8.89 -3.81 0)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -8.89 -3.81 0)
+					(length 2.54)
+					(hide yes)
 					(name "GND"
 						(effects
 							(font
@@ -1455,276 +1207,6 @@
 						(effects
 							(font
 								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "STMPS2151STR:STMPS2151STR"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at -10.16 8.382 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Value" "STMPS2151STR"
-				(at -10.16 -10.16 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Footprint" "STMPS2151STR:SOT95P280X145-5N"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "DigiKey_Part_Number" "497-6934-1-ND"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "SnapEDA_Link" "https://www.snapeda.com/parts/STMPS2151STR/STMicroelectronics/view-part/?ref=snap"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "MAXIMUM_PACKAGE_HEIGHT" "1.45mm"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "Package" "SOT-23-5 STMicroelectronics"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "Check_prices" "https://www.snapeda.com/parts/STMPS2151STR/STMicroelectronics/view-part/?ref=eda"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "STANDARD" "IPC-7351B"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "PARTREV" "7"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "MF" "STMicroelectronics"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "MP" "STMPS2151STR"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "Description_1" "Power Switch/Driver 1:1 N-Channel 500mA SOT-23-5"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "MANUFACTURER" "STMicroelectronics"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(symbol "STMPS2151STR_0_0"
-				(rectangle
-					(start -10.16 -7.62)
-					(end 10.16 7.62)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin input line
-					(at -15.24 5.08 0)
-					(length 5.08)
-					(name "IN"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -15.24 0 0)
-					(length 5.08)
-					(name "EN"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 15.24 0 180)
-					(length 5.08)
-					(name "~{FAULT}"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 15.24 -5.08 180)
-					(length 5.08)
-					(name "GND"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-			)
-			(symbol "STMPS2151STR_1_0"
-				(pin power_out line
-					(at 15.24 5.08 180)
-					(length 5.08)
-					(name "OUT"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.016 1.016)
 							)
 						)
 					)
@@ -1977,16 +1459,28 @@
 		(uuid "2fb9bbef-d7e5-4202-987c-d59b76437286")
 	)
 	(junction
+		(at 31.75 118.11)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "10cc78f9-0eb3-4e3f-84e6-d1c5b6fc42ca")
+	)
+	(junction
+		(at 68.58 118.11)
+		(diameter 1.016)
+		(color 0 0 0 0)
+		(uuid "1e61ee39-3261-484d-8263-4347fded5f77")
+	)
+	(junction
 		(at 162.56 83.82)
 		(diameter 1.016)
 		(color 0 0 0 0)
 		(uuid "3956d98f-b2ea-4c03-8c4c-424540898b57")
 	)
 	(junction
-		(at 71.12 121.92)
-		(diameter 0)
+		(at 24.13 118.11)
+		(diameter 1.016)
 		(color 0 0 0 0)
-		(uuid "627223ba-720f-4904-a33c-d48f11db1e35")
+		(uuid "50b15f58-61fe-45ff-883e-6fb7db847476")
 	)
 	(junction
 		(at 167.64 83.82)
@@ -2001,22 +1495,10 @@
 		(uuid "72c190ab-8f37-462c-a821-abbf413fc3aa")
 	)
 	(junction
-		(at 27.94 118.11)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7eeee790-eeb0-44e6-bfef-117a0019812f")
-	)
-	(junction
 		(at 172.72 83.82)
 		(diameter 1.016)
 		(color 0 0 0 0)
 		(uuid "c1ae28f2-c985-47dc-ad0f-b5a5939b4881")
-	)
-	(junction
-		(at 24.13 118.11)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c7ed3911-cf41-4fc1-a918-7a23b7e93e73")
 	)
 	(junction
 		(at 165.1 83.82)
@@ -2025,60 +1507,12 @@
 		(uuid "de95ce53-d35a-49d1-b38e-6544aba66780")
 	)
 	(no_connect
-		(at 86.36 71.12)
-		(uuid "33210261-e06e-47ff-8f0d-a187398e25b9")
-	)
-	(no_connect
-		(at 88.9 46.99)
-		(uuid "3e793301-c8d7-4de4-bcab-bc66c4e83170")
-	)
-	(no_connect
-		(at 86.36 85.09)
-		(uuid "3fd4f534-836b-4eb6-99d2-82c6653e691c")
-	)
-	(no_connect
-		(at 88.9 44.45)
-		(uuid "4d69c63c-2b3c-4f37-9a71-e1271990876e")
-	)
-	(no_connect
-		(at 60.96 118.11)
+		(at 58.42 123.19)
 		(uuid "68dbc5fb-58a2-40c1-9414-a152796bab10")
-	)
-	(no_connect
-		(at 86.36 60.96)
-		(uuid "69d03ea3-e406-4e02-b62f-9b822d315eea")
-	)
-	(no_connect
-		(at 86.36 95.25)
-		(uuid "6a1d260f-8959-4f87-a41d-407603516507")
-	)
-	(no_connect
-		(at 86.36 68.58)
-		(uuid "6ca47e7f-daba-45ba-912c-f927d749649b")
-	)
-	(no_connect
-		(at 86.36 87.63)
-		(uuid "7ffdb902-4e93-4861-90de-59fa153026fb")
 	)
 	(no_connect
 		(at 157.48 71.12)
 		(uuid "9261fab7-b8ce-482f-980c-afaf43f156c0")
-	)
-	(no_connect
-		(at 88.9 39.37)
-		(uuid "cf7ff0dd-e0a4-441e-bfa2-d323aeb5bc18")
-	)
-	(no_connect
-		(at 88.9 36.83)
-		(uuid "cfb251c4-3bc8-4223-a964-5d959110a1dd")
-	)
-	(no_connect
-		(at 86.36 63.5)
-		(uuid "d013a680-b151-4865-b581-1cb137fecabc")
-	)
-	(no_connect
-		(at 86.36 92.71)
-		(uuid "d3598449-ceca-4d83-9b64-9193ed3b7ed4")
 	)
 	(bus_entry
 		(at 130.81 45.72)
@@ -2348,7 +1782,7 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 46.99) (xy 66.04 46.99)
+			(xy 68.58 46.99) (xy 66.04 46.99)
 		)
 		(stroke
 			(width 0)
@@ -2358,13 +1792,13 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 90.17) (xy 90.17 90.17)
+			(xy 58.42 118.11) (xy 68.58 118.11)
 		)
 		(stroke
 			(width 0)
-			(type default)
+			(type solid)
 		)
-		(uuid "092e81c1-a21f-40d7-96ed-2957805ee7d8")
+		(uuid "10c0a405-160f-4b9e-bb1f-4e874559ff5f")
 	)
 	(wire
 		(pts
@@ -2418,16 +1852,6 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 66.04) (xy 90.17 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1b1c5fce-0a69-4064-bfec-07c5004fc070")
-	)
-	(wire
-		(pts
 			(xy 130.81 48.26) (xy 157.48 48.26)
 		)
 		(stroke
@@ -2435,26 +1859,6 @@
 			(type solid)
 		)
 		(uuid "1c7e565d-23aa-4b68-b9c6-668cce5b1cab")
-	)
-	(wire
-		(pts
-			(xy 24.13 118.11) (xy 27.94 118.11)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "2a59c8fe-27d6-46f2-92e2-c0069e7c672b")
-	)
-	(wire
-		(pts
-			(xy 27.94 123.19) (xy 30.48 123.19)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "2c38bad2-d3be-42a1-b0a6-f68d817b5153")
 	)
 	(bus
 		(pts
@@ -2465,16 +1869,6 @@
 			(type default)
 		)
 		(uuid "2f9fef58-3bc4-4787-bcbd-8af7f5f80140")
-	)
-	(wire
-		(pts
-			(xy 67.31 123.19) (xy 67.31 121.92)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "312a3f15-5fd4-4186-8c8b-19bd7dd12a31")
 	)
 	(bus
 		(pts
@@ -2578,7 +1972,7 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 121.92) (xy 80.01 121.92)
+			(xy 68.58 118.11) (xy 77.47 118.11)
 		)
 		(stroke
 			(width 0)
@@ -2588,7 +1982,7 @@
 	)
 	(wire
 		(pts
-			(xy 39.37 44.45) (xy 71.12 44.45)
+			(xy 39.37 44.45) (xy 68.58 44.45)
 		)
 		(stroke
 			(width 0)
@@ -2608,17 +2002,17 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 123.19) (xy 67.31 123.19)
+			(xy 58.42 120.65) (xy 62.23 120.65)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5d26ee75-bfdd-4bbf-9d67-518de5b7d57f")
+		(uuid "5feb7267-bf9f-4277-90f9-d99bf895a863")
 	)
 	(wire
 		(pts
-			(xy 39.37 41.91) (xy 71.12 41.91)
+			(xy 39.37 41.91) (xy 68.58 41.91)
 		)
 		(stroke
 			(width 0)
@@ -2638,13 +2032,13 @@
 	)
 	(wire
 		(pts
-			(xy 27.94 118.11) (xy 27.94 123.19)
+			(xy 31.75 123.19) (xy 31.75 118.11)
 		)
 		(stroke
 			(width 0)
-			(type solid)
+			(type default)
 		)
-		(uuid "67de303c-3242-4e46-9294-5cfe48a7ecef")
+		(uuid "696f3e1a-5ea7-4029-a474-8367dcd6a2a3")
 	)
 	(bus
 		(pts
@@ -2696,16 +2090,6 @@
 		)
 		(uuid "9276e328-c2f5-4e35-8eec-91fc1bf38172")
 	)
-	(wire
-		(pts
-			(xy 63.5 113.03) (xy 63.5 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9712460d-239f-4fa9-97ca-02a73a55846a")
-	)
 	(bus
 		(pts
 			(xy 36.83 66.04) (xy 36.83 63.5)
@@ -2718,13 +2102,13 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 121.92) (xy 71.12 121.92)
+			(xy 62.23 120.65) (xy 62.23 123.19)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9973bf77-850a-4824-ba7f-fcfdbb422a5e")
+		(uuid "99cc8cdd-70d8-4b34-ba69-1cf645aef541")
 	)
 	(bus
 		(pts
@@ -2735,16 +2119,6 @@
 			(type default)
 		)
 		(uuid "9eb6c75b-9296-4062-b8e0-f6230d57e5a4")
-	)
-	(wire
-		(pts
-			(xy 90.17 90.17) (xy 90.17 91.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a8a2644e-311a-4dee-a0d9-2151d2e2f419")
 	)
 	(wire
 		(pts
@@ -2828,13 +2202,13 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 113.03) (xy 63.5 113.03)
+			(xy 33.02 123.19) (xy 31.75 123.19)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "cef73d21-2e04-4947-a90c-2414410e5cfe")
+		(uuid "cbe8a191-cdb8-4191-8861-8aa9b98da08a")
 	)
 	(wire
 		(pts
@@ -2878,16 +2252,6 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 41.91) (xy 91.44 43.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d52c1dd5-8d5e-487e-807e-daf2e9612ca3")
-	)
-	(wire
-		(pts
 			(xy 130.81 58.42) (xy 157.48 58.42)
 		)
 		(stroke
@@ -2908,33 +2272,23 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 41.91) (xy 91.44 41.91)
+			(xy 31.75 118.11) (xy 33.02 118.11)
 		)
 		(stroke
 			(width 0)
-			(type default)
+			(type solid)
 		)
-		(uuid "d778a6c4-8b45-42fb-8ce8-7708e3964b84")
+		(uuid "d67335ee-f0a6-4622-8225-ae2bebe3d821")
 	)
 	(wire
 		(pts
-			(xy 39.37 39.37) (xy 71.12 39.37)
+			(xy 39.37 39.37) (xy 68.58 39.37)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
 		(uuid "dbe05b94-dd43-4f12-b2a5-9a1050bcdf91")
-	)
-	(wire
-		(pts
-			(xy 86.36 66.04) (xy 90.17 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ddcc8005-ff1b-42d1-85c9-456ca18a6546")
 	)
 	(wire
 		(pts
@@ -2958,16 +2312,6 @@
 	)
 	(wire
 		(pts
-			(xy 27.94 118.11) (xy 30.48 118.11)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "e138bb90-3cfa-4f94-bb04-0d3133f2b467")
-	)
-	(wire
-		(pts
 			(xy 39.37 60.96) (xy 68.58 60.96)
 		)
 		(stroke
@@ -2985,6 +2329,16 @@
 			(type solid)
 		)
 		(uuid "ec71936b-9edf-4d9b-a889-6b17161aab8a")
+	)
+	(wire
+		(pts
+			(xy 24.13 118.11) (xy 31.75 118.11)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "f1371245-94b8-47fc-8c61-7cfddd3a07a2")
 	)
 	(bus
 		(pts
@@ -3038,7 +2392,7 @@
 	)
 	(wire
 		(pts
-			(xy 39.37 36.83) (xy 71.12 36.83)
+			(xy 39.37 36.83) (xy 68.58 36.83)
 		)
 		(stroke
 			(width 0)
@@ -3525,9 +2879,9 @@
 		)
 	)
 	(symbol
-		(lib_name "PUSB3F96X_2")
+		(lib_name "PUSB3F96X_1")
 		(lib_id "EasyEDA:PUSB3F96X")
-		(at 77.47 66.04 0)
+		(at 77.47 67.31 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3536,7 +2890,7 @@
 		(fields_autoplaced yes)
 		(uuid "2984f6b8-4208-477d-9254-a5500a743d11")
 		(property "Reference" "D401"
-			(at 77.47 52.324 0)
+			(at 77.47 53.594 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3544,15 +2898,15 @@
 			)
 		)
 		(property "Value" "PUSB3F96X"
-			(at 77.47 54.864 0)
+			(at 77.47 56.134 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "CM5_MINIMA_local:DFN2510A-10_L2.5-W1.0-P0.50-BL"
-			(at 77.47 78.74 0)
+		(property "Footprint" "EasyEDA:DFN2510A-10_L2.5-W1.0-P0.50-BL"
+			(at 77.47 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3561,7 +2915,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/Diodes-ESD_Nexperia-PUSB3F96_C478121.html"
-			(at 77.47 81.28 0)
+			(at 77.47 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3570,7 +2924,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 77.47 64.77 0)
+			(at 77.47 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3579,7 +2933,7 @@
 			)
 		)
 		(property "LCSC Part" "C478121"
-			(at 77.47 83.82 0)
+			(at 77.47 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3694,7 +3048,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 80.01 121.92 0)
+		(at 77.47 118.11 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3703,7 +3057,7 @@
 		(fields_autoplaced yes)
 		(uuid "643ad465-bece-43c5-a6d4-ef56465c2b53")
 		(property "Reference" "#PWR0409"
-			(at 80.01 125.73 0)
+			(at 77.47 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3712,7 +3066,7 @@
 			)
 		)
 		(property "Value" "HDMI_+5V"
-			(at 80.01 116.84 0)
+			(at 77.47 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3720,7 +3074,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 80.01 121.92 0)
+			(at 77.47 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3729,7 +3083,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 80.01 121.92 0)
+			(at 77.47 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3738,7 +3092,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 80.01 121.92 0)
+			(at 77.47 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3760,7 +3114,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 71.12 129.54 0)
+		(at 68.58 125.73 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3768,7 +3122,7 @@
 		(dnp no)
 		(uuid "6903a81d-fca8-4071-a1c5-052c7316ddec")
 		(property "Reference" "#PWR0504"
-			(at 71.12 135.89 0)
+			(at 68.58 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3777,7 +3131,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 71.247 133.9342 0)
+			(at 68.707 130.1242 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3785,7 +3139,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 71.12 129.54 0)
+			(at 68.58 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3794,7 +3148,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 71.12 129.54 0)
+			(at 68.58 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3803,7 +3157,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 71.12 129.54 0)
+			(at 68.58 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4014,71 +3368,6 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 91.44 43.18 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "b2160145-8460-4236-8fe5-7267bd7ea594")
-		(property "Reference" "#PWR08"
-			(at 91.44 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 91.567 47.5742 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 91.44 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 91.44 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 91.44 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "104568a2-ff95-47a2-9652-1da80ecfb102")
-		)
-		(instances
-			(project "CM5_MINIMA_3"
-				(path "/b33e81d6-18a9-4b9d-a239-76a7c253462f/29e14cfc-43e7-41fe-875d-98b3ba239812"
-					(reference "#PWR08")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
 		(at 24.13 125.73 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4143,72 +3432,7 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 90.17 67.31 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "b7154caa-29e9-4ab3-8192-7ad605331742")
-		(property "Reference" "#PWR09"
-			(at 90.17 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 90.297 71.7042 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 90.17 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 90.17 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 90.17 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e84966b0-d643-4191-bdb7-2cf9afb70961")
-		)
-		(instances
-			(project "CM5_MINIMA_3"
-				(path "/b33e81d6-18a9-4b9d-a239-76a7c253462f/29e14cfc-43e7-41fe-875d-98b3ba239812"
-					(reference "#PWR09")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:HDMI_A_1.4")
+		(lib_id "CM5IO:HDMI_A_1.4")
 		(at 167.64 55.88 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4234,7 +3458,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CM5_MINIMA_local:EDAC 690-019-298-412"
+		(property "Footprint" "CM5IO:EDAC 690-019-298-412"
 			(at 168.275 55.88 0)
 			(effects
 				(font
@@ -4243,7 +3467,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://en.wikipedia.org/wiki/HDMI"
+		(property "Datasheet" "https://www.tme.eu/Document/f15dffbcfad8545e17826f72d36911c8/206A-SEAN-R03.pdf"
 			(at 168.275 55.88 0)
 			(effects
 				(font
@@ -4252,7 +3476,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "HDMI 1.4+ type A connector"
+		(property "Description" ""
 			(at 167.64 55.88 0)
 			(effects
 				(font
@@ -4288,7 +3512,13 @@
 				(hide yes)
 			)
 		)
-		(pin "SH"
+		(pin "SH2"
+			(uuid "2e6ebb66-61b7-404c-be26-ec7647d61427")
+		)
+		(pin "SH3"
+			(uuid "b8dcf090-c3fc-43e4-8eee-9173eed813ee")
+		)
+		(pin "SH4"
 			(uuid "cff589b2-2171-45d8-a256-97431637ca18")
 		)
 		(pin "1"
@@ -4348,6 +3578,9 @@
 		(pin "9"
 			(uuid "0319cdbd-dca9-4d09-ad22-072f35376601")
 		)
+		(pin "SH1"
+			(uuid "4a103325-d468-4581-bd7b-1a88e67c662b")
+		)
 		(instances
 			(project "CM5_CB"
 				(path "/b33e81d6-18a9-4b9d-a239-76a7c253462f/29e14cfc-43e7-41fe-875d-98b3ba239812"
@@ -4358,8 +3591,9 @@
 		)
 	)
 	(symbol
+		(lib_name "PUSB3F96X_1")
 		(lib_id "EasyEDA:PUSB3F96X")
-		(at 80.01 41.91 0)
+		(at 77.47 43.18 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4368,7 +3602,7 @@
 		(fields_autoplaced yes)
 		(uuid "c31acd18-5f65-4ae3-8825-7c5e48b5e958")
 		(property "Reference" "D402"
-			(at 80.01 28.194 0)
+			(at 77.47 29.464 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4376,15 +3610,15 @@
 			)
 		)
 		(property "Value" "PUSB3F96X"
-			(at 80.01 30.734 0)
+			(at 77.47 32.004 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "CM5_MINIMA_local:DFN2510A-10_L2.5-W1.0-P0.50-BL"
-			(at 80.01 54.61 0)
+		(property "Footprint" "EasyEDA:DFN2510A-10_L2.5-W1.0-P0.50-BL"
+			(at 77.47 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4393,7 +3627,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/Diodes-ESD_Nexperia-PUSB3F96_C478121.html"
-			(at 80.01 57.15 0)
+			(at 77.47 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4402,7 +3636,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 80.01 40.64 0)
+			(at 77.47 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4411,7 +3645,7 @@
 			)
 		)
 		(property "LCSC Part" "C478121"
-			(at 80.01 59.69 0)
+			(at 77.47 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4459,9 +3693,9 @@
 		)
 	)
 	(symbol
-		(lib_id "STMPS2151STR:STMPS2151STR")
-		(at 45.72 118.11 0)
-		(mirror x)
+		(lib_id "EasyEDA:STMPS2151STR")
+		(at 45.72 120.65 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4469,7 +3703,7 @@
 		(dnp no)
 		(uuid "ceeb7acb-01b2-4db5-bfad-52d99be4bf6f")
 		(property "Reference" "U405"
-			(at 44.704 108.966 0)
+			(at 45.72 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4477,25 +3711,24 @@
 			)
 		)
 		(property "Value" "STMPS2151STR"
-			(at 44.704 106.68 0)
+			(at 45.72 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "seeed esp32:SOT95P280X145-5N"
-			(at 45.72 118.11 0)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+			(at 45.72 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify bottom)
 				(hide yes)
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/PMIC-Power-Distribution-Switches_STMicroelectronics_STMPS2151STR_STMPS2151STR_C135998.html"
-			(at 45.72 118.11 0)
+			(at 45.72 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4504,7 +3737,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 45.72 118.11 0)
+			(at 45.72 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4513,121 +3746,11 @@
 			)
 		)
 		(property "LCSC Part" "C135998"
-			(at 45.72 102.87 0)
+			(at 45.72 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
-			)
-		)
-		(property "DigiKey_Part_Number" "497-6934-1-ND"
-			(at 45.72 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" "https://www.snapeda.com/parts/STMPS2151STR/STMicroelectronics/view-part/?ref=snap"
-			(at 45.72 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" "1.45mm"
-			(at 45.72 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Package" "SOT-23-5 STMicroelectronics"
-			(at 45.72 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" "https://www.snapeda.com/parts/STMPS2151STR/STMicroelectronics/view-part/?ref=eda"
-			(at 45.72 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" "IPC-7351B"
-			(at 45.72 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" "7"
-			(at 45.72 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "MF" "STMicroelectronics"
-			(at 45.72 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "MP" "STMPS2151STR"
-			(at 45.72 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Description_1" "Power Switch/Driver 1:1 N-Channel 500mA SOT-23-5"
-			(at 45.72 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" "STMicroelectronics"
-			(at 45.72 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
 				(hide yes)
 			)
 		)
@@ -4657,7 +3780,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 63.5 115.57 0)
+		(at 62.23 123.19 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4665,7 +3788,7 @@
 		(dnp no)
 		(uuid "daa5ec6c-2d9a-4a21-a107-3ece250fb1ac")
 		(property "Reference" "#PWR0503"
-			(at 63.5 121.92 0)
+			(at 62.23 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4674,7 +3797,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 63.627 119.9642 0)
+			(at 62.357 127.5842 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4682,7 +3805,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 63.5 115.57 0)
+			(at 62.23 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4691,7 +3814,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 63.5 115.57 0)
+			(at 62.23 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4700,7 +3823,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 63.5 115.57 0)
+			(at 62.23 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4788,7 +3911,7 @@
 	(symbol
 		(lib_name "PUSB3F96X_1")
 		(lib_id "EasyEDA:PUSB3F96X")
-		(at 77.47 90.17 0)
+		(at 77.47 91.44 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4797,7 +3920,7 @@
 		(fields_autoplaced yes)
 		(uuid "e1369d70-1171-4896-8c7a-94fabb80918d")
 		(property "Reference" "D403"
-			(at 77.47 76.454 0)
+			(at 77.47 77.724 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4805,15 +3928,15 @@
 			)
 		)
 		(property "Value" "PUSB3F96X"
-			(at 77.47 78.994 0)
+			(at 77.47 80.264 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "CM5_MINIMA_local:DFN2510A-10_L2.5-W1.0-P0.50-BL"
-			(at 77.47 102.87 0)
+		(property "Footprint" "EasyEDA:DFN2510A-10_L2.5-W1.0-P0.50-BL"
+			(at 77.47 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4822,7 +3945,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/Diodes-ESD_Nexperia-PUSB3F96_C478121.html"
-			(at 77.47 105.41 0)
+			(at 77.47 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4831,7 +3954,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 77.47 88.9 0)
+			(at 77.47 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4840,7 +3963,7 @@
 			)
 		)
 		(property "LCSC Part" "C478121"
-			(at 77.47 107.95 0)
+			(at 77.47 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4889,7 +4012,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 71.12 125.73 0)
+		(at 68.58 121.92 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4897,7 +4020,7 @@
 		(dnp no)
 		(uuid "f26f1622-b990-4732-9618-71e4c9d8eabf")
 		(property "Reference" "C502"
-			(at 74.041 124.5616 0)
+			(at 71.501 120.7516 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4906,7 +4029,7 @@
 			)
 		)
 		(property "Value" "100n"
-			(at 74.041 126.873 0)
+			(at 71.501 123.063 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4915,7 +4038,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 72.0852 129.54 0)
+			(at 69.5452 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4924,7 +4047,7 @@
 			)
 		)
 		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM155R71C104KA88-01.pdf"
-			(at 71.12 125.73 0)
+			(at 68.58 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4933,7 +4056,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 71.12 125.73 0)
+			(at 68.58 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4942,7 +4065,7 @@
 			)
 		)
 		(property "Field4" "Farnell"
-			(at 71.12 125.73 0)
+			(at 68.58 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4951,7 +4074,7 @@
 			)
 		)
 		(property "Field5" "2611911"
-			(at 71.12 125.73 0)
+			(at 68.58 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4960,7 +4083,7 @@
 			)
 		)
 		(property "Field6" "RM EMK105 B7104KV-F"
-			(at 71.12 125.73 0)
+			(at 68.58 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4969,7 +4092,7 @@
 			)
 		)
 		(property "Field7" "TAIYO YUDEN EUROPE GMBH"
-			(at 71.12 125.73 0)
+			(at 68.58 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4978,7 +4101,7 @@
 			)
 		)
 		(property "Part Description" "	0.1uF 10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)"
-			(at 71.12 125.73 0)
+			(at 68.58 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4987,7 +4110,7 @@
 			)
 		)
 		(property "Field8" "110091611"
-			(at 71.12 125.73 0)
+			(at 68.58 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5005,71 +4128,6 @@
 			(project "CM5_CB"
 				(path "/b33e81d6-18a9-4b9d-a239-76a7c253462f/29e14cfc-43e7-41fe-875d-98b3ba239812"
 					(reference "C502")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 90.17 91.44 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f741b1a4-7ae6-4562-bbae-e6bb4af8c7a7")
-		(property "Reference" "#PWR010"
-			(at 90.17 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 90.297 95.8342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 90.17 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 90.17 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 90.17 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7e00d9f7-30f0-4ae6-9cc9-97df1970d4d3")
-		)
-		(instances
-			(project "CM5_MINIMA_3"
-				(path "/b33e81d6-18a9-4b9d-a239-76a7c253462f/29e14cfc-43e7-41fe-875d-98b3ba239812"
-					(reference "#PWR010")
 					(unit 1)
 				)
 			)

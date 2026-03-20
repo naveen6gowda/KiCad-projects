@@ -2094,7 +2094,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CM5_MINIMA_local:Hirose_FH12-22S-0.5SH_1x22-1MP_P0.50mm_Horizontal"
+		(property "Footprint" "CM5IO:Hirose_FH12-22S-0.5SH_1x22-1MP_P0.50mm_Horizontal"
 			(at 111.76 59.69 0)
 			(effects
 				(font
