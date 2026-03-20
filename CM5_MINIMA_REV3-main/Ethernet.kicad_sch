@@ -11,7 +11,7 @@
 		(company "Pierluigi Colangeli")
 	)
 	(lib_symbols
-		(symbol "CM4IO:TPD4EUSB30"
+		(symbol "CM5IO:TPD4EUSB30"
 			(pin_names
 				(offset 0)
 			)
@@ -1695,6 +1695,12 @@
 		(uuid "9cb7172e-f857-4df9-b617-b4cc1dd8f091")
 	)
 	(junction
+		(at 146.05 76.2)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "14c7da73-7d29-4212-9d38-1d5eb6853f82")
+	)
+	(junction
 		(at 77.47 53.34)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1723,12 +1729,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6289c8c0-935e-40dc-a5f3-fd69d87f283c")
-	)
-	(junction
-		(at 146.05 76.2)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "84504bf7-1efa-4124-998e-c04aad50d443")
 	)
 	(junction
 		(at 118.11 60.96)
@@ -1855,6 +1855,26 @@
 			(type solid)
 		)
 		(uuid "06d9532b-ed7b-44d7-85e5-d5a0202b7969")
+	)
+	(wire
+		(pts
+			(xy 146.05 73.66) (xy 146.05 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "123413a7-24ef-4d11-8844-ba83dc1eb290")
+	)
+	(wire
+		(pts
+			(xy 146.05 76.2) (xy 146.05 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2078ff28-3446-4976-a17d-2e17c5ef85a8")
 	)
 	(wire
 		(pts
@@ -2008,16 +2028,6 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 78.74) (xy 146.05 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5c1b94c6-43b4-4b14-8a48-98c8f9c45bc9")
-	)
-	(wire
-		(pts
 			(xy 185.42 67.31) (xy 185.42 52.07)
 		)
 		(stroke
@@ -2075,16 +2085,6 @@
 			(type default)
 		)
 		(uuid "685601ae-b295-4605-87fe-e72347340a03")
-	)
-	(wire
-		(pts
-			(xy 146.05 73.66) (xy 146.05 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6bfa2d66-cb92-4cdf-bb23-e0445f1d41c5")
 	)
 	(wire
 		(pts
@@ -3142,7 +3142,7 @@
 		)
 	)
 	(symbol
-		(lib_id "CM4IO:TPD4EUSB30")
+		(lib_id "CM5IO:TPD4EUSB30")
 		(at 100.33 81.28 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3175,7 +3175,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tpd2eusb30a.pdf"
 			(at 100.33 81.28 0)
 			(effects
 				(font
@@ -3184,7 +3184,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "4-Channel ESD Protection for Super-Speed USB 3.0 Interface, USON-10"
 			(at 100.33 81.28 0)
 			(effects
 				(font
@@ -3416,7 +3416,7 @@
 		)
 	)
 	(symbol
-		(lib_id "CM4IO:TPD4EUSB30")
+		(lib_id "CM5IO:TPD4EUSB30")
 		(at 59.69 81.28 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3449,7 +3449,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tpd2eusb30a.pdf"
 			(at 59.69 81.28 0)
 			(effects
 				(font
@@ -3458,7 +3458,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "4-Channel ESD Protection for Super-Speed USB 3.0 Interface, USON-10"
 			(at 59.69 81.28 0)
 			(effects
 				(font

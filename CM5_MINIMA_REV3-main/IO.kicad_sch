@@ -11,26 +11,24 @@
 		(company "Pierluigi Colangeli")
 	)
 	(lib_symbols
-		(symbol "74LVC1G07_copy_1"
+		(symbol "CM5IO:74LVC1G07_copy"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U1"
-				(at 1.524 2.54 0)
+			(property "Reference" "U"
+				(at -2.54 3.81 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
-			(property "Value" "74LVC1G07SE-7"
-				(at 1.524 -2.54 0)
+			(property "Value" "74LVC1G07_copy"
+				(at 0 -3.81 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
 			(property "Footprint" "Package_TO_SOT_SMD:SOT-353_SC-70-5"
@@ -42,7 +40,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Datasheet" "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf"
 				(at 0 0 0)
 				(effects
 					(font
@@ -52,24 +50,6 @@
 				)
 			)
 			(property "Description" "Single Buffer Gate w/ Open Drain, Low-Voltage CMOS"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Part Description" "Buffer, Non-Inverting 1 Element 1 Bit per Element Open Drain Output SOT-353"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "P/N" "74LVC1G07SE-7"
 				(at 0 0 0)
 				(effects
 					(font
@@ -96,7 +76,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "74LVC1G07_copy_1_0_1"
+			(symbol "74LVC1G07_copy_0_1"
 				(polyline
 					(pts
 						(xy -3.81 2.54) (xy -3.81 -2.54) (xy 2.54 0) (xy -3.81 2.54)
@@ -134,7 +114,7 @@
 					)
 				)
 			)
-			(symbol "74LVC1G07_copy_1_1_1"
+			(symbol "74LVC1G07_copy_1_1"
 				(pin input line
 					(at -7.62 0 0)
 					(length 3.81)
@@ -154,10 +134,9 @@
 					)
 				)
 				(pin no_connect line
-					(at -5.08 5.08 0)
+					(at -6.35 -2.54 0)
 					(length 2.54)
-					(hide yes)
-					(name "1"
+					(name "nc"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1865,6 +1844,189 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "LED_1"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "LED"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Light emitting diode"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Pins" "1=K 2=A"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "LED diode"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "LED_1_0_1"
+				(polyline
+					(pts
+						(xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -1.27) (xy -1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "LED_1_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Power_Protection:RCLAMP0502BA"
 			(pin_names
 				(hide yes)
@@ -3033,22 +3195,10 @@
 		(uuid "331d4c12-a8aa-49d3-847b-e9fda091f908")
 	)
 	(junction
-		(at 31.75 125.73)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4f2e53e8-8f2b-4c6c-b675-5af75c4aa798")
-	)
-	(junction
 		(at 156.21 63.5)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "91b22091-2178-4c87-bdf5-4be425a524c3")
-	)
-	(junction
-		(at 26.67 125.73)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9743ace9-0952-4f8f-b170-6e39859646c1")
 	)
 	(junction
 		(at 64.77 115.57)
@@ -3063,16 +3213,22 @@
 		(uuid "d7bd3bbb-2b5c-4799-bcf5-1c5807f78cc2")
 	)
 	(junction
-		(at 29.21 125.73)
+		(at 31.75 125.73)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "df50d79a-2418-4bf6-b3c6-af278d0c5ee3")
+		(uuid "ef159d77-813d-44a8-8ed7-8398a9d23cfd")
 	)
 	(junction
 		(at 63.5 85.09)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f41a01d1-14c7-4db7-8637-45b143277212")
+	)
+	(junction
+		(at 29.21 125.73)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f432b75e-ed91-42ae-8c9e-74d9b300530b")
 	)
 	(no_connect
 		(at 110.49 67.31)
@@ -3131,16 +3287,6 @@
 			(type default)
 		)
 		(uuid "0baff09e-de87-4d45-b015-82d76b9f4b94")
-	)
-	(wire
-		(pts
-			(xy 31.75 125.73) (xy 34.29 125.73)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "135659aa-b314-42b5-8913-740afd4544d2")
 	)
 	(wire
 		(pts
@@ -3374,6 +3520,16 @@
 	)
 	(wire
 		(pts
+			(xy 29.21 125.73) (xy 31.75 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "69209f4f-bf57-4748-ac38-cb12ae4fb1a9")
+	)
+	(wire
+		(pts
 			(xy 52.07 100.33) (xy 44.45 100.33)
 		)
 		(stroke
@@ -3391,16 +3547,6 @@
 			(type default)
 		)
 		(uuid "6bc71575-57fc-4f0c-9f38-7815350e5e3e")
-	)
-	(wire
-		(pts
-			(xy 29.21 125.73) (xy 31.75 125.73)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6eaa6369-d49e-40e8-93ec-64493bc34572")
 	)
 	(wire
 		(pts
@@ -3621,6 +3767,16 @@
 			(type default)
 		)
 		(uuid "a07e6760-04d9-40ea-a191-351387561d7d")
+	)
+	(wire
+		(pts
+			(xy 31.75 125.73) (xy 34.29 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a07f5bd2-d52d-4f52-ae89-72ba1fbfd9e8")
 	)
 	(wire
 		(pts
@@ -6552,8 +6708,7 @@
 		)
 	)
 	(symbol
-		(lib_name "74LVC1G07_copy_1")
-		(lib_id "CM4IO:74LVC1G07_copy")
+		(lib_id "CM5IO:74LVC1G07_copy")
 		(at 76.2 35.56 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6588,7 +6743,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2405141143_UMW-Youtai-Semiconductor-Co---Ltd--SN74LVC1G14DBVR_C434069.pdf"
+		(property "Datasheet" "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf"
 			(at 76.2 35.56 0)
 			(effects
 				(font
@@ -6597,7 +6752,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Single Buffer Gate w/ Open Drain, Low-Voltage CMOS"
 			(at 76.2 35.56 0)
 			(effects
 				(font
@@ -7022,6 +7177,7 @@
 		)
 	)
 	(symbol
+		(lib_name "LED_1")
 		(lib_id "Device:LED")
 		(at 88.9 22.86 90)
 		(unit 1)
@@ -7032,7 +7188,7 @@
 		(fields_autoplaced yes)
 		(uuid "f3fe57ba-8a7b-4e86-a173-6c2bbed68eb4")
 		(property "Reference" "D605"
-			(at 92.71 23.1775 90)
+			(at 92.71 23.1774 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7041,7 +7197,7 @@
 			)
 		)
 		(property "Value" "GREEN"
-			(at 92.71 25.7175 90)
+			(at 92.71 25.7174 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7058,7 +7214,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 88.9 22.86 0)
 			(effects
 				(font
@@ -7067,7 +7223,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Light emitting diode"
 			(at 88.9 22.86 0)
 			(effects
 				(font
@@ -7104,6 +7260,15 @@
 			)
 		)
 		(property "dni" ""
+			(at 88.9 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
 			(at 88.9 22.86 0)
 			(effects
 				(font

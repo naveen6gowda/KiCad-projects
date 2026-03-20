@@ -1,0 +1,182 @@
+ERC report (2026-03-20T11:21:36+0100, Encoding UTF8)
+
+***** Sheet /
+[lib_symbol_mismatch]: Symbol 'USB_C_Receptacle_USB2.0_16P' doesn't match copy in library 'Connector'
+    ; warning
+    @(1400 mils, 2950 mils): Symbol J101 [USB_C_Receptacle_USB2.0_16P]
+[pin_to_pin]: Pins of type Unspecified and Unspecified are connected
+    ; warning
+    @(3650 mils, 6200 mils): Symbol SW101 Pin 4 [4, Unspecified, Line]
+    @(3650 mils, 6600 mils): Symbol SW101 Pin 5 [5, Unspecified, Line]
+[lib_symbol_mismatch]: Symbol 'MK-11C04-G013' doesn't match copy in library 'EasyEDA'
+    ; warning
+    @(3450 mils, 6400 mils): Symbol SW101 [MK-11C04-G013]
+[pin_to_pin]: Pins of type Unspecified and Passive are connected
+    ; warning
+    @(3650 mils, 6400 mils): Symbol SW101 Pin C [C, Unspecified, Line]
+    @(6900 mils, 7600 mils): Symbol R3 Pin 2 [Passive, Line]
+[pin_to_pin]: Pins of type Unspecified and Unspecified are connected
+    ; warning
+    @(3650 mils, 6500 mils): Symbol SW101 Pin 1 [1, Unspecified, Line]
+    @(3650 mils, 6600 mils): Symbol SW101 Pin 5 [5, Unspecified, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(3650 mils, 6600 mils): Symbol SW101 Pin 5 [5, Unspecified, Line]
+    @(3700 mils, 6750 mils): Symbol #PWR0106 Pin 1 [Power input, Line]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'CM4IO'
+    ; warning
+    @(2350 mils, 3200 mils): Symbol U401 [TPD4EUSB30]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'CM4IO'
+    ; warning
+    @(3950 mils, 3200 mils): Symbol U402 [TPD4EUSB30]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Samacsys'.
+    ; warning
+    @(5750 mils, 1700 mils): Symbol J1 [GLPLX-SMT-188S7-QQ-Y_G]
+[lib_symbol_mismatch]: Symbol 'GLPLX-SMT-188S7-QQ-Y_G' doesn't match copy in library 'Samacsys'
+    ; warning
+    @(5750 mils, 1700 mils): Symbol J1 [GLPLX-SMT-188S7-QQ-Y_G]
+[lib_symbol_mismatch]: Symbol 'TYPEC-305-ACP16H458' doesn't match copy in library 'EasyEDA'
+    ; warning
+    @(2000 mils, 3450 mils): Symbol USB701 [TYPEC-305-ACP16H458]
+[footprint_link_issues]: Footprint 'Raspberry-Pi-5-Compute-Module_GPIO' not found in library 'CM5IO'.
+    ; warning
+    @(4700 mils, 5300 mils): Symbol Module301 [ComputeModule5-CM5_GPIO]
+[lib_symbol_issues]: Symbol 'ComputeModule5-CM5_GPIO' not found in symbol library 'New_Library'
+    ; warning
+    @(4700 mils, 5300 mils): Symbol Module301 [ComputeModule5-CM5_GPIO]
+[footprint_link_issues]: Footprint 'CONN-SMD_2P-P1.00_SM02B-SRSS-TB-LF-SN' not found in library 'EasyEDA'.
+    ; warning
+    @(4700 mils, 9400 mils): Symbol CN1 [SM02B-SRSS-TB(LF)(SN)]
+[lib_symbol_issues]: Symbol 'SM02B-SRSS-TB(LF)(SN)' not found in symbol library 'EasyEDA'
+    ; warning
+    @(4700 mils, 9400 mils): Symbol CN1 [SM02B-SRSS-TB(LF)(SN)]
+[footprint_link_issues]: Footprint 'Raspberry-Pi-5-Compute-Module_HSS' not found in library 'CM5IO'.
+    ; warning
+    @(11750 mils, 5350 mils): Symbol Module302 [ComputeModule5-CM5_HSS]
+[lib_symbol_issues]: Symbol 'ComputeModule5-CM5_HSS' not found in symbol library 'New_Library'
+    ; warning
+    @(11750 mils, 5350 mils): Symbol Module302 [ComputeModule5-CM5_HSS]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Antmicro-footprints'.
+    ; warning
+    @(14050 mils, 9550 mils): Symbol M303 [Compute-Module-4_H1.5mm]
+[lib_symbol_mismatch]: Symbol 'Compute-Module-4_H1.5mm' doesn't match copy in library 'antmicroModules'
+    ; warning
+    @(14050 mils, 9550 mils): Symbol M303 [Compute-Module-4_H1.5mm]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'CM4IO'
+    ; warning
+    @(3000 mils, 1400 mils): Symbol U602 [74LVC1G07_copy]
+[footprint_link_issues]: Footprint 'LED-SMD_L1.7-W0.6-RD' not found in library 'EasyEDA'.
+    ; warning
+    @(3500 mils, 900 mils): Symbol D605 [LED]
+[lib_symbol_mismatch]: Symbol 'LED' doesn't match copy in library 'Device'
+    ; warning
+    @(3500 mils, 900 mils): Symbol D605 [LED]
+[lib_symbol_mismatch]: Symbol 'TS-1010A-B' doesn't match copy in library 'EasyEDA'
+    ; warning
+    @(1150 mils, 4550 mils): Symbol SW501 [TS-1010A-B]
+[lib_symbol_mismatch]: Symbol 'LIS3DH' doesn't match copy in library 'Sensor_Motion'
+    ; warning
+    @(2550 mils, 3950 mils): Symbol U1 [LIS3DH]
+[footprint_link_issues]: Footprint 'LED-SMD_L1.7-W0.6-RD' not found in library 'EasyEDA'.
+    ; warning
+    @(5450 mils, 900 mils): Symbol D606 [LED]
+[lib_symbol_mismatch]: Symbol 'LED' doesn't match copy in library 'Device'
+    ; warning
+    @(5450 mils, 900 mils): Symbol D606 [LED]
+[lib_symbol_mismatch]: Symbol 'R_Small' doesn't match copy in library 'Device'
+    ; warning
+    @(6000 mils, 2700 mils): Symbol R501 [R_Small]
+[lib_symbol_mismatch]: Symbol 'R_Small' doesn't match copy in library 'Device'
+    ; warning
+    @(6300 mils, 2700 mils): Symbol R502 [R_Small]
+[footprint_link_issues]: Footprint 'MGM240L_SIL' not found in library 'Zigbee MGM240LD22VIF2'.
+    ; warning
+    @(4450 mils, 3300 mils): Symbol U2 [MGM240LD22VIF2]
+[footprint_link_issues]: Footprint 'Hirose_FH12-22S-0.5SH_1x22-1MP_P0.50mm_Horizontal' not found in library 'CM5IO'.
+    ; warning
+    @(4400 mils, 2350 mils): Symbol J802 [Conn_01x22_Socket]
+[footprint_link_issues]: Footprint 'M.2 M Key socket_2230_2242' not found in library 'CM5IO'.
+    ; warning
+    @(6100 mils, 3150 mils): Symbol J701 [Bus_M.2_Socket_M]
+[lib_symbol_mismatch]: Symbol 'Bus_M.2_Socket_M' doesn't match copy in library 'CM5IO'
+    ; warning
+    @(6100 mils, 3150 mils): Symbol J701 [Bus_M.2_Socket_M]
+[lib_symbol_mismatch]: Symbol 'AP3441SHE-7B' doesn't match copy in library 'CM5IO'
+    ; warning
+    @(2650 mils, 6600 mils): Symbol U702 [AP3441SHE-7B]
+[footprint_link_issues]: Footprint 'LED-SMD_L1.7-W0.6-RD' not found in library 'EasyEDA'.
+    ; warning
+    @(7700 mils, 2700 mils): Symbol D702 [LED]
+[lib_symbol_mismatch]: Symbol 'LED' doesn't match copy in library 'Device'
+    ; warning
+    @(7700 mils, 2700 mils): Symbol D702 [LED]
+[lib_symbol_mismatch]: Symbol 'ASEK-32.768KHZ-L-R-T' doesn't match copy in library 'CM5IO'
+    ; warning
+    @(8250 mils, 5100 mils): Symbol U703 [ASEK-32.768KHZ-L-R-T]
+[footprint_link_issues]: The current configuration does not include the footprint library '_pico'.
+    ; warning
+    @(9900 mils, 3450 mils): Symbol M701 [SolderNut]
+[footprint_link_issues]: The current configuration does not include the footprint library '_pico'.
+    ; warning
+    @(9900 mils, 4100 mils): Symbol M702 [SolderNut]
+[lib_symbol_mismatch]: Symbol 'PUSB3F96X' doesn't match copy in library 'EasyEDA'
+    ; warning
+    @(3050 mils, 1700 mils): Symbol D402 [PUSB3F96X]
+[lib_symbol_mismatch]: Symbol 'PUSB3F96X' doesn't match copy in library 'EasyEDA'
+    ; warning
+    @(3050 mils, 2650 mils): Symbol D401 [PUSB3F96X]
+[lib_symbol_mismatch]: Symbol 'PUSB3F96X' doesn't match copy in library 'EasyEDA'
+    ; warning
+    @(3050 mils, 3600 mils): Symbol D403 [PUSB3F96X]
+[lib_symbol_mismatch]: Symbol 'STMPS2151STR' doesn't match copy in library 'EasyEDA'
+    ; warning
+    @(1800 mils, 4750 mils): Symbol U405 [STMPS2151STR]
+[footprint_link_issues]: Footprint 'EDAC 690-019-298-412' not found in library 'CM5IO'.
+    ; warning
+    @(6600 mils, 2200 mils): Symbol J501 [HDMI_A_1.4]
+
+***** Sheet /Zigbee_Thread/
+
+***** Sheet /CM5/
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(4850 mils, 9350 mils): Symbol CN1 Pin 1 [1, Unspecified, Line]
+    @(5150 mils, 9250 mils): Symbol #PWR02 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(4850 mils, 9450 mils): Symbol CN1 Pin 2 [2, Unspecified, Line]
+    @(5150 mils, 9500 mils): Symbol #PWR0311 Pin 1 [Power input, Line]
+
+***** Sheet /Ethernet/
+
+***** Sheet /HDMI/
+
+***** Sheet /IO/
+[pin_to_pin]: Pins of type Unspecified and Passive are connected
+    ; warning
+    @(1050 mils, 4150 mils): Symbol SW501 Pin 1 [1, Unspecified, Line]
+    @(3400 mils, 7600 mils): Symbol Module301 Pin 92 [PWR_BUT, Passive, Line]
+[pin_to_pin]: Pins of type Unspecified and Unspecified are connected
+    ; warning
+    @(1150 mils, 4150 mils): Symbol SW501 Pin 3 [3, Unspecified, Line]
+    @(1150 mils, 4950 mils): Symbol SW501 Pin 5 [5, Unspecified, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(1050 mils, 4950 mils): Symbol SW501 Pin 2 [2, Unspecified, Line]
+    @(1050 mils, 5050 mils): Symbol #PWR0606 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Power input are connected
+    ; warning
+    @(1150 mils, 4950 mils): Symbol SW501 Pin 5 [5, Unspecified, Line]
+    @(1050 mils, 5050 mils): Symbol #PWR0606 Pin 1 [Power input, Line]
+[pin_to_pin]: Pins of type Unspecified and Unspecified are connected
+    ; warning
+    @(1250 mils, 4950 mils): Symbol SW501 Pin 4 [4, Unspecified, Line]
+    @(1150 mils, 4950 mils): Symbol SW501 Pin 5 [5, Unspecified, Line]
+
+***** Sheet /USB/
+
+***** Sheet /PCIe-M2/
+
+***** Sheet /DSI_CSI/
+
+ ** ERC messages: 50  Errors 0  Warnings 50

@@ -125,23 +125,23 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "J101"
-				(at 0 22.86 0)
+			(property "Reference" "J"
+				(at 0 22.225 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "USB_C_Receptacle_USB2.0"
-				(at 0 20.32 0)
+			(property "Value" "USB_C_Receptacle_USB2.0_16P"
+				(at 0 19.685 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Footprint" "EasyEDA:USB-C-SMD_TYPEC-305-ACP16H458"
+			(property "Footprint" ""
 				(at 3.81 0 0)
 				(effects
 					(font
@@ -159,43 +159,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Field5" "USBF31-0171"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Field6" "USBF31-0171"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Field7" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Part Description" "USBC USB2 data and power connector"
+			(property "Description" "USB 2.0-only 16P Type-C Receptacle connector"
 				(at 0 0 0)
 				(effects
 					(font
@@ -536,7 +500,7 @@
 				)
 			)
 			(symbol "USB_C_Receptacle_USB2.0_16P_1_1"
-				(pin free line
+				(pin passive line
 					(at -7.62 -22.86 90)
 					(length 5.08)
 					(name "SHIELD"
@@ -546,7 +510,7 @@
 							)
 						)
 					)
-					(number "1"
+					(number "S1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -554,7 +518,7 @@
 						)
 					)
 				)
-				(pin power_in line
+				(pin passive line
 					(at 0 -22.86 90)
 					(length 5.08)
 					(name "GND"
@@ -1134,7 +1098,7 @@
 					)
 				)
 			)
-			(property "Footprint" "EasyEDA:SW-SMD_MK-11C04-G013"
+			(property "Footprint" "easyeda2kicad:SW-SMD_MK-11C04-G013"
 				(at 0 -2.54 0)
 				(effects
 					(font
@@ -1254,7 +1218,9 @@
 						(type none)
 					)
 				)
-				(pin unspecified line
+			)
+			(symbol "MK-11C04-G013_1_1"
+				(pin passive line
 					(at -5.08 5.08 270)
 					(length 2.54)
 					(name "5"
@@ -1272,7 +1238,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at -2.54 5.08 270)
 					(length 2.54)
 					(name "1"
@@ -1290,7 +1256,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at 0 5.08 270)
 					(length 2.54)
 					(name "C"
@@ -1308,7 +1274,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at 2.54 5.08 270)
 					(length 2.54)
 					(name "2"
@@ -1326,7 +1292,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin passive line
 					(at 5.08 5.08 270)
 					(length 2.54)
 					(name "4"
@@ -6342,7 +6308,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal"
+		(property "Description" "USB 2.0-only 16P Type-C Receptacle connector"
 			(at 35.56 74.93 0)
 			(effects
 				(font
@@ -6435,7 +6401,7 @@
 		(pin "B9"
 			(uuid "a218b28d-04cb-4d49-94b2-8a89f8341c81")
 		)
-		(pin "1"
+		(pin "S1"
 			(uuid "2b974143-f2ec-4fd0-9fbb-ba6853f4e37e")
 		)
 		(instances
@@ -6634,7 +6600,7 @@
 				)
 			)
 		)
-		(property "Footprint" "EasyEDA:SW-SMD_MK-11C04-G013"
+		(property "Footprint" "easyeda2kicad:SW-SMD_MK-11C04-G013"
 			(at 85.09 162.56 0)
 			(effects
 				(font
